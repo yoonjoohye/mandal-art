@@ -1,84 +1,69 @@
 import React, {Component} from 'react';
+import { List } from 'immutable';
 
 class MandalArtTable extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            MandalArtData: [
-                [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                ['하이', 2, 3, 4, 5, 6, 7, 8, 9],
-                [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                [1, 2, 3, 4, 5, 6, 7, 8, 9]
-            ],
+            // MandalArtData: [
+            //     [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            //     [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            //     [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            //     ['하이', 2, 3, 4, 5, 6, 7, 8, 9],
+            //     [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            //     [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            //     [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            //     [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            //     [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            // ],
+            MandalArtData : List([
+                List([1, 2, 3, 4, 5, 6, 7, 8, 9]),
+                List([1, 2, 3, 4, 5, 6, 7, 8, 9]),
+                List([1, 2, 3, 4, 5, 6, 7, 8, 9]),
+                List([1, 2, 3, 4, 5, 6, 7, 8, 9]),
+                List([1, 2, 3, 4, 5, 6, 7, 8, 9]),
+                List([1, 2, 3, 4, 5, 6, 7, 8, 9]),
+                List([1, 2, 3, 4, 5, 6, 7, 8, 9]),
+                List([1, 2, 3, 4, 5, 6, 7, 8, 9]),
+                List([1, 2, 3, 4, 5, 6, 7, 8, 9]),
+                ]
+            )
         }
-        this.aaChange = this.aaChange.bind(this);
-        this.abChange = this.abChange.bind(this);
-        this.acChange = this.acChange.bind(this);
-        this.baChange = this.baChange.bind(this);
-        this.bbChange = this.bbChange.bind(this);
-        this.bcChange = this.bcChange.bind(this);
-        this.caChange = this.caChange.bind(this);
-        this.cbChange = this.cbChange.bind(this);
-        this.ccChange = this.ccChange.bind(this);
-
     }
 
-    aaChange = (e) => {
-        this.state.aa=e.target.value;
+    onChange = (e,tableIndex,dataIndex) => {
+
+        const { value } = e.target;
+        // let copyValues = [...this.state.MandalArtData];
+        // copyValues[tableIndex][dataIndex] = value;
+        // this.setState({MandalArtData : copyValues});
+
+        const data = this.state.MandalArtData;
+
+        let goal;
+        if(tableIndex===4){
+            goal=data.setIn([dataIndex,4],value).setIn([tableIndex,dataIndex],value);
+        } else {
+            goal = data.setIn([tableIndex, dataIndex], value);
+        }
+
+        this.setState({MandalArtData : goal });
     }
-    abChange = (e) => {
-        this.state.ab= e.target.value;
-    }
-    acChange = (e) => {
-        this.state.ac= e.target.value;
-    }
-    baChange = (e) => {
-        this.state.ba= e.target.value;
-    }
-    bbChange = (e) => {
-        this.state.bb= e.target.value;
-    }
-    bcChange = (e) => {
-        this.state.bc= e.target.value;
-    }
-    caChange = (e) => {
-        this.state.ca= e.target.value;
-    }
-    cbChange = (e) => {
-        this.state.cb= e.target.value;
-    }
-    ccChange = (e) => {
-        this.state.cc= e.target.value;
-    }
+
 
     render() {
         return (
             <div className="grid outer-grid justify-between">
-                {this.state.MandalArtData.map((data, idx) => {
+                {this.state.MandalArtData.map((table, tableIndex) => {
                     return (
-                        <div className="grid inner-grid justify-between items-center" key={idx}>
+                        <div className="grid inner-grid justify-between items-center" key={tableIndex}>
 
-                            <textarea value={this.state.aa} onChange={this.aaChange}/>
-                            <textarea value={this.state.ab} onChange={this.abChange}/>
-                            <textarea value={this.state.ac} onChange={this.acChange}/>
-                            <textarea value={this.state.ba} onChange={this.baChange}/>
-                            <textarea value={this.state.bb} onChange={this.bbChange}/>
-                            <textarea value={this.state.bc} onChange={this.bcChange}/>
-                            <textarea value={this.state.ca} onChange={this.caChange}/>
-                            <textarea value={this.state.cb} onChange={this.cbChange}/>
-                            <textarea value={this.state.cc} onChange={this.ccChange}/>
-
-                            {/*{data.map((data, idx) => {*/}
-                            {/*    return (*/}
-                            {/*        <textarea key={idx} value={this.state.value} onChange={this.handleChange}/>*/}
-                            {/*    );*/}
-                            {/*})}*/}
+                            {table.map((data, dataIndex) => {
+                                return (
+                                    <input className="mandal-input" key={[dataIndex,tableIndex].join('_')} placeholder="목표" value={data} onChange={(e) => this.onChange(e,tableIndex,dataIndex)}/>
+                                );
+                            })}
                         </div>
                     );
                 })}
