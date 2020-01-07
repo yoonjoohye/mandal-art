@@ -33,7 +33,6 @@ class MandalArtTable extends Component {
     }
 
     onChange = (e,tableIndex,dataIndex) => {
-
         const { value } = e.target;
         // let copyValues = [...this.state.MandalArtData];
         // copyValues[tableIndex][dataIndex] = value;
@@ -42,6 +41,7 @@ class MandalArtTable extends Component {
         const data = this.state.MandalArtData;
 
         let goal;
+
         if(tableIndex===4){
             goal=data.setIn([dataIndex,4],value).setIn([tableIndex,dataIndex],value);
         } else {
@@ -58,7 +58,6 @@ class MandalArtTable extends Component {
                 {this.state.MandalArtData.map((table, tableIndex) => {
                     return (
                         <div className="grid inner-grid justify-between items-center" key={tableIndex}>
-
                             {table.map((data, dataIndex) => {
                                 return (
                                     <input className="mandal-input" key={[dataIndex,tableIndex].join('_')} placeholder="목표" value={data} onChange={(e) => this.onChange(e,tableIndex,dataIndex)}/>
@@ -68,9 +67,8 @@ class MandalArtTable extends Component {
                     );
                 })}
             </div>
-
         );
     }
-};
+}
 
 export default MandalArtTable;
