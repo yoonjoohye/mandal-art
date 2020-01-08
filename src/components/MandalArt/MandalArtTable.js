@@ -43,7 +43,9 @@ class MandalArtTable extends Component {
         let goal;
 
         if(tableIndex===4){
-            goal=data.setIn([dataIndex,4],value).setIn([tableIndex,dataIndex],value);
+            goal=data.setIn([dataIndex,tableIndex],value).setIn([tableIndex,dataIndex],value);
+        } else if(dataIndex===4){
+            goal=data.setIn([dataIndex,tableIndex],value).setIn([tableIndex,dataIndex],value);
         } else {
             goal = data.setIn([tableIndex, dataIndex], value);
         }

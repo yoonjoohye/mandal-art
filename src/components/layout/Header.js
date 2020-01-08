@@ -7,8 +7,8 @@ class Header extends Component{
             <>
                 <span>만다라트</span>
                 <ul>
-                    <li><Link to="/write">작성하기</Link></li>
-                    <li><Link to="list">리스트</Link></li>
+                    <li><Link to="/">만다라트 만들기</Link></li>
+                    <li><Link to="/list">리스트 보기</Link></li>
                 </ul>
             </>
         )
