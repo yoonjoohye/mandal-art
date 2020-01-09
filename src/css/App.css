@@ -19,6 +19,10 @@ body {
     flex-wrap: wrap;
 }
 
+.justify-center{
+    justify-content: center;
+}
+
 .justify-between {
     justify-content: space-between;
 }

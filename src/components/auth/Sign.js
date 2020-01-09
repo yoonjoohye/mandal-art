@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import firebaseInfo from '../../firebase';
+import firebaseInfo  from '../../firebase';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
@@ -7,6 +7,10 @@ import "firebase/firestore";
 class Sign extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            token: '',
+            user: ''
+        }
     }
 
     onLogin = () => {
@@ -14,8 +18,12 @@ class Sign extends Component {
 
         provider.addScope('https://www.googleapis.com/auth/plus.login');
 
-        firebase.auth().signInWithPopup(provider).then(function (authData) {
+        firebase.auth().signInWithPopup(provider).then((authData) => {
             console.log(authData);
+            this.setState({
+                token: authData.credential.accessToken,
+                user:authData.user.displayName
+            });
 
         }).catch(function (error) {
             console.log(error);
@@ -23,7 +31,7 @@ class Sign extends Component {
     }
 
     onLogout = () => {
-        firebase.auth().signOut().then(function () {
+        firebase.auth().signOut().then(() => {
         }).catch(function (error) {
             // An error happened.
         });
@@ -33,7 +41,7 @@ class Sign extends Component {
         return (
             <section>
                 만다라트
-                <div></div>
+                <div>{this.state.user}님 환영합니다!</div>
 
                 <button onClick={this.onLogin}>구글 로그인</button>
                 <button onClick={this.onLogout}>구글 로그아웃</button>

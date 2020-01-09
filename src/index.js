@@ -4,6 +4,7 @@ import * as serviceWorker from './serviceWorker';
 
 import App from './App';
 import './css/App.css';
+import './css/MandalArtTemplate.css';
 
 
 ReactDOM.render(<App />, document.getElementById('root'));
