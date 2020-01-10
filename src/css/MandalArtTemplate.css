@@ -1,28 +1,32 @@
-.section{
-    padding:5rem 1rem;
-    text-align:center;
+.mandal-section {
+    padding: 6rem 2.5rem;
 }
-.outer-grid{
+
+.outer-grid {
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 2rem;
-    padding:2rem;
-    background-color:rgba(255,255,255,0.3);
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.3);
 
 }
-.inner-grid{
+
+.inner-grid {
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 5px;
 }
 
-.mandal-input{
-    font-size:16px;
-    text-align:center;
-    width:100%;
-    height:50px;
-    outline:none;
-    border:0;
+.mandal-input {
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    outline: none;
+    border: 0;
 }
-.mandal-list{
 
+.mandal-list {
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.3);
 }

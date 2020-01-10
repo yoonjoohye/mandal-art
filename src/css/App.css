@@ -7,8 +7,15 @@ html {
 }
 
 body {
-    background: linear-gradient(to right, #c3c2e6, #f3dbe5, #fffbeb);
+    width:100vw;
+    margin:0;
+    background:linear-gradient(to right, #cccccc, #cececece, #eeeeee);
+    /*background: linear-gradient(to right, #c3c2e6, #f3dbe5, #fffbeb);*/
     font-family: 'NanumSquare', sans-serif;
+}
+a{
+    text-decoration: none;
+    color:black;
 }
 
 .flex {
@@ -33,4 +40,8 @@ body {
 
 .grid {
     display: grid;
+}
+
+.display-inline-block{
+    display:inline-block;
 }

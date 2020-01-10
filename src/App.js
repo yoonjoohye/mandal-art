@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
-
-import firebaseInfo,{firebase} from './firebase';
+import {BrowserRouter, Route,Switch} from 'react-router-dom';
 
 import Sign from './components/auth/Sign';
 import Header from './components/layout/Header';
@@ -13,12 +11,16 @@ class App extends Component {
     render() {
         return (
             <BrowserRouter>
-                <Sign/>
                 <Header/>
                 <div>
-                    <Route exact path="/" component={MandalArtTable}/>
-                    <Route path="/list" component={MandalArtList}/>
+                    <Switch>
+                        <Route exact path="/mandal" component={MandalArtTable}/>
+                        <Route exact path="/mandal/:id" component={MandalArtTable}/>
+                    </Switch>
+                    <Route path="/list" component={MandalArtList}></Route>
                 </div>
+                <Sign/>
+
             </BrowserRouter>
         );
     };

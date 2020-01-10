@@ -40,7 +40,6 @@ class Sign extends Component {
     render() {
         return (
             <section>
-                만다라트
                 <div>{this.state.user}님 환영합니다!</div>
 
                 <button onClick={this.onLogin}>구글 로그인</button>
