@@ -19,7 +19,7 @@ class App extends Component {
                     </Switch>
                     <Route path="/list" component={MandalArtList}></Route>
                 </div>
-                <Sign/>
+                {/*<Sign/>*/}
 
             </BrowserRouter>
         );

@@ -4,17 +4,24 @@ import {Link} from 'react-router-dom';
 
 class MandalArtList extends Component {
 
-    onView = () => {
-
+    constructor(props){
+        super(props);
+        this.state={
+            list:['1월 인생계획','2월','언젠']
+        }
     }
 
     render() {
         return (
             <section className="mandal-section">
 
-                <div className="flex justify-center items-center">
-                    <div className="mandal-list"><Link to="/mandal/1">2019년 1월 인생계획</Link></div>
-                </div>
+                    {
+                        this.state.list.map((data,index)=>{
+                            return(
+                                <Link to={`/mandal/${index+1}`} key={index} className="mandal-list">{data}</Link>
+                            );
+                        })
+                    }
             </section>
         )
     }

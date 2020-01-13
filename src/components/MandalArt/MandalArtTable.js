@@ -55,6 +55,11 @@ class MandalArtTable extends Component {
 
         this.setState({MandalArtData: goal});
     }
+
+    onSave=()=>{
+
+    }
+
     onPlaceholder=(tableIndex,dataIndex)=> {
         if (tableIndex === 4) {
             if(dataIndex===4){
@@ -66,9 +71,7 @@ class MandalArtTable extends Component {
         } else if(dataIndex===4){
             return '목표';
         }
-
     }
-
 
     render() {
         return (
@@ -88,7 +91,7 @@ class MandalArtTable extends Component {
                         );
                     })}
                 </div>
-                <div className="flex justify-center"><button>저장하기</button></div>
+                <div className="flex justify-center"><button onClick={this.onSave}>저장하기</button></div>
             </section>
         );
     }

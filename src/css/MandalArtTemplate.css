@@ -26,7 +26,8 @@
 }
 
 .mandal-list {
-    width: 100%;
     padding: 1rem 2rem;
     background-color: rgba(255, 255, 255, 0.3);
+    display:block;
+    margin-bottom:10px;
 }
