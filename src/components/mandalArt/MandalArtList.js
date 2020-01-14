@@ -14,7 +14,6 @@ class MandalArtList extends Component {
     render() {
         return (
             <section className="mandal-section">
-
                     {
                         this.state.list.map((data,index)=>{
                             return(

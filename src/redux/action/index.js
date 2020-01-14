@@ -1,12 +1,11 @@
-const LOGIN = 'LOGIN';
-const LOGOUT='LOGOUT';
+//
+export const AUTH = 'AUTH';
 
-export const login=(state,action)=>({
-    type:action.type
-});
-
-export const logout=(state,action)=>({
-    type:action.type
+//
+export const Auth=(state,action)=>({
+    type:action.type,
+    token:action.token,
+    displayName: action.displayName
 });
 
 const initialState = {
@@ -14,15 +13,10 @@ const initialState = {
     displayName:null,
 };
 
-function auth(state = initialState, action) {
+//리듀서
+export default(state = initialState, action)=> {
     switch (action.type) {
-        case LOGIN:
-            return {
-                ...state,
-                token:action.token,
-                displayName: action.displayName
-            };
-        case LOGOUT:
+        case AUTH:
             return {
                 ...state,
                 token:action.token,
@@ -32,5 +26,3 @@ function auth(state = initialState, action) {
             return state;
     }
 };
-
-export default auth;

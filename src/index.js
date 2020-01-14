@@ -7,7 +7,7 @@ import './css/App.css';
 import './css/MandalArtTemplate.css';
 
 // Redux 관련 불러오기
-import { createStore } from 'redux'
+import { createStore } from 'redux';
 import reducers from './redux/action';
 import {Provider} from 'react-redux';
 
@@ -15,8 +15,7 @@ import {Provider} from 'react-redux';
 const store = createStore(reducers);
 
 
-
-// const store = createStore(rootReducer);
+console.log(store);
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 

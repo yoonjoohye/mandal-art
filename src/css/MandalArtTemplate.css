@@ -1,6 +1,9 @@
 .mandal-section {
     padding: 6rem 2.5rem;
 }
+.login-section {
+    padding: 6rem 2.5rem;
+}
 
 .outer-grid {
     grid-template-rows: 1fr 1fr 1fr;
