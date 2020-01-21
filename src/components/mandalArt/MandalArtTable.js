@@ -60,6 +60,10 @@ class MandalArtTable extends Component {
 
     }
 
+    onPrint=()=>{
+        window.print();
+    }
+
     onPlaceholder=(tableIndex,dataIndex)=> {
         if (tableIndex === 4) {
             if(dataIndex===4){
@@ -91,7 +95,10 @@ class MandalArtTable extends Component {
                         );
                     })}
                 </div>
+
                 <div className="flex justify-center"><button onClick={this.onSave}>저장하기</button></div>
+                <div className="flex justify-center"><button onClick={this.onPrint}>프린트하기</button></div>
+
             </section>
         );
     }

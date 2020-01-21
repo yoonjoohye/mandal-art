@@ -16,7 +16,6 @@ import reducers from './redux/actions';
 // 스토어 생성
 const store = createStore(reducers);
 
-
 console.log(store);
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));

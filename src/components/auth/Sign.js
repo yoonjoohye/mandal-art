@@ -24,6 +24,7 @@ class Sign extends Component {
                 return firebase.auth().signInWithPopup(provider)
                     .then((authData) => {
                         dispatchLogin();
+                        this.props.history.push('/');
                     });
             })
             .catch((error) => {
@@ -37,6 +38,7 @@ class Sign extends Component {
         e.preventDefault();
         firebase.auth().signOut().then(() => {
             dispatchLogout();
+            this.props.history.push('/');
         }).catch(function (error) {
             console.log(error);
         });

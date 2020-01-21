@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch,Redirect} from 'react-router-dom';
 
-import * as firebase from "firebase";
-
 import Home from './components/home/Home';
 
 import Sign from './components/auth/Sign';
@@ -25,13 +23,6 @@ class App extends Component {
                 </Switch>
                 <Route path="/list" component={MandalArtList}></Route>
                 <Route path="/sign" component={Sign}></Route>
-
-                {
-                    (firebase.auth().currentUser)?
-                    (<Redirect to='/' />):
-                    (<Redirect to='/sign' />)
-
-                }
             </BrowserRouter>
         );
     };
