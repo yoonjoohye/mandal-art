@@ -4,7 +4,7 @@ class Home extends Component{
     render(){
         return(
             <section className="mandal-section">
-                홈
+                <div>함께, 계획을 세워요!</div>
             </section>
         )
     }

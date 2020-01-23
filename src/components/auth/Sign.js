@@ -10,12 +10,16 @@ class Sign extends Component {
     constructor(props) {
         super(props);
         this.state= {
-            user: null
+            user: localStorage.getItem('logInfo')
         };
     }
 
+    componentWillUpdate(nextProps, nextState, nextContext) {
+        localStorage.setItem('logInfo', JSON.stringify(nextState.user));
+    }
+
     onLogin = (e) => {
-        const {dispatchLogin}=this.props;
+        // const {dispatchLogin}=this.props;
 
         e.preventDefault();
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
@@ -23,8 +27,12 @@ class Sign extends Component {
                 var provider = new firebase.auth.GoogleAuthProvider();
                 return firebase.auth().signInWithPopup(provider)
                     .then((authData) => {
-                        dispatchLogin();
-                        this.props.history.push('/');
+                        this.setState({
+                            user:authData
+                        });
+                        // dispatchLogin();
+
+                        // this.props.history.push('/');
                     });
             })
             .catch((error) => {
@@ -34,11 +42,15 @@ class Sign extends Component {
     }
 
     onLogout = (e) => {
-        const {dispatchLogout}=this.props;
+        // const {dispatchLogout}=this.props;
         e.preventDefault();
+
         firebase.auth().signOut().then(() => {
-            dispatchLogout();
-            this.props.history.push('/');
+            this.setState({
+                user:null
+            });
+            // dispatchLogout();
+            // this.props.history.push('/');
         }).catch(function (error) {
             console.log(error);
         });
@@ -46,13 +58,15 @@ class Sign extends Component {
     }
 
     render() {
-        const { user } = this.props;
+        // const { user } = this.props;
         return (
             <section className="login-section">
-                <div>{user ? user.displayName+'님 환영합니다.':'로그인 필요!'}</div>
-                <button onClick={this.onLogin}>구글 로그인</button>
-                <button onClick={this.onLogout}>구글 로그아웃</button>
+                {
+                    this.state.user ?
+                    (<button onClick={this.onLogout}>로그아웃</button>) :
+                    (<button onClick={this.onLogin}>로그인</button>)
 
+                }
             </section>
         );
     }
@@ -60,10 +74,11 @@ class Sign extends Component {
 }
 
 
-export default connect(
-    state => ({ user: firebase.auth().currentUser }),
-    dispatch=>({
-        dispatchLogin:()=>{dispatch(actions.login)},
-        dispatchLogout:()=>{dispatch(actions.logout)}
-    })
-)(Sign);
+export default Sign;
+// export default connect(
+//     state => ({ user: state.user }),
+//     dispatch=>({
+//         dispatchLogin:()=>{dispatch(actions.login)},
+//         dispatchLogout:()=>{dispatch(actions.logout)}
+//     })
+// )(Sign);
