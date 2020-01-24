@@ -11,18 +11,28 @@ import MandalArtList from "./components/mandalArt/MandalArtList";
 
 class App extends Component {
 
+    // initializeUserInfo=async()=>{
+    //     if(!localStorage.getItem('logInfo')){
+    //         window.location.href='/auth';
+    //     }
+    // }
+    //
+    // componentDidMount(){
+    //     this.initializeUserInfo();
+    // }
 
     render() {
         return (
             <BrowserRouter>
                 <Header/>
+
                 <Route exact path="/" component={Home}/>
                 <Switch>
                     <Route path="/mandal" component={MandalArtTable}/>
                     <Route path="/mandal/:id" component={MandalArtTable}/>
                 </Switch>
                 <Route path="/list" component={MandalArtList}></Route>
-                <Route path="/sign" component={Sign}></Route>
+                <Route path="/auth" component={Sign}></Route>
             </BrowserRouter>
         );
     };

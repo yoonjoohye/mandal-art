@@ -50,7 +50,9 @@ class Sign extends Component {
                 user:null
             });
             // dispatchLogout();
+
             // this.props.history.push('/');
+
         }).catch(function (error) {
             console.log(error);
         });
