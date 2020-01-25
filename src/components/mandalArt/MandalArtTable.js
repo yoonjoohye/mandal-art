@@ -57,7 +57,7 @@ class MandalArtTable extends Component {
     }
 
     onSave=()=>{
-        localStorage.setItem('mandalArt',this.state.MandalArtData);
+        var database = firebase.database();
         //데이터베이스에 mandalArt 값 넣고
         //List에서 데이터가 몇개 있는지 확인 필요.
     }
