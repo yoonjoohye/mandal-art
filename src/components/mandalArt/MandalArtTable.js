@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import {List} from 'immutable';
+import * as firebase from "firebase";
+
 
 class MandalArtTable extends Component {
-    componentDidMount(){
+    componentDidMount() {
         console.log(this.props.match.params.id);
     }
 
@@ -56,25 +58,32 @@ class MandalArtTable extends Component {
         this.setState({MandalArtData: goal});
     }
 
-    onSave=()=>{
-        var database = firebase.database();
+    onSave = (e,uid) => {
+        e.preventDefault();
+
+        let database = firebase.database();
+
+        console.log(uid);
+
+        // database.ref(`mandal-art-deadf/${uid}/`).set({"data": JSON.stringify(this.state.MandalArtData)});
+
+
         //데이터베이스에 mandalArt 값 넣고
         //List에서 데이터가 몇개 있는지 확인 필요.
     }
 
-    onPrint=()=>{
+    onPrint = () => {
         window.print();
     }
 
-    onPlaceholder=(tableIndex,dataIndex)=> {
+    onPlaceholder = (tableIndex, dataIndex) => {
         if (tableIndex === 4) {
-            if(dataIndex===4){
+            if (dataIndex === 4) {
                 return '최종목표';
-            }
-            else{
+            } else {
                 return '목표';
             }
-        } else if(dataIndex===4){
+        } else if (dataIndex === 4) {
             return '목표';
         }
     }
@@ -89,7 +98,7 @@ class MandalArtTable extends Component {
                                 {table.map((data, dataIndex) => {
                                     return (
                                         <input className="mandal-input" key={[dataIndex, tableIndex].join('_')}
-                                               placeholder={this.onPlaceholder(tableIndex,dataIndex)} value={data}
+                                               placeholder={this.onPlaceholder(tableIndex, dataIndex)} value={data}
                                                onChange={(e) => this.onChange(e, tableIndex, dataIndex)}/>
                                     );
                                 })}
@@ -98,8 +107,12 @@ class MandalArtTable extends Component {
                     })}
                 </div>
 
-                <div className="flex justify-center"><button onClick={this.onSave}>저장하기</button></div>
-                <div className="flex justify-center"><button onClick={this.onPrint}>프린트하기</button></div>
+                <div className="flex justify-center">
+                    <button onClick={(e)=>this.onSave(e,JSON.parse(localStorage.getItem('logInfo')).user.uid)}>저장하기</button>
+                </div>
+                <div className="flex justify-center">
+                    <button onClick={this.onPrint}>프린트하기</button>
+                </div>
 
             </section>
         );
