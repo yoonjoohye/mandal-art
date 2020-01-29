@@ -58,15 +58,17 @@ class MandalArtTable extends Component {
         this.setState({MandalArtData: goal});
     }
 
-    onSave = (e,uid) => {
+    onSave = (e, uid) => {
         e.preventDefault();
 
         let database = firebase.database();
 
-        console.log(uid);
+        console.log(database);
 
-        // database.ref(`mandal-art-deadf/${uid}/`).set({"data": JSON.stringify(this.state.MandalArtData)});
+        database.ref(`mandal/${uid}/`).set({"data": JSON.stringify(this.state.MandalArtData)});
 
+
+        database().ref(`mandal/${uid}/`).update({});
 
         //데이터베이스에 mandalArt 값 넣고
         //List에서 데이터가 몇개 있는지 확인 필요.
@@ -108,7 +110,8 @@ class MandalArtTable extends Component {
                 </div>
 
                 <div className="flex justify-center">
-                    <button onClick={(e)=>this.onSave(e,JSON.parse(localStorage.getItem('logInfo')).user.uid)}>저장하기</button>
+                    <button onClick={(e) => this.onSave(e, JSON.parse(localStorage.getItem('logInfo')).user.uid)}>저장하기
+                    </button>
                 </div>
                 <div className="flex justify-center">
                     <button onClick={this.onPrint}>프린트하기</button>
