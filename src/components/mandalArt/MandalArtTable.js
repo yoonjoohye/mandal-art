@@ -63,12 +63,17 @@ class MandalArtTable extends Component {
 
         let database = firebase.database();
 
-        console.log(database);
+        let time=new Date();
+        let date=`${time.getFullYear()}년 ${time.getMonth()+1}월 ${time.getDate()}일 ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
 
-        database.ref(`mandal/${uid}/`).set({"data": JSON.stringify(this.state.MandalArtData)});
+        // console.log(date);
+        database.ref(`mandal/${uid}/`).push({
+            data: JSON.stringify(this.state.MandalArtData),
+            time: date
+        });
 
 
-        database().ref(`mandal/${uid}/`).update({});
+        // database.ref(`mandal/${uid}/`).push({"data": JSON.stringify(this.state.MandalArtData)});
 
         //데이터베이스에 mandalArt 값 넣고
         //List에서 데이터가 몇개 있는지 확인 필요.
