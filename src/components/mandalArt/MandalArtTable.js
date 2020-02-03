@@ -4,7 +4,24 @@ import * as firebase from "firebase";
 
 
 class MandalArtTable extends Component {
-    componentDidMount() {
+
+    componentWillMount() {
+
+        // let uid = JSON.parse(localStorage.getItem('logInfo')).user.uid;
+        //
+        // let database = firebase.database();
+        //
+        // const mandalList=[];
+        //
+        // database.ref(`/mandal/${uid}`).on('child_added', (snapshot)=> {
+        //     mandalList.push(snapshot.val());
+        // });
+
+        // console.log(mandalList[this.props.match.params.id]);
+        // this.setState({
+        //     MandalArtData: JSON.parse(mandalList[this.props.match.params.id].data)
+        // });
+
         console.log(this.props.match.params.id);
     }
 

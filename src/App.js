@@ -32,7 +32,6 @@ class App extends Component {
                     <Route path="/mandal/:id" component={MandalArtTable}/>
                 </Switch>
                 <Route path="/list" component={MandalArtList}></Route>
-                <Route path="/auth" component={Sign}></Route>
             </BrowserRouter>
         );
     };
