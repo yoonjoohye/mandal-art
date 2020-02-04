@@ -6,8 +6,9 @@ import Home from './components/home/Home';
 import Sign from './components/auth/Sign';
 import Header from './components/layout/Header';
 
-import MandalArtTable from "./components/mandalArt/MandalArtTable";
-import MandalArtList from "./components/mandalArt/MandalArtList";
+import Write from "./components/mandal/write/Index";
+import Detail from "./components/mandal/detail/Index";
+import List from "./components/mandal/list/Index";
 
 class App extends Component {
 
@@ -27,11 +28,11 @@ class App extends Component {
                 <Header/>
 
                 <Route exact path="/" component={Home}/>
+                <Route path="/write" component={Write}/>
                 <Switch>
-                    <Route path="/mandal" component={MandalArtTable}/>
-                    <Route path="/mandal/:id" component={MandalArtTable}/>
+                    <Route path="/detail/:id" component={Detail}/>
                 </Switch>
-                <Route path="/list" component={MandalArtList}></Route>
+                <Route path="/list" component={List}></Route>
             </BrowserRouter>
         );
     };

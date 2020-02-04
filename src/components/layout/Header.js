@@ -61,7 +61,7 @@ class Header extends Component {
                 <div className="header-container flex justify-center justify-between items-center">
                     <Link to="/">만다라트</Link>
                     <div>
-                        <span className="header-list"><Link className="mr-10" to="/mandal">만다라트 만들기</Link></span>
+                        <span className="header-list"><Link className="mr-10" to="/write">만다라트 만들기</Link></span>
                         {
                             userInfo?
                                 <>
