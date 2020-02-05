@@ -48,7 +48,7 @@ class ListContainer extends Component {
                 {
                     this.state.list.map((data, index) => {
                         return (
-                            <List key={index} data={data} index={index} ></List>
+                            <List key={index} data={data} index={index}></List>
                         );
                     })
                 }

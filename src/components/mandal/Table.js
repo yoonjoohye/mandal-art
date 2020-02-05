@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {List} from 'immutable';
+import {List,fromJS} from 'immutable';
 import * as firebase from "firebase";
 
 
@@ -8,8 +8,14 @@ class Table extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data:List(this.props.data)
+            data:this.props.data
         }
+    }
+    //props를 받아서 state를 변경할때 사용
+    componentWillReceiveProps(nextProps, nextContext) {
+        this.setState({
+            data:nextProps.data
+        });
     }
 
     onChange = (e, tableIndex, dataIndex) => {

@@ -11,6 +11,13 @@ class List extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps, nextContext) {
+        this.setState({
+            index:nextProps.index,
+            data:nextProps.data
+        })
+    }
+
     render() {
         return (
             <Link to={`/detail/${this.state.index}`} key={this.state.index} className="mandal-list">{this.state.data.time}</Link>
