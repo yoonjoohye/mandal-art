@@ -30,8 +30,9 @@ class Write extends Component {
     }
 
 
-    onSave = (e, uid) => {
+    onSave = (e) => {
         e.preventDefault();
+        const uid=JSON.parse(localStorage.getItem('logInfo')).user.uid;
 
         let database = firebase.database();
 
@@ -56,7 +57,7 @@ class Write extends Component {
                 <Table data={this.state.data} change={this.change}></Table>
 
                 <div className="flex justify-center">
-                    <button onClick={(e) => this.onSave(e, JSON.parse(localStorage.getItem('logInfo')).user.uid)}>저장하기
+                    <button onClick={(e) => this.onSave(e)}>저장하기
                     </button>
                 </div>
 

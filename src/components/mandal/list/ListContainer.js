@@ -18,27 +18,27 @@ class ListContainer extends Component {
 
         const mandalList=[];
 
-        database.ref(`/mandal/${uid}`).on('child_added', (snapshot)=> {
-            mandalList.push(snapshot.val());
-
-            this.setState({
-                list: mandalList
-            });
-        });
-
-
-        // database.ref(`/mandal/${uid}`).once('value').then((snapshot) => {
-        //     const obj = snapshot.val();
+        // database.ref(`/mandal/${uid}`).on('child_added', (snapshot)=> {
+        //     mandalList.push(snapshot.val());
         //
-        //     const arr = [];
-        //
-        //     for (let key in obj) {
-        //         arr.push(obj[key]);
-        //     }
         //     this.setState({
-        //         list: arr
+        //         list: mandalList
         //     });
         // });
+
+
+        database.ref(`/mandal/${uid}`).once('value').then((snapshot) => {
+            const obj = snapshot.val();
+
+            const arr = [];
+
+            for (let key in obj) {
+                arr.push(obj[key]);
+            }
+            this.setState({
+                list: arr
+            });
+        });
     }
 
     render() {
