@@ -51,7 +51,29 @@ class Detail extends Component {
         let time = new Date();
         let date = `${time.getFullYear()}년 ${time.getMonth() + 1}월 ${time.getDate()}일 ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
 
+        database.ref(`mandal/${uid}`).once('value', (snapshot) => {
+            const obj = snapshot.val();
+            const keyList = [];
 
+            //키값 찾기
+            for (let key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    keyList.push(key);
+                    // console.log(key);
+                }
+            }
+            // console.log(keyList);
+            database.ref(`mandal/${uid}/${keyList[this.props.match.params.id]}`).update({
+                data: JSON.stringify(this.state.data),
+                time: date
+            });
+        });
+    }
+
+    onDelete = (e) => {
+        const uid = JSON.parse(localStorage.getItem('logInfo')).user.uid;
+
+        let database = firebase.database();
 
         database.ref(`mandal/${uid}`).once('value', (snapshot) => {
             const obj = snapshot.val();
@@ -61,30 +83,13 @@ class Detail extends Component {
             for (let key in obj) {
                 if (obj.hasOwnProperty(key)) {
                     keyList.push(key);
-                    console.log(key);
+                    // console.log(key);
                 }
-                // if (obj.hasOwnProperty(key)) {
-                //     // console.log("key/value", key);
-                //     keyList.push(key);
-                // }
             }
-            console.log(keyList);
-            database.ref(`mandal/${uid}/${keyList[this.props.match.params.id]}`).update({
-                data: JSON.stringify(this.state.data),
-                time: date
-            });
+            // console.log(keyList);
+            database.ref(`mandal/${uid}/${keyList[this.props.match.params.id]}`).remove();
         });
-        // let updates = {};
-        // updates[`mandal/${uid}/${keyList[this.props.match.params.id]}`] = {
-        //     data: JSON.stringify(this.state.data),
-        //     time: date
-        // };
-
-        // database.ref().update(updates);
-    }
-
-    onDelete = (e) => {
-
+        window.location.href='/list';
     }
 
 
