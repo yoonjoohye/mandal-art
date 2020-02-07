@@ -1,0 +1,39 @@
+
+.outer-grid {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+    padding: 2rem;
+    background: linear-gradient(to right, #c3c2e6, #f3dbe5, #fffbeb);
+
+    /*background-color: rgba(255, 255, 255, 0.3);*/
+
+}
+
+.inner-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
+
+.mandal {
+    &-section {
+        padding: 6rem 2.5rem;
+    }
+    &-input {
+        font-size: 16px;
+        text-align: center;
+        width: 100%;
+        height: 50px;
+        outline: none;
+        border: 0;
+    }
+    &-list {
+        width:28%;
+        height:200px;
+        padding: 0.8rem;
+        background-color: rgb(224, 224, 224);
+
+        /*background-color: rgba(255, 255, 255, 0.3);*/
+        margin:0 10px 10px 0;
+    }
+}

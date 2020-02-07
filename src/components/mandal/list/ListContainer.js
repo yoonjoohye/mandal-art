@@ -45,6 +45,7 @@ class ListContainer extends Component {
         return (
             <section className="mandal-section">
                 마이페이지
+                <div className="flex flex-wrap">
                 {
                     this.state.list.map((data, index) => {
                         return (
@@ -52,6 +53,7 @@ class ListContainer extends Component {
                         );
                     })
                 }
+                </div>
             </section>
         )
     }

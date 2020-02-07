@@ -62,7 +62,7 @@ class Sign extends Component {
     render() {
         // const { user } = this.props;
         return (
-            <section className="login-section">
+            <section>
                 {
                     this.state.user ?
                     (<button onClick={this.onLogout}>로그아웃</button>) :
