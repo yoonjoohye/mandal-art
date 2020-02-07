@@ -50,7 +50,7 @@ class Write extends Component {
 
     render() {
         return (
-            <section className="mandal-section">
+            <section className="mandal-section mandal-container">
                 <Table data={this.state.data} change={this.change}></Table>
 
                 <div className="flex justify-center">

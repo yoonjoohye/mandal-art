@@ -4,6 +4,7 @@ import * as serviceWorker from './serviceWorker';
 
 import App from './App';
 import './css/App.scss';
+import './css/Button.scss';
 import './css/MandalArtTemplate.scss';
 
 import firebaseApp from "./firebaseApp";

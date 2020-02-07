@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-import '../../css/header.scss';
+import '../../css/Header.scss';
 
 import * as firebase from "firebase";
 import "firebase/auth";
@@ -54,6 +54,7 @@ class Header extends Component {
         });
     }
 
+
     render() {
         let userInfo = JSON.parse(localStorage.getItem('logInfo'));
         console.log(userInfo);
@@ -63,12 +64,11 @@ class Header extends Component {
                 <div className="header-container flex justify-center justify-between items-center">
                     <Link to="/"><img className="header-icon" src={require("../../images/icon/puzzle.svg")}/>Mandal-ART</Link>
                     <div>
-                        {/*<span className="header-list"><Link className="mr-10" to="/write">만다라트 만들기</Link></span>*/}
                         {
                             userInfo ?
                                 <>
                                     <Link className="mr-10" to="/list">
-                                        <img className="profile-img mr-10" src={userInfo.user.photoURL}/>
+                                        <img className="profile-img" src={userInfo.user.photoURL}/>
                                     </Link>
                                     <span className="cursor-pointer mr-10" onClick={this.onLogout}>로그아웃</span>
 
