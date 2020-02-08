@@ -27,7 +27,7 @@ const Save = (props) => {
     }
 
     return (
-        <button onClick={onSave}>저장</button>
+        <button className="btn save" onClick={onSave}>저장</button>
     );
 
 }

@@ -103,14 +103,15 @@ class Detail extends Component {
 
     render() {
         return (
-            <section className="mandal-section mandal-container">
+            <section className="mandal-section">
 
-                <Table data={this.state.data} change={this.change}></Table>
+                <div className="container">
+                    <Table data={this.state.data} change={this.change}></Table>
 
-                <Edit data={this.state.data} pageNo={this.props.match.params.id}></Edit>
-                <Delete pageNo={this.props.match.params.id}></Delete>
-
-                <Print></Print>
+                    <Edit data={this.state.data} pageNo={this.props.match.params.id}></Edit>
+                    <Delete pageNo={this.props.match.params.id}></Delete>
+                    <Print></Print>
+                </div>
             </section>
         );
     }

@@ -50,13 +50,14 @@ class Write extends Component {
 
     render() {
         return (
-            <section className="mandal-section mandal-container">
-                <Table data={this.state.data} change={this.change}></Table>
+            <section className="lighten-2 mandal-section">
+                <div className="container">
+                    <Table data={this.state.data} change={this.change}></Table>
 
-                <div className="flex justify-center">
-                    <Save data={this.state.data}></Save>
+                    <div className="flex justify-center">
+                        <Save data={this.state.data}></Save>
+                    </div>
                 </div>
-
             </section>
         );
     }

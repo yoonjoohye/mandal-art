@@ -4,6 +4,7 @@ import * as serviceWorker from './serviceWorker';
 
 import App from './App';
 import './css/_Style.scss';
+import 'materialize-css/dist/css/materialize.min.css';
 
 import firebaseApp from "./firebaseApp";
 

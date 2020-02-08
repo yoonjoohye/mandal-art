@@ -38,7 +38,7 @@ const Edit=(props)=>{
     }
 
     return(
-        <button onClick={onEdit}>수정</button>
+        <button className="btn edit" onClick={onEdit}>수정</button>
     );
 
 }

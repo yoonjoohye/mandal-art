@@ -18,14 +18,9 @@
     padding: 60px 0;
   }
 
-  &-container {
-    padding-right: 15%;
-    padding-left: 15%;
-
-  }
-
   &-input {
-    font-size: 16px;
+    font-size: 14px;
+    font-weight:300;
     text-align: center;
     width: 100%;
     height: 50px;
@@ -38,12 +33,9 @@
     padding: 0.8rem;
     background-color:#eeeeee;
     margin-bottom:10px;
-
   }
 
   &-bg {
-    padding-top: 2.5rem;
-    padding-bottom:2.5rem;
     background: linear-gradient(to right, #c3c2e6, #f3dbe5, #fffbeb);
   }
 

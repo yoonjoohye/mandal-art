@@ -16,7 +16,7 @@ class ListContainer extends Component {
 
         let database = firebase.database();
 
-        const mandalList=[];
+        const mandalList = [];
 
         // database.ref(`/mandal/${uid}`).on('child_added', (snapshot)=> {
         //     mandalList.push(snapshot.val());
@@ -44,20 +44,27 @@ class ListContainer extends Component {
     render() {
         let userInfo = JSON.parse(localStorage.getItem('logInfo'));
         return (
-            <section className="mandal-section">
-                <div className="mandal-bg mandal-container">
-                    <img className="mandal-profile-img " src={userInfo.user.photoURL}/>
+            <section>
+
+                <div className="mandal-section mandal-bg">
+                    <div className="container">
+                        <img className="mandal-profile-img " src={userInfo.user.photoURL}/>
+                        <div>이름</div>
+                        <div>이메일</div>
+                    </div>
                 </div>
 
+
                 <div className="mandal-container flex items-center justify-between flex-wrap">
-                {
-                    this.state.list.map((data, index) => {
-                        return (
-                            <List key={index} data={data} index={index}></List>
-                        );
-                    })
-                }
+                    {
+                        this.state.list.map((data, index) => {
+                            return (
+                                <List key={index} data={data} index={index}></List>
+                            );
+                        })
+                    }
                 </div>
+
             </section>
         )
     }

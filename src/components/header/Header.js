@@ -61,7 +61,10 @@ class Header extends Component {
         return (
             <section className="header-section">
                 <div className="header-container flex justify-center justify-between items-center">
-                    <Link to="/"><img className="header-icon" src={require("../../images/icon/puzzle.svg")}/>Mandal-ART</Link>
+                    <Link className="flex justify-center items-center" to="/">
+                        <img className="header-icon mr-10" src={require("../../images/icon/puzzle.svg")}/>
+                        <div className="header-name"><span className="blue">M</span>andal-<span className="yellow">A</span>RT</div>
+                    </Link>
                     <div>
                         {
                             userInfo ?

@@ -27,7 +27,7 @@ const Delete=(props)=>{
         // window.location.href='/list';
     }
     return(
-        <button onClick={onDelete}>삭제</button>
+        <button className="btn delete" onClick={onDelete}>삭제</button>
     );
 
 }
