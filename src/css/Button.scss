@@ -1,0 +1,15 @@
+.btn{
+  padding:1rem 2rem;
+  font-size:20pt;
+  border:0;
+  border-radius:0.5rem;
+  cursor:pointer;
+
+  &.write{
+    background-color: #4769cc;
+    color:#fff;
+    &:hover{
+      background-color: darken(#4769cc,10%);
+    }
+  }
+}

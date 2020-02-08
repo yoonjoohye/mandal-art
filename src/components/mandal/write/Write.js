@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import {List} from 'immutable';
 import * as firebase from "firebase";
-import Table from '../Table.js';
+
+import Table from '../Table';
+import Save from '../button/Save';
+
 
 class Write extends Component {
 
@@ -29,40 +32,29 @@ class Write extends Component {
         });
     }
 
-
-    onSave = (e) => {
-        e.preventDefault();
-        const uid=JSON.parse(localStorage.getItem('logInfo')).user.uid;
-
-        let database = firebase.database();
-
-        let time=new Date();
-        let date=`${time.getFullYear()}년 ${time.getMonth()+1}월 ${time.getDate()}일 ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
-
-        // console.log(date);
-        database.ref(`mandal/${uid}/`).push({
-            data: JSON.stringify(this.state.data),
-            time: date
-        });
-    }
-
-    onPrint = () => {
-        window.print();
-    }
+    // onSave = (e) => {
+    //     e.preventDefault();
+    //     const uid=JSON.parse(localStorage.getItem('logInfo')).user.uid;
+    //
+    //     let database = firebase.database();
+    //
+    //     let time=new Date();
+    //     let date=`${time.getFullYear()}년 ${time.getMonth()+1}월 ${time.getDate()}일 ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+    //
+    //     // console.log(date);
+    //     database.ref(`mandal/${uid}/`).push({
+    //         data: JSON.stringify(this.state.data),
+    //         time: date
+    //     });
+    // }
 
     render() {
         return (
-            <section className="mandal-section">
-
+            <section className="mandal-section mandal-container">
                 <Table data={this.state.data} change={this.change}></Table>
 
                 <div className="flex justify-center">
-                    <button onClick={(e) => this.onSave(e)}>저장하기
-                    </button>
-                </div>
-
-                <div className="flex justify-center">
-                    <button onClick={this.onPrint}>프린트하기</button>
+                    <Save data={this.state.data}></Save>
                 </div>
 
             </section>

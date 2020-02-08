@@ -42,9 +42,13 @@ class ListContainer extends Component {
     }
 
     render() {
+        let userInfo = JSON.parse(localStorage.getItem('logInfo'));
         return (
             <section className="mandal-section">
-                마이페이지
+                <div className="mandal-profile">
+                    <img className="mandal-img " src={userInfo.user.photoURL}/>
+                </div>
+                <div className="flex flex-wrap">
                 {
                     this.state.list.map((data, index) => {
                         return (
@@ -52,6 +56,7 @@ class ListContainer extends Component {
                         );
                     })
                 }
+                </div>
             </section>
         )
     }
