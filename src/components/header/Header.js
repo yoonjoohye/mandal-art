@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-
-import '../../css/Header.scss';
-
 import * as firebase from "firebase";
-import "firebase/auth";
-import "firebase/firestore";
+
+import Nav from './Nav';
+
+
 
 class Header extends Component {
     constructor(props) {
@@ -67,11 +66,8 @@ class Header extends Component {
                         {
                             userInfo ?
                                 <>
-                                    <Link className="mr-10" to="/list">
-                                        <img className="profile-img" src={userInfo.user.photoURL}/>
-                                    </Link>
-                                    <span className="cursor-pointer mr-10" onClick={this.onLogout}>로그아웃</span>
-
+                                    <img className="cursor-pointer profile-img" src={userInfo.user.photoURL}/>
+                                    <Nav userInfo={userInfo.user}></Nav>
                                 </>
                                 : <span className="cursor-pointer" onClick={this.onLogin}>로그인</span>
                         }

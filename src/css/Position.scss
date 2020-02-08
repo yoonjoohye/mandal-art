@@ -1,0 +1,57 @@
+.flex {
+  display: flex;
+  &-col{
+    flex-direction: column;
+  }
+  &-wrap {
+    flex-wrap: wrap;
+  }
+
+}
+
+.justify {
+  &-center {
+    justify-content: center;
+  }
+  &-between {
+    justify-content: space-between;
+  }
+}
+
+.items-center {
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.ml-10{
+  margin-left:10px;
+}
+.ml-20{
+  margin-left:20px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+.mb-30{
+  margin-bottom:30px;
+}
+.mb-20{
+  margin-bottom:20px;
+}
+.mb-10{
+  margin-bottom:10px;
+}
+.mb-5{
+  margin-bottom:5px;
+}

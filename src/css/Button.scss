@@ -6,10 +6,10 @@
   cursor:pointer;
 
   &.write{
-    background-color: #4769cc;
+    background-color: #5186ff;
     color:#fff;
     &:hover{
-      background-color: darken(#4769cc,10%);
+      background-color: darken(#5186ff,10%);
     }
   }
 }

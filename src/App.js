@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Switch,Redirect} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import Home from './components/home/Home';
 
 import Sign from './components/auth/Sign';
-import Header from './components/layout/Header';
+import Header from './components/header/Header';
 
 import Write from "./components/mandal/write/Index";
 import Detail from "./components/mandal/detail/Index";

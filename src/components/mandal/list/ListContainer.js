@@ -45,10 +45,11 @@ class ListContainer extends Component {
         let userInfo = JSON.parse(localStorage.getItem('logInfo'));
         return (
             <section className="mandal-section">
-                <div className="mandal-profile">
-                    <img className="mandal-img " src={userInfo.user.photoURL}/>
+                <div className="mandal-bg mandal-container">
+                    <img className="mandal-profile-img " src={userInfo.user.photoURL}/>
                 </div>
-                <div className="flex flex-wrap">
+
+                <div className="mandal-container flex items-center justify-between flex-wrap">
                 {
                     this.state.list.map((data, index) => {
                         return (

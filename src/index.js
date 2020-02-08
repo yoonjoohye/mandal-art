@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
 import App from './App';
-import './css/App.scss';
-import './css/Button.scss';
-import './css/MandalArtTemplate.scss';
+import './css/_Style.scss';
 
 import firebaseApp from "./firebaseApp";
 
