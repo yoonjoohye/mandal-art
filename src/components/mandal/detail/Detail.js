@@ -8,6 +8,7 @@ import Print from "../button/Print";
 import Edit from "../button/Edit";
 import Delete from "../button/Delete";
 import Title from "../Title";
+import Save from "../button/Save";
 
 
 class Detail extends Component {
@@ -119,8 +120,12 @@ class Detail extends Component {
         return (
             <section className="mandal-section">
                 <div className="container">
-                    <Title title={this.state.title} titleChange={this.titleChange}></Title>
-                    <Table data={this.state.data} tableChange={this.tableChange}></Table>
+                    <div className="border-bottom px-1 mb-30">
+                        <Title title={this.state.title} titleChange={this.titleChange}> </Title>
+                    </div>
+                    <div className="mb-30">
+                        <Table data={this.state.data} tableChange={this.tableChange}></Table>
+                    </div>
 
                     <div className="text-center">
                         <Edit title={this.state.title} data={this.state.data} pageNo={this.props.match.params.id}></Edit>

@@ -67,10 +67,8 @@ class ListContainer extends Component {
                                         );
                                     })
                                     :
-                                    <div className="px-1 text-center font-lg">
-                                        없어요.. <br/>
-                                        아니 없어요... <br/>
-                                        아니 그냥 없어요...
+                                    <div className="px-1 text-center">
+                                        <img src={require('../../../images/nothing.jpeg')}/>
                                     </div>
                             }
                         </div>

@@ -33,7 +33,7 @@ class Title extends Component {
             <input
                 className="mandal-title"
                 type="text"
-                placeholder="제목을 입력해주세요."
+                placeholder="제목을 입력하세요"
                 value={this.state.title}
                 onChange={(e) => this.onChange(e)}
             />
