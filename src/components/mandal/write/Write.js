@@ -3,6 +3,7 @@ import {List} from 'immutable';
 import * as firebase from "firebase";
 
 import Table from '../Table';
+import Title from '../Title';
 import Save from '../button/Save';
 
 
@@ -11,6 +12,7 @@ class Write extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            title: '',
             data: List([
                     List(['', '', '', '', '', '', '', '', '']),
                     List(['', '', '', '', '', '', '', '', '']),
@@ -26,37 +28,30 @@ class Write extends Component {
         }
     }
 
-    change=(data) => {
+    titleChange=(data)=>{
         this.setState({
-            data:data
+            title: data
+        });
+    }
+    tableChange = (data) => {
+        this.setState({
+            data: data
         });
     }
 
-    // onSave = (e) => {
-    //     e.preventDefault();
-    //     const uid=JSON.parse(localStorage.getItem('logInfo')).user.uid;
-    //
-    //     let database = firebase.database();
-    //
-    //     let time=new Date();
-    //     let date=`${time.getFullYear()}년 ${time.getMonth()+1}월 ${time.getDate()}일 ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
-    //
-    //     // console.log(date);
-    //     database.ref(`mandal/${uid}/`).push({
-    //         data: JSON.stringify(this.state.data),
-    //         time: date
-    //     });
-    // }
-
     render() {
         return (
-            <section className="lighten-2 mandal-section">
+            <section className="mandal-section">
                 <div className="container">
-                    <Table data={this.state.data} change={this.change}></Table>
 
-                    <div className="flex justify-center">
-                        <Save data={this.state.data}></Save>
+                    <Title title={this.state.title} titleChange={this.titleChange}> </Title>
+
+                    <Table data={this.state.data} tableChange={this.tableChange}></Table>
+
+                    <div className="text-center">
+                        <Save title={this.state.title} data={this.state.data}></Save>
                     </div>
+
                 </div>
             </section>
         );

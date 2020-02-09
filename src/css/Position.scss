@@ -37,6 +37,10 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.text-center{
+  text-align:center;
+}
 .ml-10{
   margin-left:10px;
 }
@@ -56,9 +60,25 @@
 .mb-10{
   margin-bottom:10px;
 }
+.mb-100{
+  margin-bottom:100px;
+}
 .mb-5{
   margin-bottom:5px;
 }
 .pt-15{
   padding-top:15%;
+}
+.px-1{
+  padding-top:1rem;
+  padding-bottom:1rem;
+}
+
+.border {
+  &-bottom {
+    border-bottom: 1px solid #eeeeee;
+  }
+  &-none{
+    border:0;
+  }
 }

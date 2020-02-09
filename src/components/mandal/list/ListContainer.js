@@ -46,24 +46,37 @@ class ListContainer extends Component {
         return (
             <section>
 
-                <div className="mandal-section mandal-bg">
+                <div className="mandal-section">
                     <div className="container">
-                        <img className="mandal-profile-img " src={userInfo.user.photoURL}/>
-                        <div>이름</div>
-                        <div>이메일</div>
+                        <div className="mandal-banner flex justify-between items-center mb-30">
+                            <div className="font-lg font-white">
+                                나만의 <span className="yellow">만다라트</span>로<br/>
+                                인생을 즐겁게!
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="font-lg  font-white">{userInfo.user.displayName}</span>
+                                <span className="font-white">{userInfo.user.email}</span>
+                            </div>
+                        </div>
+                        <div className="mandal-list flex flex-col">
+                            {
+                                this.state.list.length!==0 ?
+                                    this.state.list.map((data, index) => {
+                                        return (
+                                            <List key={index} data={data} index={index}></List>
+                                        );
+                                    })
+                                    :
+                                    <div className="px-1 text-center font-lg">
+                                        없어요.. <br/>
+                                        아니 없어요... <br/>
+                                        아니 그냥 없어요...
+                                    </div>
+                            }
+                        </div>
                     </div>
                 </div>
 
-
-                <div className="mandal-container flex items-center justify-between flex-wrap">
-                    {
-                        this.state.list.map((data, index) => {
-                            return (
-                                <List key={index} data={data} index={index}></List>
-                            );
-                        })
-                    }
-                </div>
 
             </section>
         )

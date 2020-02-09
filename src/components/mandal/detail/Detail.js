@@ -7,12 +7,14 @@ import Table from '../Table';
 import Print from "../button/Print";
 import Edit from "../button/Edit";
 import Delete from "../button/Delete";
+import Title from "../Title";
 
 
 class Detail extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            title: '',
             data: List([
                     List(['', '', '', '', '', '', '', '', '']),
                     List(['', '', '', '', '', '', '', '', '']),
@@ -40,6 +42,7 @@ class Detail extends Component {
                 dataList.push(obj[key]);
             }
             this.setState({
+                title: dataList[this.props.match.params.id].title,
                 data: fromJS(JSON.parse(dataList[this.props.match.params.id].data))
             });
         });
@@ -93,9 +96,20 @@ class Detail extends Component {
     //     });
     //     window.location.href='/list';
     // }
+    // onChange = (e) => {
+    //     e.preventDefault();
+    //     this.setState({
+    //         title:e.target.value
+    //     });
+    // }
 
+    titleChange = (data) => {
+        this.setState({
+            title: data
+        });
+    }
 
-    change = (data) => {
+    tableChange = (data) => {
         this.setState({
             data: data
         });
@@ -104,13 +118,15 @@ class Detail extends Component {
     render() {
         return (
             <section className="mandal-section">
-
                 <div className="container">
-                    <Table data={this.state.data} change={this.change}></Table>
+                    <Title title={this.state.title} titleChange={this.titleChange}></Title>
+                    <Table data={this.state.data} tableChange={this.tableChange}></Table>
 
-                    <Edit data={this.state.data} pageNo={this.props.match.params.id}></Edit>
-                    <Delete pageNo={this.props.match.params.id}></Delete>
-                    <Print></Print>
+                    <div className="text-center">
+                        <Edit title={this.state.title} data={this.state.data} pageNo={this.props.match.params.id}></Edit>
+                        <Delete pageNo={this.props.match.params.id}></Delete>
+                        <Print></Print>
+                    </div>
                 </div>
             </section>
         );

@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import * as firebase from "firebase";
-import "firebase/auth";
-import "firebase/firestore";
 
 import {connect} from 'react-redux';
 import * as actions from '../../redux/actions/index';
