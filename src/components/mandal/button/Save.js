@@ -31,11 +31,11 @@ const Save = (props) => {
 
         setTimeout(()=>{
             window.history.go(0);
-        },10000);
+        },3000);
     }
 
     return (
-        <button className="btn pink lighten-2" onClick={onSave}>저장</button>
+        <button className="btn save" onClick={onSave}>저장</button>
     );
 
 }

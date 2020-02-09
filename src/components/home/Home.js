@@ -7,12 +7,12 @@ class Home extends Component {
         return (
             <section className="home-section">
                 <div className="container pt-15">
-                    <div className="font-xl font-white font-medium font-shadow mb-20">
-                        함께, 계획을 세워요!<br/>
+                    <div className="font-xl font-white mb-30">
+                        함께, <span className="yellow">계획</span>을 세워요!<br/>
                         지금 바로 시작하세요!
                     </div>
                     <Link to="/write">
-                        <button className=" btn write">시작하기</button>
+                        <button className="btn write">시작하기</button>
                     </Link>
                 </div>
             </section>

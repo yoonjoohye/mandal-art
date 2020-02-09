@@ -43,10 +43,12 @@ class Write extends Component {
         return (
             <section className="mandal-section">
                 <div className="container">
-
-                    <Title title={this.state.title} titleChange={this.titleChange}> </Title>
-
-                    <Table data={this.state.data} tableChange={this.tableChange}></Table>
+                    <div className="border-bottom px-1 mb-30">
+                        <Title title={this.state.title} titleChange={this.titleChange}> </Title>
+                    </div>
+                    <div className="mb-30">
+                        <Table data={this.state.data} tableChange={this.tableChange}></Table>
+                    </div>
 
                     <div className="text-center">
                         <Save title={this.state.title} data={this.state.data}></Save>

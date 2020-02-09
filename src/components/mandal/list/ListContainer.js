@@ -48,7 +48,7 @@ class ListContainer extends Component {
 
                 <div className="mandal-section">
                     <div className="container">
-                        <div className="mandal-banner flex justify-between items-center mb-30">
+                        <div className="mandal-banner flex justify-between items-center mb-50">
                             <div className="font-lg font-white">
                                 나만의 <span className="yellow">만다라트</span>로<br/>
                                 인생을 즐겁게!
@@ -67,10 +67,8 @@ class ListContainer extends Component {
                                         );
                                     })
                                     :
-                                    <div className="px-1 text-center font-lg">
-                                        없어요.. <br/>
-                                        아니 없어요... <br/>
-                                        아니 그냥 없어요...
+                                    <div className="px-1 text-center">
+                                        <img src={require('../../../images/nothing.jpeg')}/>
                                     </div>
                             }
                         </div>

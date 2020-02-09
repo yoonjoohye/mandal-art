@@ -42,12 +42,12 @@ class Table extends Component {
     onPlaceholder = (tableIndex, dataIndex) => {
         if (tableIndex === 4) {
             if (dataIndex === 4) {
-                return '최종목표';
+                return '핵심목표';
             } else {
-                return '목표';
+                return '세부목표';
             }
         } else if (dataIndex === 4) {
-            return '목표';
+            return '세부목표';
         }
     }
 
