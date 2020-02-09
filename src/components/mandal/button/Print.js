@@ -7,7 +7,7 @@ const Print=()=>{
     }
 
     return(
-        <button onClick={onPrint}>프린트</button>
+        <button className="btn print" onClick={onPrint}>프린트</button>
     );
 
 }

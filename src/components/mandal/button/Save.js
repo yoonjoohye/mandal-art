@@ -3,10 +3,13 @@ import * as firebase from "firebase";
 
 const Save = (props) => {
 
-    const [mandalData,setMandalData]=useState();
+    const [data,setData]=useState();
+    const [title,setTitle]=useState();
+
 
     useEffect(()=>{
-        setMandalData(JSON.stringify(props.data));
+        setTitle(props.title);
+        setData(JSON.stringify(props.data));
     });
 
     const onSave=(e)=>{
@@ -21,13 +24,18 @@ const Save = (props) => {
         // console.log(mandalData);
 
         database.ref(`mandal/${uid}/`).push({
-            data: mandalData,
+            title:title,
+            data: data,
             time: date
         });
+
+        setTimeout(()=>{
+            window.history.go(0);
+        },10000);
     }
 
     return (
-        <button onClick={onSave}>저장</button>
+        <button className="btn pink lighten-2" onClick={onSave}>저장</button>
     );
 
 }

@@ -12,6 +12,8 @@ body {
   /*background:linear-gradient(to right, #6e8fcc, rgba(155, 170, 206, 0.81), #afbdee);*/
   /*background: linear-gradient(to right, #c3c2e6, #f3dbe5, #fffbeb);*/
   font-family: 'NanumSquare', sans-serif;
+  font-size:15px;
+  font-weight:300;
   color: #333333;
 }
 
@@ -20,38 +22,3 @@ a {
   color: black;
 }
 
-.flex {
-  display: flex;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.justify-between {
-  justify-content: space-between;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.grid {
-  display: grid;
-}
-
-.display-inline-block {
-  display: inline-block;
-}
-
-.cursor-pointer {
-  cursor: pointer;
-}

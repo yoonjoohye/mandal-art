@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {List,fromJS} from 'immutable';
+import {List, fromJS} from 'immutable';
 import * as firebase from "firebase";
 
 
@@ -8,13 +8,14 @@ class Table extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data:this.props.data
+            data: this.props.data
         }
     }
+
     //props를 받아서 state를 변경할때 사용
     componentWillReceiveProps(nextProps, nextContext) {
         this.setState({
-            data:nextProps.data
+            data: nextProps.data
         });
     }
 
@@ -35,7 +36,7 @@ class Table extends Component {
         }
 
         this.setState({data: goal});
-        this.props.change(goal);
+        this.props.tableChange(goal);
     }
 
     onPlaceholder = (tableIndex, dataIndex) => {
@@ -58,9 +59,11 @@ class Table extends Component {
                         <div className="grid inner-grid justify-between items-center" key={tableIndex}>
                             {table.map((data, dataIndex) => {
                                 return (
-                                    <input className="mandal-input" key={[dataIndex, tableIndex].join('_')}
-                                           placeholder={this.onPlaceholder(tableIndex, dataIndex)} value={data}
-                                           onChange={(e) => this.onChange(e, tableIndex, dataIndex)}
+                                    <input
+                                        className="mandal-input"
+                                        key={[dataIndex, tableIndex].join('_')}
+                                        placeholder={this.onPlaceholder(tableIndex, dataIndex)} value={data}
+                                        onChange={(e) => this.onChange(e, tableIndex, dataIndex)}
                                     />
                                 );
                             })}

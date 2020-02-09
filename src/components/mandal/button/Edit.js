@@ -3,10 +3,13 @@ import * as firebase from "firebase";
 
 const Edit=(props)=>{
 
-    const [mandalData,setMandalData]=useState();
+    const [title,setTitle]=useState();
+    const [data,setData]=useState();
+
 
     useEffect(()=>{
-        setMandalData(JSON.stringify(props.data));
+        setTitle(props.title);
+        setData(JSON.stringify(props.data));
     });
 
     const onEdit=(e)=>{
@@ -31,14 +34,18 @@ const Edit=(props)=>{
             }
             // console.log(props.pageNo);
             database.ref(`mandal/${uid}/${keyList[props.pageNo]}`).update({
-                data: mandalData,
+                title:title,
+                data: data,
                 time: date
             });
         });
+        setTimeout(()=>{
+            window.history.go(0);
+        },1000);
     }
 
     return(
-        <button onClick={onEdit}>수정</button>
+        <button className="btn edit" onClick={onEdit}>수정</button>
     );
 
 }

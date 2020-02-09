@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Jua&display=swap&subset=korean');
+
+.font{
+  &-xl{
+    font-size:65px;
+  }
+  &-lg{
+    font-size:50px;
+  }
+  &-sm{
+    font-size:12px;
+  }
+
+  &-bold{
+    font-weight:700;
+  }
+  &-medium{
+    font-weight:500;
+  }
+  &-light{
+    font-weight:300;
+  }
+  &-white {
+    color: white;
+  }
+  &-gray{
+    color:#8e8e8e;
+  }
+  &-round{
+    font-family:'Jua';
+  }
+  &-shadow{
+    text-shadow: 3px -4px 0px #1a63ee;
+  }
+}

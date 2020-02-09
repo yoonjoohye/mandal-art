@@ -1,0 +1,44 @@
+.header {
+    &-section {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        //background-color: rgba(255, 255, 255, 0.3);
+        //box-shadow: 0px 1px 10px #eeeeee;
+    }
+    &-container {
+        height:60px;
+        padding-right: 15%;
+        padding-left: 15%;
+    }
+    &-icon{
+        width:40px;
+        height:40px;
+        position: relative;
+        top: -2px;
+    }
+    &-name{
+        background-color:#ff82a8;
+        padding:0.2rem 0.5rem;
+        font-size:20px;
+        font-weight:600;
+        color:white;
+    }
+    &-list {
+        color:#f3dbe5;
+    }
+}
+
+.yellow{
+    color:#fff707;
+}
+
+.blue{
+    color:#aeecff;
+}
+.profile-img{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    vertical-align: middle;
+}

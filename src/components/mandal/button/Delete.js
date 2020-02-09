@@ -24,10 +24,12 @@ const Delete=(props)=>{
             //삭제
             database.ref(`mandal/${uid}/${keyList[props.pageNo]}`).remove();
         });
-        // window.location.href='/list';
+        setTimeout(()=>{
+            window.location.href='/list';
+        },1000);
     }
     return(
-        <button onClick={onDelete}>삭제</button>
+        <button className="btn delete" onClick={onDelete}>삭제</button>
     );
 
 }

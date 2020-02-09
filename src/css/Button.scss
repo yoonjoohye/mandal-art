@@ -1,15 +1,56 @@
 .btn{
-  padding:1rem 2rem;
-  font-size:20pt;
   border:0;
-  border-radius:0.5rem;
   cursor:pointer;
 
   &.write{
-    background-color: #4769cc;
+    font-size:30px;
+    padding:1rem 2rem;
+    background-color: #ff83a8;
+    border-radius:0.5rem;
     color:#fff;
     &:hover{
-      background-color: darken(#4769cc,10%);
+      background-color: darken(#ff83a8,10%);
+    }
+  }
+  &.save{
+    font-size:13px;
+    padding:0.5rem 1rem;
+    border-radius:0.3rem;
+    background-color: #ff83a8;
+    color:#fff;
+    &:hover{
+      background-color: darken(#ff83a8,10%);
+    }
+  }
+  &.edit{
+    font-size:13px;
+    padding:0.5rem 1rem;
+    border-radius:0.3rem;
+    background-color: #a388ff;
+    color:#fff;
+    &:hover{
+      background-color: darken(#a388ff,10%);
+    }
+  }
+  &.delete{
+    font-size:13px;
+    padding:0.5rem 1rem;
+    border-radius:0.3rem;
+    background-color: #ff83a8;
+    color:#fff;
+    &:hover{
+      background-color: darken(#ff83a8,10%);
+    }
+  }
+  &.print{
+
+    font-size:13px;
+    padding:0.5rem 1rem;
+    border-radius:0.3rem;
+    background-color: #ffd706;
+    color:#fff;
+    &:hover{
+      background-color: darken(#ffd706,10%);
     }
   }
 }

@@ -1,17 +1,16 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-
-import '../../css/Header.scss';
-
 import * as firebase from "firebase";
-import "firebase/auth";
-import "firebase/firestore";
+
+import Nav from './Nav';
+
 
 class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: localStorage.getItem('logInfo')
+            user: localStorage.getItem('logInfo'),
+            isNav: false
         }
     }
 
@@ -25,20 +24,16 @@ class Header extends Component {
 
     onLogin = (e) => {
         e.preventDefault();
-        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-            .then(() => {
-
-                var provider = new firebase.auth.GoogleAuthProvider();
-                return firebase.auth().signInWithPopup(provider)
-                    .then((authData) => {
-                        this.setState({
-                            user: authData
-                        });
-                    });
-            })
-            .catch((error) => {
-                console.log(error);
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
+            var provider = new firebase.auth.GoogleAuthProvider();
+            return firebase.auth().signInWithPopup(provider).then((authData) => {
+                this.setState({
+                    user: authData
+                });
             });
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
 
@@ -52,26 +47,43 @@ class Header extends Component {
         }).catch(function (error) {
             console.log(error);
         });
+        window.location.href='/';
+    }
+
+    onNav = () => {
+        this.setState((prevState)=>{
+            return{
+                isNav: !prevState.isNav
+            }
+        });
     }
 
 
     render() {
         let userInfo = JSON.parse(localStorage.getItem('logInfo'));
-        console.log(userInfo);
+        let nav;
+
+        if(this.state.isNav){
+            nav=<Nav userInfo={userInfo.user}></Nav>;
+        }
 
         return (
             <section className="header-section">
                 <div className="header-container flex justify-center justify-between items-center">
-                    <Link to="/"><img className="header-icon" src={require("../../images/icon/puzzle.svg")}/>Mandal-ART</Link>
+                    <Link className="flex justify-center items-center" to="/">
+                        <img className="header-icon mr-10" src={require("../../images/icon/puzzle.svg")}/>
+                        <div className="header-name"><span className="blue">M</span>andal-<span
+                            className="yellow">A</span>RT
+                        </div>
+                    </Link>
                     <div>
                         {
                             userInfo ?
                                 <>
-                                    <Link className="mr-10" to="/list">
-                                        <img className="profile-img" src={userInfo.user.photoURL}/>
-                                    </Link>
-                                    <span className="cursor-pointer mr-10" onClick={this.onLogout}>로그아웃</span>
+                                    <img className="cursor-pointer profile-img" src={userInfo.user.photoURL}/>
+                                    <span className="cursor-pointer" onClick={this.onLogout}>로그아웃</span>
 
+                                    {/*<Nav userInfo={userInfo.user}/>*/}
                                 </>
                                 : <span className="cursor-pointer" onClick={this.onLogin}>로그인</span>
                         }

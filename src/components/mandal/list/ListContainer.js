@@ -16,7 +16,7 @@ class ListContainer extends Component {
 
         let database = firebase.database();
 
-        const mandalList=[];
+        const mandalList = [];
 
         // database.ref(`/mandal/${uid}`).on('child_added', (snapshot)=> {
         //     mandalList.push(snapshot.val());
@@ -44,19 +44,40 @@ class ListContainer extends Component {
     render() {
         let userInfo = JSON.parse(localStorage.getItem('logInfo'));
         return (
-            <section className="mandal-section">
-                <div className="mandal-profile">
-                    <img className="mandal-img " src={userInfo.user.photoURL}/>
+            <section>
+
+                <div className="mandal-section">
+                    <div className="container">
+                        <div className="mandal-banner flex justify-between items-center mb-30">
+                            <div className="font-lg font-white">
+                                나만의 <span className="yellow">만다라트</span>로<br/>
+                                인생을 즐겁게!
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="font-lg  font-white">{userInfo.user.displayName}</span>
+                                <span className="font-white">{userInfo.user.email}</span>
+                            </div>
+                        </div>
+                        <div className="mandal-list flex flex-col">
+                            {
+                                this.state.list.length!==0 ?
+                                    this.state.list.map((data, index) => {
+                                        return (
+                                            <List key={index} data={data} index={index}></List>
+                                        );
+                                    })
+                                    :
+                                    <div className="px-1 text-center font-lg">
+                                        없어요.. <br/>
+                                        아니 없어요... <br/>
+                                        아니 그냥 없어요...
+                                    </div>
+                            }
+                        </div>
+                    </div>
                 </div>
-                <div className="flex flex-wrap">
-                {
-                    this.state.list.map((data, index) => {
-                        return (
-                            <List key={index} data={data} index={index}></List>
-                        );
-                    })
-                }
-                </div>
+
+
             </section>
         )
     }
