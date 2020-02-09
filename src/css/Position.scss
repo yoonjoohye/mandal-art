@@ -1,6 +1,10 @@
 .container{
   padding-right: 15%;
   padding-left: 15%;
+  @media(max-width:480px){
+    padding-right: 5%;
+    padding-left: 5%;
+  }
 }
 .flex {
   display: flex;
@@ -51,8 +55,14 @@
 .mr-10 {
   margin-right: 10px;
 }
+.mr-50{
+  margin-right:50px;
+}
 .mb-30{
   margin-bottom:30px;
+}
+.mb-50{
+  margin-bottom:50px;
 }
 .mb-20{
   margin-bottom:20px;
@@ -81,4 +91,8 @@
   &-none{
     border:0;
   }
+}
+
+.h-100{
+  height:100vh;
 }

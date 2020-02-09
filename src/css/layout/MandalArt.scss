@@ -4,8 +4,8 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 2rem;
   padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.26);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 7px #0000002b;
   background-color: rgba(0, 0, 0, 0);
 }
 
@@ -30,7 +30,7 @@
   }
 
   &-input {
-    box-shadow: 0 3px 10px #0000002e;
+    box-shadow: 0 3px 10px #0000002b;
     font-size: 14px;
     font-weight: 300;
     background-color: white;
@@ -39,6 +39,9 @@
     height: 50px;
     outline: none;
     border: 0;
+    &:hover{
+      background-color:#ffb8d521;
+    }
   }
 
   &-list {
@@ -57,15 +60,41 @@
     padding: 2rem;
   }
 
-  &-bg {
-    background-image: url('../../images/mandal.svg');
-    background-size:cover;
-    //background: linear-gradient(to right, #c3c2e6, #f3dbe5, #fffbeb);
-  }
-
   &-profile-img {
     width: 80px;
     height: 80px;
     border-radius:50%;
   }
+  &-img{
+    width:450px;
+    border-radius: 0.8rem;
+    box-shadow: 5px 5px 15px #1a63ee91;
+  }
 }
+
+.bg{
+  &-blue{
+    background-color:#4093fb;
+    &.shadow{
+      box-shadow:0 10px 0 #1a63ee;
+    }
+  }
+  &-white{
+    background-color:white;
+  }
+  &-pink {
+    background-color: #ffa6bc;
+    &.shadow{
+      box-shadow:0 10px 0 #ff7ba0;
+    }
+  }
+  &-none{
+    background-color:transparent;
+  }
+}
+.box{
+  &-round{
+    border-radius:0 0 8rem 8rem;
+  }
+}
+

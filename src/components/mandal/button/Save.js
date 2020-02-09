@@ -31,7 +31,7 @@ const Save = (props) => {
 
         setTimeout(()=>{
             window.history.go(0);
-        },10000);
+        },3000);
     }
 
     return (

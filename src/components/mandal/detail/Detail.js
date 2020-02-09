@@ -123,11 +123,12 @@ class Detail extends Component {
                     <div className="border-bottom px-1 mb-30">
                         <Title title={this.state.title} titleChange={this.titleChange}> </Title>
                     </div>
+                    
                     <div className="mb-30">
                         <Table data={this.state.data} tableChange={this.tableChange}></Table>
                     </div>
 
-                    <div className="text-center">
+                    <div className="text-center flex justify-between">
                         <Edit title={this.state.title} data={this.state.data} pageNo={this.props.match.params.id}></Edit>
                         <Delete pageNo={this.props.match.params.id}></Delete>
                         <Print></Print>
