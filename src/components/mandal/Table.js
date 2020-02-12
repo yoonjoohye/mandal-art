@@ -63,6 +63,7 @@ class Table extends Component {
                                         className="mandal-input"
                                         key={[dataIndex, tableIndex].join('_')}
                                         placeholder={this.onPlaceholder(tableIndex, dataIndex)} value={data}
+                                        maxLength="8"
                                         onChange={(e) => this.onChange(e, tableIndex, dataIndex)}
                                     />
                                 );
