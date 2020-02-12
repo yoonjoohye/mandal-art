@@ -11,7 +11,7 @@ class Home extends Component {
                         함께, <span className="yellow">계획</span>을 세워요!<br/>
                         지금 바로 시작하세요!
                     </div>
-                    <Link to="/write">
+                    <Link to="/guide">
                         <button className="btn write">시작하기</button>
                     </Link>
                 </div>
