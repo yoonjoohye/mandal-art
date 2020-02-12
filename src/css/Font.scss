@@ -3,12 +3,21 @@
 .font{
   &-xl{
     font-size:65px;
+    @media(max-width:480px){
+      font-size:35px;
+    }
   }
   &-lg{
     font-size:50px;
+    @media(max-width:480px){
+      font-size:24px;
+    }
   }
   &-md{
     font-size:30px;
+    @media(max-width:480px){
+      font-size:20px;
+    }
   }
   &-sm{
     font-size:12px;

@@ -11,6 +11,9 @@
     &:hover{
       background-color: darken(#ff83a8,10%);
     }
+    @media(max-width:480px){
+      font-size:15px;
+    }
   }
   &.save{
     font-size:13px;

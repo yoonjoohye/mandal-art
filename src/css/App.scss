@@ -15,6 +15,9 @@ body {
   font-size:15px;
   font-weight:300;
   color: #333333;
+  @media(max-width:480px){
+    font-size:12px;
+  }
 }
 
 a {
@@ -24,4 +27,5 @@ a {
 
 p{
   line-height:1.8;
+  margin:0;
 }
