@@ -7,7 +7,7 @@ class Home extends Component {
         return (
             <section className="home-section">
                 <div className="container pt-15">
-                    <div className="font-xl font-white mb-30">
+                    <div className="font-xl font-white mb-50">
                         함께, <span className="yellow">계획</span>을 세워요!<br/>
                         지금 바로 시작하세요!
                     </div>

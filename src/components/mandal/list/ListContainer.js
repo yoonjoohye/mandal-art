@@ -54,7 +54,7 @@ class ListContainer extends Component {
                                 인생을 즐겁게!
                             </div>
                             <div className="flex flex-col">
-                                <span className="font-lg  font-white">{userInfo.user.displayName}</span>
+                                <span className="font-lg text-center  font-white">{userInfo.user.displayName}</span>
                                 <span className="font-white">{userInfo.user.email}</span>
                             </div>
                         </div>

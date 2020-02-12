@@ -67,6 +67,10 @@
   margin-right:50px;
   @media(max-width:1024px){
     margin-right:0;
+    margin-bottom:50px;
+  }
+  @media(max-width:480px){
+    margin-bottom:20px;
   }
 }
 .mb-30{
@@ -77,18 +81,28 @@
 }
 .mb-20{
   margin-bottom:20px;
+  @media(max-width:480px){
+    margin-bottom:10px;
+  }
 }
 .mb-10{
   margin-bottom:10px;
 }
 .mb-100{
   margin-bottom:100px;
+  @media(max-width:1024px){
+    margin-bottom:50px;
+  }
   @media(max-width:480px){
-    margin-bottom:0;
+    margin-bottom:20px;
   }
 }
 .mb-5{
   margin-bottom:5px;
+}
+.py-3{
+  padding-top:3rem;
+  padding-bottom:3rem;
 }
 .pt-15{
   padding-top:15%;
