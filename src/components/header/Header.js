@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import {Link} from 'react-router-dom';
 import * as firebase from "firebase";
 
@@ -10,8 +11,26 @@ class Header extends Component {
         super(props);
         this.state = {
             user: localStorage.getItem('logInfo'),
-            isNav: false
+            isNav: false,
+            scroll: 0,
+            bgColor:''
         }
+    }
+
+    componentDidMount() {
+        // 스크롤 이벤트 적용
+        window.addEventListener('scroll', this.onScroll);
+    }
+
+    onScroll = (e) => {
+        // 스크롤 할때마다 state에 scroll한 만큼 scrollTop 값 증가하므로 이를 업데이트해줌,
+        //따라서 스크롤 시점에 따라 특정액션을 추후에 state를 활용하여 구현 가능
+        const scrollTop = ('scroll', e.srcElement.scrollingElement.scrollTop);
+
+        this.setState({
+            ...this.state,
+            scroll:scrollTop
+        });
     }
 
     componentWillUpdate(nextProps, nextState, nextContext) {
@@ -47,12 +66,12 @@ class Header extends Component {
         }).catch(function (error) {
             console.log(error);
         });
-        window.location.href='/';
+        window.location.href = '/';
     }
 
     onNav = () => {
-        this.setState((prevState)=>{
-            return{
+        this.setState((prevState) => {
+            return {
                 isNav: !prevState.isNav
             }
         });
@@ -63,12 +82,12 @@ class Header extends Component {
         let userInfo = JSON.parse(localStorage.getItem('logInfo'));
         let nav;
 
-        if(this.state.isNav){
-            nav=<Nav userInfo={userInfo.user}></Nav>;
+        if (this.state.isNav) {
+            nav = <Nav userInfo={userInfo.user}></Nav>;
         }
 
         return (
-            <section className="header-section">
+            <section className={`header-section ${(this.state.scroll>900)?'bg-blue':''}`}>
                 <div className="header-container flex justify-center justify-between items-center">
                     <Link className="flex justify-center items-center" to="/">
                         <img className="header-icon mr-10" src={require("../../images/icon/puzzle.svg")}/>

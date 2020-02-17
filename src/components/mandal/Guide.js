@@ -28,7 +28,7 @@ class Guide extends Component {
                             </p>
 
                             <div className="font-md font-medium yellow mb-20">
-                                왜 쓰는가?
+                                대표적인 사례
                             </div>
                             <p className="font-white font-light">
                                 만다라트는 '오타니 쇼헤이'의 성공비법으로 잘 알려져있습니다.<br/>
@@ -38,7 +38,7 @@ class Guide extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="h-100 bg-none flex flex-col justify-center">
+                <div className="h-100 bg-none flex flex-col justify-center items-center">
                     <div className="container">
                         <div className="font-md font-medium text-center py-3">
                             ✏️ 만다라트 계획표 작성법
