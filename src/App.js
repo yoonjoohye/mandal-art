@@ -19,7 +19,6 @@ import reducers from './redux/actions';
 
 // 스토어 생성
 const store = createStore(reducers);
-const basename = "/mandal-art";
 
 class App extends Component {
 
