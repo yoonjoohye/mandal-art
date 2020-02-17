@@ -21,7 +21,7 @@ class Header extends Component {
         // 스크롤 이벤트 적용
         window.addEventListener('scroll', this.onScroll);
     }
-    
+
     onScroll = (e) => {
         // 스크롤 할때마다 state에 scroll한 만큼 scrollTop 값 증가하므로 이를 업데이트해줌,
         //따라서 스크롤 시점에 따라 특정액션을 추후에 state를 활용하여 구현 가능
