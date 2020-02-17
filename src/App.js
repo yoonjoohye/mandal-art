@@ -12,6 +12,15 @@ import Write from "./components/mandal/write/Index";
 import Detail from "./components/mandal/detail/Index";
 import List from "./components/mandal/list/Index";
 
+// Redux 관련 불러오기
+import {Provider} from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './redux/actions';
+
+// 스토어 생성
+const store = createStore(reducers);
+const basename = "/mandal-art";
+
 class App extends Component {
 
     // initializeUserInfo=async()=>{
@@ -26,7 +35,8 @@ class App extends Component {
 
     render() {
         return (
-            <BrowserRouter>
+            <Provider store={store}>
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <Header/>
 
                 <Route exact path="/" component={Home}/>
@@ -40,6 +50,7 @@ class App extends Component {
                 </Switch>
                 <Route path="/list" component={List}></Route>
             </BrowserRouter>
+            </Provider>
         );
     };
 }
