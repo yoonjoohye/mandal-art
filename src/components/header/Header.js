@@ -92,10 +92,9 @@ class Header extends Component {
                         {
                             userInfo ?
                                 <>
-                                    <img className="cursor-pointer profile-img" src={userInfo.user.photoURL}/>
-                                    <span className="font-white cursor-pointer" onClick={this.onLogout}>로그아웃</span>
-
-                                    {/*<Nav userInfo={userInfo.user}/>*/}
+                                    <img className="cursor-pointer profile-img" src={userInfo.user.photoURL} onClick={this.onNav}/>
+                                    {/*<span className="font-white cursor-pointer" onClick={this.onLogout}>로그아웃</span>*/}
+                                    {nav}
                                 </>
                                 : <span className="font-white cursor-pointer" onClick={this.onLogin}>로그인</span>
                         }

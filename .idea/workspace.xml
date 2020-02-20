@@ -2,33 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb02132d-c4d5-430a-8179-8e41d921b8e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/images/icon/question.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/precache-manifest.b1f7d2813d5afbac4ff21a7c5673a66c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/service-worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/service-worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/css/main.5164fd42.chunk.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/css/main.5164fd42.chunk.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/2.ffb06ae6.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/2.ffb06ae6.chunk.js.LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/2.ffb06ae6.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.c3c999e8.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.c3c999e8.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/runtime-main.9bd2a39a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/runtime-main.9bd2a39a.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/index.5f3ecdf5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/gh-pages/.cache/github.com!yoonjoohye!mandal_art.git" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/gh-pages/.cache/github.com!yoonjoohye!mandal_art.git" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/mandal/Guide.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mandal/Guide.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/Font.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/Font.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/Position.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/Position.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/layout/Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/layout/Header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/layout/Home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/layout/Home.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/layout/MandalArt.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/layout/MandalArt.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/index.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/index.jpg" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +83,7 @@
       <workItem from="1580655233770" duration="23259000" />
       <workItem from="1581008059909" duration="204000" />
       <workItem from="1581008330873" duration="63453000" />
-      <workItem from="1581944678711" duration="10233000" />
+      <workItem from="1581944678711" duration="11002000" />
     </task>
     <servers />
   </component>
