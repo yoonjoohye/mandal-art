@@ -1,7 +1,19 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import * as firebase from "firebase";
 
 class Nav extends Component {
+
+    onLogout = (e) => {
+        e.preventDefault();
+
+        firebase.auth().signOut().then(() => {
+            localStorage.removeItem('logInfo');
+        }).catch(function (error) {
+            console.log(error);
+        });
+        setTimeout(()=>{window.location.href = '/';},1000);
+    }
 
     render() {
         return (
@@ -17,9 +29,7 @@ class Nav extends Component {
                     </Link>
                 </div>
                 <div className="nav-container">
-                    <Link to="/logout">
-                        <span className="font-sm nav-logout">로그아웃</span>
-                    </Link>
+                    <span className="font-sm nav-logout cursor-pointer" onClick={this.onLogout}>로그아웃</span>
                 </div>
             </div>
         )
