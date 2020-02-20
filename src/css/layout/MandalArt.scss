@@ -140,9 +140,13 @@
 }
 .box{
   &-round{
-    border-radius:0 0 8rem 8rem;
+    border-radius:1rem;
     @media(max-width:480px){
-     border-radius: 0 0 5rem 5rem;
+     border-radius: 0.8rem;
     }
+  }
+  &-title{
+    border-radius:0.5rem;
+    padding:0.5rem 1rem;
   }
 }

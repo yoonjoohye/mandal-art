@@ -12,26 +12,19 @@ class Header extends Component {
         this.state = {
             user: localStorage.getItem('logInfo'),
             isNav: false,
-            scroll: 0,
-            bgColor:''
+            scroll: 0
         }
     }
-
-    componentDidMount() {
-        // 스크롤 이벤트 적용
-        window.addEventListener('scroll', this.onScroll);
-    }
-
-    onScroll = (e) => {
-        // 스크롤 할때마다 state에 scroll한 만큼 scrollTop 값 증가하므로 이를 업데이트해줌,
-        //따라서 스크롤 시점에 따라 특정액션을 추후에 state를 활용하여 구현 가능
-        const scrollTop = ('scroll', e.srcElement.scrollingElement.scrollTop);
-
-        this.setState({
-            ...this.state,
-            scroll:scrollTop
-        });
-    }
+    // componentDidMount() {
+    //     window.addEventListener('scroll', this.onScroll);
+    // }
+    // onScroll = (e) => {
+    //     const scrollTop = ('scroll', e.srcElement.scrollingElement.scrollTop);
+    //     this.setState({
+    //         ...this.state,
+    //         scroll:scrollTop
+    //     });
+    // };
 
     componentWillUpdate(nextProps, nextState, nextContext) {
         if (nextState.user) {
@@ -87,7 +80,7 @@ class Header extends Component {
         }
 
         return (
-            <section className={`header-section ${(this.state.scroll>900)?'bg-blue':''}`}>
+            <section className={`header-section header-bg`}>
                 <div className="header-container flex justify-center justify-between items-center">
                     <Link className="flex justify-center items-center" to="/">
                         <img className="header-icon mr-10" src={require("../../images/icon/puzzle.svg")}/>
@@ -100,11 +93,11 @@ class Header extends Component {
                             userInfo ?
                                 <>
                                     <img className="cursor-pointer profile-img" src={userInfo.user.photoURL}/>
-                                    <span className="cursor-pointer" onClick={this.onLogout}>로그아웃</span>
+                                    <span className="font-white cursor-pointer" onClick={this.onLogout}>로그아웃</span>
 
                                     {/*<Nav userInfo={userInfo.user}/>*/}
                                 </>
-                                : <span className="cursor-pointer" onClick={this.onLogin}>로그인</span>
+                                : <span className="font-white cursor-pointer" onClick={this.onLogin}>로그인</span>
                         }
 
                     </div>

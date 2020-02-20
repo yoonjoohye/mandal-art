@@ -8,8 +8,8 @@
     }
     &-container {
         height:60px;
-        padding-right: 15%;
-        padding-left: 15%;
+        padding-right: 13%;
+        padding-left: 13%;
         @media(max-width:480px){
             padding-right:5%;
             padding-left:5%;
@@ -29,6 +29,10 @@
     }
     &-list {
         color:#f3dbe5;
+    }
+    &-bg{
+        background-color: #4093fb;
+        box-shadow: 0px 1px 10px #00000063;
     }
 }
 

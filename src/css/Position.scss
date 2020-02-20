@@ -1,6 +1,6 @@
 .container{
-  padding-right: 15%;
-  padding-left: 15%;
+  padding-right: 13%;
+  padding-left: 13%;
   @media(max-width:480px){
     padding-right: 5%;
     padding-left: 5%;
@@ -59,6 +59,9 @@
 .mt-50{
   margin-top:50px;
 }
+.mt-20{
+  margin-top:20px;
+}
 
 .mr-10 {
   margin-right: 10px;
@@ -85,8 +88,14 @@
     margin-bottom:10px;
   }
 }
+.mb-200{
+  margin-bottom:200px;
+}
 .mb-10{
   margin-bottom:10px;
+}
+.mb-80{
+  margin-bottom:80px;
 }
 .mb-100{
   margin-bottom:100px;
@@ -100,16 +109,30 @@
 .mb-5{
   margin-bottom:5px;
 }
-.py-3{
-  padding-top:3rem;
-  padding-bottom:3rem;
+.py-2{
+  padding-top:2rem;
+  padding-bottom:2rem;
 }
 .pt-15{
   padding-top:15%;
 }
+.px-2{
+  padding-right:2rem;
+  padding-left:2rem;
+}
+.py-1{
+  padding-top:1rem;
+  padding-bottom:1rem;
+}
 .px-1{
   padding-top:1rem;
   padding-bottom:1rem;
+}
+.p-1{
+  padding:0.5rem;
+}
+.p-4{
+  padding:4rem!important;
 }
 
 .border {
