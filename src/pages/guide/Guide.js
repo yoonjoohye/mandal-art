@@ -27,7 +27,7 @@ class Guide extends Component {
                         </div>
                         <div className="flex flex-col-m items-center mb-50">
                             <>
-                                <img className="mandal-img shadow mr-50" src={require('../../images/mandal.png')}/>
+                                <img className="mandal-img shadow mr-50" src={require('../../assets/mandal.png')}/>
                             </>
 
                             <p className="px-1 font-xmd">

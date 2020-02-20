@@ -2,20 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb02132d-c4d5-430a-8179-8e41d921b8e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/auth/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/icon/list.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icon/list.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/icon/puzzle.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icon/puzzle.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/icon/question.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icon/question.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/index.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/index.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/mandal-otani.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/mandal-otani.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/mandal.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/mandal.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/mandal.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/mandal.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/nothing.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/nothing.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/auth/Logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/Logout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/service-worker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/media/mandal-otani.f4832b03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/media/mandal.8169e27a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/media/nothing.d4ff3ff1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/media/puzzle.bfeb0da3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/guide/Guide.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/guide/Guide.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/mandal/list/ListContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mandal/list/ListContainer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +86,7 @@
       <workItem from="1580655233770" duration="23259000" />
       <workItem from="1581008059909" duration="204000" />
       <workItem from="1581008330873" duration="63453000" />
-      <workItem from="1581944678711" duration="14316000" />
+      <workItem from="1581944678711" duration="14611000" />
     </task>
     <servers />
   </component>
