@@ -36,7 +36,6 @@ class Header extends Component {
         });
     }
 
-
     onLogout = (e) => {
         e.preventDefault();
 
@@ -72,7 +71,7 @@ class Header extends Component {
             <section className={`header-section header-bg`}>
                 <div className="header-container flex justify-center justify-between items-center">
                     <Link className="flex justify-center items-center" to="/">
-                        <img className="header-icon mr-10" src={require("../../images/icon/puzzle.svg")}/>
+                        <img className="header-icon mr-10" src={require("../../assets/icon/puzzle.svg")}/>
                         <div className="header-name"><span className="blue">M</span>andal-<span
                             className="yellow">A</span>RT
                         </div>

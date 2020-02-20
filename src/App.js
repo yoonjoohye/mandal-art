@@ -3,7 +3,9 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import Home from './pages/home/Home';
 
-import Sign from './pages/auth/Sign';
+import Login from './pages/auth/Login.js';
+import Logout from './pages/auth/Logout.js';
+
 import Header from './components/header/Header';
 
 import Guide from './pages/guide/Guide';
@@ -37,6 +39,9 @@ class App extends Component {
             <Provider store={store}>
                 <BrowserRouter basename={process.env.PUBLIC_URL}>
                     <Header/>
+
+                    <Route exact path="/login" component={Login}/>
+                    <Route exact path="/logout" component={Logout}/>
 
                     <Route exact path="/" component={Home}/>
                     <Route path="/write" component={Write}/>
