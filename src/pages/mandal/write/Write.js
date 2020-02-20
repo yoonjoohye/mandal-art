@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import {List} from 'immutable';
-import * as firebase from "firebase";
 
-import Table from '../Table';
-import Title from '../Title';
-import Save from '../button/Save';
+import Table from '../../../components/mandal/Table';
+import Title from '../../../components/mandal/Title';
+import Save from '../../../components/button/Save';
 
 
 class Write extends Component {

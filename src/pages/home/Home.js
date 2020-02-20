@@ -16,8 +16,6 @@ class Home extends Component {
                     </Link>
                 </div>
                 <div className="h-100 container flex flex-col items-center justify-center">
-                    <div className="box-round bg-blue shadow px-2 py-1 font-lg font-white mb-100">만다라트 (Mandal-Art)
-                    </div>
                     <div className=" flex flex-col-m justify-between items-center">
                         <>
                             <img className="mandal-img shadow mr-50"

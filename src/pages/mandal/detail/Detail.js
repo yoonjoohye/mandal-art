@@ -3,12 +3,11 @@ import * as firebase from "firebase";
 
 import {List, fromJS} from 'immutable';
 
-import Table from '../Table';
-import Print from "../button/Print";
-import Edit from "../button/Edit";
-import Delete from "../button/Delete";
-import Title from "../Title";
-import Save from "../button/Save";
+import Table from '../../../components/mandal/Table';
+import Print from "../../../components/button/Print";
+import Edit from "../../../components/button/Edit";
+import Delete from "../../../components/button/Delete";
+import Title from "../../../components/mandal/Title";
 
 
 class Detail extends Component {

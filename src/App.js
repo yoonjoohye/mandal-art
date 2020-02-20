@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
-import Home from './components/home/Home';
+import Home from './pages/home/Home';
 
-import Sign from './components/auth/Sign';
+import Sign from './pages/auth/Sign';
 import Header from './components/header/Header';
 
-import Guide from './components/mandal/Guide';
+import Guide from './pages/guide/Guide';
 
-import Write from "./components/mandal/write/Index";
-import Detail from "./components/mandal/detail/Index";
-import List from "./components/mandal/list/Index";
+import Write from "./pages/mandal/write/Index";
+import Detail from "./pages/mandal/detail/Index";
+import List from "./pages/mandal/list/Index";
 
 // Redux 관련 불러오기
 import {Provider} from 'react-redux';
-import { createStore } from 'redux';
+import {createStore} from 'redux';
 import reducers from './redux/actions';
 
 // 스토어 생성
@@ -35,20 +35,20 @@ class App extends Component {
     render() {
         return (
             <Provider store={store}>
-            <BrowserRouter basename={process.env.PUBLIC_URL}>
-                <Header/>
+                <BrowserRouter basename={process.env.PUBLIC_URL}>
+                    <Header/>
 
-                <Route exact path="/" component={Home}/>
-                <Route path="/write" component={Write}/>
+                    <Route exact path="/" component={Home}/>
+                    <Route path="/write" component={Write}/>
 
-                <Route path="/guide" component={Guide}/>
+                    <Route path="/guide" component={Guide}/>
 
 
-                <Switch>
-                    <Route path="/detail/:id" component={Detail}/>
-                </Switch>
-                <Route path="/list" component={List}></Route>
-            </BrowserRouter>
+                    <Switch>
+                        <Route path="/detail/:id" component={Detail}/>
+                    </Switch>
+                    <Route path="/list" component={List}></Route>
+                </BrowserRouter>
             </Provider>
         );
     };
