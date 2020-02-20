@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb02132d-c4d5-430a-8179-8e41d921b8e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/service-worker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/mandal-otani.f4832b03.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/mandal.8169e27a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/nothing.d4ff3ff1.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/puzzle.bfeb0da3.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/guide/Guide.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/guide/Guide.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/mandal/list/ListContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mandal/list/ListContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/layout/Home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/layout/Home.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +76,7 @@
       <workItem from="1580655233770" duration="23259000" />
       <workItem from="1581008059909" duration="204000" />
       <workItem from="1581008330873" duration="63453000" />
-      <workItem from="1581944678711" duration="14611000" />
+      <workItem from="1581944678711" duration="14735000" />
     </task>
     <servers />
   </component>
