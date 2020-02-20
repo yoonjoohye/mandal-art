@@ -3,13 +3,25 @@
   <component name="ChangeListManager">
     <list default="true" id="eb02132d-c4d5-430a-8179-8e41d921b8e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/auth/Logout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/Logout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/auth/Sign.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/auth/Sign.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mandal/Guide.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mandal/Guide.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/Font.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/Font.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/Position.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/Position.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/layout/Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/layout/Header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/layout/MandalArt.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/layout/MandalArt.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Nav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mandal/Guide.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/guide/Guide.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mandal/button/Delete.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/Delete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mandal/button/Edit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/Edit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mandal/button/Print.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/Print.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mandal/button/Save.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/Save.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mandal/detail/Detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mandal/detail/Detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mandal/detail/Index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mandal/detail/Index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mandal/list/Index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mandal/list/Index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mandal/list/List.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mandal/List.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mandal/list/ListContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mandal/list/ListContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mandal/write/Index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mandal/write/Index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mandal/write/Write.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/mandal/write/Write.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,11 +54,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/images/icon" />
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/src/images" />
+      <recent name="$PROJECT_DIR$/src/pages" />
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/pages/guide" />
+      <recent name="$PROJECT_DIR$/src/pages/mandal" />
       <recent name="$PROJECT_DIR$/src/components/mandal" />
-      <recent name="$PROJECT_DIR$/src/css/layout" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/images" />
@@ -83,7 +95,7 @@
       <workItem from="1580655233770" duration="23259000" />
       <workItem from="1581008059909" duration="204000" />
       <workItem from="1581008330873" duration="63453000" />
-      <workItem from="1581944678711" duration="11002000" />
+      <workItem from="1581944678711" duration="13359000" />
     </task>
     <servers />
   </component>

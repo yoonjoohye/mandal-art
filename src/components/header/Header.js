@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import {Link} from 'react-router-dom';
 import * as firebase from "firebase";
 
-import Nav from './Nav';
+import Nav from './Nav.js';
 
 
 class Header extends Component {
@@ -11,24 +10,13 @@ class Header extends Component {
         super(props);
         this.state = {
             user: localStorage.getItem('logInfo'),
-            isNav: false,
-            scroll: 0
+            isNav: true,
         }
     }
-    // componentDidMount() {
-    //     window.addEventListener('scroll', this.onScroll);
-    // }
-    // onScroll = (e) => {
-    //     const scrollTop = ('scroll', e.srcElement.scrollingElement.scrollTop);
-    //     this.setState({
-    //         ...this.state,
-    //         scroll:scrollTop
-    //     });
-    // };
 
     componentWillUpdate(nextProps, nextState, nextContext) {
         if (nextState.user) {
-            localStorage.setItem('logInfo', JSON.stringify(nextState.user));
+            localStorage.setItem('logInfo', nextState.user);
         } else {
             localStorage.removeItem('logInfo');
         }
@@ -40,7 +28,7 @@ class Header extends Component {
             var provider = new firebase.auth.GoogleAuthProvider();
             return firebase.auth().signInWithPopup(provider).then((authData) => {
                 this.setState({
-                    user: authData
+                    user: JSON.stringify(authData)
                 });
             });
         }).catch((error) => {
@@ -73,11 +61,12 @@ class Header extends Component {
 
     render() {
         let userInfo = JSON.parse(localStorage.getItem('logInfo'));
-        let nav;
-
-        if (this.state.isNav) {
-            nav = <Nav userInfo={userInfo.user}></Nav>;
-        }
+        console.log(userInfo);
+        // let nav='';
+        //
+        // if (this.state.isNav) {
+        //     nav = <Nav userInfo={userInfo.user}></Nav>;
+        // }
 
         return (
             <section className={`header-section header-bg`}>
@@ -94,7 +83,13 @@ class Header extends Component {
                                 <>
                                     <img className="cursor-pointer profile-img" src={userInfo.user.photoURL} onClick={this.onNav}/>
                                     {/*<span className="font-white cursor-pointer" onClick={this.onLogout}>로그아웃</span>*/}
-                                    {nav}
+
+                                    {
+                                        this.state.isNav ?
+
+                                        <Nav userInfo={userInfo.user}></Nav>
+                                        : <></>
+                                    }
                                 </>
                                 : <span className="font-white cursor-pointer" onClick={this.onLogin}>로그인</span>
                         }
