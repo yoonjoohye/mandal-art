@@ -19,7 +19,7 @@ class Home extends Component {
                     <div className=" flex flex-col-m justify-between items-center">
                         <>
                             <img className="mandal-img shadow mr-50"
-                                 src={require('../../images/mandal-otani.png')}/>
+                                 src={require('../../assets/mandal-otani.png')}/>
                         </>
                         <div>
                             <div className="py-1 border-bottom">
