@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/mandal-art/static/css/main.03933d82.chunk.css",
+    "main.js": "/mandal-art/static/js/main.819e46eb.chunk.js",
+    "main.js.map": "/mandal-art/static/js/main.819e46eb.chunk.js.map",
+    "runtime-main.js": "/mandal-art/static/js/runtime-main.7967a694.js",
+    "runtime-main.js.map": "/mandal-art/static/js/runtime-main.7967a694.js.map",
+    "static/js/2.caa158b0.chunk.js": "/mandal-art/static/js/2.caa158b0.chunk.js",
+    "static/js/2.caa158b0.chunk.js.map": "/mandal-art/static/js/2.caa158b0.chunk.js.map",
+    "index.html": "/mandal-art/index.html",
+    "precache-manifest.6f0d7ac56ccb6e80435914be6f2c5b36.js": "/mandal-art/precache-manifest.6f0d7ac56ccb6e80435914be6f2c5b36.js",
+    "service-worker.js": "/mandal-art/service-worker.js",
+    "static/css/main.03933d82.chunk.css.map": "/mandal-art/static/css/main.03933d82.chunk.css.map",
+    "static/js/2.caa158b0.chunk.js.LICENSE": "/mandal-art/static/js/2.caa158b0.chunk.js.LICENSE",
+    "static/media/_Style.scss": "/mandal-art/static/media/index.243d233b.jpg",
+    "static/media/mandal-otani.png": "/mandal-art/static/media/mandal-otani.f4832b03.png",
+    "static/media/mandal.png": "/mandal-art/static/media/mandal.8169e27a.png",
+    "static/media/nothing.jpeg": "/mandal-art/static/media/nothing.d4ff3ff1.jpeg",
+    "static/media/puzzle.svg": "/mandal-art/static/media/puzzle.bfeb0da3.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7967a694.js",
+    "static/js/2.caa158b0.chunk.js",
+    "static/css/main.03933d82.chunk.css",
+    "static/js/main.819e46eb.chunk.js"
+  ]
+}
