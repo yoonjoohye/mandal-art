@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
 import * as firebase from "firebase";
+import {Redirect} from 'react-router-dom';
 
 import List from '../../../components/mandal/List.js';
-
 class ListContainer extends Component {
 
     constructor(props) {
@@ -12,10 +12,13 @@ class ListContainer extends Component {
             list: []
         }
     }
+    componentWillMount(){
+        let userInfo = JSON.parse(localStorage.getItem('logInfo'));
+        if(!userInfo){window.location.href='/';}
+    }
 
-    componentWillMount() {
+    componentDidMount() {
         let uid = JSON.parse(localStorage.getItem('logInfo')).user.uid;
-
         let database = firebase.database();
 
         const mandalList = [];
@@ -27,7 +30,6 @@ class ListContainer extends Component {
         //         list: mandalList
         //     });
         // });
-
 
         database.ref(`/mandal/${uid}`).once('value').then((snapshot) => {
             const obj = snapshot.val();
@@ -47,6 +49,9 @@ class ListContainer extends Component {
         let userInfo = JSON.parse(localStorage.getItem('logInfo'));
         return (
             <section>
+                {/*{*/}
+                {/*    !userInfo && <Redirect to="/"/>*/}
+                {/*}*/}
 
                 <div className="mandal-section">
                     <div className="container">
@@ -76,8 +81,6 @@ class ListContainer extends Component {
                         </div>
                     </div>
                 </div>
-
-
             </section>
         )
     }
