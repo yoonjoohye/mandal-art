@@ -45,5 +45,5 @@
     "cross-env": "^6.0.3",
     "gh-pages": "^2.2.0"
   },
-  "homepage": "http://yoonjoohye.github.io/mandal-art"
+  "homepage": "./"
 }

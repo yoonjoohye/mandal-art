@@ -8,7 +8,6 @@ import './css/_Style.scss';
 import firebaseApp from "./firebaseApp";
 
 
-
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
