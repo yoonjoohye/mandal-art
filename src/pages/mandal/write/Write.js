@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom';
 import {List} from 'immutable';
 
 import Table from '../../../components/mandal/Table';
@@ -39,8 +40,13 @@ class Write extends Component {
     }
 
     render() {
+        let userInfo = JSON.parse(localStorage.getItem('logInfo'));
+
         return (
             <section className="mandal-section">
+                {
+                    !userInfo && <Redirect to="/"/>
+                }
                 <div className="container">
                     <div className="border-bottom px-1 mb-30">
                         <Title title={this.state.title} titleChange={this.titleChange}> </Title>

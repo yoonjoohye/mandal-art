@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from 'react';
+import {Redirect} from 'react-router-dom';
 import * as firebase from "firebase";
 
 const Save = (props) => {
@@ -29,9 +30,13 @@ const Save = (props) => {
             time: date
         });
 
-        setTimeout(()=>{
-            window.history.go(0);
-        },3000);
+        console.log(this.context)
+        // setTimeout(
+        //     ()=>{
+        //         return(<Redirect to='/list' />);
+        //     },1000
+        // );
+
     }
 
     return (

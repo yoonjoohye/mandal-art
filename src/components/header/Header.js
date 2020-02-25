@@ -10,7 +10,7 @@ class Header extends Component {
         super(props);
         this.state = {
             user: localStorage.getItem('logInfo'),
-            isNav: true,
+            isNav: false,
         }
     }
 
@@ -60,7 +60,7 @@ class Header extends Component {
 
     render() {
         let userInfo = JSON.parse(localStorage.getItem('logInfo'));
-        console.log(userInfo);
+        // console.log(userInfo);
         // let nav='';
         //
         // if (this.state.isNav) {

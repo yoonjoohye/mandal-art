@@ -24,35 +24,23 @@ const store = createStore(reducers);
 
 class App extends Component {
 
-    // initializeUserInfo=async()=>{
-    //     if(!localStorage.getItem('logInfo')){
-    //         window.location.href='/auth';
-    //     }
-    // }
-    //
-    // componentDidMount(){
-    //     this.initializeUserInfo();
-    // }
-
     render() {
         return (
             <Provider store={store}>
-                <BrowserRouter basename={process.env.PUBLIC_URL}>
+                <BrowserRouter>
                     <Header/>
 
                     <Route exact path="/login" component={Login}/>
                     <Route exact path="/logout" component={Logout}/>
-
                     <Route exact path="/" component={Home}/>
-                    <Route path="/write" component={Write}/>
-
-                    <Route path="/guide" component={Guide}/>
-
-
+                    <Route exact path="/write" component={Write}/>
+                    <Route exact path="/guide" component={Guide}/>
+                    <Route exact path="/list" component={List}></Route>
+                    
                     <Switch>
-                        <Route path="/detail/:id" component={Detail}/>
+                        <Route exact path="/detail/:id" component={Detail}/>
                     </Switch>
-                    <Route path="/list" component={List}></Route>
+                    {/*<Route path="*" component={NotFoundRoute} />*/}
                 </BrowserRouter>
             </Provider>
         );

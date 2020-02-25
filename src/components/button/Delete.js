@@ -1,5 +1,8 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
+
 import * as firebase from "firebase";
+
 
 const Delete=(props)=>{
 
@@ -24,9 +27,16 @@ const Delete=(props)=>{
             //삭제
             database.ref(`mandal/${uid}/${keyList[props.pageNo]}`).remove();
         });
-        setTimeout(()=>{
-            window.location.href='/list';
-        },1000);
+
+
+        setTimeout(
+            ()=>{
+                return(<Redirect to='/list' />);
+            },1000
+        );
+
+        // window.location.href='/list';
+
     }
     return(
         <button className="btn delete" onClick={onDelete}>삭제</button>
