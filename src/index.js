@@ -6,8 +6,6 @@ import App from './App';
 import './css/_Style.scss';
 
 import firebaseApp from "./firebaseApp";
-import 'firebase/auth';
-import 'firebase/firestore';
 
 
 ReactDOM.render(<App />, document.getElementById('root'));

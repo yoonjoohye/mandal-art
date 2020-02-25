@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import * as firebase from "firebase";
+
+import * as firebase from "firebase/app";
+
 import List from '../../../components/mandal/List.js';
 
 class ListContainer extends Component {

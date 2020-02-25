@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import * as firebase from "firebase";
+
+import * as firebase from "firebase/app";
 
 import Nav from './Nav.js';
 
@@ -60,7 +61,7 @@ class Header extends Component {
 
     render() {
         let userInfo = JSON.parse(localStorage.getItem('logInfo'));
-        console.log(userInfo);
+        // console.log(userInfo);
         // let nav='';
         //
         // if (this.state.isNav) {

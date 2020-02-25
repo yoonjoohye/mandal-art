@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import * as firebase from "firebase";
+
+import * as firebase from "firebase/app";
+
 
 class Nav extends Component {
 
