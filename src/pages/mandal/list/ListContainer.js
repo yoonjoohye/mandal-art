@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import * as firebase from "firebase/app";
+import * as firebase from "firebase";
 
 import List from '../../../components/mandal/List.js';
 

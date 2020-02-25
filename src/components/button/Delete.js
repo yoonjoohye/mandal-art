@@ -1,5 +1,5 @@
 import React from 'react';
-import * as firebase from "firebase/app";
+import * as firebase from "firebase";
 
 
 const Delete=(props)=>{

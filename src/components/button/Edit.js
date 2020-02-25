@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import * as firebase from "firebase/app";
+import * as firebase from "firebase";
 
 const Edit=(props)=>{
 
