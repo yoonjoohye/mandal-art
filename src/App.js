@@ -36,7 +36,7 @@ class App extends Component {
                     <Route exact path="/write" component={Write}/>
                     <Route exact path="/guide" component={Guide}/>
                     <Route exact path="/list" component={List}></Route>
-                    
+
                     <Switch>
                         <Route exact path="/detail/:id" component={Detail}/>
                     </Switch>

@@ -13,6 +13,7 @@ import Title from "../../../components/mandal/Title";
 
 
 class Detail extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
