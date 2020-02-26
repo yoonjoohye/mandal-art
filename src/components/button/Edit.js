@@ -1,19 +1,20 @@
-import React,{useState,useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Redirect} from 'react-router-dom';
 import * as firebase from "firebase";
 
-const Edit=(props)=>{
+const Edit = (props) => {
 
-    const [title,setTitle]=useState();
-    const [data,setData]=useState();
+    const [title, setTitle] = useState();
+    const [data, setData] = useState();
+    const [redirect, setRedirect] = useState(false);
 
 
-    useEffect(()=>{
+    useEffect(() => {
         setTitle(props.title);
         setData(JSON.stringify(props.data));
     });
 
-    const onEdit=(e)=>{
+    const onEdit = (e) => {
         e.preventDefault();
 
         const uid = JSON.parse(localStorage.getItem('logInfo')).user.uid;
@@ -35,21 +36,23 @@ const Edit=(props)=>{
             }
             // console.log(props.pageNo);
             database.ref(`mandal/${uid}/${keyList[props.pageNo]}`).update({
-                title:title,
+                title: title,
                 data: data,
                 time: date
             });
         });
 
-        setTimeout(
-            ()=>{
-                return(<Redirect to='/list' />);
-            },1000
-        );
+        setRedirect(true);
+
     }
 
-    return(
-        <button className="btn edit" onClick={onEdit}>수정</button>
+    return (
+        <>
+            {
+                redirect && <Redirect to='/list'/>
+            }
+            <button className="btn edit" onClick={onEdit}>수정</button>
+        </>
     );
 
 }
