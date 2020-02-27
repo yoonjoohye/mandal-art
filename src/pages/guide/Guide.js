@@ -13,10 +13,9 @@ class Guide extends Component {
             <section className="mandal-section">
                 <div className="h-100 bg-none flex flex-col justify-center items-center">
                     <div className="container">
-                        <div className="font-md font-medium text-center mb-50">
-                            ✏️ 만다라트 계획표 작성법
-                        </div>
-
+                        {/*<div className="font-md font-medium text-center mb-50">*/}
+                        {/*    ✏️ 만다라트 계획표 작성법*/}
+                        {/*</div>*/}
                         <div className="mandal-banner px-1 mb-50">
                             <div className="font-white font-bold mb-20">⛔작성 시 주의사항 ⛔️</div>
                             <p className="font-white font-light">
