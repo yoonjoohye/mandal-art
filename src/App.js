@@ -14,6 +14,7 @@ import Write from "./pages/mandal/write/Index";
 import Detail from "./pages/mandal/detail/Index";
 import List from "./pages/mandal/list/Index";
 
+import NotFound from './pages/NotFound';
 // Redux 관련 불러오기
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
@@ -29,18 +30,16 @@ class App extends Component {
             <Provider store={store}>
                 <BrowserRouter>
                     <Header/>
-
-                    <Route exact path="/login" component={Login}/>
-                    <Route exact path="/logout" component={Logout}/>
-                    <Route exact path="/" component={Home}/>
-                    <Route exact path="/write" component={Write}/>
-                    <Route exact path="/guide" component={Guide}/>
-                    <Route exact path="/list" component={List}></Route>
-
                     <Switch>
+                        <Route exact path="/" component={Home}/>
+                        <Route exact path="/write" component={Write}/>
+                        <Route exact path="/guide" component={Guide}/>
+                        <Route exact path="/list" component={List}/>
+
                         <Route exact path="/detail/:id" component={Detail}/>
+
+                        <Route path="" component={NotFound}/>
                     </Switch>
-                    {/*<Route path="*" component={NotFoundRoute} />*/}
                 </BrowserRouter>
             </Provider>
         );

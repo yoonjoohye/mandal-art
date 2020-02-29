@@ -75,7 +75,7 @@ class ListContainer extends Component {
                                     })
                                     :
                                     <div className="px-1 text-center">
-                                        <img src={require('../../../assets/nothing.jpeg')}/>
+                                        <img className="nothing-img" src={require('../../../assets/nothing.jpeg')}/>
                                     </div>
                             }
                         </div>
