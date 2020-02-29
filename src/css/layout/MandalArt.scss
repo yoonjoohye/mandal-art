@@ -151,3 +151,8 @@
     padding:0.5rem 1rem;
   }
 }
+.nothing-img{
+  @media(max-width:480px){
+    width:100%;
+  }
+}

@@ -130,10 +130,10 @@ class Detail extends Component {
                         <Table data={this.state.data} tableChange={this.tableChange}></Table>
                     </div>
 
-                    <div className="text-center flex justify-between">
-                        <Edit title={this.state.title} data={this.state.data} pageNo={this.props.match.params.id}></Edit>
-                        <Delete pageNo={this.props.match.params.id}></Delete>
-                        <Print></Print>
+                    <div className="flex items-center justify-center">
+                        <div className="mr-10"><Edit title={this.state.title} data={this.state.data} pageNo={this.props.match.params.id}></Edit></div>
+                        {/*<Delete pageNo={this.props.match.params.id}></Delete>*/}
+                        <div><Print></Print></div>
                     </div>
                 </div>
             </section>

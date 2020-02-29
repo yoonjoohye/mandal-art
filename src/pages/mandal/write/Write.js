@@ -55,7 +55,7 @@ class Write extends Component {
                         <Table data={this.state.data} tableChange={this.tableChange}></Table>
                     </div>
 
-                    <div className="text-center">
+                    <div className="text-center mb-50">
                         <Save title={this.state.title} data={this.state.data}></Save>
                     </div>
 

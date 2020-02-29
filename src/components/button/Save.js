@@ -40,7 +40,7 @@ const Save = (props) => {
             {
                 redirect && <Redirect to='/list'/>
             }
-            <button className="btn save" onClick={onSave}>저장</button>
+            <button className="btn save" onClick={onSave}>저장하기</button>
         </>
     );
 
