@@ -7,8 +7,8 @@ class NotFound extends Component{
     render(){
         return(
             <section className="h-100">
-                <div className="h-100 flex items-center justify-center font-lg">
-                 페이지를 찾을 수 없습니다.😓
+                <div className="h-100 flex items-center justify-center font-lg font-medium font-blue">
+                    🚫 ️404 페이지를 찾을 수 없습니다  🚫
                 </div>
             </section>
         );
