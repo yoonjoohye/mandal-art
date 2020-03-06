@@ -18,4 +18,4 @@ Manda(본질의 깨달음)+la(성취)+art(기술)의 합성어로 '목적을 달
 ### 캡쳐본
 ![image](https://user-images.githubusercontent.com/26542929/76108054-35bb3200-601d-11ea-9d49-18cb281f56dd.png)
 ![image](https://user-images.githubusercontent.com/26542929/76107919-fab8fe80-601c-11ea-8912-c7e6a781ed58.png)
-![image](https://user-images.githubusercontent.com/26542929/76107928-fe4c8580-601c-11ea-9c56-ebb08fe54d75.png)
+![image](https://user-images.githubusercontent.com/26542929/76108138-5be0d200-601d-11ea-8a25-6ed974e9c8fd.png)
