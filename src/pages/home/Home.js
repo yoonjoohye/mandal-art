@@ -6,7 +6,7 @@ class Home extends Component {
     render() {
         return (
             <section className="home-section">
-                <div className="h-100 container flex flex-col justify-center mb-200">
+                <div className="h-100 bg-blue-m container flex flex-col justify-center mb-200">
                     <div className="font-xl font-white mb-50">
                         함께, <span className="yellow">계획</span>을 세워요<br/>
                         지금 바로 시작하세요

@@ -1,0 +1,28 @@
+.bg{
+  &-blue{
+    background-color:#4093fb;
+    &.shadow{
+      box-shadow:0 10px 0 #1a63ee;
+    }
+    &-m{
+      @media(max-width:480px){
+        background-color:#4093fb;
+      }
+    }
+  }
+  &-white{
+    background-color:white;
+  }
+  &-pink {
+    background-color: #ffa6bc;
+    &.shadow{
+      box-shadow:0 10px 0 #ff7ba0;
+    }
+  }
+  &-none{
+    background-color:transparent;
+  }
+  &-black{
+    background-color: rgba(0, 0, 0, 0.68);
+  }
+}

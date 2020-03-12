@@ -32,6 +32,10 @@ class Detail extends Component {
             )
         }
     }
+    componentWillMount(){
+        let userInfo = JSON.parse(localStorage.getItem('logInfo'));
+        if(!userInfo){window.location.href='/';}
+    }
 
     componentDidMount() {
         let uid = JSON.parse(localStorage.getItem('logInfo')).user.uid;

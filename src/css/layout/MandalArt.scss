@@ -119,26 +119,7 @@
   }
 }
 
-.bg{
-  &-blue{
-    background-color:#4093fb;
-    &.shadow{
-      box-shadow:0 10px 0 #1a63ee;
-    }
-  }
-  &-white{
-    background-color:white;
-  }
-  &-pink {
-    background-color: #ffa6bc;
-    &.shadow{
-      box-shadow:0 10px 0 #ff7ba0;
-    }
-  }
-  &-none{
-    background-color:transparent;
-  }
-}
+
 .box{
   &-round{
     border-radius:1rem;

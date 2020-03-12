@@ -4,6 +4,9 @@
     background-image:url('../../assets/index.jpg');
     background-size: initial;
     background-repeat: no-repeat;
+    @media(max-width:480px){
+      background:none;
+    }
   }
 }
 .question-icon{
