@@ -1,6 +1,7 @@
 .btn{
   border:0;
   cursor:pointer;
+  background:none;
 
   &.write{
     font-size:30px;
@@ -29,30 +30,26 @@
     font-size:13px;
     padding:0.5rem 1rem;
     border-radius:0.3rem;
-    background-color: #a388ff;
+    background-color: #ff83a8;
     color:#fff;
+
+
     &:hover{
-      background-color: darken(#a388ff,10%);
+      background-color: darken(#ff83a8,10%);
+
     }
   }
   &.delete{
-    font-size:13px;
-    padding:0.5rem 1rem;
-    border-radius:0.3rem;
-    background-color: #ff83a8;
-    color:#fff;
-    &:hover{
-      background-color: darken(#ff83a8,10%);
-    }
+    font-size:20px;
+    border:2px solid red;
+    color: #ff1f28;
+    border-radius:50%;
   }
   &.print{
     font-size:13px;
     padding:0.5rem 1rem;
-    border-radius:0.3rem;
-    background-color: #ff83a8;
-    color:#fff;
     &:hover{
-      background-color: darken(#ff83a8,10%);
+      font-weight:600;
     }
   }
 }

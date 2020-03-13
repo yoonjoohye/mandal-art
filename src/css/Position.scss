@@ -37,6 +37,9 @@
   &-between {
     justify-content: space-between;
   }
+  &-end{
+    justify-content: flex-end;
+  }
 }
 
 .items-center {
@@ -70,7 +73,9 @@
 .mt-20{
   margin-top:20px;
 }
-
+.mr-5{
+  margin-right:5px;
+}
 .mr-10 {
   margin-right: 10px;
 }

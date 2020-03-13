@@ -4,6 +4,8 @@ import {Redirect} from 'react-router-dom';
 import * as firebase from "firebase";
 
 
+
+
 const Delete=(props)=>{
     const [redirect,setRedirect]=useState(false);
 
@@ -24,7 +26,7 @@ const Delete=(props)=>{
                     // console.log(key);
                 }
             }
-            console.log(keyList[props.pageNo]);
+            // console.log(keyList[props.pageNo]);
             //삭제
             database.ref(`mandal/${uid}/${keyList[props.pageNo]}`).remove();
         });
@@ -41,7 +43,7 @@ const Delete=(props)=>{
             {
                redirect && <Redirect to='/list'/>
             }
-            <button className="btn delete" onClick={onDelete}>삭제</button>
+            <button className="btn delete" onClick={onDelete}>X</button>
         </>
     );
 
