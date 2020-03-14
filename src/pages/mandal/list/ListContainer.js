@@ -4,6 +4,7 @@ import * as firebase from "firebase";
 import {Redirect} from 'react-router-dom';
 
 import List from '../../../components/mandal/List.js';
+
 class ListContainer extends Component {
 
     constructor(props) {
@@ -12,9 +13,12 @@ class ListContainer extends Component {
             list: []
         }
     }
-    componentWillMount(){
+
+    componentWillMount() {
         let userInfo = JSON.parse(localStorage.getItem('logInfo'));
-        if(!userInfo){window.location.href='/';}
+        if (!userInfo) {
+            window.location.href = '/';
+        }
     }
 
     componentDidMount() {
@@ -55,19 +59,21 @@ class ListContainer extends Component {
 
                 <div className="mandal-section">
                     <div className="container">
-                        <div className="mandal-banner flex justify-between items-center mb-50">
-                            <div className="font-lg font-white">
-                                나만의 <span className="yellow">만다라트</span>로<br/>
-                                인생을 즐겁게!
-                            </div>
-                            <div className="flex flex-col">
-                                <span className="font-lg text-center  font-white">{userInfo.user.displayName}</span>
-                                <span className="font-white">{userInfo.user.email}</span>
+                        <div className="mandal-banner mb-50">
+                            <div className="px-4 py-2 p-1-m flex justify-between items-center">
+                                <div className="font-lg font-white">
+                                    나만의 <span className="yellow">만다라트</span>로<br/>
+                                    인생을 즐겁게!
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className="font-lg text-center  font-white">{userInfo.user.displayName}</span>
+                                    <span className="font-white">{userInfo.user.email}</span>
+                                </div>
                             </div>
                         </div>
                         <div className="mandal-list flex flex-col">
                             {
-                                this.state.list.length!==0 ?
+                                this.state.list.length !== 0 ?
                                     this.state.list.map((data, index) => {
                                         return (
                                             <List key={index} data={data} index={index}></List>

@@ -7,7 +7,7 @@ const Print = () => {
     }
 
     return (
-            <button className="btn print mr-10" onClick={onPrint}><img className="print-icon mr-5" src={require('../../assets/icon/print.svg')}/>인쇄하기</button>
+            <button className="btn print" onClick={onPrint}><img className="print-icon mr-5" src={require('../../assets/icon/print.svg')}/>인쇄하기</button>
     );
 
 }

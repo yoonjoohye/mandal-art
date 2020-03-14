@@ -10,13 +10,15 @@
   @media(max-width:480px){
     grid-gap: 0.4rem;
     padding: 0;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
+
   }
 }
 
 .inner-grid {
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 5px;
-  //box-shadow: 0 3px 17px #0000002e;
+  grid-gap: 3px;
+  //box-shadow: 0 3px 17px #00`00002e;
 }
 
 @media print {
@@ -85,7 +87,7 @@
     border: .05rem solid #ececec;
     margin-bottom: 10px;
     @media(max-width:480px){
-      padding:1rem 2rem;
+      padding:1rem 1.5rem;
     }
   }
 
@@ -93,11 +95,8 @@
     background-color: #4093fb;
     border-radius: 1rem;
     box-shadow: 0 9px 0 #1a63ee;
-    padding: 2rem 4rem;
+    width:100%;
 
-    @media(max-width:480px){
-      padding:1rem 2rem;
-    }
   }
 
   &-profile-img {
@@ -113,8 +112,8 @@
     &.shadow{
       box-shadow: 5px 5px 15px #00000026;
     }
-    @media(max-width:480px){
-      width:250px;
+    @media(max-width:1024px){
+      width:100%;
     }
   }
 }

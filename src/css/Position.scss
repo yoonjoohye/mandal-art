@@ -27,7 +27,6 @@
   &-wrap {
     flex-wrap: wrap;
   }
-
 }
 
 .justify {
@@ -91,9 +90,15 @@
 }
 .mb-30{
   margin-bottom:30px;
+  @media(max-width:480px){
+    margin-bottom:20px;
+  }
 }
 .mb-50{
   margin-bottom:50px;
+  @media(max-width:480px){
+    margin-bottom:30px;
+  }
 }
 .mb-20{
   margin-bottom:20px;
@@ -118,9 +123,6 @@
   @media(max-width:1024px){
     margin-bottom:50px;
   }
-  @media(max-width:480px){
-    margin-bottom:20px;
-  }
 }
 .mb-5{
   margin-bottom:5px;
@@ -141,12 +143,25 @@
   padding-top:2rem;
   padding-bottom:2rem;
 }
+.py-3{
+  padding-top:3rem;
+  padding-bottom:3rem;
+}
 .px-1{
   padding-right:1rem;
   padding-left:1rem;
 }
+.px-4{
+  padding-right:4rem;
+  padding-left:4rem;
+}
 .p-1{
   padding:0.5rem;
+  &-m{
+    @media(max-width:480px){
+      padding:1rem 1.5rem;
+    }
+  }
 }
 .p-4{
   padding:4rem!important;

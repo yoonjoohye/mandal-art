@@ -41,7 +41,7 @@
   }
   &.delete{
     font-size:20px;
-    border:2px solid red;
+    border:2px solid #ff1f28;
     color: #ff1f28;
     border-radius:50%;
   }
@@ -50,6 +50,10 @@
     padding:0.5rem 1rem;
     &:hover{
       font-weight:600;
+    }
+    @media(max-width:480px){
+      font-size: 15px;
+      border: 1px solid #ff1f28;
     }
   }
 }

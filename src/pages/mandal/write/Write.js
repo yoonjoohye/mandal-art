@@ -51,8 +51,8 @@ class Write extends Component {
                         isOpen={true}
                         isConfirm={false}
                         title="로그인이 필요"
-                        contents="3초만에 구글 계정으로 로그인하세요.<br/>로그인 후 만다라트 계획표를 세워보세요!"
-                        buttonName="홈으로 이동"
+                        contents="<b>3초</b>만에 <b>구글 계정</b>으로 로그인하세요.<br/>로그인 후 만다라트 계획표를 세워보세요!"
+                        buttonName="홈으로 가기"
                         img={require('../../../assets/icon/login.svg')}
                         path="/"
                     />

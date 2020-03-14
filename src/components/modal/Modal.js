@@ -46,7 +46,7 @@ class Modal extends Component {
                                         </Link>
                                     </div>
                                     :
-                                    <Link to={path}><button className="btn delete">{buttonName}</button></Link>
+                                    <Link to={path}><button className="btn save">{buttonName}</button></Link>
                             }
                         </div>
 

@@ -11,7 +11,7 @@
   &-lg{
     font-size:50px;
     @media(max-width:480px){
-      font-size:24px;
+      font-size:23px;
     }
   }
   &-md{
@@ -45,6 +45,9 @@
   &-blue{
     color:#1a62ee;
   }
+  &-pink{
+    color:#ff83a8;
+  }
   &-gray{
     color:#8e8e8e;
   }
@@ -57,4 +60,8 @@
 }
 .text-shadow{
   text-shadow:10px -5px 3px rgba(0, 0, 0, 0.08);
+}
+
+.under-line{
+  text-decoration: underline;
 }
