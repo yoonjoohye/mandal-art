@@ -1,0 +1,37 @@
+.bg{
+  &-blue{
+    background-color:#4093fb;
+    &.shadow{
+      box-shadow:0 10px 0 #1a63ee;
+    }
+    &-m{
+      @media(max-width:480px){
+        background-color:#4093fb;
+      }
+    }
+  }
+  &-yellow{
+    background-color:#fff707;
+  }
+  &-white{
+    background-color:white;
+  }
+  &-main{
+    background-color:#b4e3ff85;
+  }
+  &-sub{
+    background-color:#b4e3ff3b;
+  }
+  &-pink {
+    background-color: #ffa6bc;
+    &.shadow{
+      box-shadow:0 10px 0 #ff7ba0;
+    }
+  }
+  &-none{
+    background-color:transparent;
+  }
+  &-black{
+    background-color: rgba(0, 0, 0, 0.68);
+  }
+}

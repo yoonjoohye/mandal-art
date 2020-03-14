@@ -12,7 +12,7 @@ class Nav extends Component {
         }).catch(function (error) {
             console.log(error);
         });
-        setTimeout(()=>{window.location.href = '/';},1000);
+        setTimeout(()=>{window.location.href = '/';},1500);
     }
 
     render() {

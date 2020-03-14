@@ -1,6 +1,7 @@
 .btn{
   border:0;
   cursor:pointer;
+  background:none;
 
   &.write{
     font-size:30px;
@@ -24,35 +25,41 @@
     &:hover{
       background-color: darken(#ff83a8,10%);
     }
-  }
-  &.edit{
-    font-size:13px;
-    padding:0.5rem 5rem;
-    border-radius:0.3rem;
-    background-color: #a388ff;
-    color:#fff;
-    &:hover{
-      background-color: darken(#a388ff,10%);
+    @media(max-width:480px){
+      font-size:11px;
+      padding:0.3rem 0.8rem;
     }
   }
-  &.delete{
+  &.edit{
     font-size:13px;
     padding:0.5rem 1rem;
     border-radius:0.3rem;
     background-color: #ff83a8;
     color:#fff;
+
     &:hover{
       background-color: darken(#ff83a8,10%);
     }
+    @media(max-width:480px){
+      font-size:11px;
+      padding:0.3rem 0.8rem;
+    }
   }
+  &.delete{
+    font-size:20px;
+    border:2px solid #ff1f28;
+    color: #ff1f28;
+    border-radius:50%;
+  }
+
   &.print{
     font-size:13px;
-    padding:0.5rem 5rem;
-    border-radius:0.3rem;
-    background-color: #ff83a8;
-    color:#fff;
+    padding:0.5rem 1rem;
     &:hover{
-      background-color: darken(#ff83a8,10%);
+      font-weight:600;
+    }
+    @media(max-width:480px){
+      font-size: 15px;
     }
   }
 }

@@ -14,10 +14,16 @@ body {
   font-family: 'NanumSquare', sans-serif;
   font-size:15px;
   font-weight:300;
+  line-height:1.5;
   color: #333333;
   @media(max-width:480px){
     font-size:12px;
   }
+}
+
+ol,ul{
+  margin:0;
+  padding-left:20px;
 }
 
 a {
@@ -28,4 +34,11 @@ a {
 p{
   line-height:1.8;
   margin:0;
+}
+
+.only-pc{
+  display:initial;
+  @media(max-width:480px){
+    display:none;
+  }
 }

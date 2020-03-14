@@ -51,7 +51,7 @@ const Edit = (props) => {
             {
                 redirect && <Redirect to='/list'/>
             }
-            <button className="btn edit" onClick={onEdit}>수정</button>
+            <button className="btn edit" onClick={onEdit}>수정완료</button>
         </>
     );
 

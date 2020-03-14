@@ -1,11 +1,8 @@
-import React,{useState} from 'react';
-import {Redirect} from 'react-router-dom';
-
+import React, {useEffect, useState} from 'react';
 import * as firebase from "firebase";
 
 
 const Delete=(props)=>{
-    const [redirect,setRedirect]=useState(false);
 
     const onDelete=(e)=>{
         e.preventDefault();
@@ -24,24 +21,20 @@ const Delete=(props)=>{
                     // console.log(key);
                 }
             }
-            console.log(keyList[props.pageNo]);
+            // console.log(keyList[props.pageNo]);
             //삭제
             database.ref(`mandal/${uid}/${keyList[props.pageNo]}`).remove();
+        }).then(()=>{
+           window.location.reload();
         });
-
-
-        setRedirect(true);
-
-
-        // window.location.href='/list';
-
     }
+
     return(
         <>
-            {
-               redirect && <Redirect to='/list'/>
-            }
-            <button className="btn delete" onClick={onDelete}>삭제</button>
+            {/*{*/}
+            {/*   redirect && <Redirect/>*/}
+            {/*}*/}
+            <button className="btn delete" onClick={onDelete}>X</button>
         </>
     );
 

@@ -60,7 +60,7 @@ class Table extends Component {
                             {table.map((data, dataIndex) => {
                                 return (
                                     <input
-                                        className="mandal-input"
+                                        className={ `mandal-input ${(tableIndex===4 && dataIndex===4 ? 'bg-main': tableIndex===4||dataIndex===4? 'bg-sub':'')}`}
                                         key={[dataIndex, tableIndex].join('_')}
                                         placeholder={this.onPlaceholder(tableIndex, dataIndex)} value={data}
                                         maxLength="8"
