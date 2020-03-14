@@ -59,17 +59,16 @@ class Write extends Component {
                 }
                 <section className="mandal-section">
                     <div className="container">
+                        <div className="text-right">
+                            <Save title={this.state.title} data={this.state.data}></Save>
+                        </div>
+
                         <div className="border-bottom py-1 mb-30">
                             <Title title={this.state.title} titleChange={this.titleChange}> </Title>
                         </div>
                         <div className="mb-30">
                             <Table data={this.state.data} tableChange={this.tableChange}></Table>
                         </div>
-
-                        <div className="text-center mb-50">
-                            <Save title={this.state.title} data={this.state.data}></Save>
-                        </div>
-
                     </div>
                 </section>
             </>

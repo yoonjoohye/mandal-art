@@ -57,9 +57,6 @@
   cursor: pointer;
 }
 
-.text-center{
-  text-align:center;
-}
 .ml-10{
   margin-left:10px;
 }
@@ -159,7 +156,7 @@
   padding:0.5rem;
   &-m{
     @media(max-width:480px){
-      padding:1rem 1.5rem;
+      padding:1rem 1.2rem;
     }
   }
 }

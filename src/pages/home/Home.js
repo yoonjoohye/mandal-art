@@ -67,7 +67,7 @@ class Home extends Component {
                             <img className="mandal-img shadow mr-50" src={require('../../assets/mandal.png')}/>
                         </div>
 
-                        <div>
+                        <div className="w-100">
                             <div className="box-title bg-blue font-bold yellow text-center mb-30">만다라트 계획표 작성법</div>
                             <ol>
                                 <li className="mb-20"><Link className="under-line font-blue font-medium" to="/write">만다라트

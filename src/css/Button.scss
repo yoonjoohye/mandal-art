@@ -25,6 +25,10 @@
     &:hover{
       background-color: darken(#ff83a8,10%);
     }
+    @media(max-width:480px){
+      font-size:11px;
+      padding:0.3rem 0.8rem;
+    }
   }
   &.edit{
     font-size:13px;
@@ -33,10 +37,12 @@
     background-color: #ff83a8;
     color:#fff;
 
-
     &:hover{
       background-color: darken(#ff83a8,10%);
-
+    }
+    @media(max-width:480px){
+      font-size:11px;
+      padding:0.3rem 0.8rem;
     }
   }
   &.delete{
@@ -45,6 +51,7 @@
     color: #ff1f28;
     border-radius:50%;
   }
+
   &.print{
     font-size:13px;
     padding:0.5rem 1rem;
@@ -53,7 +60,6 @@
     }
     @media(max-width:480px){
       font-size: 15px;
-      border: 1px solid #ff1f28;
     }
   }
 }

@@ -29,6 +29,9 @@ class App extends Component {
         return (
             <Provider store={store}>
                 <BrowserRouter>
+                    {
+                        //(window.location.pathname)
+                    }
                     <Header/>
                     <Switch>
                         <Route exact path="/" component={Home}/>

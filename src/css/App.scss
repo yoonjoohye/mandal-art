@@ -35,3 +35,10 @@ p{
   line-height:1.8;
   margin:0;
 }
+
+.only-pc{
+  display:initial;
+  @media(max-width:480px){
+    display:none;
+  }
+}
