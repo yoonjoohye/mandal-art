@@ -6,7 +6,7 @@ const Edit = (props) => {
 
     const [title, setTitle] = useState();
     const [data, setData] = useState();
-    const [redirect, setRedirect] = useState(false);
+    // const [redirect, setRedirect] = useState(false);
 
 
     useEffect(() => {
@@ -40,17 +40,14 @@ const Edit = (props) => {
                 data: data,
                 time: date
             });
+        }).then(()=>{
+           window.location.href='/list';
         });
-
-        setRedirect(true);
 
     }
 
     return (
         <>
-            {
-                redirect && <Redirect to='/list'/>
-            }
             <button className="btn edit" onClick={onEdit}>수정완료</button>
         </>
     );
