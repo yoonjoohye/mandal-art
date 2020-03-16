@@ -40,15 +40,29 @@ class Table extends Component {
     }
 
     onPlaceholder = (tableIndex, dataIndex) => {
-        if (tableIndex === 4) {
-            if (dataIndex === 4) {
-                return '핵심목표';
-            } else {
+        if(window.screen.width>480){
+            if (tableIndex === 4) {
+                if (dataIndex === 4) {
+                    return '핵심목표';
+                } else {
+                    return '세부목표';
+                }
+            } else if (dataIndex === 4) {
                 return '세부목표';
             }
-        } else if (dataIndex === 4) {
-            return '세부목표';
         }
+        else {
+            if (tableIndex === 4) {
+                if (dataIndex === 4) {
+                    return '핵심';
+                } else {
+                    return '세부';
+                }
+            } else if (dataIndex === 4) {
+                return '세부';
+            }
+        }
+
     }
 
     render() {
@@ -60,7 +74,7 @@ class Table extends Component {
                             {table.map((data, dataIndex) => {
                                 return (
                                     <input
-                                        className={ `mandal-input ${(tableIndex===4 && dataIndex===4 ? 'bg-main': tableIndex===4||dataIndex===4? 'bg-sub':'')}`}
+                                        className={`mandal-input ${(tableIndex === 4 && dataIndex === 4 ? 'bg-main' : tableIndex === 4 || dataIndex === 4 ? 'bg-sub' : '')}`}
                                         key={[dataIndex, tableIndex].join('_')}
                                         placeholder={this.onPlaceholder(tableIndex, dataIndex)} value={data}
                                         maxLength="8"
