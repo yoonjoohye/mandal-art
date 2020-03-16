@@ -60,7 +60,7 @@ class Home extends Component {
                 <div className="h-100 py-3 container flex flex-col  justify-center">
                     <div className="mandal-banner mb-50">
                         <div className="px-4 py-2 p-1-m">
-                        <div className="font-white font-medium font-md yellow mb-20">✔ 작성 시 주의사항️</div>
+                        <div className="font-white font-medium font-md yellow mb-20">작성 시 주의사항️ ✓</div>
                         <ul className="font-white font-light">
                             <li className="mb-10"> 달성하기 어려운 목표도 안 되지만, 너무 쉬워서 동기 부여가 안 되는 것도 삼가야 합니다. (간단 명료하게 작성해야 합니다.)</li>
                             <li className="mb-10">핵심목표는 담대하게 작성해야 합니다. 노력하면 이룰 수 있는 목표를 작성해야 합니다.</li>
