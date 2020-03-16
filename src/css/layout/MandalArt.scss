@@ -77,7 +77,7 @@
   }
 
   &-input {
-    box-shadow: 0 3px 10px #0000002b;
+    box-shadow: 0 0 10px #0000002b;
     font-size: 14px;
     font-weight: 300;
     text-align: center;
@@ -85,9 +85,9 @@
     height: 50px;
     outline: none;
     border: 0;
-    //&:hover{
-    //  background-color:#ffb8d521;
-    //}
+    @media(max-width:1024px){
+      font-size: 12px;
+    }
     @media(max-width:480px){
       box-shadow: 0 0 5px #0000002b;
       font-size: 10px;
@@ -132,6 +132,12 @@
     }
   }
 }
+.nothing-img{
+  width:600px;
+  @media(max-width:1024px){
+    width:100%;
+  }
+}
 
 
 .box{
@@ -145,10 +151,8 @@
     border-radius:0.5rem;
     padding:0.5rem 1rem;
   }
-}
-.nothing-img{
-  @media(max-width:480px){
-    width:100%;
+  &-shadow{
+    box-shadow:0 0 20px rgba(0, 0, 0, 0.17);
   }
 }
 .print{
@@ -160,4 +164,25 @@
 .puzzle-icon{
   width:50px;
 
+}
+.bubble{
+  position: relative;
+  padding:0.5rem 1rem;
+  border:0;
+  border-radius:0.6rem;
+  background: linear-gradient(to right, #ffb8d5, #ff9bb6, #ff84a7);
+
+  &:after {
+  left: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-left-color: #ff84a7;
+  border-width: 8px;
+  margin-top: -8px;
+}
 }

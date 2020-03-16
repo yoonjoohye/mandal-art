@@ -12,7 +12,7 @@ import Guide from './pages/guide/Guide';
 
 import Write from "./pages/mandal/write/Index";
 import Detail from "./pages/mandal/detail/Index";
-import List from "./pages/mandal/list/Index";
+import Mypage from "./pages/mandal/mypage/Index";
 
 import NotFound from './pages/NotFound';
 // Redux 관련 불러오기
@@ -37,7 +37,7 @@ class App extends Component {
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/write" component={Write}/>
                         <Route exact path="/guide" component={Guide}/>
-                        <Route exact path="/list" component={List}/>
+                        <Route exact path="/mypage" component={Mypage}/>
 
                         <Route exact path="/detail/:id" component={Detail}/>
 

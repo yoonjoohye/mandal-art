@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-
 import * as firebase from "firebase";
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 
 import List from '../../../components/mandal/List.js';
+import ReactHelmet from "../../../components/ReactHelmet";
 
 class ListContainer extends Component {
 
@@ -53,9 +53,11 @@ class ListContainer extends Component {
         let userInfo = JSON.parse(localStorage.getItem('logInfo'));
         return (
             <section>
-                {/*{*/}
-                {/*    !userInfo && <Redirect to="/"/>*/}
-                {/*}*/}
+                <ReactHelmet
+                    title="마이페이지 - 나만의 만다라트"
+                    description="만다라트는 오타니쇼헤이의 성공비법으로 유명한 기법입니다. 홈페이지에서 나만의 만다라트를 세우고 성공목표를 세워보세요."
+                    keywords="만다라트, 계획, 계획표, 플랜, mandal, 사이트, 온라인, 프린트, 오타니쇼헤이, 성공, 제작, 홈페이지, success, mandalart, plan, 플래너, 나만의"
+                />
 
                 <div className="mandal-section">
                     <div className="container">
@@ -80,10 +82,20 @@ class ListContainer extends Component {
                                         );
                                     })
                                     :
-                                    <div className="px-1 text-center">
+
+                                    <div className="py-1 text-center">
                                         <img className="nothing-img" src={require('../../../assets/nothing.jpeg')}/>
                                     </div>
                             }
+                        </div>
+                        <div className="position-fixed bottom-10 right-5 flex items-center text-center">
+                            <div className="bubble font-white mr-10">바로 나만의 만다라트를 만들기</div>
+                            <div className="flex items-center">
+                                <div className="ping"></div>
+                                <Link to="/write">
+                                    <button className="btn floating"><img className="w-100" src={require('../../../assets/icon/plus.svg')}/></button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>

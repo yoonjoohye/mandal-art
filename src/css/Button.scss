@@ -2,6 +2,7 @@
   border:0;
   cursor:pointer;
   background:none;
+  outline:none;
 
   &.write{
     font-size:30px;
@@ -24,6 +25,9 @@
     color:#fff;
     &:hover{
       background-color: darken(#ff83a8,10%);
+    }
+    &.full{
+      width:100%;
     }
     @media(max-width:480px){
       font-size:11px;
@@ -61,5 +65,46 @@
     @media(max-width:480px){
       font-size: 15px;
     }
+  }
+  &.floating{
+    position:relative;
+    padding: 1rem;
+    width:70px;
+    height:70px;
+    background-color:#ff83a8;
+    border-radius:50%;
+    color: #fff;
+    @media (max-width:480px){
+      width:50px;
+      height:50px;
+    }
+  }
+}
+.ping {
+  position:absolute;
+  z-index:0;
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background-color: #ff83a8;
+  animation: ping 0.8s ease-in-out infinite both;
+  @media(max-width:480px){
+    width:50px;
+    height:50px;
+
+  }
+}
+@keyframes ping {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.8;
+  }
+  80% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
   }
 }

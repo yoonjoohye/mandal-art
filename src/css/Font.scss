@@ -4,12 +4,18 @@
 .font{
   &-xl{
     font-size:65px;
+    @media(max-width:1024px){
+      font-size: 60px;
+    }
     @media(max-width:480px){
       font-size:35px;
     }
   }
   &-lg{
     font-size:50px;
+    @media(max-width:1024px){
+      font-size: 33px;
+    }
     @media(max-width:480px){
       font-size:23px;
     }
@@ -21,7 +27,7 @@
     }
   }
   &-xmd{
-    font-size:18px;
+    font-size:20px;
     @media(max-width:480px){
       font-size:15px;
     }
