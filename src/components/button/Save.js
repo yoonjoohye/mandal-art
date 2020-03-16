@@ -39,7 +39,6 @@ const Save = (props) => {
         } else{
             props.onOpen(true);
         }
-
     }
 
     return (

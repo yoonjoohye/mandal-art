@@ -49,12 +49,6 @@ class Write extends Component {
             isOpenModal: bool
         });
     }
-    onModalClose=(data)=>{
-        this.setState({
-            ...this.state,
-            isOpenModal:data
-        });
-    }
 
     render() {
         let userInfo = JSON.parse(localStorage.getItem('logInfo'));
