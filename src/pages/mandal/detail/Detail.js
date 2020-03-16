@@ -10,6 +10,7 @@ import Print from "../../../components/button/Print";
 import Edit from "../../../components/button/Edit";
 import Delete from "../../../components/button/Delete";
 import Title from "../../../components/mandal/Title";
+import ReactHelmet from "../../../components/ReactHelmet";
 
 
 class Detail extends Component {
@@ -125,6 +126,11 @@ class Detail extends Component {
     render() {
         return (
             <section className="mandal-section">
+                <ReactHelmet
+                    title="수정 - 나만의 만다라트"
+                    description="만다라트는 오타니쇼헤이의 성공비법으로 유명한 기법입니다. 홈페이지에서 나만의 만다라트를 세우고 성공목표를 세워보세요."
+                    keywords="만다라트, 계획, 계획표, 플랜, mandal, 사이트, 온라인, 프린트, 인쇄, 오타니쇼헤이, 성공, 제작, 홈페이지, success, mandalart, plan, 플래너, 나만의"
+                />
                 <div className="container">
                     <div className="flex justify-end">
                         <div className="only-pc mr-5"><Print></Print></div>

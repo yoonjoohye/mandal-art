@@ -41,7 +41,7 @@ const Edit = (props) => {
                 time: date
             });
         }).then(()=>{
-           window.location.href='/list';
+           window.location.href='/mypage';
         });
 
     }

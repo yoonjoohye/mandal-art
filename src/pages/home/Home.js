@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import '../../css/layout/Home.scss';
+import ReactHelmet from "../../components/ReactHelmet";
 
 class Home extends Component {
     render() {
         return (
             <section className="home-section">
+                <ReactHelmet
+                    title="만다라트 | 나만의 만다라트를 만들어 계획을 실천하세요"
+                    description="만다라트는 오타니쇼헤이의 성공비법으로 유명한 기법입니다. 홈페이지에서 나만의 만다라트를 세우고 성공목표를 세워보세요."
+                    keywords="만다라트, 계획, 계획표, 플랜, mandal, 사이트, 온라인, 프린트, 오타니쇼헤이, 성공, 제작, 홈페이지, success, mandalart, plan, 플래너, 나만의"
+                />
                 <div className="h-100 bg-blue-m container flex flex-col justify-center mb-200">
                     <div className="font-xl font-white mb-50">
                         함께, <span className="yellow">계획</span>을 세워요<br/>

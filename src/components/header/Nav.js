@@ -12,21 +12,29 @@ class Nav extends Component {
         }).catch(function (error) {
             console.log(error);
         });
-        setTimeout(()=>{window.location.href = '/';},1500);
+        setTimeout(()=>{window.location.reload();},1500);
     }
 
     render() {
         return (
             <div className="nav">
-                <div className="nav-container border-bottom">
+                <div className="flex flex-col items-center justify-center nav-container border-bottom">
                     <img className="nav-profile-img mb-20" src={this.props.userInfo.photoURL}/>
                     <div className="mb-5 font-medium">{this.props.userInfo.displayName}</div>
                     <div className="font-sm">{this.props.userInfo.email}</div>
                 </div>
                 <div className="nav-container border-bottom">
-                    <Link to="/list">
-                        <span className="font-sm">마이페이지 <span className="ml-10"> > </span></span>
+                    <Link className="flex items-center justify-between" to="/write">
+                        <div className="w-100 font-sm">만다라트 만들기</div>
+                        <div className="font-gray"> > </div>
                     </Link>
+                </div>
+                <div className="nav-container border-bottom">
+                    <Link className="flex items-center justify-between" to="/mypage">
+                        <div className="w-100 font-sm">마이페이지 </div>
+                        <div className="font-gray"> > </div>
+                    </Link>
+
                 </div>
                 <div className="nav-container">
                     <span className="font-sm nav-logout cursor-pointer" onClick={this.onLogout}>로그아웃</span>
