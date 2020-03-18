@@ -19,9 +19,11 @@ Manda(본질의 깨달음)+la(성취)+art(기술)의 합성어로 '목적을 달
 종이에 81칸을 그리고, 작성하고, 수정하면서 전용 사이트가 있으면 좋겠다고 생각했습니다.
 그래서 만다라트 계획표를 제작할 수 있는 사이트를 개발하게 되었습니다.
 
+### 기술
+> React, Firebase, react-helmet, Scss
+
 ### 캡쳐본
-![image](https://user-images.githubusercontent.com/26542929/76965228-48abfb80-6967-11ea-8539-3bfe057a00d3.png)
 
 ![image](https://user-images.githubusercontent.com/26542929/76965222-45b10b00-6967-11ea-8d00-b2f8381c58dc.png)
-
+![image](https://user-images.githubusercontent.com/26542929/76965228-48abfb80-6967-11ea-8539-3bfe057a00d3.png)
 ![image](https://user-images.githubusercontent.com/26542929/76965240-4c3f8280-6967-11ea-9da1-5a78bc84af3d.png)
