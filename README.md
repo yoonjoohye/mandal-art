@@ -14,8 +14,14 @@ Manda(본질의 깨달음)+la(성취)+art(기술)의 합성어로 '목적을 달
 - 하루하루가 똑같고, 목표 없이 살다가 지친 분
 - 인생 목표를 세우고 싶지만, 정리하기 힘드신 분
 
+### 왜 만들었는가
+똑같은 하루, 반복되는 일상에 지쳐서 인생 계획을 세우려고 만다라트 계획표를 작성하게 되었습니다.
+종이에 81칸을 그리고, 작성하고, 수정하면서 전용 사이트가 있으면 좋겠다고 생각했습니다.
+그래서 만다라트 계획표를 제작할 수 있는 사이트를 개발하게 되었습니다.
 
 ### 캡쳐본
-![image](https://user-images.githubusercontent.com/26542929/76108054-35bb3200-601d-11ea-9d49-18cb281f56dd.png)
-![image](https://user-images.githubusercontent.com/26542929/76107919-fab8fe80-601c-11ea-8912-c7e6a781ed58.png)
-![image](https://user-images.githubusercontent.com/26542929/76108138-5be0d200-601d-11ea-8a25-6ed974e9c8fd.png)
+![image](https://user-images.githubusercontent.com/26542929/76965228-48abfb80-6967-11ea-8539-3bfe057a00d3.png)
+
+![image](https://user-images.githubusercontent.com/26542929/76965222-45b10b00-6967-11ea-8d00-b2f8381c58dc.png)
+
+![image](https://user-images.githubusercontent.com/26542929/76965240-4c3f8280-6967-11ea-9da1-5a78bc84af3d.png)
