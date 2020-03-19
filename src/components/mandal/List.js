@@ -23,7 +23,7 @@ class List extends Component {
 
     render() {
         return (
-            <Link to={`/detail/${this.state.index}`} key={this.state.index}>
+            <Link to={`/${this.state.index}`} key={this.state.index}>
                 <div className="py-1 flex items-center justify-between border-bottom">
                     <div>
                         <div className="font-md mb-5">{this.state.data.title}</div>
