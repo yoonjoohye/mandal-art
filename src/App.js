@@ -32,15 +32,13 @@ class App extends Component {
                         //(window.location.pathname)
                     }
                     <Header/>
+                    <Route exact path="/" component={Home}/>
+                    <Route exact path="/write" component={Write}/>
+                    <Route exact path="/mypage" component={Mypage}/>
                     <Switch>
-                        <Route exact path="/" component={Home}/>
-                        <Route exact path="/write" component={Write}/>
-                        {/*<Route exact path="/guide" component={Guide}/>*/}
-                        <Route exact path="/mypage" component={Mypage}/>
-                        <Route exact path="/detail/:id" component={Detail}/>
-
-                        <Route path="" component={NotFound}/>
+                        <Route path="/detail/:id" component={Detail}/>
                     </Switch>
+                    <Route path="" component={NotFound}/>
                 </BrowserRouter>
             </Provider>
         );

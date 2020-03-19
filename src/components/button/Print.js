@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Print = (props) => {
+const Print = () => {
 
     const onPrint = () => {
         window.print();
@@ -8,7 +8,7 @@ const Print = (props) => {
 
     return (
             <div className="btn print" onClick={onPrint}>
-                <img className="print-icon mr-5" src={props.img}/>인쇄하기
+                <img className="print-icon mr-5" src={require('../../assets/icon/print.svg')}/>인쇄하기
             </div>
     );
 
