@@ -84,7 +84,7 @@ class ListContainer extends Component {
                                     :
 
                                     <div className="py-1 text-center">
-                                        <img className="nothing-img" src={require('../../../assets/nothing.jpeg')}/>
+                                        <img className="nothing-img" src={require('./../../../assets/nothing.jpeg')}/>
                                     </div>
                             }
                         </div>
@@ -93,7 +93,7 @@ class ListContainer extends Component {
                             <div className="flex items-center">
                                 <div className="ping"></div>
                                 <Link to="/write">
-                                    <button className="btn floating"><img className="w-100" src={require('../../../assets/icon/plus.svg')}/></button>
+                                    <button className="btn floating"><img className="w-100" src={require('./../../../assets/icon/plus.svg')}/></button>
                                 </Link>
                             </div>
                         </div>
