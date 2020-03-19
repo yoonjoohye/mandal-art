@@ -37,7 +37,6 @@ class App extends Component {
                         <Route exact path="/write" component={Write}/>
                         {/*<Route exact path="/guide" component={Guide}/>*/}
                         <Route exact path="/mypage" component={Mypage}/>
-
                         <Route exact path="/detail/:id" component={Detail}/>
 
                         <Route path="" component={NotFound}/>

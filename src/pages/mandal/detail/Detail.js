@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 
 import * as firebase from "firebase";
 
-
 import {List, fromJS} from 'immutable';
 
 import Table from '../../../components/mandal/Table';
 import Print from "../../../components/button/Print";
 import Edit from "../../../components/button/Edit";
-import Delete from "../../../components/button/Delete";
+// import Delete from "../../../components/button/Delete";
 import Title from "../../../components/mandal/Title";
+
 import ReactHelmet from "../../../components/ReactHelmet";
 
 
@@ -138,7 +138,7 @@ class Detail extends Component {
 
                     <div className="container">
                         <div className="flex justify-end">
-                            <div className="only-pc mr-5"><Print></Print></div>
+                            <div className="only-pc mr-5"><Print img={require('../../../assets/icon/print.svg')}></Print></div>
                             <div><Edit title={this.state.title} data={this.state.data}
                                        pageNo={this.props.match.params.id}></Edit></div>
                             {/*<Delete pageNo={this.props.match.params.id}></Delete>*/}
@@ -150,7 +150,6 @@ class Detail extends Component {
                         <div>
                             <Table data={this.state.data} tableChange={this.tableChange}></Table>
                         </div>
-
 
                     </div>
                 </section>
