@@ -138,10 +138,13 @@ class Detail extends Component {
                 <section className="mandal-section">
                     <div className="container">
                         <div className="flex justify-end">
-                            <div className="only-pc mr-5"><Print></Print></div>
-                            <div><Edit title={this.state.title} data={this.state.data}
-                                       pageNo={this.props.match.params.id}></Edit></div>
-                            {/*<Delete pageNo={this.props.match.params.id}></Delete>*/}
+                            <div className="only-pc mr-5">
+                                <Print></Print>
+                            </div>
+                            <div>
+                                <Edit title={this.state.title} data={this.state.data}
+                                       pageNo={this.props.match.params.id}></Edit>
+                            </div>
                         </div>
                         <div className="border-bottom py-1 mb-30">
                             <Title title={this.state.title} titleChange={this.titleChange}> </Title>
