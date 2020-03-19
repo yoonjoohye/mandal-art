@@ -33,9 +33,12 @@ class Detail extends Component {
             )
         }
     }
-    componentWillMount(){
+
+    componentWillMount() {
         let userInfo = JSON.parse(localStorage.getItem('logInfo'));
-        if(!userInfo){window.location.href='/';}
+        if (!userInfo) {
+            window.location.href = '/';
+        }
     }
 
     componentDidMount() {
@@ -125,29 +128,33 @@ class Detail extends Component {
 
     render() {
         return (
-            <section className="mandal-section">
+            <>
                 <ReactHelmet
                     title="수정 - 나만의 만다라트"
                     description="만다라트는 오타니쇼헤이의 성공비법으로 유명한 기법입니다. 홈페이지에서 나만의 만다라트를 세우고 성공목표를 세워보세요."
                     keywords="만다라트, 계획, 계획표, 플랜, mandal, 사이트, 온라인, 프린트, 인쇄, 오타니쇼헤이, 성공, 제작, 홈페이지, success, mandalart, plan, 플래너, 나만의"
                 />
-                <div className="container">
-                    <div className="flex justify-end">
-                        <div className="only-pc mr-5"><Print></Print></div>
-                        <div ><Edit title={this.state.title} data={this.state.data} pageNo={this.props.match.params.id}></Edit></div>
-                        {/*<Delete pageNo={this.props.match.params.id}></Delete>*/}
-                    </div>
-                    <div className="border-bottom py-1 mb-30">
-                        <Title title={this.state.title} titleChange={this.titleChange}> </Title>
-                    </div>
+                <section className="mandal-section">
 
-                    <div>
-                        <Table data={this.state.data} tableChange={this.tableChange}></Table>
+                    <div className="container">
+                        <div className="flex justify-end">
+                            <div className="only-pc mr-5"><Print></Print></div>
+                            <div><Edit title={this.state.title} data={this.state.data}
+                                       pageNo={this.props.match.params.id}></Edit></div>
+                            {/*<Delete pageNo={this.props.match.params.id}></Delete>*/}
+                        </div>
+                        <div className="border-bottom py-1 mb-30">
+                            <Title title={this.state.title} titleChange={this.titleChange}> </Title>
+                        </div>
+
+                        <div>
+                            <Table data={this.state.data} tableChange={this.tableChange}></Table>
+                        </div>
+
+
                     </div>
-
-
-                </div>
-            </section>
+                </section>
+            </>
         );
     }
 
