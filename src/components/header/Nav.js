@@ -19,7 +19,7 @@ class Nav extends Component {
         return (
             <div className="nav">
                 <div className="flex flex-col items-center justify-center nav-container border-bottom">
-                    <img className="nav-profile-img mb-20" src={this.props.userInfo.photoURL}/>
+                    <img alt="만다라트-유저이미지" className="nav-profile-img mb-20" src={this.props.userInfo.photoURL}/>
                     <div className="mb-5 font-medium">{this.props.userInfo.displayName}</div>
                     <div className="font-sm">{this.props.userInfo.email}</div>
                 </div>
