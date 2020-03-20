@@ -1,15 +1,29 @@
-@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
-
 html {
   width: 100vw;
   height: 100%;
   margin: 0;
 }
 
+@font-face {
+  font-family: "NanumSquareLight";
+  src: url(/font/NanumSquareL.eot);
+  src: url(/font/NanumSquareL.eot?#iefix) format('embedded-opentype'),
+  url(/font/NanumSquareL.woff) format('woff'),
+  url(/font/NanumSquareL.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: "NanumSquare";
+  src: url(/font/NanumSquareL.eot);
+  src: url(/font/NanumSquareL.eot?#iefix) format('embedded-opentype'),
+  url(/font/NanumSquareR.woff2) format('woff2'),
+  url(/font/NanumSquareR.woff) format('woff'),
+  url(/font/NanumSquareR.ttf) format('truetype');
+}
+
 body {
   width: 100vw;
   margin: 0;
-  /*background:linear-gradient(to right, #6e8fcc, rgba(155, 170, 206, 0.81), #afbdee);*/
   /*background: linear-gradient(to right, #c3c2e6, #f3dbe5, #fffbeb);*/
   font-family: 'NanumSquare', sans-serif;
   font-size:15px;
