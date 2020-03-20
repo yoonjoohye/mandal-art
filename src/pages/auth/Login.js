@@ -26,7 +26,7 @@ class Login extends Component {
         e.preventDefault();
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
             var provider = new firebase.auth.GoogleAuthProvider();
-            return firebase.auth().signInWithPopup(provider).then((authData) => {
+            return firebase.auth().signInWithRedirect(provider).then((authData) => {
                 this.setState({
                     user: JSON.stringify(authData)
                 });
@@ -42,7 +42,7 @@ class Login extends Component {
         e.preventDefault();
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
             var provider = new firebase.auth.FacebookAuthProvider();
-            return firebase.auth().signInWithPopup(provider).then((authData) => {
+            return firebase.auth().signInWithRedirect(provider).then((authData) => {
                 this.setState({
                     user: JSON.stringify(authData)
                 });
