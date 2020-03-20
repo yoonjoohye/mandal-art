@@ -18,6 +18,11 @@
   }
   &-white{
     background-color:white;
+    &-m{
+      @media(max-width:480px){
+        background-color:white;
+      }
+    }
   }
   &-main{
     background-color: #fff70361;

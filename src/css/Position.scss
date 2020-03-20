@@ -105,6 +105,12 @@
     margin-bottom:30px;
   }
 }
+.mb-70{
+  margin-bottom:70px;
+  @media(max-width:480px){
+    margin-bottom:55px;
+  }
+}
 .mb-20{
   margin-bottom:20px;
   @media(max-width:480px){
