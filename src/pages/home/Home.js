@@ -12,7 +12,7 @@ class Home extends Component {
                     keywords="만다라트, 계획, 계획표, 플랜, mandal, 사이트, 온라인, 프린트, 오타니쇼헤이, 성공, 제작, 홈페이지, success, mandalart, plan, 플래너, 나만의"
                 />
                 <section className="home-section">
-                    <div className="h-100 bg-white-m container flex flex-col justify-center mb-200">
+                    <div className="h-100 bg-blue-m container flex flex-col justify-center mb-200">
                         <div className="font-xl font-white mb-50">
                             함께, <span className="yellow">계획</span>을 세워요<br/>
                             지금 바로 시작하세요
