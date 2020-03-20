@@ -11,8 +11,9 @@ class Nav extends Component {
             localStorage.removeItem('logInfo');
         }).catch(function (error) {
             console.log(error);
+        }).then(()=>{
+            window.location.reload();
         });
-        setTimeout(()=>{window.location.reload();},1500);
     }
 
     render() {
