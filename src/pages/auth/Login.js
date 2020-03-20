@@ -7,7 +7,7 @@ class Login extends Component {
         super(props);
         this.state = {
             user: localStorage.getItem('logInfo'),
-            show:false,
+            show:true,
         };
     }
 
