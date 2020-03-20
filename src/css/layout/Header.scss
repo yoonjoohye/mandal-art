@@ -1,6 +1,7 @@
 .header {
     &-section {
         position: fixed;
+        z-index:2;
         top: 0;
         width: 100%;
         //background-color: rgba(255, 255, 255, 0.3);
@@ -20,12 +21,18 @@
         height:40px;
         position: relative;
         top: -2px;
+        @media(max-width:480px){
+            width:30px;
+            height:30px;
+        }
     }
     &-name{
-        padding:0.2rem 0.5rem;
         font-size:20px;
         font-weight:600;
         color:white;
+        @media(max-width:480px){
+            font-size:15px;
+        }
     }
     &-list {
         color:#f3dbe5;
@@ -48,4 +55,30 @@
     height:40px;
     border-radius:50%;
     vertical-align: middle;
+    @media(max-width:480px){
+        width:30px;
+        height:30px;
+    }
+}
+.login-box{
+    box-shadow: 0 0 10px #00000042;
+    width: 350px;
+    padding: 5rem;
+    background-color: #ffffffed;
+    border-radius: 0.5rem;
+    @media(max-width:480px){
+        width: 100%;
+        padding: 0;
+        box-shadow:none;
+        background-color: transparent;
+
+    }
+}
+.login-icon{
+    width:50px;
+    height:50px;
+    @media(max-width:480px){
+        width:30px;
+        height:30px;
+    }
 }

@@ -4,9 +4,25 @@
   background:none;
   outline:none;
 
+  &.login{
+    width:80%;
+    padding: 10px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    border-radius:0.5rem;
+    font-weight:500;
+    &.google{
+      background-color:white;
+    }
+    &.facebook{
+      background-color:#4267b2;
+      color:white;
+
+    }
+  }
   &.write{
     font-size:30px;
-    padding:1rem 2rem;
+    width:160px;
+    padding:1rem 1.2rem;
     background-color: #ff83a8;
     border-radius:0.5rem;
     color:#fff;
@@ -14,6 +30,7 @@
       background-color: darken(#ff83a8,10%);
     }
     @media(max-width:480px){
+      width:120px;
       font-size:15px;
     }
   }

@@ -14,40 +14,40 @@ class Header extends Component {
         }
     }
 
-    componentWillUpdate(nextProps, nextState, nextContext) {
-        if (nextState.user) {
-            localStorage.setItem('logInfo', nextState.user);
-        } else {
-            localStorage.removeItem('logInfo');
-        }
-    }
-
-    onLogin = (e) => {
-        e.preventDefault();
-        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
-            var provider = new firebase.auth.GoogleAuthProvider();
-            return firebase.auth().signInWithPopup(provider).then((authData) => {
-                this.setState({
-                    user: JSON.stringify(authData)
-                });
-            });
-        }).catch((error) => {
-            console.log(error);
-        });
-    }
-
-    onLogout = (e) => {
-        e.preventDefault();
-
-        firebase.auth().signOut().then(() => {
-            this.setState({
-                user: null
-            });
-        }).catch(function (error) {
-            console.log(error);
-        });
-        window.location.href = '/';
-    }
+    // componentWillUpdate(nextProps, nextState, nextContext) {
+    //     if (nextState.user) {
+    //         localStorage.setItem('logInfo', nextState.user);
+    //     } else {
+    //         localStorage.removeItem('logInfo');
+    //     }
+    // }
+    //
+    // onLogin = (e) => {
+    //     e.preventDefault();
+    //     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
+    //         var provider = new firebase.auth.GoogleAuthProvider();
+    //         return firebase.auth().signInWithPopup(provider).then((authData) => {
+    //             this.setState({
+    //                 user: JSON.stringify(authData)
+    //             });
+    //         });
+    //     }).catch((error) => {
+    //         console.log(error);
+    //     });
+    // }
+    //
+    // onLogout = (e) => {
+    //     e.preventDefault();
+    //
+    //     firebase.auth().signOut().then(() => {
+    //         this.setState({
+    //             user: null
+    //         });
+    //     }).catch(function (error) {
+    //         console.log(error);
+    //     });
+    //     window.location.href = '/';
+    // }
 
     onNav = () => {
         this.setState((prevState) => {
@@ -90,7 +90,7 @@ class Header extends Component {
                                         : <></>
                                     }
                                 </>
-                                : <span className="font-white cursor-pointer" onClick={this.onLogin}>로그인</span>
+                                : <Link to="/login"><span className="font-white cursor-pointer">로그인/가입</span></Link>
                         }
 
                     </div>

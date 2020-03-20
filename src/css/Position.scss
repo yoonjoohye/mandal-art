@@ -14,7 +14,12 @@
     position:fixed;
   }
 }
-
+.bottom-0{
+  bottom:0;
+}
+.left-50{
+  left:50%;
+}
 .bottom-10{
   bottom:10%;
 }
@@ -105,6 +110,12 @@
     margin-bottom:30px;
   }
 }
+.mb-70{
+  margin-bottom:70px;
+  @media(max-width:480px){
+    margin-bottom:55px;
+  }
+}
 .mb-20{
   margin-bottom:20px;
   @media(max-width:480px){
@@ -165,6 +176,9 @@
   &-m{
     @media(max-width:480px){
       padding:1rem 1.2rem;
+    }
+    @media(max-width:320px){
+      padding: 1rem 0.8rem;
     }
   }
 }

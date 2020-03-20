@@ -11,6 +11,7 @@
     }
   }
   &-opacity{
+    z-index: 3;
     background-color: #ffffff94;
   }
   &-yellow{
@@ -18,6 +19,11 @@
   }
   &-white{
     background-color:white;
+    &-m{
+      @media(max-width:480px){
+        background-color:white;
+      }
+    }
   }
   &-main{
     background-color: #fff70361;
@@ -35,6 +41,7 @@
     background-color:transparent;
   }
   &-black{
+    z-index: 3;
     background-color: rgba(0, 0, 0, 0.68);
   }
 }
