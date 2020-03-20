@@ -18,12 +18,11 @@ class Loading extends Component {
     render() {
         if (this.state.show) {
             return (
-                <div className="display-inline-block">
-                    <div className={'blinder'}/>
-                    <div className={'spinner'}>
-                        <img alt="만다라트-로딩" src={require('../assets/icon/loading.svg')}/>
+                <section className="w-100 h-100 bg-black position-fixed flex justify-center items-center">
+                    <div className="spinner">
+                        <img className="w-100" alt="만다라트-로딩" src={require('../assets/icon/loading.svg')}/>
                     </div>
-                </div>
+                </section>
             );
         }
         return(
