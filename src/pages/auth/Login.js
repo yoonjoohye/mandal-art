@@ -12,8 +12,7 @@ class Login extends Component {
 
     componentWillMount() {
         let userInfo = JSON.parse(localStorage.getItem('logInfo'));
-
-        if(userInfo){
+        if (userInfo) {
             window.history.go(-1);
         }
     }
@@ -23,9 +22,22 @@ class Login extends Component {
     }
 
     onGoogleLogin = (e) => {
+
+        // firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION).then(()=>{
+        //     let provider = new firebase.auth.GoogleAuthProvider();
+        //     firebase.auth().signInWithRedirect(provider).then((result)=> {
+        //         this.setState({
+        //             user: JSON.stringify(result)
+        //         });
+        //     }).catch((error)=>{
+        //         console.log(error);
+        //     });
+        // });
+
         e.preventDefault();
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
             let provider = new firebase.auth.GoogleAuthProvider();
+
             return firebase.auth().signInWithPopup(provider).then((authData) => {
                 this.setState({
                     user: JSON.stringify(authData)
@@ -34,7 +46,7 @@ class Login extends Component {
         }).catch((error) => {
             console.log(error);
         }).then(()=>{
-            window.location.reload();
+            window.location.href='/';
         })
     }
 
@@ -50,10 +62,9 @@ class Login extends Component {
         }).catch((error) => {
             console.log(error);
         }).then(()=>{
-            window.location.reload();
+            window.location.href='/';
         })
     }
-
 
     render() {
 
@@ -61,7 +72,9 @@ class Login extends Component {
             <section className="home-section">
                 <div className="h-100 bg-white-m container flex justify-center items-center">
                     <div className="login-box flex flex-col justify-center items-center">
-                        <div className="flex justify-center items-center font-md font-bold"><img className="login-icon mr-10" src={require('../../assets/icon/puzzle.svg')}/>Mandal-ART</div>
+                        <div className="flex justify-center items-center font-md font-bold"><img
+                            className="login-icon mr-10" src={require('../../assets/icon/puzzle.svg')}/>Mandal-ART
+                        </div>
                         <div className="font-medium mb-70">로그인</div>
 
                         <div className="flex items-center justify-between btn login google mb-20"
