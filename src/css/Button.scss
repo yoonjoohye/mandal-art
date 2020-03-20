@@ -21,7 +21,8 @@
   }
   &.write{
     font-size:30px;
-    padding:1rem 2rem;
+    width:160px;
+    padding:1rem 1.2rem;
     background-color: #ff83a8;
     border-radius:0.5rem;
     color:#fff;
@@ -29,6 +30,7 @@
       background-color: darken(#ff83a8,10%);
     }
     @media(max-width:480px){
+      width:120px;
       font-size:15px;
     }
   }

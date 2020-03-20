@@ -18,9 +18,10 @@ class Home extends Component {
                             함께, <span className="yellow">계획</span>을 세워요<br/>
                             지금 바로 시작하세요
                         </div>
-                        <Link className="display-inline-block" to="/write">
-                            <button className="btn write">시작하기</button>
-                        </Link>
+
+                        <button className="btn write">
+                            <Link className="font-white" to="/write">시작하기</Link>
+                        </button>
                         {/*<div className="position-absolute left-50 bottom-0">*/}
                         {/*    <div className="icon-scroll"></div>*/}
                         {/*    <div className="font-pink">scroll</div>*/}
@@ -97,9 +98,7 @@ class Home extends Component {
                         </div>
 
                         <div className="text-center">
-                            <Link to="/write">
-                                <button className="btn write">만다라트 만들러 가기</button>
-                            </Link>
+                            <button className="btn write"><Link className="font-white" to="/write">시작하기</Link></button>
                         </div>
                     </div>
                 </section>

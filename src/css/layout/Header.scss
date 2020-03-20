@@ -55,6 +55,10 @@
     height:40px;
     border-radius:50%;
     vertical-align: middle;
+    @media(max-width:480px){
+        width:30px;
+        height:30px;
+    }
 }
 .login-box{
     box-shadow: 0 0 10px #00000042;

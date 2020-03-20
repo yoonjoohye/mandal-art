@@ -38,21 +38,21 @@ class Login extends Component {
         })
     }
 
-    onFacebookLogin = (e) => {
-        e.preventDefault();
-        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
-            let provider = new firebase.auth.FacebookAuthProvider();
-            return firebase.auth().signInWithPopup(provider).then((authData) => {
-                this.setState({
-                    user: JSON.stringify(authData)
-                });
-            });
-        }).catch((error) => {
-            console.log(error);
-        }).then(()=>{
-            window.location.reload();
-        })
-    }
+    // onFacebookLogin = (e) => {
+    //     e.preventDefault();
+    //     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
+    //         let provider = new firebase.auth.FacebookAuthProvider();
+    //         return firebase.auth().signInWithPopup(provider).then((authData) => {
+    //             this.setState({
+    //                 user: JSON.stringify(authData)
+    //             });
+    //         });
+    //     }).catch((error) => {
+    //         console.log(error);
+    //     }).then(()=>{
+    //         window.location.reload();
+    //     })
+    // }
 
 
     render() {
@@ -70,12 +70,12 @@ class Login extends Component {
                                  src={require('../../assets/icon/google.svg')}/>
                             <div className="w-100 text-center">구글로 로그인</div>
                         </div>
-                        <div className="flex items-center justify-between btn login facebook"
-                             onClick={this.onFacebookLogin}>
-                            <img className="modal-icon" alt="만다라트-페이스북"
-                                 src={require('../../assets/icon/facebook.svg')}/>
-                            <div className="w-100 text-center">페이스북으로 로그인</div>
-                        </div>
+                        {/*<div className="flex items-center justify-between btn login facebook"*/}
+                        {/*     onClick={this.onFacebookLogin}>*/}
+                        {/*    <img className="modal-icon" alt="만다라트-페이스북"*/}
+                        {/*         src={require('../../assets/icon/facebook.svg')}/>*/}
+                        {/*    <div className="w-100 text-center">페이스북으로 로그인</div>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </section>
