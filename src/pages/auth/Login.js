@@ -1,19 +1,21 @@
 import React, {Component} from 'react';
 import * as firebase from "firebase/app";
-
+import Loading from "../../components/Loading";
 
 class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: localStorage.getItem('logInfo')
+            user: localStorage.getItem('logInfo'),
+            successLogin: 0,
+            show: false
         };
     }
 
     componentWillMount() {
         let userInfo = JSON.parse(localStorage.getItem('logInfo'));
 
-        if(userInfo){
+        if (userInfo) {
             window.history.go(-1);
         }
     }
@@ -24,44 +26,65 @@ class Login extends Component {
 
     onGoogleLogin = (e) => {
         e.preventDefault();
+        this.setState({
+            show: true
+        });
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
             let provider = new firebase.auth.GoogleAuthProvider();
             return firebase.auth().signInWithPopup(provider).then((authData) => {
                 this.setState({
-                    user: JSON.stringify(authData)
+                    user: JSON.stringify(authData),
+                    successLogin: 1
                 });
             });
         }).catch((error) => {
+            this.setState({
+                show: false
+            });
             console.log(error);
-        }).then(()=>{
-            window.location.reload();
+        }).then(() => {
+            if (this.state.successLogin === 1) {
+                window.location.reload();
+            }
         })
-    }
+    };
 
     onFacebookLogin = (e) => {
         e.preventDefault();
+        this.setState({
+            show: true
+        });
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
             let provider = new firebase.auth.FacebookAuthProvider();
             return firebase.auth().signInWithPopup(provider).then((authData) => {
                 this.setState({
-                    user: JSON.stringify(authData)
+                    user: JSON.stringify(authData),
+                    successLogin: 1
                 });
             });
         }).catch((error) => {
+            this.setState({
+                show: false
+            });
             console.log(error);
-        }).then(()=>{
-            window.location.reload();
+        }).then(() => {
+            if (this.state.successLogin === 1) {
+                window.location.reload();
+            }
         })
-    }
+    };
 
 
     render() {
 
         return (
             <section className="home-section">
+                <Loading show={this.state.show}/>
                 <div className="h-100 bg-white-m container flex justify-center items-center">
                     <div className="login-box flex flex-col justify-center items-center">
-                        <div className="flex justify-center items-center font-md font-bold"><img className="login-icon mr-10" src={require('../../assets/icon/puzzle.svg')}/>Mandal-ART</div>
+                        <div className="flex justify-center items-center font-md font-bold"><img
+                            className="login-icon mr-10" src={require('../../assets/icon/puzzle.svg')}/>Mandal-ART
+                        </div>
                         <div className="font-medium mb-70">로그인</div>
 
                         <div className="flex items-center justify-between btn login google mb-20"
