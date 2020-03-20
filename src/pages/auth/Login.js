@@ -25,8 +25,8 @@ class Login extends Component {
     onGoogleLogin = (e) => {
         e.preventDefault();
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
-            var provider = new firebase.auth.GoogleAuthProvider();
-            return firebase.auth().signInWithRedirect(provider).then((authData) => {
+            let provider = new firebase.auth.GoogleAuthProvider();
+            return firebase.auth().signInWithPopup(provider).then((authData) => {
                 this.setState({
                     user: JSON.stringify(authData)
                 });
@@ -41,8 +41,8 @@ class Login extends Component {
     onFacebookLogin = (e) => {
         e.preventDefault();
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
-            var provider = new firebase.auth.FacebookAuthProvider();
-            return firebase.auth().signInWithRedirect(provider).then((authData) => {
+            let provider = new firebase.auth.FacebookAuthProvider();
+            return firebase.auth().signInWithPopup(provider).then((authData) => {
                 this.setState({
                     user: JSON.stringify(authData)
                 });

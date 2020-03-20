@@ -11,6 +11,7 @@
     }
   }
   &-opacity{
+    z-index: 3;
     background-color: #ffffff94;
   }
   &-yellow{
@@ -40,6 +41,7 @@
     background-color:transparent;
   }
   &-black{
+    z-index: 3;
     background-color: rgba(0, 0, 0, 0.68);
   }
 }

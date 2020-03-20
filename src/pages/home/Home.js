@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import ReactHelmet from "../../components/ReactHelmet";
 
 class Home extends Component {
+
     render() {
         return (
             <>
@@ -17,9 +18,13 @@ class Home extends Component {
                             함께, <span className="yellow">계획</span>을 세워요<br/>
                             지금 바로 시작하세요
                         </div>
-                        <Link to="/write">
+                        <Link className="display-inline-block" to="/write">
                             <button className="btn write">시작하기</button>
                         </Link>
+                        {/*<div className="position-absolute left-50 bottom-0">*/}
+                        {/*    <div className="icon-scroll"></div>*/}
+                        {/*    <div className="font-pink">scroll</div>*/}
+                        {/*</div>*/}
                     </div>
                     <div className="h-100 py-3 container flex flex-col items-center justify-center border-bottom">
                         <div className=" flex flex-col-m justify-between">
