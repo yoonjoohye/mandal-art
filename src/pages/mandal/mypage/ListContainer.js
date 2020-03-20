@@ -84,7 +84,7 @@ class ListContainer extends Component {
                                     :
 
                                     <div className="py-1 text-center">
-                                        <img alt="만다라트-존재하지않는이미지" className="nothing-img" src={require('./../../../assets/nothing.jpeg')}/>
+                                        <img alt="만다라트-존재하지않는이미지" className="nothing-img" src={require('./../../../assets/nothing.jpg')}/>
                                     </div>
                             }
                         </div>

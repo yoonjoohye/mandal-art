@@ -25,7 +25,7 @@ class Home extends Component {
                     <div className=" flex flex-col-m justify-between">
                         <>
                             <img alt="만다라트-오타니쇼헤이" className="mandal-img shadow mr-50"
-                                 src={require('../../assets/mandal-otani.png')}/>
+                                 src={require('../../assets/mandal-otani.jpg')}/>
                         </>
                         <div className="flex flex-col justify-between">
 
@@ -70,7 +70,7 @@ class Home extends Component {
                     </div>
                     <div className="flex flex-col-m items-center justify-center mb-100">
                         <div>
-                            <img alt="만다라트-쓰는법" className="mandal-img shadow mr-50" src={require('../../assets/mandal.png')}/>
+                            <img alt="만다라트-쓰는법" className="mandal-img shadow mr-50" src={require('../../assets/mandal.jpg')}/>
                         </div>
 
                         <div className="w-100">
