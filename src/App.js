@@ -28,20 +28,16 @@ class App extends Component {
         return (
             <Provider store={store}>
                 <BrowserRouter>
-                    {
-                        //(window.location.pathname)
-                    }
                     <Header/>
+
                     <Switch>
                         <Route exact path="/" component={Home}/>
-                        <Route exact path="/write" component={Write}/>
-                        {/*<Route exact path="/guide" component={Guide}/>*/}
-                        <Route exact path="/mypage" component={Mypage}/>
-
-                        <Route exact path="/detail/:id" component={Detail}/>
-
+                        <Route path="/write" component={Write}/>
+                        <Route path="/mypage" component={Mypage}/>
+                        <Route path="/detail/:id" component={Detail}/>
                         <Route path="" component={NotFound}/>
                     </Switch>
+
                 </BrowserRouter>
             </Provider>
         );

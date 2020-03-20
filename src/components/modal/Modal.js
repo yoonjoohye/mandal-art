@@ -35,7 +35,7 @@ class Modal extends Component {
                                     {
                                         img.length > 0 ?
                                             <div className="mb-10">
-                                                <img className="modal-icon" src={img}/>
+                                                <img alt="만다라트-모달" className="modal-icon" src={img}/>
                                             </div> :
                                             null
                                     }

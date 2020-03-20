@@ -24,7 +24,7 @@ class Home extends Component {
                 <div className="h-100 py-3 container flex flex-col items-center justify-center border-bottom">
                     <div className=" flex flex-col-m justify-between">
                         <>
-                            <img className="mandal-img shadow mr-50"
+                            <img alt="만다라트-오타니쇼헤이" className="mandal-img shadow mr-50"
                                  src={require('../../assets/mandal-otani.png')}/>
                         </>
                         <div className="flex flex-col justify-between">
@@ -70,7 +70,7 @@ class Home extends Component {
                     </div>
                     <div className="flex flex-col-m items-center justify-center mb-100">
                         <div>
-                            <img className="mandal-img shadow mr-50" src={require('../../assets/mandal.png')}/>
+                            <img alt="만다라트-쓰는법" className="mandal-img shadow mr-50" src={require('../../assets/mandal.png')}/>
                         </div>
 
                         <div className="w-100">
