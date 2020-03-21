@@ -113,7 +113,12 @@
 .mb-70{
   margin-bottom:70px;
   @media(max-width:480px){
-    margin-bottom:55px;
+    margin-bottom:65px;
+  }
+  &-m{
+    @media(max-width:480px) {
+      margin-bottom: 70px;
+    }
   }
 }
 .mb-20{

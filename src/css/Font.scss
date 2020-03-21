@@ -63,12 +63,12 @@
   &-gray{
     color:#8e8e8e;
   }
-  &-round{
-    font-family:'Jua';
-  }
   &-shadow{
     text-shadow: 3px -4px 0px #1a63ee;
   }
+}
+.keep-all{
+  word-break: keep-all;
 }
 .text-shadow{
   text-shadow:10px -5px 3px rgba(0, 0, 0, 0.08);

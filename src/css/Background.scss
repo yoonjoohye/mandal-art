@@ -52,3 +52,19 @@
   position: fixed;
   z-index: 99;
 }
+
+.box{
+  &-round{
+    border-radius:1rem;
+    @media(max-width:480px){
+      border-radius: 0.8rem;
+    }
+  }
+  &-title{
+    border-radius:0.5rem;
+    padding:0.5rem 1rem;
+  }
+  &-shadow{
+    box-shadow:0 0 20px rgba(0, 0, 0, 0.17);
+  }
+}
