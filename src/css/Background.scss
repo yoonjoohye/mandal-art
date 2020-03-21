@@ -9,7 +9,28 @@
         background-color:#4093fb;
       }
     }
+    &-gradient{
+      -webkit-animation: color-change-2x 1s linear infinite alternate both;
+      animation: color-change-2x 1s linear infinite alternate both;
+    }
   }
+  @-webkit-keyframes color-change-2x {
+    0% {
+      background: #4093fb;
+    }
+    100% {
+      background: #1a63ee;
+    }
+  }
+  @keyframes color-change-2x {
+    0% {
+      background: #4093fb;
+    }
+    100% {
+      background: #1a63ee;
+    }
+  }
+
   &-opacity{
     z-index: 3;
     background-color: #ffffff94;
