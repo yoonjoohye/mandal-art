@@ -31,7 +31,7 @@ class Modal extends Component {
                     isOpen ?
 
                             <section className="w-100 h-100 bg-black position-fixed flex justify-center items-center">
-                                <div className="modal-box bg-white box-round px-2 py-2 text-center">
+                                <div className="fade-in modal-box bg-white box-round px-2 py-2 text-center">
                                     {
                                         img.length > 0 ?
                                             <div className="mb-10">

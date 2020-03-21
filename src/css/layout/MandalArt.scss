@@ -108,11 +108,6 @@
 
   }
 
-  &-profile-img {
-    width: 80px;
-    height: 80px;
-    border-radius:50%;
-  }
   &-img{
     width:600px;
     height: auto;
@@ -126,6 +121,7 @@
     }
   }
 }
+
 .nothing-img{
   width:600px;
   @media(max-width:1024px){
@@ -134,49 +130,12 @@
 }
 
 
-.box{
-  &-round{
-    border-radius:1rem;
-    @media(max-width:480px){
-     border-radius: 0.8rem;
-    }
-  }
-  &-title{
-    border-radius:0.5rem;
-    padding:0.5rem 1rem;
-  }
-  &-shadow{
-    box-shadow:0 0 20px rgba(0, 0, 0, 0.17);
-  }
-}
-.print{
-  &-icon{
+
+.print-icon{
     vertical-align: middle;
     width: 20px;
-  }
 }
 .puzzle-icon{
   width:50px;
 
-}
-.bubble{
-  position: relative;
-  padding:0.5rem 1rem;
-  border:0;
-  border-radius:0.6rem;
-  background: linear-gradient(to right, #ffb8d5, #ff9bb6, #ff84a7);
-
-  &:after {
-  left: 100%;
-  top: 50%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-  border-left-color: #ff84a7;
-  border-width: 8px;
-  margin-top: -8px;
-}
 }

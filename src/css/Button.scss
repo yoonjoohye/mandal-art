@@ -5,8 +5,8 @@
   outline:none;
 
   &.login{
-    width:80%;
-    padding: 10px;
+    width:100%;
+    padding: 0.8rem;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
     border-radius:0.5rem;
     font-weight:500;
@@ -48,7 +48,7 @@
     }
     @media(max-width:480px){
       font-size:11px;
-      padding:0.3rem 0.8rem;
+      padding:0.5rem 0.8rem;
     }
   }
   &.edit{
@@ -125,5 +125,26 @@
   100% {
     transform: scale(2.8);
     opacity: 0;
+  }
+}
+.bubble{
+  position: relative;
+  padding:0.5rem 1rem;
+  border:0;
+  border-radius:0.6rem;
+  background: linear-gradient(to right, #ffb8d5, #ff9bb6, #ff84a7);
+
+  &:after {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-left-color: #ff84a7;
+    border-width: 8px;
+    margin-top: -8px;
   }
 }
