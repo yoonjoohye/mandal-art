@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import * as firebase from "firebase";
 import {Redirect, Link} from 'react-router-dom';
 
@@ -86,7 +87,7 @@ class ListContainer extends Component {
                                     :
 
                                     <div className="py-1 text-center">
-                                        <img alt="만다라트-존재하지않는이미지" className="nothing-img" src={require('./../../../assets/nothing.jpg')}/>
+                                        <img alt="만다라트-존재하지않는이미지" className="nothing-img" src={require('../../../assets/nothing.jpg')}/>
                                     </div>
                             }
                         </div>
@@ -95,7 +96,7 @@ class ListContainer extends Component {
                             <div className="flex items-center">
                                 <div className="ping"></div>
                                 <Link to="/write">
-                                    <button className="btn floating"><img alt="만다라트-추가" className="w-100" src={require('./../../../assets/icon/plus.svg')}/></button>
+                                    <button className="btn floating"><img alt="만다라트-추가" className="w-100" src={require('../../../assets/icon/plus.svg')}/></button>
                                 </Link>
                             </div>
                         </div>
