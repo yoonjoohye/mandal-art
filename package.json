@@ -10,7 +10,6 @@
     "aos": "^2.3.4",
     "firebase": "^7.6.1",
     "immutable": "^4.0.0-rc.12",
-    "materialize-css": "^1.0.0-rc.2",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -19,6 +18,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
     "sass-loader": "^8.0.2"
   },
   "scripts": {

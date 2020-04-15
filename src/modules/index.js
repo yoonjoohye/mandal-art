@@ -3,7 +3,8 @@ import { combineReducers } from 'redux';
 import modal from './modal';
 import login from './login';
 
-export default combineReducers({
+const rootReducer=combineReducers({
     modal,
     login
 });
+export default rootReducer;

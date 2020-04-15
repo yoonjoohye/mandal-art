@@ -32,8 +32,8 @@ class Home extends Component {
                         <div data-aos="zoom-in" className="text-center mb-100 mt-200">
                             <div className="font-lg font-medium py-1">만다라트란?</div>
                             <div className=" font-gray mb-50">
-                                만다라트(Mandal-Art) 기법은 일본의 '이마이즈미 히로아키'가 구상했습니다.<br/>
-                                Manda(본질의 깨달음)+la(성취)+art(기술)의 합성어로 '목적을 달성하는 기술'을 뜻합니다.<br/>
+                                <span className="only-pc">만다라트(Mandal-Art) 기법은</span> 일본의 '이마이즈미 히로아키'가 구상했습니다.<br/>
+                                Manda(본질의 깨달음)+la(성취)+art(기술)의 합성어로<br className="only-mobile"/> '목적을 달성하는 기술'을 뜻합니다.<br/>
                             </div>
                         </div>
                         <div data-aos="zoom-in" className="flex items-center justify-between mb-150">
@@ -77,7 +77,7 @@ class Home extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="p-4 container bg-blue-gradient flex flex-col items-center justify-center border-bottom">
+                    <div className="h-100 container bg-blue flex flex-col items-center justify-center">
                         <div className="font-lg font-medium font-white text-center mb-50">
                             이제 시작해볼까요?<br/>
                             함께, 만다라트를 만들어요

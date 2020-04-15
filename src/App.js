@@ -15,14 +15,15 @@ import ServiceUseRule from "./pages/auth/ServiceUseRule";
 import PrivacyRule from "./pages/auth/PrivacyRule";
 
 // Redux 관련 불러오기
+// reducer
+import rootReducer from './modules';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-
-// reducer
-import reducers from './redux/reducers/index';
+import {composeWithDevTools} from "redux-devtools-extension";
 
 // 스토어 생성
-const store = createStore(reducers);
+const store = createStore(rootReducer,composeWithDevTools());
+
 
 class App extends Component {
 
