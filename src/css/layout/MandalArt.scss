@@ -81,14 +81,14 @@
     font-size: 12px;
     font-weight: 300;
     text-align: center;
-    word-break: break-all;
+    word-break: keep-all;
     width: 100%;
     height: auto;
     overflow-y: hidden;
     overflow-x: hidden;
     resize: none;
     outline: none;
-    padding: 15px 0 40px 0;
+    padding: 20px 0 40px 0;
     border: 0;
     @media(max-width: 1024px) {
       overflow-y: auto;
