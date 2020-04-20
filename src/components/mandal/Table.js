@@ -8,7 +8,7 @@ class Table extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: this.props.data
+            data: this.props.data,
         }
     }
 
@@ -22,7 +22,6 @@ class Table extends Component {
     onChange = (e, tableIndex, dataIndex) => {
         e.preventDefault();
         const {value} = e.target;
-
         const data = this.state.data;
 
         let goal;
@@ -40,7 +39,7 @@ class Table extends Component {
     }
 
     onPlaceholder = (tableIndex, dataIndex) => {
-        if(window.screen.width>480){
+        if (window.screen.width > 480) {
             if (tableIndex === 4) {
                 if (dataIndex === 4) {
                     return '핵심목표';
@@ -50,8 +49,7 @@ class Table extends Component {
             } else if (dataIndex === 4) {
                 return '세부목표';
             }
-        }
-        else {
+        } else {
             if (tableIndex === 4) {
                 if (dataIndex === 4) {
                     return '핵심';
@@ -62,7 +60,6 @@ class Table extends Component {
                 return '세부';
             }
         }
-
     }
 
     render() {
@@ -73,13 +70,14 @@ class Table extends Component {
                         <div className="grid inner-grid justify-between items-center" key={tableIndex}>
                             {table.map((data, dataIndex) => {
                                 return (
-                                    <input
+                                    <textarea
                                         className={`mandal-input ${(tableIndex === 4 && dataIndex === 4 ? 'bg-main' : tableIndex === 4 || dataIndex === 4 ? 'bg-sub' : '')}`}
                                         key={[dataIndex, tableIndex].join('_')}
                                         placeholder={this.onPlaceholder(tableIndex, dataIndex)} value={data}
-                                        maxLength="8"
                                         onChange={(e) => this.onChange(e, tableIndex, dataIndex)}
-                                    />
+                                        maxLength={24}
+                                    >
+                                    </textarea>
                                 );
                             })}
                         </div>
