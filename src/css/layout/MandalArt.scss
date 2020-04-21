@@ -83,12 +83,11 @@
     text-align: center;
     word-break: keep-all;
     width: 100%;
-    height: auto;
+    height: 60px;
     overflow-y: hidden;
     overflow-x: hidden;
     resize: none;
     outline: none;
-    padding: 20px 0 40px 0;
     border: 0;
     @media(max-width: 1024px) {
       overflow-y: auto;
@@ -102,11 +101,6 @@
       height: 35px;
     }
 
-    &::placeholder {
-      padding:0!important;
-      text-align:left;
-      font-size:10px;
-    }
   }
 
   &-list {

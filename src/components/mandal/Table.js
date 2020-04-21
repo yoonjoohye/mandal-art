@@ -17,12 +17,18 @@ class Table extends Component {
         this.setState({
             data: nextProps.data
         });
+
+
     }
 
     onChange = (e, tableIndex, dataIndex) => {
         e.preventDefault();
         const {value} = e.target;
         const data = this.state.data;
+
+        if(data.getIn([dataIndex, tableIndex]).split("\n").length>3){
+            data.setIn([dataIndex, tableIndex])
+        }
 
         let goal;
 
@@ -62,6 +68,33 @@ class Table extends Component {
         }
     }
 
+    onVertical = (tableIndex, dataIndex) => {
+        let data = this.state.data.getIn([tableIndex, dataIndex]);
+        let lineCnt = data.substr(0, data.selectionStart).split("\n").length;
+
+        if (window.screen.width < 480) {
+            if (data.length < 3 && lineCnt === 1) {
+                return 'line-height-3';
+            } else {
+                return 'line-height-1';
+            }
+        } else if (window.screen.width <= 1024) {
+            if (data.length < 5 && lineCnt === 1) {
+                return 'line-height-5';
+            } else {
+                return 'line-height-1.5';
+            }
+        } else if (window.screen.width > 1440) {
+            if (data.length < 8 && lineCnt === 1) {
+                return 'line-height-5';
+            } else if (data.length < 15 && lineCnt < 3) {
+                return 'line-height-2';
+            } else {
+                return 'line-height-1.5';
+            }
+        }
+    }
+
     render() {
         return (
             <div className="grid outer-grid justify-between">
@@ -71,7 +104,7 @@ class Table extends Component {
                             {table.map((data, dataIndex) => {
                                 return (
                                     <textarea
-                                        className={`mandal-input ${(tableIndex === 4 && dataIndex === 4 ? 'bg-main' : tableIndex === 4 || dataIndex === 4 ? 'bg-sub' : '')}`}
+                                        className={`mandal-input ${(tableIndex === 4 && dataIndex === 4 ? 'bg-main' : tableIndex === 4 || dataIndex === 4 ? 'bg-sub' : '')} ${this.onVertical(tableIndex, dataIndex)}`}
                                         key={[dataIndex, tableIndex].join('_')}
                                         placeholder={this.onPlaceholder(tableIndex, dataIndex)} value={data}
                                         onChange={(e) => this.onChange(e, tableIndex, dataIndex)}
