@@ -85,9 +85,9 @@ class Table extends Component {
                 return 'line-height-1.5';
             }
         } else if (window.screen.width > 1440) {
-            if (data.length < 8 && lineCnt === 1) {
+            if (data.length < 10 && lineCnt === 1) {
                 return 'line-height-5';
-            } else if (data.length < 15 && lineCnt < 3) {
+            } else if (data.length < 19 && lineCnt < 3) {
                 return 'line-height-2';
             } else {
                 return 'line-height-1.5';
