@@ -17,7 +17,7 @@ class ListContainer extends Component {
 
     componentWillMount() {
         let {user} = this.props;
-        if (!user) {
+        if (user===null) {
             window.location.href = '/';
         }else{
             const database = firebase.database();

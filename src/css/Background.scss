@@ -34,6 +34,7 @@
   &-opacity{
     z-index: 3;
     background-color: #ffffff94;
+    backdrop-filter:blur(4px);
   }
   &-yellow{
     background-color:#fff707;
@@ -64,6 +65,7 @@
   &-black{
     z-index: 3;
     background-color: rgba(0, 0, 0, 0.68);
+    backdrop-filter:blur(4px);
   }
 }
 
@@ -86,6 +88,6 @@
     padding:0.5rem 1rem;
   }
   &-shadow{
-    box-shadow:0 0 20px rgba(0, 0, 0, 0.17);
+    box-shadow:0 0 15px rgba(0, 0, 0, 0.1);
   }
 }

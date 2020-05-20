@@ -61,6 +61,18 @@
 
   &-white {
     color: white;
+    &-pink{
+      color: white;
+      @media(max-width:480px){
+        color: #4b4b4b;
+      }
+    }
+    &-black{
+      color: white;
+      @media(max-width:480px){
+        color:#8e8e8e;
+      }
+    }
   }
 
   &-blue {

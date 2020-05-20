@@ -19,6 +19,35 @@
 
     }
   }
+  &.outline{
+    font-size:13px;
+    padding:0.5rem 1.2rem;
+    border:1px solid #ff83a8;
+    border-radius:0.3rem;
+    color:#ff83a8;
+    background-color:white;
+    &:hover {
+      background-color: rgba(255, 131, 168, 0.05);
+    }
+    @media(max-width:480px){
+      font-size:11px;
+      padding:0.5rem 0.8rem;
+    }
+  }
+  &.noline{
+    font-size:13px;
+    padding:0.5rem 1.2rem;
+    color: #6d6d6d;
+    &:hover{
+      color: #454545;
+    }
+    @media(max-width:480px){
+      font-size:11px;
+      padding:0.5rem 0.8rem;
+
+
+    }
+  }
   &.write{
     font-size:30px;
     width:160px;
@@ -82,7 +111,7 @@
       font-weight:600;
     }
     @media(max-width:480px){
-      font-size: 15px;
+      font-size: 11px;
     }
   }
   &.floating{

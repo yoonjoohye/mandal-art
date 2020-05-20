@@ -21,15 +21,17 @@ class Modal extends Component {
     }
 
     render() {
+        let {isOpen, title, contents} = this.props;
+
         return (
             <>
                 {
-                    this.state.isOpen ?
+                    isOpen ?
                         <section
                             className="w-100 h-100 left-0 top-0 bg-opacity position-fixed flex justify-center items-center">
-                            <div className="fade-in modal-box box-shadow bg-white box-round px-2 py-2 text-center">
-                                <div className="font-xmd font-bold mb-10">{this.state.title}</div>
-                                <div className="mb-20" dangerouslySetInnerHTML={{__html: this.state.contents}}></div>
+                            <div className="fade-in modal-box box-shadow bg-white box-round px-3 py-2 text-center">
+                                <div className="font-xmd font-bold mb-10">{title}</div>
+                                <div className="mb-20" dangerouslySetInnerHTML={{__html: contents}}></div>
                                 <button className="btn save full" onClick={this.close}>확인</button>
                             </div>
 

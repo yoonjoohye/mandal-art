@@ -23,7 +23,7 @@ class Home extends Component {
                             함께, <span className="yellow">계획</span>을 세워요<br/>
                             지금 바로 시작하세요
                         </div>
-                        <button className="btn write font-white only-pc" onClick={()=>window.location.href='/write'}>
+                        <button className="btn write font-white" onClick={()=>window.location.href='/write'}>
                             시작하기
                         </button>
                     </div>
@@ -82,7 +82,7 @@ class Home extends Component {
                             이제 시작해볼까요?<br/>
                             함께, 만다라트를 만들어요
                         </div>
-                        <button className="btn write font-white only-pc" onClick={()=>window.location.href='/write'}>
+                        <button className="btn write font-white" onClick={()=>window.location.href='/write'}>
                             시작하기
                         </button>
                     </div>

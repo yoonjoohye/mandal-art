@@ -94,9 +94,9 @@ class Login extends Component {
                             <div className="flex justify-center items-center">
                                 <img alt="만다라트-로고" className="login-icon mr-10"
                                      src={require('../../assets/icon/puzzle.svg')}/>
-                                <div className="font-md font-bold">Mandal-ART</div>
+                                <div className="font-md font-white-pink font-bold">Mandal-ART</div>
                             </div>
-                            <div className="font-xmd font-medium mb-70">로그인</div>
+                            <div className="font-xmd font-white-black font-medium mb-70">로그인</div>
 
                             <div className="flex items-center justify-between btn login google mb-20"
                                  onClick={()=>loginAsync('google')}>
