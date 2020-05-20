@@ -2,11 +2,13 @@ import React, {useState, useEffect} from 'react';
 import {Redirect} from 'react-router-dom';
 import * as firebase from "firebase";
 import {connect} from "react-redux";
+import ValidModal from "../modal/ValidModal";
 
 const Edit = (props) => {
 
     const [title, setTitle] = useState();
     const [data, setData] = useState();
+    const [openModal,setOpenModal]=useState(false);
 
     // const [redirect, setRedirect] = useState(false);
 
@@ -18,38 +20,51 @@ const Edit = (props) => {
 
     const onEdit = (e) => {
         e.preventDefault();
+        if(title.length>0) {
+            const {uid} = props.user;
+            const database = firebase.database();
 
-        const {uid} = props.user;
-        const database = firebase.database();
+            let time = new Date();
+            let date = `${time.getFullYear()}년 ${time.getMonth() + 1}월 ${time.getDate()}일 ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
 
-        let time = new Date();
-        let date = `${time.getFullYear()}년 ${time.getMonth() + 1}월 ${time.getDate()}일 ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+            database.ref(`mandal/${uid}`).once('value', (snapshot) => {
+                let obj = snapshot.val();
+                let keyList = [];
 
-        database.ref(`mandal/${uid}`).once('value', (snapshot) => {
-            let obj = snapshot.val();
-            let keyList = [];
-
-            //키값 찾기
-            for (let key in obj) {
-                if (obj.hasOwnProperty(key)) {
-                    keyList.push(key);
-                    // console.log(key);
+                //키값 찾기
+                for (let key in obj) {
+                    if (obj.hasOwnProperty(key)) {
+                        keyList.push(key);
+                        // console.log(key);
+                    }
                 }
-            }
-            // console.log(props.pageNo);
-            database.ref(`mandal/${uid}/${keyList[props.pageNo]}`).update({
-                title: title,
-                data: data,
-                time: date
+                // console.log(props.pageNo);
+                database.ref(`mandal/${uid}/${keyList[props.pageNo]}`).update({
+                    title: title,
+                    data: data,
+                    time: date
+                });
+            }).then(() => {
+                window.location.href = '/mypage';
             });
-        }).then(()=>{
-           window.location.href='/mypage';
-        });
-
+        }else{
+            setOpenModal(true);
+        }
+    }
+    const onOpen=(bool)=>{
+        setOpenModal(bool);
     }
 
     return (
         <>
+            {
+                openModal &&
+                <ValidModal isOpen={openModal}
+                            title="제목을 입력해주세요"
+                            contents="제목을 작성하지 않았습니다.<br/>제목을 작성하지 않으면 저장할 수 없습니다."
+                            onOpen={onOpen}
+                />
+            }
             <button className="btn edit" onClick={onEdit}>수정완료</button>
         </>
     );

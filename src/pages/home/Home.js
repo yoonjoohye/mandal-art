@@ -23,8 +23,8 @@ class Home extends Component {
                             함께, <span className="yellow">계획</span>을 세워요<br/>
                             지금 바로 시작하세요
                         </div>
-                        <button className="btn write">
-                            <Link className="font-white" to="/write">시작하기</Link>
+                        <button className="btn write font-white only-pc" onClick={()=>window.location.href='/write'}>
+                            시작하기
                         </button>
                     </div>
 
@@ -44,8 +44,8 @@ class Home extends Component {
                                     핵심목표에 대한 아이디어, 생각들을 확산하여<br/>
                                     구체화 할 때 아주 유용하게 활용할 수 있습니다.
                                 </div>
-                                <button className="btn write only-pc">
-                                    <Link className="font-white" to="/write">시작하기</Link>
+                                <button className="btn write font-white only-pc" onClick={()=>window.location.href='/write'}>
+                                    시작하기
                                 </button>
                             </div>
                         </div>
@@ -56,8 +56,8 @@ class Home extends Component {
                                     웹뿐만 아니라 모바일에서도 이용할 수 있습니다.<br/>
                                     하지만, 저는 웹을 권장합니다.
                                 </div>
-                                <button className="btn write only-pc">
-                                    <Link className="font-white" to="/write">시작하기</Link>
+                                <button className="btn write font-white only-pc" onClick={()=>window.location.href='/write'}>
+                                    시작하기
                                 </button>
                             </div>
                             <img className="home-img ml-50" src={require('../../assets/mobile.svg')}/>
@@ -71,8 +71,8 @@ class Home extends Component {
                                     온라인에서 작성한 만다라트를 인쇄해보세요.<br/>
                                     오프라인에서도 만다라트를 즐길 수 있습니다.
                                 </div>
-                                <button className="btn write only-pc">
-                                    <Link className="font-white" to="/write">시작하기</Link>
+                                <button className="btn write font-white only-pc" onClick={()=>window.location.href='/write'}>
+                                    시작하기
                                 </button>
                             </div>
                         </div>
@@ -82,8 +82,8 @@ class Home extends Component {
                             이제 시작해볼까요?<br/>
                             함께, 만다라트를 만들어요
                         </div>
-                        <button className="btn write">
-                            <Link className="font-white" to="/write">시작하기</Link>
+                        <button className="btn write font-white only-pc" onClick={()=>window.location.href='/write'}>
+                            시작하기
                         </button>
                     </div>
 

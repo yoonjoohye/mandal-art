@@ -32,7 +32,7 @@ class App extends Component {
 
                     <Route path="/write" component={Write}/>
                     <Route path="/mypage" component={Mypage}/>
-                    <Route path="/detail/:id" component={Detail}/>
+                    <Route path="/detail/:id" component={Write}/>
                     <Route path="" component={NotFound}/>
                 </Switch>
 

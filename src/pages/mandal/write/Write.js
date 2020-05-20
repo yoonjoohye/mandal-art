@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {List} from 'immutable';
+import {fromJS, List} from 'immutable';
 import ReactHelmet from "../../../components/ReactHelmet";
 import Table from '../../../components/mandal/Table';
 import Title from '../../../components/mandal/Title';
 import Save from '../../../components/button/Save';
+import Print from "../../../components/button/Print";
+import Edit from "../../../components/button/Edit";
 import Modal from '../../../components/modal/Modal';
 import ValidModal from '../../../components/modal/ValidModal';
+import * as firebase from "firebase";
 
 
 class Write extends Component {
@@ -28,7 +31,28 @@ class Write extends Component {
                     List(['', '', '', '', '', '', '', '', '']),
                 ]
             ),
-            isOpenModal: false
+            page:window.location.pathname,
+        }
+    }
+
+    componentWillMount() {
+        if(this.state.page!=='/write') {
+            let {user,match} = this.props;
+
+            if (user) {
+                let database = firebase.database();
+                const dataList = [];
+                database.ref(`/mandal/${user.uid}`).once('value').then((snapshot) => {
+                    const obj = snapshot.val();
+                    for (let key in obj) {
+                        dataList.push(obj[key]);
+                    }
+                    this.setState({
+                        title: dataList[match.params.id].title,
+                        data: fromJS(JSON.parse(dataList[match.params.id].data))
+                    });
+                });
+            }
         }
     }
 
@@ -44,16 +68,8 @@ class Write extends Component {
         });
     }
 
-    onOpen = (bool) => {
-        this.setState({
-            ...this.state,
-            isOpenModal: bool
-        });
-    }
-
     render() {
         let {user} = this.props;
-
         return (
             <>
                 <ReactHelmet
@@ -73,20 +89,24 @@ class Write extends Component {
                         path="/login"
                     />
                 }
-                {
-                    this.state.isOpenModal &&
-                    <ValidModal isOpen={this.state.isOpenModal}
-                                title="제목을 입력해주세요"
-                                contents="제목이 작성되지 않았습니다.<br/>제목을 작성하지 않으면 저장할 수 없습니다."
-                                onOpen={this.onOpen}
-                    />
-                }
+
                 <section className="mandal-section">
                     <div className="container">
-                        <div className="text-right">
-                            <Save title={this.state.title} data={this.state.data} onOpen={this.onOpen}></Save>
-                        </div>
-
+                        {
+                            this.state.page==='/write'?
+                                <div className="text-right">
+                                    <Save title={this.state.title} data={this.state.data}></Save>
+                                </div>:
+                                <div className="flex justify-end">
+                                    <div className="only-pc mr-5">
+                                        <Print></Print>
+                                    </div>
+                                    <div>
+                                        <Edit title={this.state.title} data={this.state.data}
+                                              pageNo={this.props.match.params.id}></Edit>
+                                    </div>
+                                </div>
+                        }
                         <div className="border-bottom py-1 mb-30">
                             <Title title={this.state.title} titleChange={this.titleChange}> </Title>
                         </div>

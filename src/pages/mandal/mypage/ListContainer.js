@@ -19,35 +19,19 @@ class ListContainer extends Component {
         let {user} = this.props;
         if (!user) {
             window.location.href = '/';
-        }
-    }
-
-    componentDidMount() {
-        let {uid} = this.props.user;
-        let database = firebase.database();
-
-        const mandalList = [];
-
-        // database.ref(`/mandal/${uid}`).on('child_added', (snapshot)=> {
-        //     mandalList.push(snapshot.val());
-        //
-        //     this.setState({
-        //         list: mandalList
-        //     });
-        // });
-
-        database.ref(`/mandal/${uid}`).once('value').then((snapshot) => {
-            const obj = snapshot.val();
-
-            const arr = [];
-
-            for (let key in obj) {
-                arr.push(obj[key]);
-            }
-            this.setState({
-                list: arr
+        }else{
+            const database = firebase.database();
+            const dataList = [];
+            database.ref(`/mandal/${user.uid}`).once('value').then((snapshot) => {
+                const obj = snapshot.val();
+                for (let key in obj) {
+                    dataList.push(obj[key]);
+                }
+                this.setState({
+                    list: dataList
+                });
             });
-        });
+        }
     }
 
     render() {
@@ -83,7 +67,6 @@ class ListContainer extends Component {
                                         );
                                     })
                                     :
-
                                     <div className="py-1 text-center">
                                         <img alt="만다라트-존재하지않는이미지" className="nothing-img" src={require('./../../../assets/nothing.jpg')}/>
                                     </div>
@@ -91,11 +74,9 @@ class ListContainer extends Component {
                         </div>
                         <div className="position-fixed bottom-10 right-5 flex items-center text-center">
                             <div className="bubble font-white mr-10">바로 나만의 만다라트를 만들기</div>
-                            <div className="flex items-center">
+                            <div className="flex items-center" onClick={()=>window.location.href='/write'}>
                                 <div className="ping"></div>
-                                <Link to="/write">
-                                    <button className="btn floating"><img alt="만다라트-추가" className="w-100" src={require('./../../../assets/icon/plus.svg')}/></button>
-                                </Link>
+                                <button className="btn floating"><img alt="만다라트-추가" className="w-100" src={require('./../../../assets/icon/plus.svg')}/></button>
                             </div>
                         </div>
                     </div>

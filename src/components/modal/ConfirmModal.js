@@ -26,8 +26,7 @@ class Modal extends Component {
             <>
                 {
                     isOpen ?
-
-                        <section className="w-100 h-100 bg-black position-fixed flex justify-center items-center">
+                        <section className="w-100 h-100 left-0 top-0 bg-black position-fixed flex justify-center items-center">
                             <div className="fade-in modal-box bg-white box-round px-2 py-2 text-center">
                                 <div className="font-xmd font-bold mb-20">{title}</div>
                                 <div className="mb-30" dangerouslySetInnerHTML={{__html: contents}}></div>

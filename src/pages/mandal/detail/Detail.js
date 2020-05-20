@@ -13,7 +13,6 @@ import ReactHelmet from "../../../components/ReactHelmet";
 
 
 class Detail extends Component {
-
     constructor(props) {
         super(props);
         this.state = {

@@ -23,9 +23,9 @@ class List extends Component {
 
     render() {
         return (
-            <Link to={`detail/${this.state.index}`} key={this.state.index}>
+            <div key={this.state.index}>
                 <div className="py-1 flex items-center justify-between border-bottom">
-                    <div>
+                    <div className="cursor-pointer" onClick={()=>window.location.href=`detail/${this.state.index}`}>
                         <div className="font-md mb-5">{this.state.data.title}</div>
                         <div className="font-sm font-gray">{this.state.data.time} 작성</div>
                     </div>
@@ -33,7 +33,7 @@ class List extends Component {
                         <Delete pageNo={this.state.index}></Delete>
                     </div>
                 </div>
-            </Link>
+            </div>
         )
     }
 }

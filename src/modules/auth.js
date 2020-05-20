@@ -44,33 +44,34 @@ export const logoutFailure = (err) => ({
 //thunk 생성 함수
 export const loginAsync = (type) => async dispatch => {
     dispatch(login());
-    try {
-        let provider;
-        if (type === 'google') {
-            provider = new firebase.auth.GoogleAuthProvider();
-        } else if (type === 'facebook') {
-            provider = new firebase.auth.FacebookAuthProvider();
-        }
-        firebase.auth().signInWithPopup(provider).then((res) => {
-            localStorage.setItem('user', JSON.stringify(res.user));
-            dispatch(loginSuccess(res.user));
-        })
-    } catch (err) {
+    let provider;
+    if (type === 'google') {
+        provider = new firebase.auth.GoogleAuthProvider();
+    } else if (type === 'facebook') {
+        provider = new firebase.auth.FacebookAuthProvider();
+    }
+    firebase.auth().signInWithPopup(provider).then((res) => {
+        localStorage.setItem('user', JSON.stringify(res.user));
+        dispatch(loginSuccess(res.user));
+    }).then(() => {
+        window.location.href = '/';
+    }).catch((err) => {
         dispatch(loginFailure(err));
         throw err;
-    }
+    })
+
 }
 export const logoutAsync = () => async dispatch => {
     dispatch(logout());
-    try {
-        firebase.auth().signOut().then(() => {
-            localStorage.removeItem('user');
-            dispatch(logoutSuccess(null));
-        })
-    } catch (err) {
+    firebase.auth().signOut().then(() => {
+        localStorage.removeItem('user');
+        dispatch(logoutSuccess(null));
+    }).then(() => {
+        window.location.href = '/login';
+    }).catch((err) => {
         dispatch(logoutFailure(err));
         throw err;
-    }
+    })
 }
 
 const initialState = {
@@ -89,7 +90,7 @@ const HandleAuth = (state = initialState, action) => {
                 ...state,
                 loading: {
                     ...state.loading,
-                    LOGIN: true
+                    login: true
                 }
             };
         case LOGIN_SUCCESS:
@@ -97,7 +98,7 @@ const HandleAuth = (state = initialState, action) => {
                 ...state,
                 loading: {
                     ...state.loading,
-                    LOGIN: false
+                    login: false
                 },
                 user: action.payload.user
             };
@@ -106,7 +107,7 @@ const HandleAuth = (state = initialState, action) => {
                 ...state,
                 loading: {
                     ...state.loading,
-                    LOGIN: false
+                    login: false
                 }
             };
         case LOGOUT:
@@ -114,7 +115,7 @@ const HandleAuth = (state = initialState, action) => {
                 ...state,
                 loading: {
                     ...state.loading,
-                    LOGOUT: true
+                    logout: true
                 }
             };
         case LOGOUT_SUCCESS:
@@ -122,7 +123,7 @@ const HandleAuth = (state = initialState, action) => {
                 ...state,
                 loading: {
                     ...state.loading,
-                    LOGOUT: false
+                    logout: false
                 },
                 user: action.payload.user
             };
@@ -131,7 +132,7 @@ const HandleAuth = (state = initialState, action) => {
                 ...state,
                 loading: {
                     ...state.loading,
-                    LOGOUT: false
+                    logout: false
                 }
             };
         default:
