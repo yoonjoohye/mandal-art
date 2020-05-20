@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {connect} from 'react-redux';
 import * as firebase from "firebase";
 
 
@@ -7,7 +8,7 @@ const Delete=(props)=>{
     const onDelete=(e)=>{
         e.preventDefault();
 
-        const uid = JSON.parse(localStorage.getItem('logInfo')).user.uid;
+        const {uid} = props.user;
         const database = firebase.database();
 
         database.ref(`mandal/${uid}`).once('value', (snapshot) => {
@@ -37,4 +38,8 @@ const Delete=(props)=>{
 
 }
 
-export default Delete;
+export default connect(
+    (state)=>({
+        user:state.auth.user
+    })
+)(Delete);

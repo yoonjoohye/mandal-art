@@ -6,11 +6,10 @@ html {
 
 @font-face {
   font-family: "NanumSquare";
-  src: local('NanumSquare'),
-  url(/font/NanumSquareR.eot),
-  url(/font/NanumSquareR.woff2) format('woff2'),
-  url(/font/NanumSquareR.woff) format('woff'),
-  url(/font/NanumSquareR.ttf) format('truetype');
+  src: url(../assets/font/NanumSquareL.eot);
+  src: url(../assets/font/NanumSquareL.eot#iefix) format('embedded-opentype'),
+  url(../assets/font/NanumSquareL.woff) format('woff'),
+  url(../assets/font/NanumSquareL.ttf) format('truetype');
 }
 
 

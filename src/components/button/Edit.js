@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {Redirect} from 'react-router-dom';
 import * as firebase from "firebase";
+import {connect} from "react-redux";
 
 const Edit = (props) => {
 
     const [title, setTitle] = useState();
     const [data, setData] = useState();
+
     // const [redirect, setRedirect] = useState(false);
 
 
@@ -17,7 +19,7 @@ const Edit = (props) => {
     const onEdit = (e) => {
         e.preventDefault();
 
-        const uid = JSON.parse(localStorage.getItem('logInfo')).user.uid;
+        const {uid} = props.user;
         const database = firebase.database();
 
         let time = new Date();
@@ -54,4 +56,8 @@ const Edit = (props) => {
 
 }
 
-export default Edit;
+export default connect(
+    (state)=>({
+        user:state.auth.user
+    })
+)(Edit);

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import * as firebase from "firebase";
 import {Redirect, Link} from 'react-router-dom';
-
-
+import {connect} from 'react-redux';
 import List from '../../../components/mandal/List.js';
 import ReactHelmet from "../../../components/ReactHelmet";
 
@@ -17,14 +16,14 @@ class ListContainer extends Component {
     }
 
     componentWillMount() {
-        let userInfo = JSON.parse(localStorage.getItem('logInfo'));
-        if (!userInfo) {
+        let {user} = this.props;
+        if (!user) {
             window.location.href = '/';
         }
     }
 
     componentDidMount() {
-        let uid = JSON.parse(localStorage.getItem('logInfo')).user.uid;
+        let {uid} = this.props.user;
         let database = firebase.database();
 
         const mandalList = [];
@@ -52,7 +51,7 @@ class ListContainer extends Component {
     }
 
     render() {
-        let userInfo = JSON.parse(localStorage.getItem('logInfo'));
+        let {user} = this.props;
         return (
             <section>
                 <ReactHelmet
@@ -70,8 +69,8 @@ class ListContainer extends Component {
                                     인생을 즐겁게!
                                 </div>
                                 <div className="flex flex-col">
-                                    <span className="font-lg text-center font-white">{userInfo.user.displayName}</span>
-                                    <span className="font-sm-m font-white">{userInfo.user.email}</span>
+                                    <span className="font-lg text-center font-white">{user.displayName}</span>
+                                    <span className="font-sm-m font-white">{user.email}</span>
                                 </div>
                             </div>
                         </div>
@@ -106,4 +105,8 @@ class ListContainer extends Component {
     }
 }
 
-export default ListContainer;
+export default connect(
+    (state)=>({
+        user:state.auth.user
+    })
+)(ListContainer);

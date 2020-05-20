@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Redirect, Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import {List} from 'immutable';
 import ReactHelmet from "../../../components/ReactHelmet";
 import Table from '../../../components/mandal/Table';
@@ -51,7 +52,7 @@ class Write extends Component {
     }
 
     render() {
-        let userInfo = JSON.parse(localStorage.getItem('logInfo'));
+        let {user} = this.props;
 
         return (
             <>
@@ -61,7 +62,7 @@ class Write extends Component {
                     keywords="만다라트, 계획, 계획표, 플랜, mandal, 사이트, 온라인, 프린트, 오타니쇼헤이, 성공, 제작, 홈페이지, success, mandalart, plan, 플래너, 나만의"
                 />
                 {
-                    !userInfo &&
+                    !user &&
                     <Modal
                         isOpen={true}
                         isConfirm={false}
@@ -99,4 +100,8 @@ class Write extends Component {
     }
 }
 
-export default Write;
+export default connect(
+    (state)=>({
+        user:state.auth.user
+    })
+)(Write);

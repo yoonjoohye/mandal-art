@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-
+import '../../../firebaseApp';
 import * as firebase from "firebase";
-
+import {connect} from 'react-redux';
 import {List, fromJS} from 'immutable';
 
 import Table from '../../../components/mandal/Table';
@@ -9,7 +9,6 @@ import Print from "../../../components/button/Print";
 import Edit from "../../../components/button/Edit";
 // import Delete from "../../../components/button/Delete";
 import Title from "../../../components/mandal/Title";
-
 import ReactHelmet from "../../../components/ReactHelmet";
 
 
@@ -35,21 +34,21 @@ class Detail extends Component {
     }
 
     componentWillMount() {
-        let userInfo = JSON.parse(localStorage.getItem('logInfo'));
-        if (!userInfo) {
+        let {user}=this.props;
+        if (!user) {
             window.location.href = '/';
         }
     }
 
     componentDidMount() {
-        let uid = JSON.parse(localStorage.getItem('logInfo')).user.uid;
+        let {uid} = this.props.user;
         let database = firebase.database();
 
         const dataList = [];
 
         database.ref(`/mandal/${uid}`).once('value').then((snapshot) => {
             const obj = snapshot.val();
-            for (let key in snapshot.val()) {
+            for (let key in obj) {
                 dataList.push(obj[key]);
             }
             this.setState({
@@ -147,7 +146,7 @@ class Detail extends Component {
                             </div>
                         </div>
                         <div className="border-bottom py-1 mb-30">
-                            <Title title={this.state.title} titleChange={this.titleChange}> </Title>
+                            <Title title={this.state.title} titleChange={this.titleChange}></Title>
                         </div>
 
                         <div>
@@ -161,4 +160,8 @@ class Detail extends Component {
 
 }
 
-export default Detail;
+export default connect(
+    (state)=>({
+        user:state.auth.user
+    })
+)(Detail);

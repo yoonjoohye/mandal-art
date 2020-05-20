@@ -1,70 +1,80 @@
 import React, {Component} from 'react';
 import * as firebase from "firebase/app";
-
+import * as api from "../../api/api";
 import {connect} from 'react-redux';
-import * as actions from '../../redux/actions';
+import {loginAsync,logoutAsync} from '../../modules/auth';
 
 class Sign extends Component {
     constructor(props) {
         super(props);
-        this.state= {
-            user: localStorage.getItem('logInfo')
-        };
     }
 
-    componentWillUpdate(nextProps, nextState, nextContext) {
-        localStorage.setItem('logInfo', JSON.stringify(nextState.user));
-    }
 
-    onLogin = (e) => {
-        // const {dispatchLogin}=this.props;
+    // componentWillUpdate(nextProps, nextState, nextContext) {
+    //     localStorage.setItem('logInfo', JSON.stringify(nextState.user));
+    // }
 
-        e.preventDefault();
-        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-            .then(() => {
-                var provider = new firebase.auth.GoogleAuthProvider();
-                return firebase.auth().signInWithPopup(provider)
-                    .then((authData) => {
-                        this.setState({
-                            user:authData
-                        });
-                        // dispatchLogin();
-
-                        // this.props.history.push('/');
-                    });
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-
-    }
-
-    onLogout = (e) => {
-        // const {dispatchLogout}=this.props;
-        e.preventDefault();
-
-        firebase.auth().signOut().then(() => {
-            this.setState({
-                user:null
-            });
-            // dispatchLogout();
-
-            // this.props.history.push('/');
-
-        }).catch(function (error) {
-            console.log(error);
-        });
-
-    }
+    // googleLogin = (e) => {
+    //     const {login} = this.props;
+    //
+    //     e.preventDefault();
+    //     actions.login();
+    //     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
+    //         let provider = new firebase.auth.GoogleAuthProvider();
+    //
+    //         return firebase.auth().signInWithPopup(provider).then((authData) => {
+    //             actions.loginSuccess(authData);
+    //         })
+    //     }).catch((error) => {
+    //         actions.loginFailure(error);
+    //         throw error;
+    //     })
+    //
+    // }
+    // facebookLogin = (e) => {
+    //     const {login} = this.props;
+    //     e.preventDefault();
+    //
+    //     actions.login();
+    //
+    //     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
+    //         let provider = new firebase.auth.FacebookAuthProvider();
+    //         return firebase.auth().signInWithPopup(provider).then((authData) => {
+    //             actions.loginSuccess(authData);
+    //         }).then(() => {
+    //             window.location.href = '/';
+    //         })
+    //     }).catch((error) => {
+    //         actions.loginFailure(error);
+    //         throw error;
+    //     })
+    // }
+    //
+    // logout = (e) => {
+    //     const {logout} = this.props;
+    //
+    //     e.preventDefault();
+    //     logout.actions.logout();
+    //     firebase.auth().signOut().then(() => {
+    //         actions.logoutSuccess(null);
+    //     }).catch((error) => {
+    //         throw error;
+    //         actions.logoutFailure(error);
+    //     });
+    //
+    // }
 
     render() {
-        // const { user } = this.props;
+        const { user,loginAsync, logoutAsync} = this.props;
         return (
-            <section>
+            <section className="mandal-section">
                 {
-                    this.state.user ?
-                    (<button onClick={this.onLogout}>로그아웃</button>) :
-                    (<button onClick={this.onLogin}>로그인</button>)
+                    user ?
+                        <button onClick={()=>logoutAsync()}>로그아웃</button> :
+                        <>
+                            <button onClick={()=>loginAsync('google')}>구글로그인</button>
+                            <button onClick={()=>loginAsync('facebook')}>페이스북로그인</button>
+                        </>
 
                 }
             </section>
@@ -74,11 +84,12 @@ class Sign extends Component {
 }
 
 
-export default Sign;
-// export default connect(
-//     state => ({ user: state.user }),
-//     dispatch=>({
-//         dispatchLogin:()=>{dispatch(actions.login)},
-//         dispatchLogout:()=>{dispatch(actions.logout)}
-//     })
-// )(Sign);
+export default connect(
+    (state) => ({
+        user: state.auth.user
+    }),
+    {
+        loginAsync,
+        logoutAsync
+    }
+)(Sign);

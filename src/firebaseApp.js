@@ -1,6 +1,6 @@
 import * as firebase from "firebase";
 
-var firebaseConfig = {
+const config = {
     apiKey: "AIzaSyA_cUj1Wy83xmB7bLbxsv-WK3g3dyDy55Q",
     authDomain: "mandal-art-deadf.firebaseapp.com",
     databaseURL: "https://mandal-art-deadf.firebaseio.com",
@@ -11,6 +11,6 @@ var firebaseConfig = {
     measurementId: "G-CL0CFLEEVV"
 };
 
-const firebaseApp=firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(config);
 
-export default firebaseApp;
+// export default firebaseApp;

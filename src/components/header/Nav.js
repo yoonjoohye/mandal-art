@@ -7,8 +7,8 @@ class Nav extends Component {
     onLogout = (e) => {
         e.preventDefault();
         firebase.auth().signOut().then(() => {
-            localStorage.removeItem('logInfo');
-        }).catch(function (error) {
+            localStorage.removeItem('token');
+        }).catch((error)=> {
             console.log(error);
         }).then(()=>{
             window.location.reload();

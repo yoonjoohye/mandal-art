@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Redirect} from 'react-router-dom';
 import * as firebase from "firebase";
+import {connect} from "react-redux";
 
 import Modal from '../modal/Modal';
 
@@ -21,20 +22,20 @@ const Save = (props) => {
         if(title.length>0) {
             e.preventDefault();
 
-            const uid = JSON.parse(localStorage.getItem('logInfo')).user.uid;
+            const {uid} = props.user;
             const database = firebase.database();
 
             let time = new Date();
             let date = `${time.getFullYear()}년 ${time.getMonth() + 1}월 ${time.getDate()}일 ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
 
-            // console.log(mandalData);
+            // console.log(data);
 
             database.ref(`mandal/${uid}/`).push({
                 title: title,
                 data: data,
                 time: date
             }).then(() => {
-                window.location.href = 'mypage';
+                window.location.href = '/mypage';
             })
         } else{
             props.onOpen(true);
@@ -49,4 +50,8 @@ const Save = (props) => {
 
 }
 
-export default Save;
+export default connect(
+    (state)=>({
+        user:state.auth.user
+    })
+)(Save);
