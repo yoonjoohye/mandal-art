@@ -11,9 +11,6 @@ class Logout extends Component {
         super(props);
     }
 
-    componentDidMount() {
-        this.props.logoutAsync();
-    }
 
     // onLogout = (e) => {
     //     e.preventDefault();
@@ -28,15 +25,12 @@ class Logout extends Component {
     //     window.location.href = '/';
     // }
     render() {
-        let {logoutAsync,loading}=this.props;
+        let {logoutAsync}=this.props;
         return (
             <>
-                <ReactHelmet
-                    title="로그아웃 - 나만의 만다라트"
-                    description="만다라트는 오타니쇼헤이의 성공비법으로 유명한 기법입니다. 홈페이지에서 나만의 만다라트를 세우고 성공목표를 세워보세요."
-                    keywords="만다라트, 계획, 계획표, 플랜, mandal, 사이트, 온라인, 프린트, 인쇄, 오타니쇼헤이, 성공, 제작, 홈페이지, success, mandalart, plan, 플래너, 나만의"
-                />
-                <Loading show={loading}/>
+                <section className="mandal-section">
+                    <button onClick={()=>logoutAsync()}>로그아웃</button>
+                </section>
             </>
         )
     }

@@ -39,20 +39,20 @@ class Write extends Component {
         if(this.state.page!=='/write') {
             let {user,match} = this.props;
 
-            if (user) {
-                let database = firebase.database();
-                const dataList = [];
-                database.ref(`/mandal/${user.uid}`).once('value').then((snapshot) => {
-                    const obj = snapshot.val();
-                    for (let key in obj) {
-                        dataList.push(obj[key]);
-                    }
-                    this.setState({
-                        title: dataList[match.params.id].title,
-                        data: fromJS(JSON.parse(dataList[match.params.id].data))
-                    });
+            let database = firebase.database();
+            const dataList = [];
+
+            database.ref(`/mandal/${user.uid}`).once('value').then((snapshot) => {
+                const obj = snapshot.val();
+                for (let key in obj) {
+                    dataList.push(obj[key]);
+                }
+                this.setState({
+                    title: dataList[match.params.id].title,
+                    data: fromJS(JSON.parse(dataList[match.params.id].data))
                 });
-            }
+            });
+
         }
     }
 
@@ -69,7 +69,7 @@ class Write extends Component {
     }
 
     render() {
-        let {user} = this.props;
+        let {user,match} = this.props;
         return (
             <>
                 <ReactHelmet
@@ -87,9 +87,9 @@ class Write extends Component {
                         buttonName="로그인 하러가기"
                         img={require('../../../assets/icon/login.svg')}
                         path="/login"
+                        bgColor="bg-black"
                     />
                 }
-
                 <section className="mandal-section">
                     <div className="container">
                         {
@@ -102,8 +102,7 @@ class Write extends Component {
                                         <Print></Print>
                                     </div>
                                     <div>
-                                        <Edit title={this.state.title} data={this.state.data}
-                                              pageNo={this.props.match.params.id}></Edit>
+                                        <Edit title={this.state.title} data={this.state.data} pageNo={match.params.id}></Edit>
                                     </div>
                                 </div>
                         }

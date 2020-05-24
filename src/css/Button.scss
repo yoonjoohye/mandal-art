@@ -61,6 +61,7 @@
     @media(max-width:480px){
       width:120px;
       font-size:15px;
+      padding: 0.8rem 1rem;
     }
   }
   &.save{
@@ -102,6 +103,11 @@
     border:1px solid #ff1f28;
     color: #ff1f28;
     border-radius:50%;
+    @media(max-width:480px){
+      width:30px;
+      height:30px;
+      border:none;
+    }
   }
 
   &.print{

@@ -62,12 +62,6 @@ class Header extends Component {
         let {isNav} = this.state;
         let {user}=this.props;
 
-        // let nav='';
-        //
-        // if (this.state.isNav) {
-        //     nav = <Nav userInfo={userInfo.user}></Nav>;
-        // }
-
         return (
             <section className={`header-section header-bg`}>
                 <div className="header-container flex justify-center justify-between items-center">
@@ -88,7 +82,7 @@ class Header extends Component {
                                     {
                                         isNav ?
 
-                                            <Nav userInfo={user}></Nav>
+                                            <Nav/>
                                             : null
                                     }
                                 </>

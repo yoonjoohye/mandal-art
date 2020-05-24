@@ -30,10 +30,10 @@ export const logout = () => ({
     type: LOGOUT
 });
 
-export const logoutSuccess = (data) => ({
+export const logoutSuccess = () => ({
     type: LOGOUT_SUCCESS,
     payload: {
-        user: data
+        user: null
     }
 });
 export const logoutFailure = (err) => ({
@@ -55,6 +55,8 @@ export const loginAsync = (type) => async dispatch => {
         dispatch(loginSuccess(res.user));
     }).then(() => {
         window.location.href = '/';
+        // this.props.history.push('/');
+
     }).catch((err) => {
         dispatch(loginFailure(err));
         throw err;
@@ -65,9 +67,7 @@ export const logoutAsync = () => async dispatch => {
     dispatch(logout());
     firebase.auth().signOut().then(() => {
         localStorage.removeItem('user');
-        dispatch(logoutSuccess(null));
-    }).then(() => {
-        window.location.href = '/login';
+        dispatch(logoutSuccess());
     }).catch((err) => {
         dispatch(logoutFailure(err));
         throw err;
@@ -79,7 +79,7 @@ const initialState = {
         login: false,
         logout: false
     },
-    user: JSON.parse(localStorage.getItem('user'))
+    user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null
 };
 
 //리듀서

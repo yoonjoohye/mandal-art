@@ -3,14 +3,15 @@ import {Redirect} from 'react-router-dom';
 import * as firebase from "firebase";
 import {connect} from "react-redux";
 import ValidModal from "../modal/ValidModal";
+import Modal from "../modal/Modal";
+import ConfirmModal from "../modal/ConfirmModal";
 
 const Edit = (props) => {
 
     const [title, setTitle] = useState();
     const [data, setData] = useState();
     const [openModal,setOpenModal]=useState(false);
-
-    // const [redirect, setRedirect] = useState(false);
+    const [successEdit, setSuccessEdit] = useState(false);
 
 
     useEffect(() => {
@@ -45,7 +46,7 @@ const Edit = (props) => {
                     time: date
                 });
             }).then(() => {
-                window.location.href = '/mypage';
+                setSuccessEdit(true);
             });
         }else{
             setOpenModal(true);
@@ -53,6 +54,12 @@ const Edit = (props) => {
     }
     const onOpen=(bool)=>{
         setOpenModal(bool);
+    }
+    const onProgress=(bool)=>{
+        setSuccessEdit(bool);
+        if(bool){
+            window.location.href='/mypage'
+        }
     }
 
     return (
@@ -63,6 +70,14 @@ const Edit = (props) => {
                             title="제목을 입력해주세요"
                             contents="제목을 작성하지 않았습니다.<br/>제목을 작성하지 않으면 저장할 수 없습니다."
                             onOpen={onOpen}
+                />
+            }
+            {
+                successEdit &&
+                <ConfirmModal isOpen={successEdit}
+                              title="수정이 완료되었습니다."
+                              contents="지금 바로 마이페이지에서 확인할 수 있습니다.<br/>수정된 내용을 확인하시겠습니까?"
+                              onProgress={onProgress}
                 />
             }
             <button className="btn edit" onClick={onEdit}>수정완료</button>

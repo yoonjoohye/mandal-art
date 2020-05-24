@@ -19,6 +19,7 @@ class Modal extends Component {
         });
         this.props.onProgress(false);
     }
+
     onConfirm=()=>{
         this.setState({
             ...this.state,
@@ -28,14 +29,14 @@ class Modal extends Component {
     }
 
     render() {
-        let {isOpen, title, contents} = this.props;
+        let {isOpen, title, contents} = this.state;
         return (
             <>
                 {
                     isOpen ?
                         <section className="w-100 h-100 left-0 top-0 bg-opacity position-fixed flex justify-center items-center">
                             <div className="fade-in modal-box box-shadow bg-white box-round px-3 py-2 text-center">
-                                <div className="font-xmd font-bold mb-10">{title}</div>
+                                <div className="font-xmd font-bold mb-20">{title}</div>
                                 <div className="mb-30" dangerouslySetInnerHTML={{__html: contents}}></div>
                                 <div>
                                     <button className="btn outline" onClick={this.onConfirm}>확인</button>

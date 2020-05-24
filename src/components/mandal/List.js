@@ -25,10 +25,10 @@ class List extends Component {
         return (
             <div key={this.state.index}>
                 <div className="py-1 flex items-center justify-between border-bottom">
-                    <div className="cursor-pointer" onClick={()=>window.location.href=`detail/${this.state.index}`}>
+                    <Link className="cursor-pointer" to={`detail/${this.state.index}`}>
                         <div className="font-md mb-5">{this.state.data.title}</div>
                         <div className="font-sm font-gray">{this.state.data.time} 작성</div>
-                    </div>
+                    </Link>
                     <div>
                         <Delete pageNo={this.state.index}></Delete>
                     </div>

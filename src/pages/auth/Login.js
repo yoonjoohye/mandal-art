@@ -10,67 +10,10 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            // user: localStorage.getItem('logInfo'),
-            show: false,
             showBubble: false,
         };
     }
 
-    // componentWillMount() {
-    //     let userInfo = JSON.parse(localStorage.getItem('logInfo'));
-    //     if (userInfo) {
-    //         window.history.go(-1);
-    //     }
-    // }
-
-    // componentWillUpdate(nextProps, nextState, nextContext) {
-    //     localStorage.setItem('logInfo', nextState.user);
-    // }
-
-    // onGoogleLogin = (e) => {
-    //     this.setState({
-    //         show: true
-    //     });
-    //     e.preventDefault();
-    //     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
-    //         let provider = new firebase.auth.GoogleAuthProvider();
-    //
-    //         return firebase.auth().signInWithPopup(provider).then((authData) => {
-    //             this.setState({
-    //                 user: JSON.stringify(authData)
-    //             });
-    //         }).then(() => {
-    //             window.location.href = '/';
-    //         })
-    //     }).catch((error) => {
-    //         console.log(error);
-    //         this.setState({
-    //             show: false
-    //         });
-    //     })
-    // }
-    //
-    // onFacebookLogin = (e) => {
-    //     this.setState({
-    //         show: true
-    //     });
-    //     e.preventDefault();
-    //     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(() => {
-    //         let provider = new firebase.auth.FacebookAuthProvider();
-    //         return firebase.auth().signInWithPopup(provider).then((authData) => {
-    //             this.setState({
-    //                 user: JSON.stringify(authData)
-    //             });
-    //         }).then(() => {
-    //             window.location.href = '/';
-    //         })
-    //     }).catch((error) => {
-    //         console.log(error);
-    //         this.setState({
-    //             show: false
-    //         });
-    //     })
-    // }
     onShowBubble = () => {
         this.setState({
             ...this.state,

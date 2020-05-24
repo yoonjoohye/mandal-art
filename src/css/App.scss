@@ -44,14 +44,14 @@ p{
 }
 
 .only-pc{
-  display:initial;
+  display:initial!important;
   @media(max-width:480px){
-    display:none;
+    display:none!important;
   }
 }
 .only-mobile{
-  display:none;
+  display:none!important;
   @media(max-width:480px){
-    display:initial;
+    display:initial!important;
   }
 }
