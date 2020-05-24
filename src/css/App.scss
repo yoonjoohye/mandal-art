@@ -1,17 +1,25 @@
 html {
-  width: 100vw;
+  width: 100%;
   height: 100%;
   margin: 0;
 }
 
+@font-face {
+  font-family: "NanumSquare";
+  src: url(../assets/font/NanumSquareL.eot);
+  src: url(../assets/font/NanumSquareL.eot#iefix) format('embedded-opentype'),
+  url(../assets/font/NanumSquareL.woff) format('woff'),
+  url(../assets/font/NanumSquareL.ttf) format('truetype');
+}
+
+
 body {
-  overflow-x:hidden;
-  overflow-y:auto;
-  width: 100vw;
+  width: 100%;
   margin: 0;
   /*background: linear-gradient(to right, #c3c2e6, #f3dbe5, #fffbeb);*/
   font-family: 'NanumSquare', sans-serif;
   font-size:15px;
+  color:#222222;
   font-weight:300;
   line-height:1.5;
   color: #333333;
@@ -36,14 +44,14 @@ p{
 }
 
 .only-pc{
-  display:initial;
+  display:initial!important;
   @media(max-width:480px){
-    display:none;
+    display:none!important;
   }
 }
 .only-mobile{
-  display:none;
+  display:none!important;
   @media(max-width:480px){
-    display:initial;
+    display:initial!important;
   }
 }

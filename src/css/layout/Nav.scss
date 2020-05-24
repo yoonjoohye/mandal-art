@@ -9,12 +9,17 @@
   box-shadow: 0 1px 8px #0202021a;
   @media(max-width:480px){
     right:5%;
+    min-width:180px
   }
 
 
   &-container {
     padding: 1rem;
     text-align: center;
+    @media(max-width:480px){
+      padding: 0.8rem;
+
+    }
   }
 
   &-profile-img {

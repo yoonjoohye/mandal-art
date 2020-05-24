@@ -17,6 +17,12 @@
 .bottom-0{
   bottom:0;
 }
+.left-0{
+  left:0;
+}
+.top-0{
+  top:0;
+}
 .left-50{
   left:50%;
 }
@@ -181,6 +187,10 @@
   padding-right:2rem;
   padding-left:2rem;
 }
+.px-3{
+  padding-right:3rem;
+  padding-left:3rem;
+}
 .py-1{
   padding-top:1rem;
   padding-bottom:1rem;
@@ -237,4 +247,9 @@
 }
 .w-100{
   width:100%;
+}
+
+li{
+  padding-left: 15px;
+  list-style: none;
 }

@@ -8,36 +8,40 @@ class Modal extends Component {
         this.state = {
             isOpen: this.props.isOpen,
             title: this.props.title,
-            contents: this.props.contents,
-            path: this.props.path
+            contents: this.props.contents
         }
     }
 
-    close = () => {
+    onCancel = () => {
         this.setState({
             ...this.state,
             isOpen: false
         });
+        this.props.onProgress(false);
+    }
+
+    onConfirm=()=>{
+        this.setState({
+            ...this.state,
+            isOpen: false
+        });
+        this.props.onProgress(true);
     }
 
     render() {
-        const {isOpen, title, contents, path} = this.props;
+        let {isOpen, title, contents} = this.state;
         return (
             <>
                 {
                     isOpen ?
-
-                        <section className="w-100 h-100 bg-black position-fixed flex justify-center items-center">
-                            <div className="fade-in modal-box bg-white box-round px-2 py-2 text-center">
+                        <section className="w-100 h-100 left-0 top-0 bg-opacity position-fixed flex justify-center items-center">
+                            <div className="fade-in modal-box box-shadow bg-white box-round px-3 py-2 text-center">
                                 <div className="font-xmd font-bold mb-20">{title}</div>
                                 <div className="mb-30" dangerouslySetInnerHTML={{__html: contents}}></div>
                                 <div>
-                                    <button onClick={this.close}>취소</button>
-                                    <Link to={path}>
-                                        <button>확인</button>
-                                    </Link>
+                                    <button className="btn outline" onClick={this.onConfirm}>확인</button>
+                                    <button className="btn noline" onClick={this.onCancel}>취소</button>
                                 </div>
-
                             </div>
                         </section> :
                         null

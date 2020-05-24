@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import * as firebase from "firebase";
+import 'firebase/auth';
 
 import Nav from './Nav.js';
 
@@ -9,7 +10,6 @@ class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: localStorage.getItem('logInfo'),
             isNav: false,
         }
     }
@@ -59,13 +59,8 @@ class Header extends Component {
 
 
     render() {
-        let userInfo = JSON.parse(localStorage.getItem('logInfo'));
-        // console.log(userInfo);
-        // let nav='';
-        //
-        // if (this.state.isNav) {
-        //     nav = <Nav userInfo={userInfo.user}></Nav>;
-        // }
+        let {isNav} = this.state;
+        let {user}=this.props;
 
         return (
             <section className={`header-section header-bg`}>
@@ -78,16 +73,17 @@ class Header extends Component {
                     </Link>
                     <div>
                         {
-                            userInfo ?
+                            user ?
                                 <>
-                                    <img className="cursor-pointer profile-img" src={userInfo.user.photoURL} onClick={this.onNav}/>
+                                    <img className="cursor-pointer profile-img" alt="만다라트-프로필"
+                                         src={user.photoURL} onClick={this.onNav}/>
                                     {/*<span className="font-white cursor-pointer" onClick={this.onLogout}>로그아웃</span>*/}
 
                                     {
-                                        this.state.isNav ?
+                                        isNav ?
 
-                                        <Nav userInfo={userInfo.user}></Nav>
-                                        : <></>
+                                            <Nav/>
+                                            : null
                                     }
                                 </>
                                 : <Link to="/login"><span className="font-white cursor-pointer">로그인/가입</span></Link>
@@ -100,4 +96,9 @@ class Header extends Component {
     }
 }
 
-export default Header;
+// export default Header;
+export default connect(
+    (state) => ({
+        user:state.auth.user
+    })
+)(Header);
