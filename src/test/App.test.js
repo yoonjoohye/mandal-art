@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Write from '../components/button/Write';
+
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
-import Write from '../components/button/Write';
 
 
 // describe('sdfsdf',()=>{
@@ -20,7 +21,6 @@ describe('write', () => {
         component=shallow(<Write />);
     });
     it('버튼이 잘 작동해야함.',()=>{
-        component.find('#write').simulate('click');
-        expect()
+        component.find('.write').simulate('click');
     });
 });

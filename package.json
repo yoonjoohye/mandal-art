@@ -14,7 +14,7 @@
     "react-helmet": "^5.2.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.3.0",
+    "react-scripts": "^3.4.1",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
@@ -47,12 +47,15 @@
   "devDependencies": {
     "@babel/preset-env": "^7.10.0",
     "@babel/preset-react": "^7.10.0",
-    "babel-jest": "^24.9.0",
+    "jest": "^26.0.1",
     "cross-env": "^6.0.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.5.0",
     "gh-pages": "^2.2.0"
+  },
+  "resolutions": {
+    "babel-jest": "^24.9.0"
   },
   "jest": {
     "snapshotSerializers": [
