@@ -1,13 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from '../App';
+import { shallow, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
+import Write from '../components/button/Write';
 
 
-// 1. dom에 부착되었는지
-// 2. dom에서 떨어졌는지
+// describe('sdfsdf',()=>{
+//     it('Write 버튼 있냐?', () => {
+//         expect(shallow(<Write/>)).toBe();
+//     });
+// })
 
-it('잘 작동하는지?',()=>{
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
-    ReactDOM.unmountComponentAtNode(div);
+
+describe('write', () => {
+    let component=null;
+
+    it('성공적으로 렌더링 되야함.', () => {
+        component=shallow(<Write />);
+    });
+    it('버튼이 잘 작동해야함.',()=>{
+        component.find('#write').simulate('click');
+        expect()
+    });
 });
