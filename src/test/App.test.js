@@ -7,12 +7,6 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 
-// describe('sdfsdf',()=>{
-//     it('Write 버튼 있냐?', () => {
-//         expect(shallow(<Write/>)).toBe();
-//     });
-// })
-
 
 describe('write', () => {
     let component=null;
