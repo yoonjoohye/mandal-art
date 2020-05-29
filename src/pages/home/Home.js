@@ -7,10 +7,9 @@ import 'aos/dist/aos.css';
 
 
 class Home extends Component {
-    componentDidMount() {
+    componentWillMount() {
         AOS.init();
     }
-
     render() {
         return (
             <>

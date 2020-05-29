@@ -9,6 +9,7 @@ const config = {
     messagingSenderId: "432272679699",
     appId: "1:432272679699:web:d3aa103b8f7ceacf40f0e6",
     measurementId: "G-2FQ6WS5BD0"
+
     //전버전
     // apiKey: "AIzaSyA_cUj1Wy83xmB7bLbxsv-WK3g3dyDy55Q",
     // authDomain: "mandal-art-deadf.firebaseapp.com",
