@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import * as firebase from "firebase";
 import {connect} from 'react-redux';
-import {logoutAsync} from '../../modules/auth';
+import {logoutAsync} from '../../stores/auth';
 import Loading from "../Loading";
 
 class Nav extends Component {
