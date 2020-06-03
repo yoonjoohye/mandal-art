@@ -50,7 +50,7 @@ const Delete = (props) => {
                 />
             }
             <button className="btn delete" onClick={onDelete}><img alt="만다라트-취소" className="w-100"
-                                                                   src={require('../../assets/icon/cancel.svg')}/>
+                                                                   src={require('../../assets/img/icon/cancel.svg')}/>
             </button>
         </>
     );

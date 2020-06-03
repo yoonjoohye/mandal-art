@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import * as firebase from "firebase";
 import {Redirect, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import List from '../../../components/mandal/List.js';
-import ReactHelmet from "../../../components/ReactHelmet";
-import Modal from "../../../components/modal/Modal";
+import List from '../../molecules/List.js';
+import ReactHelmet from "../../components/ReactHelmet";
+import Modal from "../../components/modal/Modal";
 
 
 class Mypage extends Component {
@@ -86,7 +86,7 @@ class Mypage extends Component {
                                     :
                                     <div className="py-1 text-center">
                                         <img alt="만다라트-존재하지않는이미지" className="nothing-img"
-                                             src={require('./../../../assets/nothing.jpg')}/>
+                                             src={require('../../assets/img/nothing.jpg')}/>
                                     </div>
                             }
                         </div>
@@ -96,7 +96,7 @@ class Mypage extends Component {
                                 <div className="ping"></div>
                                 <button className="btn floating">
                                     <img alt="만다라트-추가" className="w-100"
-                                         src={require('./../../../assets/icon/plus.svg')}/>
+                                         src={require('../../assets/img/icon/plus.svg')}/>
                                 </button>
                             </div>
                         </div>

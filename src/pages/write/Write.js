@@ -2,14 +2,13 @@ import React, {Component} from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {fromJS, List} from 'immutable';
-import ReactHelmet from "../../../components/ReactHelmet";
-import Table from '../../../components/mandal/Table';
-import Title from '../../../components/mandal/Title';
-import Save from '../../../components/button/Save';
-import Print from "../../../components/button/Print";
-import Edit from "../../../components/button/Edit";
-import Modal from '../../../components/modal/Modal';
-import ValidModal from '../../../components/modal/ValidModal';
+import ReactHelmet from "../../components/ReactHelmet";
+import Table from '../../molecules/Table';
+import Title from '../../components/input/Title';
+import Save from '../../components/button/Save';
+import Print from "../../components/button/Print";
+import Edit from "../../components/button/Edit";
+import Modal from '../../components/modal/Modal';
 import * as firebase from "firebase";
 
 
@@ -85,7 +84,7 @@ class Write extends Component {
                         title="로그인이 필요합니다"
                         contents="3초만에 소셜 계정으로 로그인하세요.<br/>로그인 후 만다라트 계획표를 세워보세요!"
                         buttonName="로그인 하러가기"
-                        img={require('../../../assets/icon/login.svg')}
+                        img={require('../../assets/img/icon/login.svg')}
                         path="/login"
                         bgColor="bg-black"
                     />

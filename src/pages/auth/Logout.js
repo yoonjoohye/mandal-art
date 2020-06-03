@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {logoutAsync} from "../../modules/auth";
-
-import Loading from '../../components/Loading';
-import ReactHelmet from "../../components/ReactHelmet";
+import {logoutAsync} from "../../stores/auth";
 
 
 class Logout extends Component {
@@ -11,19 +8,6 @@ class Logout extends Component {
         super(props);
     }
 
-
-    // onLogout = (e) => {
-    //     e.preventDefault();
-    //
-    //     firebase.auth().signOut().then(() => {
-    //         localStorage.removeItem('logInfo');
-    //
-    //     }).catch(function (error) {
-    //         console.log(error);
-    //     });
-    //
-    //     window.location.href = '/';
-    // }
     render() {
         let {logoutAsync}=this.props;
         return (

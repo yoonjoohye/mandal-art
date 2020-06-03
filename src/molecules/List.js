@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import Edit from '../button/Edit';
-import Delete from '../button/Delete';
+import Delete from '../components/button/Delete';
 
 
 class List extends Component {
