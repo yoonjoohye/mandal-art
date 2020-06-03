@@ -1,4 +1,3 @@
-import firestore from '../firebaseApp.js';
 import * as firebase from "firebase";
 
 

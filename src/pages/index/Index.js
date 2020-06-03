@@ -6,7 +6,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 
-class Home extends Component {
+class Index extends Component {
     componentWillMount() {
         AOS.init();
     }
@@ -36,7 +36,7 @@ class Home extends Component {
                             </div>
                         </div>
                         <div data-aos="zoom-in" className="flex items-center justify-between mb-150">
-                            <img className="home-img mr-50" src={require('../../assets/note.svg')}/>
+                            <img className="home-img mr-50" src={require('../../assets/img/note.svg')}/>
                             <div className="w-100 text-right">
                                 <div className="font-lg font-medium py-1 mb-20 border-bottom">아이디어 구체화</div>
                                 <div className=" font-gray mb-50">
@@ -55,11 +55,11 @@ class Home extends Component {
                                 </div>
                                 <Write/>
                             </div>
-                            <img className="home-img ml-50" src={require('../../assets/mobile.svg')}/>
+                            <img className="home-img ml-50" src={require('../../assets/img/mobile.svg')}/>
                         </div>
 
                         <div data-aos="zoom-in" className="flex items-center justify-between mb-150">
-                            <img className="home-img mr-50" src={require('../../assets/onoffline.svg')}/>
+                            <img className="home-img mr-50" src={require('../../assets/img/onoffline.svg')}/>
                             <div className="w-100 text-right">
                                 <div className="font-lg font-medium py-1 mb-20 border-bottom">온오프라인 만다라트</div>
                                 <div className=" font-gray mb-50">
@@ -83,4 +83,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default Index;

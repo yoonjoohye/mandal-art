@@ -24,7 +24,7 @@ class Loading extends Component {
                 show ?
                     <section className="w-100 h-100 left-0 top-0 bg-black position-fixed flex justify-center items-center">
                         <div className="spinner">
-                            <img className="w-100" alt="만다라트-로딩" src={require('../assets/icon/loading.svg')}/>
+                            <img className="w-100" alt="만다라트-로딩" src={require('../assets/img/icon/loading.svg')}/>
                         </div>
                     </section> :
                     null

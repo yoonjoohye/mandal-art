@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import * as firebase from "firebase/app";
 import {connect} from 'react-redux';
-import {loginAsync} from '../../modules/auth';
-
+import {loginAsync} from '../../stores/auth';
 import Loading from '../../components/Loading';
 import ReactHelmet from "../../components/ReactHelmet";
 
@@ -36,7 +34,7 @@ class Login extends Component {
                         <div className="login-box flex flex-col justify-center items-center">
                             <div className="flex justify-center items-center">
                                 <img alt="만다라트-로고" className="login-icon mr-10"
-                                     src={require('../../assets/icon/puzzle.svg')}/>
+                                     src={require('../../assets/img/icon/puzzle.svg')}/>
                                 <div className="font-md font-white-pink font-bold">Mandal-ART</div>
                             </div>
                             <div className="font-xmd font-white-black font-medium mb-70">로그인</div>
@@ -44,13 +42,13 @@ class Login extends Component {
                             <div className="flex items-center justify-between btn login google mb-20"
                                  onClick={()=>loginAsync('google')}>
                                 <img className="modal-icon" alt="만다라트-구글"
-                                     src={require('../../assets/icon/google.svg')}/>
+                                     src={require('../../assets/img/icon/google.svg')}/>
                                 <div className="w-100 text-center">구글로 로그인</div>
                             </div>
                             <div className="flex items-center justify-between btn login facebook mb-70-m"
                                  onClick={()=>loginAsync('facebook')}>
                                 <img className="modal-icon" alt="만다라트-페이스북"
-                                     src={require('../../assets/icon/facebook.svg')}/>
+                                     src={require('../../assets/img/icon/facebook.svg')}/>
                                 <div className="w-100 text-center">페이스북으로 로그인</div>
                             </div>
 
