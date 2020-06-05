@@ -1,21 +1,20 @@
 import React, {useState, useEffect} from 'react';
-import {Redirect} from 'react-router-dom';
 import * as firebase from "firebase";
 import {connect} from "react-redux";
 import ValidModal from "../modal/ValidModal";
 import Modal from "../modal/Modal";
 
 const Edit = (props) => {
-
-    const [title, setTitle] = useState();
-    const [data, setData] = useState();
-    const [openModal,setOpenModal]=useState(false);
+    const [title, setTitle] = useState('');
+    const [data, setData] = useState('');
+    const [validModal,setValidModal]=useState(false);
     const [successEdit, setSuccessEdit] = useState(false);
 
     useEffect(() => {
         setTitle(props.title);
         setData(JSON.stringify(props.data));
     });
+    console.log(title);
 
     const onEdit = (e) => {
         e.preventDefault();
@@ -47,27 +46,23 @@ const Edit = (props) => {
                 setSuccessEdit(true);
             });
         }else{
-            setOpenModal(true);
+            setValidModal(true);
         }
-    }
-    const onOpen=(bool)=>{
-        setOpenModal(bool);
     }
     const onProgress=(bool)=>{
         setSuccessEdit(false);
         if(bool){
-            window.location.href='/mypage'
+            window.location.href='/mypage';
         }
     }
 
     return (
         <>
             {
-                openModal &&
-                <ValidModal isOpen={openModal}
+                validModal &&
+                <ValidModal isOpen={validModal}
                             title="제목을 입력해주세요"
                             contents="제목을 작성하지 않았습니다.<br/>제목을 작성하지 않으면 저장할 수 없습니다."
-                            onOpen={onOpen}
                 />
             }
             {

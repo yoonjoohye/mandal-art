@@ -24,43 +24,25 @@ const Write = (props) => {
         List(['', '', '', '', '', '', '', '', '']),
         List(['', '', '', '', '', '', '', '', '']),
     ]));
-    const [page, setPage] = useState(window.location.pathname);
+    let page = window.location.pathname;
     let {user, match} = props;
 
+    useEffect(() => {
+        if (page !== '/write') {
+            let database = firebase.database();
+            const dataList = [];
+            database.ref(`/mandal/${user.uid}`).once('value').then((snapshot) => {
+                const obj = snapshot.val();
+                for (let key in obj) {
+                    dataList.push(obj[key]);
+                }
+                setTitle(dataList[match.params.id].title);
+                setData(fromJS(JSON.parse(dataList[match.params.id].data)));
+            });
+        }
+    }, []);
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         title: '',
-    //         data: List([
-    //                 List(['', '', '', '', '', '', '', '', '']),
-    //                 List(['', '', '', '', '', '', '', '', '']),
-    //                 List(['', '', '', '', '', '', '', '', '']),
-    //                 List(['', '', '', '', '', '', '', '', '']),
-    //                 List(['', '', '', '', '', '', '', '', '']),
-    //                 List(['', '', '', '', '', '', '', '', '']),
-    //                 List(['', '', '', '', '', '', '', '', '']),
-    //                 List(['', '', '', '', '', '', '', '', '']),
-    //                 List(['', '', '', '', '', '', '', '', '']),
-    //             ]
-    //         ),
-    //         page:window.location.pathname,
-    //     }
-    // }
 
-    if (page !== '/write') {
-        let database = firebase.database();
-        const dataList = [];
-
-        database.ref(`/mandal/${user.uid}`).once('value').then((snapshot) => {
-            const obj = snapshot.val();
-            for (let key in obj) {
-                dataList.push(obj[key]);
-            }
-            setTitle(dataList[match.params.id].title);
-            setData(fromJS(JSON.parse(dataList[match.params.id].data)));
-        });
-    }
     // componentWillMount() {
     //     if(this.state.page!=='/write') {
     //         let {user,match} = this.props;

@@ -4,7 +4,8 @@ import {Link} from 'react-router-dom';
 
 const Modal = (props) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [isConfirm, setIsConfirm] = useState(null);
+    const [isConfirm, setIsConfirm] = useState(false);
+    const [isValid, setIsValid] = useState(false);
     const [title, setTitle] = useState('제목');
     const [contents, setContents] = useState('컨텐츠');
     const [buttonName, setButtonName] = useState('확인');
@@ -56,9 +57,12 @@ const Modal = (props) => {
                                         <button className="btn outline" onClick={onCancel}>취소</button>
                                     </>
                                     :
-                                    <Link to={path}>
+                                    isValid ?
                                         <button className="btn save full">{buttonName}</button>
-                                    </Link>
+                                        :
+                                        <Link to={path}>
+                                            <button className="btn save full">{buttonName}</button>
+                                        </Link>
                             }
                         </div>
                     </section> :

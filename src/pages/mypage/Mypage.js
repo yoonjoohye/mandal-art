@@ -9,17 +9,20 @@ const Mypage = (props) => {
     const [list, setList] = useState([]);
     let {user} = props;
 
-    if (user) {
-        let database = firebase.database();
-        const dataList = [];
-        database.ref(`/mandal/${user.uid}`).once('value').then((snapshot) => {
-            const obj = snapshot.val();
-            for (let key in obj) {
-                dataList.push(obj[key]);
-            }
-            setList(dataList);
-        });
-    }
+    useEffect(()=>{
+        if (user) {
+            let database = firebase.database();
+            const dataList = [];
+            database.ref(`/mandal/${user.uid}`).once('value').then((snapshot) => {
+                const obj = snapshot.val();
+                for (let key in obj) {
+                    dataList.push(obj[key]);
+                }
+                setList(dataList);
+            });
+        }
+    },[]);
+
     return (
         <>
             <ReactHelmet
