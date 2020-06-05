@@ -6,7 +6,9 @@ import 'aos/dist/aos.css';
 
 
 const Index = () => {
-    AOS.init();
+    useEffect(()=>{
+        AOS.init();
+    },[]);
 
     return (
         <>

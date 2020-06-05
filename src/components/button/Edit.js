@@ -14,7 +14,6 @@ const Edit = (props) => {
         setTitle(props.title);
         setData(JSON.stringify(props.data));
     });
-    console.log(title);
 
     const onEdit = (e) => {
         e.preventDefault();
