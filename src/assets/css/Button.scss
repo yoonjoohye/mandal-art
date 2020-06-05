@@ -34,20 +34,6 @@
       padding:0.5rem 0.8rem;
     }
   }
-  &.noline{
-    font-size:13px;
-    padding:0.5rem 1.2rem;
-    color: #6d6d6d;
-    &:hover{
-      color: #454545;
-    }
-    @media(max-width:480px){
-      font-size:11px;
-      padding:0.5rem 0.8rem;
-
-
-    }
-  }
   &.write{
     font-size:30px;
     width:160px;
@@ -66,8 +52,9 @@
   }
   &.save{
     font-size:13px;
-    padding:0.5rem 1rem;
+    padding:0.5rem 1.2rem;
     border-radius:0.3rem;
+    border:1px solid #ff83a8;
     background-color: #ff83a8;
     color:#fff;
     &:hover{

@@ -1,18 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import {Redirect} from 'react-router-dom';
 import * as firebase from "firebase";
 import {connect} from "react-redux";
 import ValidModal from "../modal/ValidModal";
 import Modal from "../modal/Modal";
-import ConfirmModal from "../modal/ConfirmModal";
 
 const Edit = (props) => {
-
-    const [title, setTitle] = useState();
-    const [data, setData] = useState();
-    const [openModal,setOpenModal]=useState(false);
-    const [successEdit, setSuccessEdit] = useState(false);
-
+    const [title, setTitle] = useState('');
+    const [data, setData] = useState('');
+    const [validModal,setValidModal]=useState(false);
+    const [confirmModal, setConfirmModal] = useState(false);
 
     useEffect(() => {
         setTitle(props.title);
@@ -46,38 +42,41 @@ const Edit = (props) => {
                     time: date
                 });
             }).then(() => {
-                setSuccessEdit(true);
+                setConfirmModal(true);
             });
         }else{
-            setOpenModal(true);
+            setValidModal(true);
         }
     }
-    const onOpen=(bool)=>{
-        setOpenModal(bool);
+    const onValidOpen=(bool)=>{
+        setValidModal(bool);
     }
-    const onProgress=(bool)=>{
-        setSuccessEdit(bool);
+
+    const onConfirmOpen=(bool)=>{
+        setConfirmModal(false);
         if(bool){
-            window.location.href='/mypage'
+            window.location.href='/mypage';
         }
     }
 
     return (
         <>
             {
-                openModal &&
-                <ValidModal isOpen={openModal}
+                validModal &&
+                <ValidModal isOpen={validModal}
                             title="제목을 입력해주세요"
                             contents="제목을 작성하지 않았습니다.<br/>제목을 작성하지 않으면 저장할 수 없습니다."
-                            onOpen={onOpen}
+                            onValidOpen={onValidOpen}
                 />
             }
             {
-                successEdit &&
-                <ConfirmModal isOpen={successEdit}
-                              title="수정이 완료되었습니다."
-                              contents="지금 바로 마이페이지에서 확인할 수 있습니다.<br/>수정된 내용을 확인하시겠습니까?"
-                              onProgress={onProgress}
+                confirmModal &&
+                <Modal isOpen={confirmModal}
+                       isConfirm={true}
+                       title="수정이 완료되었습니다."
+                       contents="지금 바로 마이페이지에서 확인할 수 있습니다.<br/>수정된 내용을 확인하시겠습니까?"
+                       bgColor="bg-opacity"
+                       onConfirmOpen={onConfirmOpen}
                 />
             }
             <button className="btn edit" onClick={onEdit}>수정완료</button>

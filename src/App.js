@@ -14,14 +14,12 @@ import rootReducer from './stores';
 // 스토어 생성
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(ReduxThunk)));
 
-class App extends Component {
-    render() {
-        return (
-            <Provider store={store}>
-                <Root/>
-            </Provider>
-        );
-    };
+const App = () => {
+    return (
+        <Provider store={store}>
+            <Root/>
+        </Provider>
+    );
 }
 
 export default App;

@@ -1,40 +1,31 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import Delete from '../components/button/Delete';
 
 
-class List extends Component {
+const List = (props) => {
+    const [index, setIndex] = useState(props.index);
+    const [data, setData] = useState(props.data);
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            index: this.props.index,
-            data: this.props.data
-        }
-    }
+    useEffect(() => {
+        setIndex(props.index);
+        setData(props.data);
 
-    componentWillReceiveProps(nextProps, nextContext) {
-        this.setState({
-            index: nextProps.index,
-            data: nextProps.data
-        })
-    }
+    });
 
-    render() {
-        return (
-            <div key={this.state.index}>
-                <div className="py-1 flex items-center justify-between border-bottom">
-                    <Link className="cursor-pointer" to={`detail/${this.state.index}`}>
-                        <div className="font-md mb-5">{this.state.data.title}</div>
-                        <div className="font-sm font-gray">{this.state.data.time} 작성</div>
-                    </Link>
-                    <div>
-                        <Delete pageNo={this.state.index}></Delete>
-                    </div>
+    return (
+        <div key={index}>
+            <div className="py-1 flex items-center justify-between border-bottom">
+                <Link className="cursor-pointer" to={`detail/${index}`}>
+                    <div className="font-md mb-5">{data.title}</div>
+                    <div className="font-sm font-gray">{data.time} 작성</div>
+                </Link>
+                <div>
+                    <Delete pageNo={index}></Delete>
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default List;

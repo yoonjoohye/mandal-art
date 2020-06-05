@@ -1,32 +1,20 @@
-import React, {Component} from 'react';
+import React, {useEffect, useState} from 'react';
 import {List, fromJS} from 'immutable';
 import * as firebase from "firebase";
 
 
-class Table extends Component {
+const Table = (props) => {
+    const [data, setData] = useState(List());
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: this.props.data,
-        }
-    }
+    useEffect(() => {
+        setData(props.data);
+    });
 
-    //props를 받아서 state를 변경할때 사용
-    componentWillReceiveProps(nextProps, nextContext) {
-        this.setState({
-            data: nextProps.data
-        });
-
-
-    }
-
-    onChange = (e, tableIndex, dataIndex) => {
+    const onChange = (e, tableIndex, dataIndex) => {
         e.preventDefault();
         const {value} = e.target;
-        const data = this.state.data;
 
-        if(data.getIn([dataIndex, tableIndex]).split("\n").length>3){
+        if (data.getIn([dataIndex, tableIndex]).split("\n").length > 3) {
             data.setIn([dataIndex, tableIndex])
         }
 
@@ -40,11 +28,11 @@ class Table extends Component {
             goal = data.setIn([tableIndex, dataIndex], value);
         }
 
-        this.setState({data: goal});
-        this.props.tableChange(goal);
+        setData(goal);
+        props.tableChange(goal);
     }
 
-    onPlaceholder = (tableIndex, dataIndex) => {
+    const onPlaceholder = (tableIndex, dataIndex) => {
         if (window.screen.width > 480) {
             if (tableIndex === 4) {
                 if (dataIndex === 4) {
@@ -68,57 +56,57 @@ class Table extends Component {
         }
     }
 
-    onVertical = (tableIndex, dataIndex) => {
-        let data = this.state.data.getIn([tableIndex, dataIndex]);
-        let lineCnt = data.substr(0, data.selectionStart).split("\n").length;
+    const onVertical = (tableIndex, dataIndex) => {
+        let word = data.getIn([tableIndex, dataIndex]);
+        let lineCnt = word.substr(0, word.selectionStart).split("\n").length;
 
         if (window.screen.width < 480) {
-            if (data.length < 3 && lineCnt === 1) {
+            if (word.length < 4 && lineCnt === 1) {
                 return 'line-height-3';
+            } else if (word.length < 7) {
+                return 'line-height-15';
             } else {
                 return 'line-height-1';
             }
         } else if (window.screen.width <= 1024) {
-            if (data.length < 5 && lineCnt === 1) {
+            if (word.length < 5 && lineCnt === 1) {
                 return 'line-height-5';
             } else {
-                return 'line-height-1.5';
+                return 'line-height-15';
             }
         } else if (window.screen.width > 1440) {
-            if (data.length < 10 && lineCnt === 1) {
+            if (word.length < 10 && lineCnt === 1) {
                 return 'line-height-5';
-            } else if (data.length < 19 && lineCnt < 3) {
+            } else if (word.length < 20 && lineCnt < 3) {
                 return 'line-height-2';
             } else {
-                return 'line-height-1.5';
+                return 'line-height-15';
             }
         }
     }
 
-    render() {
-        return (
-            <div className="grid outer-grid justify-between">
-                {this.state.data.map((table, tableIndex) => {
-                    return (
-                        <div className="grid inner-grid justify-between items-center" key={tableIndex}>
-                            {table.map((data, dataIndex) => {
-                                return (
-                                    <textarea
-                                        className={`mandal-input ${(tableIndex === 4 && dataIndex === 4 ? 'bg-main' : tableIndex === 4 || dataIndex === 4 ? 'bg-sub' : '')} ${this.onVertical(tableIndex, dataIndex)}`}
-                                        key={[dataIndex, tableIndex].join('_')}
-                                        placeholder={this.onPlaceholder(tableIndex, dataIndex)} value={data}
-                                        onChange={(e) => this.onChange(e, tableIndex, dataIndex)}
-                                        maxLength={24}
-                                    >
+    return (
+        <div className="grid outer-grid justify-between">
+            {data.map((table, tableIndex) => {
+                return (
+                    <div className="grid inner-grid justify-between items-center" key={tableIndex}>
+                        {table.map((data, dataIndex) => {
+                            return (
+                                <textarea
+                                    className={`mandal-input ${(tableIndex === 4 && dataIndex === 4 ? 'bg-main' : tableIndex === 4 || dataIndex === 4 ? 'bg-sub' : '')} ${onVertical(tableIndex, dataIndex)}`}
+                                    key={[dataIndex, tableIndex].join('_')}
+                                    placeholder={onPlaceholder(tableIndex, dataIndex)} value={data}
+                                    onChange={(e) => onChange(e, tableIndex, dataIndex)}
+                                    maxLength={24}
+                                >
                                     </textarea>
-                                );
-                            })}
-                        </div>
-                    );
-                })}
-            </div>
-        );
-    }
+                            );
+                        })}
+                    </div>
+                );
+            })}
+        </div>
+    );
 }
 
 export default Table;
