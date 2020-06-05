@@ -7,8 +7,8 @@ import Modal from "../modal/Modal";
 const Save = (props) => {
     const [data, setData] = useState();
     const [title, setTitle] = useState();
-    const [openModal,setOpenModal]=useState(false);
-    const [successSave,setSuccessSave]=useState(false);
+    const [validModal,setValidModal]=useState(false);
+    const [modal,setModal]=useState(false);
 
     useEffect(() => {
         setTitle(props.title);
@@ -32,30 +32,30 @@ const Save = (props) => {
                 data: data,
                 time: date
             }).then(() => {
-                setSuccessSave(true);
+                setModal(true);
             })
         } else{
-            setOpenModal(true);
+            setValidModal(true);
         }
     }
-    const onOpen=(bool)=>{
-        setOpenModal(bool);
+    const onValidOpen=(bool)=>{
+        setValidModal(bool);
     }
 
     return (
         <>
             {
-                openModal &&
-                <ValidModal isOpen={openModal}
+                validModal &&
+                <ValidModal isOpen={validModal}
                             title="제목을 입력해주세요"
                             contents="제목을 작성하지 않았습니다.<br/>제목을 작성하지 않으면 저장할 수 없습니다."
-                            onOpen={onOpen}
+                            onValidOpen={onValidOpen}
                 />
             }
             {
-                successSave &&
+                modal &&
                 <Modal
-                    isOpen={successSave}
+                    isOpen={modal}
                     isConfirm={false}
                     title="저장이 완료되었습니다."
                     contents="지금 바로 마이페이지에서 확인할 수 있습니다.<br/>저장된 내용을 확인해보세요."

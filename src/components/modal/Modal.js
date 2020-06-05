@@ -5,9 +5,8 @@ import {Link} from 'react-router-dom';
 const Modal = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isConfirm, setIsConfirm] = useState(false);
-    const [isValid, setIsValid] = useState(false);
     const [title, setTitle] = useState('제목');
-    const [contents, setContents] = useState('컨텐츠');
+    const [contents, setContents] = useState('내용');
     const [buttonName, setButtonName] = useState('확인');
     const [img, setImg] = useState(null);
     const [path, setPath] = useState('');
@@ -26,11 +25,11 @@ const Modal = (props) => {
 
     const onConfirm = () => {
         setIsOpen(false);
-        props.onProgress(true);
+        props.onConfirmOpen(true);
     }
     const onCancel = () => {
         setIsOpen(false)
-        props.onProgress(false);
+        props.onConfirmOpen(false);
     }
 
 
@@ -57,12 +56,9 @@ const Modal = (props) => {
                                         <button className="btn outline" onClick={onCancel}>취소</button>
                                     </>
                                     :
-                                    isValid ?
+                                    <Link to={path}>
                                         <button className="btn save full">{buttonName}</button>
-                                        :
-                                        <Link to={path}>
-                                            <button className="btn save full">{buttonName}</button>
-                                        </Link>
+                                    </Link>
                             }
                         </div>
                     </section> :

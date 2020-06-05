@@ -8,7 +8,7 @@ const Edit = (props) => {
     const [title, setTitle] = useState('');
     const [data, setData] = useState('');
     const [validModal,setValidModal]=useState(false);
-    const [successEdit, setSuccessEdit] = useState(false);
+    const [confirmModal, setConfirmModal] = useState(false);
 
     useEffect(() => {
         setTitle(props.title);
@@ -42,14 +42,18 @@ const Edit = (props) => {
                     time: date
                 });
             }).then(() => {
-                setSuccessEdit(true);
+                setConfirmModal(true);
             });
         }else{
             setValidModal(true);
         }
     }
-    const onProgress=(bool)=>{
-        setSuccessEdit(false);
+    const onValidOpen=(bool)=>{
+        setValidModal(bool);
+    }
+
+    const onConfirmOpen=(bool)=>{
+        setConfirmModal(false);
         if(bool){
             window.location.href='/mypage';
         }
@@ -62,16 +66,17 @@ const Edit = (props) => {
                 <ValidModal isOpen={validModal}
                             title="제목을 입력해주세요"
                             contents="제목을 작성하지 않았습니다.<br/>제목을 작성하지 않으면 저장할 수 없습니다."
+                            onValidOpen={onValidOpen}
                 />
             }
             {
-                successEdit &&
-                <Modal isOpen={successEdit}
+                confirmModal &&
+                <Modal isOpen={confirmModal}
                        isConfirm={true}
                        title="수정이 완료되었습니다."
                        contents="지금 바로 마이페이지에서 확인할 수 있습니다.<br/>수정된 내용을 확인하시겠습니까?"
                        bgColor="bg-opacity"
-                       onProgress={onProgress}
+                       onConfirmOpen={onConfirmOpen}
                 />
             }
             <button className="btn edit" onClick={onEdit}>수정완료</button>
