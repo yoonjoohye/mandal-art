@@ -1,44 +1,29 @@
-import React, {Component} from 'react';
-import {List,fromJS} from 'immutable';
-import * as firebase from "firebase";
+import React, {useState, useEffect} from 'react';
 
 
-class Title extends Component {
+const Title = (props) => {
+    const [title, setTitle] = useState(props.title);
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            title:this.props.title
-        }
-    }
-    //props를 받아서 state를 변경할때 사용
-    componentWillReceiveProps(nextProps, nextContext) {
-        this.setState({
-            title:nextProps.title
-        });
-    }
+    useEffect(() => {
+        setTitle(props.title);
+    });
 
-    onChange = (e) => {
+    const onChange = (e) => {
         e.preventDefault();
-
-        this.setState({
-            title: e.target.value
-        });
-
-        this.props.titleChange(e.target.value);
+        setTitle(e.target.value);
+        props.titleChange(e.target.value);
     }
 
-    render() {
-        return (
-            <input
-                className="mandal-title"
-                type="text"
-                placeholder="제목을 입력하세요"
-                value={this.state.title}
-                onChange={(e) => this.onChange(e)}
-            />
-        );
-    }
+    return (
+        <input
+            className="mandal-title"
+            type="text"
+            placeholder="제목을 입력하세요"
+            value={title}
+            onChange={(e) => onChange(e)}
+        />
+    );
+
 }
 
 export default Title;

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 
-class Modal extends Component {
+class ValidModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -42,4 +42,4 @@ class Modal extends Component {
     }
 }
 
-export default Modal;
+export default ValidModal;

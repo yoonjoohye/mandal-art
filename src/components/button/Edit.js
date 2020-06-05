@@ -4,7 +4,6 @@ import * as firebase from "firebase";
 import {connect} from "react-redux";
 import ValidModal from "../modal/ValidModal";
 import Modal from "../modal/Modal";
-import ConfirmModal from "../modal/ConfirmModal";
 
 const Edit = (props) => {
 
@@ -12,7 +11,6 @@ const Edit = (props) => {
     const [data, setData] = useState();
     const [openModal,setOpenModal]=useState(false);
     const [successEdit, setSuccessEdit] = useState(false);
-
 
     useEffect(() => {
         setTitle(props.title);
@@ -56,7 +54,7 @@ const Edit = (props) => {
         setOpenModal(bool);
     }
     const onProgress=(bool)=>{
-        setSuccessEdit(bool);
+        setSuccessEdit(false);
         if(bool){
             window.location.href='/mypage'
         }
@@ -74,10 +72,12 @@ const Edit = (props) => {
             }
             {
                 successEdit &&
-                <ConfirmModal isOpen={successEdit}
-                              title="수정이 완료되었습니다."
-                              contents="지금 바로 마이페이지에서 확인할 수 있습니다.<br/>수정된 내용을 확인하시겠습니까?"
-                              onProgress={onProgress}
+                <Modal isOpen={successEdit}
+                       isConfirm={true}
+                       title="수정이 완료되었습니다."
+                       contents="지금 바로 마이페이지에서 확인할 수 있습니다.<br/>수정된 내용을 확인하시겠습니까?"
+                       bgColor="bg-opacity"
+                       onProgress={onProgress}
                 />
             }
             <button className="btn edit" onClick={onEdit}>수정완료</button>
