@@ -14,14 +14,13 @@ describe('write', () => {
         expect(component).toMatchSnapshot();
     });
     it('버튼명이 시작하기여야함.',()=>{
-        expect(component.find('button')).toBe('시작하기');
+        expect(component.find('button').text()).toBe('시작하기');
     })
     it('Link to 값이 /write로 있어야 함.',()=>{
         expect(component.find('Link').prop('to')).toBe('/write');
     });
     it('Link를 클릭하면 /write로 이동해야한다.', () => {
         component.find('Link').simulate('click');
-        expect(component).toMatchSnapshot();
     });
 
 });

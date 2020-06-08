@@ -1,24 +1,24 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import * as firebase from "firebase";
 import {connect} from "react-redux";
 import ValidModal from "../modal/ValidModal";
 import Modal from "../modal/Modal";
 
-const Edit = (props) => {
-    const [title, setTitle] = useState('');
-    const [data, setData] = useState('');
-    const [validModal,setValidModal]=useState(false);
+const Edit = ({title, data, user, pageNo}) => {
+    // const [title, setTitle] = useState('');
+    // const [data, setData] = useState('');
+    const [validModal, setValidModal] = useState(false);
     const [confirmModal, setConfirmModal] = useState(false);
 
-    useEffect(() => {
-        setTitle(props.title);
-        setData(JSON.stringify(props.data));
-    });
+    // useEffect(() => {
+    //     setTitle(props.title);
+    //     setData(JSON.stringify(props.data));
+    // });
 
     const onEdit = (e) => {
         e.preventDefault();
-        if(title.length>0) {
-            const {uid} = props.user;
+        if (title.length > 0) {
+            const {uid} = user;
             const database = firebase.database();
 
             let time = new Date();
@@ -36,26 +36,26 @@ const Edit = (props) => {
                     }
                 }
                 // console.log(props.pageNo);
-                database.ref(`mandal/${uid}/${keyList[props.pageNo]}`).update({
+                database.ref(`mandal/${uid}/${keyList[pageNo]}`).update({
                     title: title,
-                    data: data,
+                    data: JSON.stringify(data),
                     time: date
                 });
             }).then(() => {
                 setConfirmModal(true);
             });
-        }else{
+        } else {
             setValidModal(true);
         }
     }
-    const onValidOpen=(bool)=>{
+    const onValidOpen = (bool) => {
         setValidModal(bool);
     }
 
-    const onConfirmOpen=(bool)=>{
+    const onConfirmOpen = (bool) => {
         setConfirmModal(false);
-        if(bool){
-            window.location.href='/mypage';
+        if (bool) {
+            window.location.href = '/mypage';
         }
     }
 
@@ -86,7 +86,7 @@ const Edit = (props) => {
 }
 
 export default connect(
-    (state)=>({
-        user:state.auth.user
+    (state) => ({
+        user: state.auth.user
     })
 )(Edit);

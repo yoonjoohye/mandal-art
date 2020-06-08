@@ -1,6 +1,5 @@
 import React, {useEffect, useState,useCallback} from 'react';
-import {List, fromJS} from 'immutable';
-import * as firebase from "firebase";
+import {List} from 'immutable';
 
 
 const Table = (props) => {
@@ -30,29 +29,6 @@ const Table = (props) => {
         setData(goal);
         props.tableChange(goal);
     },[data]);
-
-    console.log('sdf');
-    // const onChange = (e, tableIndex, dataIndex) => {
-    //     e.preventDefault();
-    //     const {value} = e.target;
-    //
-    //     if (data.getIn([dataIndex, tableIndex]).split("\n").length > 3) {
-    //         data.setIn([dataIndex, tableIndex])
-    //     }
-    //
-    //     let goal;
-    //
-    //     if (tableIndex === 4) {
-    //         goal = data.setIn([dataIndex, tableIndex], value).setIn([tableIndex, dataIndex], value);
-    //     } else if (dataIndex === 4) {
-    //         goal = data.setIn([dataIndex, tableIndex], value).setIn([tableIndex, dataIndex], value);
-    //     } else {
-    //         goal = data.setIn([tableIndex, dataIndex], value);
-    //     }
-    //
-    //     setData(goal);
-    //     props.tableChange(goal);
-    // }
 
     const onPlaceholder = (tableIndex, dataIndex) => {
         if (window.screen.width > 480) {

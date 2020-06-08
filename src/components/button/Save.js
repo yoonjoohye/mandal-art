@@ -5,15 +5,15 @@ import ValidModal from "../modal/ValidModal";
 import Modal from "../modal/Modal";
 
 const Save = (props) => {
-    const [data, setData] = useState();
-    const [title, setTitle] = useState();
+    const [data, setData] = useState('');
+    const [title, setTitle] = useState('');
     const [validModal,setValidModal]=useState(false);
     const [modal,setModal]=useState(false);
 
     useEffect(() => {
         setTitle(props.title);
         setData(JSON.stringify(props.data));
-    });
+    },[props.title,props.data]);
 
     const onSave = (e) => {
         e.preventDefault();

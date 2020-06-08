@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect,useCallback} from 'react';
 import {connect} from 'react-redux';
 import {fromJS, List} from 'immutable';
 import ReactHelmet from "../../components/ReactHelmet";
@@ -11,7 +11,7 @@ import Modal from '../../components/modal/Modal';
 import * as firebase from "firebase";
 
 
-const Write = (props) => {
+const Write = ({user,match}) => {
     const [title, setTitle] = useState('');
     const [data, setData] = useState(List([
         List(['', '', '', '', '', '', '', '', '']),
@@ -24,8 +24,7 @@ const Write = (props) => {
         List(['', '', '', '', '', '', '', '', '']),
         List(['', '', '', '', '', '', '', '', '']),
     ]));
-    let page = window.location.pathname;
-    let {user, match} = props;
+    const page = window.location.pathname;
 
     useEffect(() => {
         if (page !== '/write') {
@@ -43,34 +42,13 @@ const Write = (props) => {
     }, []);
 
 
-    // componentWillMount() {
-    //     if(this.state.page!=='/write') {
-    //         let {user,match} = this.props;
-    //
-    //         let database = firebase.database();
-    //         const dataList = [];
-    //
-    //         database.ref(`/mandal/${user.uid}`).once('value').then((snapshot) => {
-    //             const obj = snapshot.val();
-    //             for (let key in obj) {
-    //                 dataList.push(obj[key]);
-    //             }
-    //             this.setState({
-    //                 title: dataList[match.params.id].title,
-    //                 data: fromJS(JSON.parse(dataList[match.params.id].data))
-    //             });
-    //         });
-    //
-    //     }
-    // }
-
-    const titleChange = (data) => {
+    const titleChange = useCallback((data) => {
         setTitle(data);
-    }
+    },[]);
 
-    const tableChange = (data) => {
+    const tableChange = useCallback((data) => {
         setData(data);
-    }
+    },[]);
 
     return (
         <>

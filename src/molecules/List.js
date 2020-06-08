@@ -1,28 +1,24 @@
-import React, {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
-import Delete from '../components/button/Delete';
+import React from 'react';
+import ListItem from "../components/List/ListItem";
 
 
-const List = (props) => {
-    const [index, setIndex] = useState(props.index);
-    const [data, setData] = useState(props.data);
-
-    useEffect(() => {
-        setIndex(props.index);
-        setData(props.data);
-    });
+const List = ({list, onDelete}) => {
 
     return (
-        <div key={index}>
-            <div className="py-1 flex items-center justify-between border-bottom">
-                <Link className="cursor-pointer" to={`detail/${index}`}>
-                    <div className="font-md mb-5">{data.title}</div>
-                    <div className="font-sm font-gray">{data.time} 작성</div>
-                </Link>
-                <div>
-                    <Delete pageNo={index}></Delete>
-                </div>
-            </div>
+        <div className="mandal-list flex flex-col">
+            {
+                list.length !== 0 ?
+                    list.map((data, index) => {
+                        return (
+                            <ListItem key={index} data={data} index={index} onDelete={onDelete}></ListItem>
+                        )
+                    })
+                    :
+                    <div className="py-1 text-center">
+                        <img alt="만다라트-존재하지않는이미지" className="nothing-img"
+                             src={require('../assets/img/nothing.jpg')}/>
+                    </div>
+            }
         </div>
     )
 }
