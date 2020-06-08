@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`write Link를 클릭하면 /write로 이동해야한다. 1`] = `
+<Link
+  to="/write"
+>
+  <button
+    className="btn write font-white"
+  >
+    시작하기
+  </button>
+</Link>
+`;
+
 exports[`write 성공적으로 렌더링 되야함. 1`] = `
 <Link
   to="/write"

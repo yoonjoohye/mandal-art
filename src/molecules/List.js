@@ -10,7 +10,6 @@ const List = (props) => {
     useEffect(() => {
         setIndex(props.index);
         setData(props.data);
-
     });
 
     return (
