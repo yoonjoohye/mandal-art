@@ -21,7 +21,7 @@ const Modal = (props) => {
         setImg(props.img);
         setPath(props.path);
         setBgColor(props.bgColor);
-    });
+    },[props.isOpen,props.isConfirm,props.title,props.contents,props.buttonName,props.img,props.path,props.bgColor]);
 
     const onConfirm = () => {
         setIsOpen(false);
@@ -31,7 +31,6 @@ const Modal = (props) => {
         setIsOpen(false)
         props.onConfirmOpen(false);
     }
-
 
     return (
         <>

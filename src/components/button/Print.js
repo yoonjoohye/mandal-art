@@ -1,10 +1,6 @@
 import React from 'react';
 
-const Print = () => {
-
-    const onPrint = () => {
-        window.print();
-    }
+const Print = ({onPrint}) => {
 
     return (
             <div className="btn print" onClick={onPrint}>

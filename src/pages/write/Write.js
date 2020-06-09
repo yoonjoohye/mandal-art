@@ -9,6 +9,7 @@ import Print from "../../components/button/Print";
 import Edit from "../../components/button/Edit";
 import Modal from '../../components/modal/Modal';
 import * as firebase from "firebase";
+import ValidModal from "../../components/modal/ValidModal";
 
 
 const Write = ({user,match}) => {
@@ -24,13 +25,18 @@ const Write = ({user,match}) => {
         List(['', '', '', '', '', '', '', '', '']),
         List(['', '', '', '', '', '', '', '', '']),
     ]));
+    const [validModal,setValidModal]=useState(false);
+    const [confirmModal, setConfirmModal] = useState(false);
+    const [modal,setModal]=useState(false);
+
     const page = window.location.pathname;
+    const {uid} = user;
+    const database = firebase.database();
 
     useEffect(() => {
         if (page !== '/write') {
-            let database = firebase.database();
             const dataList = [];
-            database.ref(`/mandal/${user.uid}`).once('value').then((snapshot) => {
+            database.ref(`/mandal/${uid}`).once('value').then((snapshot) => {
                 const obj = snapshot.val();
                 for (let key in obj) {
                     dataList.push(obj[key]);
@@ -50,6 +56,64 @@ const Write = ({user,match}) => {
         setData(data);
     },[]);
 
+    const onValidOpen=useCallback((bool)=>{
+        setValidModal(bool);
+    },[]);
+
+    const onConfirmOpen = useCallback((bool) => {
+        setConfirmModal(false);
+        if (bool) {
+            window.location.href = '/mypage';
+        }
+    },[]);
+
+    const onSave=(title,data)=>{
+        if(title.length>0) {
+            let time = new Date();
+            let date = `${time.getFullYear()}년 ${time.getMonth() + 1}월 ${time.getDate()}일 ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+
+            database.ref(`mandal/${uid}/`).push({
+                title: title,
+                data: JSON.stringify(data),
+                time: date
+            }).then(() => {
+                setModal(true);
+            })
+        } else{
+            setValidModal(true);
+        }
+    }
+
+    const onPrint=()=>{
+        window.print();
+    }
+    const onEdit=(title,data,pageNo)=>{
+        if (title.length > 0) {
+            let time = new Date();
+            let date = `${time.getFullYear()}년 ${time.getMonth() + 1}월 ${time.getDate()}일 ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+
+            database.ref(`mandal/${uid}`).once('value', (snapshot) => {
+                let obj = snapshot.val();
+                let keyList = [];
+
+                //키값 찾기
+                for (let key in obj) {
+                    if (obj.hasOwnProperty(key)) {
+                        keyList.push(key);
+                    }
+                }
+                database.ref(`mandal/${uid}/${keyList[pageNo]}`).update({
+                    title: title,
+                    data: JSON.stringify(data),
+                    time: date
+                });
+            }).then(() => {
+                setConfirmModal(true);
+            });
+        } else {
+            setValidModal(true);
+        }
+    }
     return (
         <>
             <ReactHelmet
@@ -70,28 +134,58 @@ const Write = ({user,match}) => {
                     bgColor="bg-black"
                 />
             }
+            {
+                validModal &&
+                <ValidModal isOpen={validModal}
+                            title="제목을 입력해주세요"
+                            contents="제목을 작성하지 않았습니다.<br/>제목을 작성하지 않으면 저장할 수 없습니다."
+                            onValidOpen={onValidOpen}
+                />
+            }
+            {
+                confirmModal &&
+                <Modal isOpen={confirmModal}
+                       isConfirm={true}
+                       title="수정이 완료되었습니다."
+                       contents="지금 바로 마이페이지에서 확인할 수 있습니다.<br/>수정된 내용을 확인하시겠습니까?"
+                       bgColor="bg-opacity"
+                       onConfirmOpen={onConfirmOpen}
+                />
+            }
+            {
+                modal &&
+                <Modal
+                    isOpen={modal}
+                    isConfirm={false}
+                    title="저장이 완료되었습니다."
+                    contents="지금 바로 마이페이지에서 확인할 수 있습니다.<br/>저장된 내용을 확인해보세요."
+                    buttonName="마이페이지로 가기"
+                    path="/mypage"
+                    bgColor="bg-opacity"
+                />
+            }
             <section className="mandal-section">
                 <div className="container">
                     {
                         page === '/write' ?
                             <div className="text-right">
-                                <Save title={title} data={data}></Save>
+                                <Save title={title} data={data} onSave={onSave}></Save>
                             </div> :
                             <div className="flex justify-end">
                                 <div className="only-pc mr-5">
-                                    <Print></Print>
+                                    <Print onPrint={onPrint}></Print>
                                 </div>
                                 <div>
                                     <Edit title={title} data={data}
-                                          pageNo={match.params.id}></Edit>
+                                          pageNo={match.params.id} onEdit={onEdit}></Edit>
                                 </div>
                             </div>
                     }
                     <div className="border-bottom py-1 mb-30">
-                        <Title title={title} titleChange={titleChange}> </Title>
+                        <Title title={title} titleChange={titleChange}/>
                     </div>
                     <div className="mb-30">
-                        <Table data={data} tableChange={tableChange}></Table>
+                        <Table data={data} tableChange={tableChange}/>
                     </div>
                 </div>
             </section>

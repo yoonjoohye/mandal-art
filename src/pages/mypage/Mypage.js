@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect,useCallback} from 'react';
 import * as firebase from "firebase";
 import {connect} from 'react-redux';
 import List from '../../molecules/List.js';
@@ -12,10 +12,10 @@ const Mypage = ({user}) => {
     const [confirmModal, setConfirmModal] = useState(false);
     const [pageNo, setPageNo] = useState(null);
     const {uid} = user;
+    const database = firebase.database();
 
 
     useEffect(() => {
-        let database = firebase.database();
         const dataList = [];
         database.ref(`/mandal/${uid}`).once('value').then((snapshot) => {
             const obj = snapshot.val();
@@ -25,17 +25,16 @@ const Mypage = ({user}) => {
             setList(dataList);
         });
 
-    }, [uid]);
+    }, [uid,database]);
 
-    const onDelete = (pageNo) => {
+    const onDelete = useCallback((pageNo) => {
         setConfirmModal(true);
         setPageNo(pageNo);
-    }
+    },[pageNo]);
 
-    const onConfirmOpen = (bool) => {
+    const onConfirmOpen = useCallback((bool) => {
         setConfirmModal(false);
         if (bool) {
-            const database = firebase.database();
             database.ref(`mandal/${uid}`).once('value', (snapshot) => {
                 let obj = snapshot.val();
                 let keyList = [];
@@ -46,14 +45,15 @@ const Mypage = ({user}) => {
                         keyList.push(key);
                     }
                 }
-                // console.log(keyList[props.pageNo]);
+
                 //삭제
                 database.ref(`mandal/${uid}/${keyList[pageNo]}`).remove();
             }).then(() => {
                 window.location.reload();
             });
         }
-    }
+    },[uid,database,pageNo]);
+
     return (
         <>
             {
@@ -93,7 +93,10 @@ const Mypage = ({user}) => {
                     </div>
 
                     <List list={list} onDelete={onDelete}/>
-                    <Float></Float>
+
+                    <div className="position-fixed bottom-10 right-5 flex items-center text-center">
+                        <Float></Float>
+                    </div>
                 </div>
             </section>
         </>

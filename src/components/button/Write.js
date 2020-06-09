@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const Write = (props) => {
+const Write = () => {
     return(
         <Link to="/write">
             <button className="btn write font-white">시작하기</button>

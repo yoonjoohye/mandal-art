@@ -1,7 +1,6 @@
 import React, {useState,useCallback} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import 'firebase/auth';
 
 import Nav from '../components/base/Nav.js';
 

@@ -7,7 +7,7 @@ const Table = (props) => {
 
     useEffect(() => {
         setData(props.data);
-    });
+    },[props.data]);
 
     const onChange = useCallback((e, tableIndex, dataIndex) => {
         const {value} = e.target;
@@ -28,7 +28,7 @@ const Table = (props) => {
 
         setData(goal);
         props.tableChange(goal);
-    },[data]);
+    },[props]);
 
     const onPlaceholder = (tableIndex, dataIndex) => {
         if (window.screen.width > 480) {

@@ -9,7 +9,7 @@ const ValidModal = (props) => {
         setIsOpen(props.isOpen);
         setTitle(props.title);
         setContents(props.contents);
-    });
+    },[props.isOpen,props.title,props.contents]);
 
     const close = () => {
         setIsOpen(false);

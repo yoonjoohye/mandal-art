@@ -6,18 +6,12 @@ const Title = (props) => {
 
     useEffect(() => {
         setTitle(props.title);
-    });
-
-    // const onChange = (e) => {
-    //     e.preventDefault();
-    //     setTitle(e.target.value);
-    //     props.titleChange(e.target.value);
-    // }
+    },[props.title]);
 
     const onChange=useCallback((e)=>{
         setTitle(e.target.value);
         props.titleChange(e.target.value);
-    },[]);
+    },[props]);
 
     return (
         <input

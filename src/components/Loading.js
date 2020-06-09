@@ -4,9 +4,8 @@ const Loading = (props) => {
     const [show, setShow] = useState(props.show);
 
     useEffect(() => {
-            setShow(props.show);
-        }
-    )
+        setShow(props.show);
+    },[props.show]);
     return (
         <>
             {
