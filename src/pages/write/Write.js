@@ -30,11 +30,13 @@ const Write = ({user,match}) => {
     const [modal,setModal]=useState(false);
 
     const page = window.location.pathname;
-    const {uid} = user;
-    const database = firebase.database();
+    // const {uid} = user;
+    // const database = firebase.database();
 
     useEffect(() => {
         if (page !== '/write') {
+            const {uid} = user;
+            const database = firebase.database();
             const dataList = [];
             database.ref(`/mandal/${uid}`).once('value').then((snapshot) => {
                 const obj = snapshot.val();
@@ -45,7 +47,7 @@ const Write = ({user,match}) => {
                 setData(fromJS(JSON.parse(dataList[match.params.id].data)));
             });
         }
-    }, []);
+    }, [user,match.params.id,page]);
 
 
     const titleChange = useCallback((data) => {
@@ -69,6 +71,8 @@ const Write = ({user,match}) => {
 
     const onSave=(title,data)=>{
         if(title.length>0) {
+            const {uid} = user;
+            const database = firebase.database();
             let time = new Date();
             let date = `${time.getFullYear()}년 ${time.getMonth() + 1}월 ${time.getDate()}일 ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
 
@@ -89,6 +93,8 @@ const Write = ({user,match}) => {
     }
     const onEdit=(title,data,pageNo)=>{
         if (title.length > 0) {
+            const {uid} = user;
+            const database = firebase.database();
             let time = new Date();
             let date = `${time.getFullYear()}년 ${time.getMonth() + 1}월 ${time.getDate()}일 ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
 
@@ -131,7 +137,7 @@ const Write = ({user,match}) => {
                     buttonName="로그인 하러가기"
                     img={require('../../assets/img/icon/login.svg')}
                     path="/login"
-                    bgColor="bg-black"
+                    bgColor="rgba(0, 0, 0, 0.68)"
                 />
             }
             {
@@ -148,7 +154,7 @@ const Write = ({user,match}) => {
                        isConfirm={true}
                        title="수정이 완료되었습니다."
                        contents="지금 바로 마이페이지에서 확인할 수 있습니다.<br/>수정된 내용을 확인하시겠습니까?"
-                       bgColor="bg-opacity"
+                       bgColor="#ffffff94"
                        onConfirmOpen={onConfirmOpen}
                 />
             }

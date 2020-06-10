@@ -28,7 +28,7 @@ const Table = (props) => {
 
         setData(goal);
         props.tableChange(goal);
-    },[props]);
+    },[props, data]);
 
     const onPlaceholder = (tableIndex, dataIndex) => {
         if (window.screen.width > 480) {
