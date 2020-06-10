@@ -1,18 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 
 
 const Title = (props) => {
-    const [title, setTitle] = useState(props.title);
+    const [title, setTitle] = useState('');
 
     useEffect(() => {
         setTitle(props.title);
-    });
+    },[props.title]);
 
-    const onChange = (e) => {
-        e.preventDefault();
+    const onChange=useCallback((e)=>{
         setTitle(e.target.value);
         props.titleChange(e.target.value);
-    }
+    },[props]);
 
     return (
         <input

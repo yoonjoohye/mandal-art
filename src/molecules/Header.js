@@ -1,18 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState,useCallback} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import 'firebase/auth';
 
 import Nav from '../components/base/Nav.js';
 
 
-const Header = (props) => {
+const Header = ({user}) => {
     const [isNav, setIsNav] = useState(false);
-    let {user} = props;
 
-    const onNav = () => {
+    const onNav = useCallback(() => {
         setIsNav(!isNav);
-    }
+    },[isNav]);
 
     return (
         <section className={`header-section header-bg`}>

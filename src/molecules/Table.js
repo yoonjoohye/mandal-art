@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {List, fromJS} from 'immutable';
-import * as firebase from "firebase";
+import React, {useEffect, useState,useCallback} from 'react';
+import {List} from 'immutable';
 
 
 const Table = (props) => {
@@ -8,10 +7,9 @@ const Table = (props) => {
 
     useEffect(() => {
         setData(props.data);
-    });
+    },[props.data]);
 
-    const onChange = (e, tableIndex, dataIndex) => {
-        e.preventDefault();
+    const onChange = useCallback((e, tableIndex, dataIndex) => {
         const {value} = e.target;
 
         if (data.getIn([dataIndex, tableIndex]).split("\n").length > 3) {
@@ -30,7 +28,7 @@ const Table = (props) => {
 
         setData(goal);
         props.tableChange(goal);
-    }
+    },[props]);
 
     const onPlaceholder = (tableIndex, dataIndex) => {
         if (window.screen.width > 480) {

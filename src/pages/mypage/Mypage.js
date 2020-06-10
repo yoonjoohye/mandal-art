@@ -1,30 +1,71 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect,useCallback} from 'react';
 import * as firebase from "firebase";
 import {connect} from 'react-redux';
 import List from '../../molecules/List.js';
+import Float from '../../components/button/Float';
 import ReactHelmet from "../../components/ReactHelmet";
+import Modal from "../../components/modal/Modal";
 
 
-const Mypage = (props) => {
+const Mypage = ({user}) => {
     const [list, setList] = useState([]);
-    let {user} = props;
+    const [confirmModal, setConfirmModal] = useState(false);
+    const [pageNo, setPageNo] = useState(null);
+    const {uid} = user;
+    const database = firebase.database();
 
-    useEffect(()=>{
-        if (user) {
-            let database = firebase.database();
-            const dataList = [];
-            database.ref(`/mandal/${user.uid}`).once('value').then((snapshot) => {
-                const obj = snapshot.val();
+
+    useEffect(() => {
+        const dataList = [];
+        database.ref(`/mandal/${uid}`).once('value').then((snapshot) => {
+            const obj = snapshot.val();
+            for (let key in obj) {
+                dataList.push(obj[key]);
+            }
+            setList(dataList);
+        });
+
+    }, [uid,database]);
+
+    const onDelete = useCallback((pageNo) => {
+        setConfirmModal(true);
+        setPageNo(pageNo);
+    },[pageNo]);
+
+    const onConfirmOpen = useCallback((bool) => {
+        setConfirmModal(false);
+        if (bool) {
+            database.ref(`mandal/${uid}`).once('value', (snapshot) => {
+                let obj = snapshot.val();
+                let keyList = [];
+
+                //키값 찾기
                 for (let key in obj) {
-                    dataList.push(obj[key]);
+                    if (obj.hasOwnProperty(key)) {
+                        keyList.push(key);
+                    }
                 }
-                setList(dataList);
+
+                //삭제
+                database.ref(`mandal/${uid}/${keyList[pageNo]}`).remove();
+            }).then(() => {
+                window.location.reload();
             });
         }
-    },[]);
+    },[uid,database,pageNo]);
 
     return (
         <>
+            {
+                confirmModal &&
+                <Modal isOpen={confirmModal}
+                       isConfirm={true}
+                       title="정말 삭제하시겠습니까?"
+                       contents="삭제하면 되돌릴 수 없습니다.<br/>그래도 삭제하시겠습니까?"
+                       bgColor="bg-opacity"
+                       onConfirmOpen={onConfirmOpen}
+                />
+            }
             <ReactHelmet
                 title="마이페이지 - 나만의 만다라트"
                 description="만다라트는 오타니쇼헤이의 성공비법으로 유명한 기법입니다. 홈페이지에서 나만의 만다라트를 세우고 성공목표를 세워보세요."
@@ -50,30 +91,11 @@ const Mypage = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="mandal-list flex flex-col">
-                        {
-                            list.length !== 0 ?
-                                list.map((data, index) => {
-                                    return (
-                                        <List key={index} data={data} index={index}></List>
-                                    );
-                                })
-                                :
-                                <div className="py-1 text-center">
-                                    <img alt="만다라트-존재하지않는이미지" className="nothing-img"
-                                         src={require('../../assets/img/nothing.jpg')}/>
-                                </div>
-                        }
-                    </div>
+
+                    <List list={list} onDelete={onDelete}/>
+
                     <div className="position-fixed bottom-10 right-5 flex items-center text-center">
-                        <div className="bubble font-white mr-10">바로 나만의 만다라트를 만들기</div>
-                        <div className="flex items-center" onClick={() => window.location.href = '/write'}>
-                            <div className="ping"></div>
-                            <button className="btn floating">
-                                <img alt="만다라트-추가" className="w-100"
-                                     src={require('../../assets/img/icon/plus.svg')}/>
-                            </button>
-                        </div>
+                        <Float></Float>
                     </div>
                 </div>
             </section>

@@ -1,6 +1,5 @@
 import * as firebase from "firebase";
 
-
 //액션 이름
 const LOGIN = 'auth/LOGIN';
 const LOGIN_FAILURE = 'auth/LOGIN_FAILURE';

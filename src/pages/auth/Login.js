@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {loginAsync} from '../../stores/auth';
 import Loading from '../../components/Loading';
@@ -7,13 +7,6 @@ import ReactHelmet from "../../components/ReactHelmet";
 const Login = (props) => {
     const [showBubble, setShowBubble] = useState(false);
     let {loginAsync, loading} = props;
-
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         showBubble: false,
-    //     };
-    // }
 
     const onShowBubble = () => {
         setShowBubble(!showBubble);

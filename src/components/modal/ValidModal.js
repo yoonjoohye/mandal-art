@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
-
 
 const ValidModal = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +9,7 @@ const ValidModal = (props) => {
         setIsOpen(props.isOpen);
         setTitle(props.title);
         setContents(props.contents);
-    });
+    },[props.isOpen,props.title,props.contents]);
 
     const close = () => {
         setIsOpen(false);

@@ -35,7 +35,7 @@ const Index = () => {
                         </div>
                     </div>
                     <div data-aos="zoom-in" className="flex items-center justify-between mb-150">
-                        <img className="home-img mr-50" src={require('../../assets/img/note.svg')}/>
+                        <img className="home-img mr-50" src={require('../../assets/img/note.svg')} alt="만다라트-공책이미지"/>
                         <div className="w-100 text-right">
                             <div className="font-lg font-medium py-1 mb-20 border-bottom">아이디어 구체화</div>
                             <div className=" font-gray mb-50">
@@ -54,11 +54,11 @@ const Index = () => {
                             </div>
                             <Write/>
                         </div>
-                        <img className="home-img ml-50" src={require('../../assets/img/mobile.svg')}/>
+                        <img className="home-img ml-50" src={require('../../assets/img/mobile.svg')} alt="만다라트-휴대폰이미지"/>
                     </div>
 
                     <div data-aos="zoom-in" className="flex items-center justify-between mb-150">
-                        <img className="home-img mr-50" src={require('../../assets/img/onoffline.svg')}/>
+                        <img className="home-img mr-50" src={require('../../assets/img/onoffline.svg')} alt="만다라트-프린트이미지"/>
                         <div className="w-100 text-right">
                             <div className="font-lg font-medium py-1 mb-20 border-bottom">온오프라인 만다라트</div>
                             <div className=" font-gray mb-50">

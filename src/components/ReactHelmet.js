@@ -1,17 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Helmet from 'react-helmet';
 
 
-const ReactHelmet = (props) => {
-    const [description, setDescription] = useState('');
-    const [title, setTitle] = useState('');
-    const [keywords, setKeywords] = useState('');
-
-    useEffect(() => {
-        setDescription(props.description);
-        setTitle(props.title);
-        setKeywords(props.keywords);
-    });
+const ReactHelmet = ({description,title,keywords}) => {
 
     return (
         <Helmet>
