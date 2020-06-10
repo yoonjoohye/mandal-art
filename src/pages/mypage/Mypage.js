@@ -30,7 +30,7 @@ const Mypage = ({user}) => {
     const onDelete = useCallback((pageNo) => {
         setConfirmModal(true);
         setPageNo(pageNo);
-    },[pageNo]);
+    },[]);
 
     const onConfirmOpen = useCallback((bool) => {
         setConfirmModal(false);
@@ -62,7 +62,7 @@ const Mypage = ({user}) => {
                        isConfirm={true}
                        title="정말 삭제하시겠습니까?"
                        contents="삭제하면 되돌릴 수 없습니다.<br/>그래도 삭제하시겠습니까?"
-                       bgColor="bg-opacity"
+                       bgColor="#ffffff94"
                        onConfirmOpen={onConfirmOpen}
                 />
             }

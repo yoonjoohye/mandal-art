@@ -19,7 +19,8 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "sass-loader": "^8.0.2"
+    "sass-loader": "^8.0.2",
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "start": "cross-env NODE_PATH=src react-scripts start",
