@@ -1,0 +1,93 @@
+.bg{
+  &-blue{
+    background-color:#4093fb;
+    &.shadow{
+      box-shadow:0 10px 0 #1a63ee;
+    }
+    &-m{
+      @media(max-width:480px){
+        background-color:#4093fb;
+      }
+    }
+    &-gradient{
+      -webkit-animation: color-change-2x 1s linear infinite alternate both;
+      animation: color-change-2x 1s linear infinite alternate both;
+    }
+  }
+  @-webkit-keyframes color-change-2x {
+    0% {
+      background: #4093fb;
+    }
+    100% {
+      background: #1a63ee;
+    }
+  }
+  @keyframes color-change-2x {
+    0% {
+      background: #4093fb;
+    }
+    100% {
+      background: #1a63ee;
+    }
+  }
+
+  &-opacity{
+    z-index: 3;
+    background-color: #ffffff94;
+    backdrop-filter:blur(4px);
+  }
+  &-yellow{
+    background-color:#fff707;
+  }
+  &-white{
+    background-color:white;
+    &-m{
+      @media(max-width:480px){
+        background-color:white;
+      }
+    }
+  }
+  &-main{
+    background-color: rgba(130, 217, 255, 0.4);
+  }
+  &-sub{
+    background-color: rgba(130, 217, 255, 0.1);
+  }
+  &-pink {
+    background-color: #ffa6bc;
+    &.shadow{
+      box-shadow:0 10px 0 #ff7ba0;
+    }
+  }
+  &-none{
+    background-color:transparent;
+  }
+  &-black{
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.68);
+    backdrop-filter:blur(4px);
+  }
+}
+
+.spinner {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  z-index: 99;
+}
+
+.box{
+  &-round{
+    border-radius:1rem;
+    @media(max-width:480px){
+      border-radius: 0.8rem;
+    }
+  }
+  &-title{
+    border-radius:0.5rem;
+    padding:0.5rem 1rem;
+  }
+  &-shadow{
+    box-shadow:0 0 15px rgba(0, 0, 0, 0.1);
+  }
+}

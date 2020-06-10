@@ -11,6 +11,9 @@ coverage/
 # production
 build/
 
+# info
+save_file.json
+
 # misc
 .DS_Store
 .env.local

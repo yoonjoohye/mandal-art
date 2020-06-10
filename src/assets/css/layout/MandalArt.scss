@@ -1,0 +1,157 @@
+
+.outer-grid {
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 7px #0000002b;
+  background-color: rgba(0, 0, 0, 0);
+  @media(max-width: 480px) {
+    grid-gap: 0.5rem;
+    padding: 0;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
+
+  }
+}
+
+.inner-grid {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
+
+  @media(max-width: 480px) {
+    grid-gap: 0.35rem;
+
+  }
+  //box-shadow: 0 3px 17px #00`00002e;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+    padding: 0;
+    page-break-before: always;
+  }
+  .mandal-section {
+    padding: 0;
+  }
+  .mandal-input{
+    padding:15px 0 10px 0!important;
+  }
+  .outer-grid{
+    grid-gap: 0.8rem;
+    padding: 0.8rem;
+  }
+  .container {
+    padding: 0 3%;
+  }
+  .header-section {
+    display: none;
+  }
+  .btn {
+    display: none;
+  }
+}
+
+.mandal {
+  &-section {
+    padding: 100px 0;
+    min-height: 100%;
+    @media(max-width: 480px) {
+      padding: 85px 0;
+    }
+  }
+
+  &-title {
+    width: 100%;
+    font-size: 40px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    @media(max-width: 480px) {
+      font-size: 20px;
+    }
+  }
+
+  &-input {
+    box-shadow: 0 0 10px #0000002b;
+    font-size: 12px;
+    font-weight: 300;
+    text-align: center;
+    word-break: keep-all;
+    width: 100%;
+    height: 60px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    resize: none;
+    outline: none;
+    border: 0;
+    @media(max-width: 1024px) {
+      overflow-y: auto;
+      padding:0;
+      height:50px;
+      font-size: 10px;
+    }
+    @media(max-width: 480px) {
+      box-shadow: none;
+      border: 1px solid #eeeeee;
+      height: 35px;
+    }
+
+  }
+
+  &-list {
+    padding: 2rem 4rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1.6rem 0.5rem rgba(0, 0, 0, 0.06);
+    border: .05rem solid #ececec;
+    margin-bottom: 10px;
+    @media(max-width: 480px) {
+      padding: 1rem 1.5rem;
+    }
+  }
+
+  &-banner {
+    background-color: #4093fb;
+    border-radius: 1rem;
+    box-shadow: 0 9px 0 #1a63ee;
+    width: 100%;
+
+  }
+
+  &-img {
+    width: 600px;
+    height: auto;
+    border-radius: 0.8rem;
+    box-shadow: 5px 5px 15px #1a63ee91;
+
+    &.shadow {
+      box-shadow: 5px 5px 15px #00000026;
+    }
+
+    @media(max-width: 1024px) {
+      width: 100%;
+    }
+  }
+}
+
+.nothing-img {
+  width: 600px;
+  @media(max-width: 1024px) {
+    width: 100%;
+  }
+}
+
+
+.print-icon {
+  vertical-align: middle;
+  width: 20px;
+}
+
+.puzzle-icon {
+  width: 50px;
+
+}
