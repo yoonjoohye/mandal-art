@@ -24,3 +24,5 @@ save_file.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+src/test/__snapshots__
