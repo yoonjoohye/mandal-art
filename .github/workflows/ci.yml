@@ -42,3 +42,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "build/*"
           target: "mandal-art-build"
+          strip_components: 1
