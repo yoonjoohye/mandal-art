@@ -39,3 +39,12 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - run: echo test >> text.txt
+
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
+        with:
+          host: yoonjoohye.xyz
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "build/*"
+          target: "mandal-art-build"
