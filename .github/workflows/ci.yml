@@ -32,7 +32,11 @@ jobs:
 
       - run: npm i
       - run: npm run build --if-present
-      - run: jest --silent --maxWorkers=2
+
+      - name: Run Jest
+        uses: stefanoeb/jest-action@1.0.3
+        with:
+          jestArgs: --maxWorkers=2
 
       - name: Setup ssh key
         uses: webfactory/ssh-agent@v0.3.0
