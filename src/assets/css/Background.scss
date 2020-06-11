@@ -31,11 +31,11 @@
     }
   }
 
-  &-opacity{
-    z-index: 3;
-    background-color: #ffffff94;
-    backdrop-filter:blur(4px);
-  }
+  //&-opacity{
+  //  z-index: 3;
+  //  background-color: #ffffff94;
+  //  backdrop-filter:blur(4px);
+  //}
   &-yellow{
     background-color:#fff707;
   }
@@ -62,11 +62,11 @@
   &-none{
     background-color:transparent;
   }
-  &-black{
-    z-index: 3;
-    background-color: rgba(0, 0, 0, 0.68);
-    backdrop-filter:blur(4px);
-  }
+  //&-black{
+  //  z-index: 3;
+  //  background-color: rgba(0, 0, 0, 0.68);
+  //  backdrop-filter:blur(4px);
+  //}
 }
 
 .spinner {
