@@ -26,6 +26,7 @@
     "start": "cross-env NODE_PATH=src react-scripts start",
     "build": "react-scripts build",
     "test": "jest --watch",
+    "test:ci" : "jest -u --maxWorkers=2 --coverage",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
