@@ -1,4 +1,3 @@
-@import 'App';
 @import 'Button';
 @import 'Font';
 @import 'Position';
@@ -6,3 +5,57 @@
 
 @import 'layout/Layout';
 
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "NanumSquare";
+  src: url(../font/NanumSquareL.eot);
+  src: url(../font/NanumSquareL.eot#iefix) format('embedded-opentype'),
+  url(../font/NanumSquareL.woff) format('woff'),
+  url(../font/NanumSquareL.ttf) format('truetype');
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  font-family: 'NanumSquare', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #333333;
+  @media(max-width: 480px) {
+    font-size: 12px;
+  }
+}
+
+textarea {
+  font-family: 'NanumSquare', sans-serif;
+}
+
+input {
+  font-family: 'NanumSquare', sans-serif;
+}
+
+li {
+  padding-left: 15px;
+  list-style: none;
+}
+
+ol, ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+p {
+  line-height: 1.8;
+  margin: 0;
+}

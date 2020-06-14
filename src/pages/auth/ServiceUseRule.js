@@ -1,9 +1,10 @@
 import React from 'react';
+import {Container, Section} from "../../assets/css/Section.style";
 
 const ServiceUseRule = () => {
     return (
-        <section className="mandal-section">
-            <div className="container">
+        <Section>
+            <Container>
                 <div className="mb-20">
                     <b>제 1 장 총칙</b>
                     <div className="mb-10">
@@ -200,8 +201,8 @@ const ServiceUseRule = () => {
                 <div className="text-right mt-50">
                     본 약관은 2020년 03월 20일부터 적용한다.
                 </div>
-            </div>
-        </section>
+            </Container>
+        </Section>
     )
 
 }

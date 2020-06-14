@@ -11,7 +11,7 @@ const Float=()=>{
                          src={require('../../assets/img/icon/plus.svg')}/>
                 </button>
             </div>
-            </>
+        </>
     );
 }
 

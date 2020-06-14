@@ -1,30 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import styled,{keyframes} from 'styled-components';
-
-const ModalSection=styled.section`
-        position:fixed;
-        width:100%;
-        height:100%;
-        left:0;
-        right:0;
-        top:0;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        background-color:${props=>props.bgColor};
-        backdrop-filter:blur(4px);
-        z-index:3;
-    `;
-
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
+import {ModalSection} from "../../assets/css/Section.style";
+import styled from "styled-components";
+import {fadeIn} from "../../assets/css/Animate.style";
 
 const ModalBox=styled.div`
         animation: ${fadeIn} 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -41,9 +19,9 @@ const ModalBox=styled.div`
     `;
 
 const Modal = (props) => {
-
     const [isOpen, setIsOpen] = useState(false);
     const [isConfirm, setIsConfirm] = useState(false);
+    const [isValid,setIsValid]=useState(false);
     const [title, setTitle] = useState('제목');
     const [contents, setContents] = useState('내용');
     const [buttonName, setButtonName] = useState('확인');
@@ -54,21 +32,26 @@ const Modal = (props) => {
     useEffect(() => {
         setIsOpen(props.isOpen);
         setIsConfirm(props.isConfirm);
+        setIsValid(props.isValid);
         setTitle(props.title);
         setContents(props.contents);
         setButtonName(props.buttonName);
         setImg(props.img);
         setPath(props.path);
         setBgColor(props.bgColor);
-    },[props.isOpen,props.isConfirm,props.title,props.contents,props.buttonName,props.img,props.path,props.bgColor]);
+    },[props.isOpen,props.isConfirm,props.isValid,props.title,props.contents,props.buttonName,props.img,props.path,props.bgColor]);
 
     const onConfirm = () => {
         setIsOpen(false);
         props.onConfirmOpen(true);
     }
     const onCancel = () => {
-        setIsOpen(false)
+        setIsOpen(false);
         props.onConfirmOpen(false);
+    }
+    const onClose = () => {
+        setIsOpen(false);
+        props.onValidOpen(false);
     }
 
     return (
@@ -79,13 +62,12 @@ const Modal = (props) => {
                     <ModalBox>
                             {
                                 img ?
-                                    <div className="mb-10">
-                                        <img alt="만다라트-모달" className="modal-icon" src={img}/>
-                                    </div> :
+                                    <img alt="만다라트-모달" className="modal-icon mb-10" src={img}/>:
                                     null
                             }
                             <div className="font-xmd font-bold mb-20">{title}</div>
                             <div className="mb-30" dangerouslySetInnerHTML={{__html: contents}}></div>
+
                             {
                                 isConfirm ?
                                     <>
@@ -93,9 +75,12 @@ const Modal = (props) => {
                                         <button className="btn outline" onClick={onCancel}>취소</button>
                                     </>
                                     :
-                                    <Link to={path}>
-                                        <button className="btn save full">{buttonName}</button>
-                                    </Link>
+                                    isValid ?
+                                        <button className="btn save full" onClick={onClose}>확인</button>
+                                        :
+                                        <Link to={path}>
+                                            <button className="btn save full">{buttonName}</button>
+                                        </Link>
                             }
                     </ModalBox>
                     </ModalSection>:

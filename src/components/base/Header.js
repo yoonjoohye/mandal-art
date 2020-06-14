@@ -1,20 +1,30 @@
-import React, {useState,useCallback} from 'react';
+import React, {useState, useCallback} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import Nav from '../components/base/Nav.js';
+import {HeaderSection, Container} from "../assets/css/Section.style";
+import styled from "styled-components";
 
+const HeaderContainer = styled(Container)`
+    height:60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+`;
 
 const Header = ({user}) => {
     const [isNav, setIsNav] = useState(false);
 
     const onNav = useCallback(() => {
         setIsNav(!isNav);
-    },[isNav]);
+    }, [isNav]);
 
     return (
-        <section className={`header-section header-bg`}>
-            <div className="header-container flex justify-center justify-between items-center">
+        <HeaderSection bgColor="#4093fb">
+            {/*<section className={`header-section header-bg`}>*/}
+            {/*    <div className="header-container flex justify-center justify-between items-center">*/}
+            <HeaderContainer>
                 <Link className="flex justify-center items-center" to="/">
                     <img alt="만다라트-로고" className="header-icon mr-10"
                          src={require("../assets/img/icon/puzzle.svg")}/>
@@ -38,8 +48,11 @@ const Header = ({user}) => {
                     }
 
                 </div>
-            </div>
-        </section>
+            </HeaderContainer>
+            {/*</div>*/}
+            {/*</section>*/}
+        </HeaderSection>
+
     )
 
 }
