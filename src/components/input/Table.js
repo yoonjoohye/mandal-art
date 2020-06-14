@@ -1,5 +1,24 @@
-import React, {useEffect, useState,useCallback} from 'react';
+import React, {useEffect, useState} from 'react';
 import {List} from 'immutable';
+import styled from "styled-components";
+
+import Tr from './Tr';
+
+const Grid = styled.div`
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 7px #0000002b;
+    background-color: rgba(0, 0, 0, 0);
+    @media(max-width: 480px) {
+        grid-gap: 0.5rem;
+        padding: 0;
+        box-shadow:none;
+    }
+`;
 
 
 const Table = (props) => {
@@ -7,9 +26,9 @@ const Table = (props) => {
 
     useEffect(() => {
         setData(props.data);
-    },[props.data]);
+    }, [props.data]);
 
-    const onChange = useCallback((e, tableIndex, dataIndex) => {
+    const onChange = (e, tableIndex, dataIndex) => {
         const {value} = e.target;
 
         if (data.getIn([dataIndex, tableIndex]).split("\n").length > 3) {
@@ -28,7 +47,7 @@ const Table = (props) => {
 
         setData(goal);
         props.tableChange(goal);
-    },[props, data]);
+    }
 
     const onPlaceholder = (tableIndex, dataIndex) => {
         if (window.screen.width > 480) {
@@ -84,26 +103,21 @@ const Table = (props) => {
     }
 
     return (
-        <div className="grid outer-grid justify-between">
+        <Grid>
             {data.map((table, tableIndex) => {
                 return (
-                    <div className="grid inner-grid justify-between items-center" key={tableIndex}>
-                        {table.map((data, dataIndex) => {
-                            return (
-                                <textarea
-                                    className={`mandal-input ${(tableIndex === 4 && dataIndex === 4 ? 'bg-main' : tableIndex === 4 || dataIndex === 4 ? 'bg-sub' : '')} ${onVertical(tableIndex, dataIndex)}`}
-                                    key={[dataIndex, tableIndex].join('_')}
-                                    placeholder={onPlaceholder(tableIndex, dataIndex)} value={data}
-                                    onChange={(e) => onChange(e, tableIndex, dataIndex)}
-                                    maxLength={24}
-                                >
-                                    </textarea>
-                            );
-                        })}
-                    </div>
+                    <Tr
+                        table={table}
+                        tableIndex={tableIndex}
+                        key={tableIndex}
+                        onChange={onChange}
+                        onPlaceholder={onPlaceholder}
+                        onVertical={onVertical}>
+
+                    </Tr>
                 );
             })}
-        </div>
+        </Grid>
     );
 }
 

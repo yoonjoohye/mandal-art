@@ -11,9 +11,8 @@ const ListItem = ({data, index, onDelete}) => {
                 <div className="font-md mb-5">{title}</div>
                 <div className="font-sm font-gray">{time} 작성</div>
             </Link>
-            <div>
-                <Delete pageNo={index} onDelete={onDelete}></Delete>
-            </div>
+
+            <Delete pageNo={index} onDelete={onDelete}></Delete>
         </div>
     );
 }
