@@ -3,7 +3,7 @@
 @import 'Position';
 @import 'Background';
 
-@import 'layout/Layout';
+@import 'Layout';
 
 html {
   width: 100%;
@@ -13,10 +13,10 @@ html {
 
 @font-face {
   font-family: "NanumSquare";
-  src: url(../font/NanumSquareL.eot);
-  src: url(../font/NanumSquareL.eot#iefix) format('embedded-opentype'),
-  url(../font/NanumSquareL.woff) format('woff'),
-  url(../font/NanumSquareL.ttf) format('truetype');
+  src: url(../../font/NanumSquareL.eot);
+  src: url(../../font/NanumSquareL.eot#iefix) format('embedded-opentype'),
+  url(../../font/NanumSquareL.woff) format('woff'),
+  url(../../font/NanumSquareL.ttf) format('truetype');
 }
 
 body {
