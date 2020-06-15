@@ -11,7 +11,7 @@ const Row = styled.div`
     }
 `;
 
-const Tr=({table,tableIndex,onChange,onPlaceholder,onVertical})=>{
+const Tr=({table,tableIndex,onChange,onPlaceholder,onVertical,onBgColor})=>{
 
     return(
         <Row>
@@ -20,9 +20,9 @@ const Tr=({table,tableIndex,onChange,onPlaceholder,onVertical})=>{
                     <Td key={[dataIndex, tableIndex].join('_')}
                         data={data}
                         dataIndex={dataIndex}
-                        table={table}
                         tableIndex={tableIndex}
                         onChange={onChange}
+                        onBgColor={onBgColor}
                         onPlaceholder={onPlaceholder}
                         onVertical={onVertical}>
                     </Td>

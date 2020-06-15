@@ -1,6 +1,6 @@
-import styled from "styled-components";
-
-import {fadeIn} from "./Animate.style";
+import styled,{css} from "styled-components";
+import {media} from "./Media.style";
+import {Color} from "./Theme.style";
 
 export const Section = styled.section`
     padding: 100px 0;
@@ -20,38 +20,6 @@ export const BackgroundSection = styled.section`
         background: #fff;
     }`;
 
-export const HeaderSection = styled.header`
-    position: fixed;
-    z-index:2;
-    top: 0;
-    width: 100%;
-    box-shadow: 0 1px 10px #00000063;
-    background-color:${props => props.bgColor}
-`;
-
-export const NavSection = styled.nav`
-  position: absolute;
-  animation: ${fadeIn} 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  right: 15%;
-  margin-top: 10px;
-  min-width: 250px;
-  background-color: white;
-  border: 1px solid #eeeeee;
-  border-radius: 10px;
-  box-shadow: 0 0px 10px #00000020;
-  @media(max-width:480px){
-    right:5%;
-    min-width:180px
-  }
-`;
-export const NotFoundSection = styled.section`
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height:100vh;
-`;
-
 export const ModalSection = styled.section`
     position:fixed;
     width:100%;
@@ -62,7 +30,7 @@ export const ModalSection = styled.section`
     display:flex;
     justify-content:center;
     align-items:center;
-    background-color:${props => props.bgColor};
+    background-color:${props => props.bgColor || Color.blackOpacity};
     backdrop-filter:blur(4px);
     z-index:3;
     `;
@@ -75,3 +43,22 @@ export const Container = styled.div`
       padding-left: 5%;
     }`;
 
+export const FlexBox=(justifyContent='center')=>css`
+  display:flex;
+  justify-content: ${justifyContent};
+  align-items: center;
+`;
+
+export const OnlyMobile=()=>css`
+  display: none !important;
+  ${media.sm`
+    display: initial !important;
+  `}
+`;
+
+export const OnlyPc=()=>css`
+  display: initial !important;
+  ${media.sm`
+    display: none !important;
+  `}
+`;

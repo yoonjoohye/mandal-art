@@ -4,31 +4,33 @@ import Explain from '../../components/index/Explain';
 import Write from '../../components/button/Write';
 import styled from "styled-components";
 import {BackgroundSection, Container} from "../../assets/css/Section.style";
-import {MarkdownXl} from '../../assets/css/Markdown.style';
+import {MarkdownXl, Yellow} from '../../assets/css/Markdown.style';
+import {media} from "../../assets/css/Media.style";
+import {Color} from "../../assets/css/Theme.style";
 
 const IndexContainer = styled(Container)`
     min-height:100vh;
     display:flex;
-    flex-direction:column;
     justify-content:center;
+    align-items:${props=>props.alignItems || 'center'};
+    flex-direction:column;
     margin-bottom:${props => props.mb || 0}px;
     background-color:${props => props.bgColorPC};
-    
-    @media(max-width:1024px){
+    ${media.md `
         margin-bottom:0;
-    }
-    @media(max-width:480px){
+    `}
+    ${media.sm `
         margin-bottom:${props => Math.floor(props.mb / 2) || 0}px;
         background-color:${props => props.bgColorMobile}
-    }
+    `}
 `;
 const IndexTitle = styled(MarkdownXl)`
     margin-bottom:50px;
-    @media(max-width: 480px) {
-      margin-bottom: 25px;
-    }
+    text-align:${props=>props.textAlign || 'center'};
+    ${media.sm `
+         margin-bottom: 35px;
+    `}
 `;
-
 const Index = () => {
 
     const [explain] = useState([
@@ -57,25 +59,23 @@ const Index = () => {
             />
 
             <BackgroundSection>
-                <IndexContainer bgColorMobile="#4093fb" mb={100}>
-                    <MarkdownXl className="mb-50">
-                        {/*<div className="font-xl font-medium font-white mb-50">*/}
-                        함께, <span className="yellow">계획</span>을 세워요<br/>
+                <IndexContainer alignItems="start" bgColorMobile={Color.blue300} mb={100}>
+                    <IndexTitle textAlign="left" fontWeight={300} color={Color.white}>
+                        함께, <Yellow>계획</Yellow>을 세워요<br/>
                         지금 바로 시작하세요
-                        {/*</div>*/}
-                    </MarkdownXl>
+                    </IndexTitle>
                     <Write/>
                 </IndexContainer>
 
-                <IndexContainer mb={100}>
-                    <Explain explain={explain}></Explain>
+                <IndexContainer alignItems="space-between" mb={100}>
+                    <Explain explain={explain}/>
                 </IndexContainer>
 
-                <IndexContainer bgColorPC="#4093fb" className="text-center">
-                    <MarkdownXl className="mb-50">
+                <IndexContainer bgColorPC={Color.blue300}>
+                    <IndexTitle fontWeight={300} color={Color.white}>
                         이제 시작해볼까요?<br/>
-                        함께, 만다라트를 만들어요
-                    </MarkdownXl>
+                        함께, <Yellow>만다라트</Yellow>를 만들어요
+                    </IndexTitle>
                     <Write/>
                 </IndexContainer>
             </BackgroundSection>

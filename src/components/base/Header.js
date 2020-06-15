@@ -2,18 +2,43 @@ import React, {useState, useCallback} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import Nav from './Nav.js';
-import {HeaderSection, Container} from "../../assets/css/Section.style";
+import {Container, FlexBox} from "../../assets/css/Section.style";
 import styled from "styled-components";
 import {logoutAsync} from "../../stores/auth";
+import {Blue, MarkdownBase, MarkdownXmd, Yellow} from "../../assets/css/Markdown.style";
+import {Color} from "../../assets/css/Theme.style";
+import {Icon} from "../../assets/css/Image.style";
+
+const HeaderSection = styled.header`
+    position: fixed;
+    z-index:2;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 1px 10px #00000063;
+    background-color:${props => props.bgColor}
+`;
 
 const HeaderContainer = styled(Container)`
     height:60px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    ${FlexBox('space-between')};
 `;
 
-const Header = ({user,loading,logoutAsync}) => {
+const HeaderButton = styled(MarkdownBase)`
+  cursor:pointer;
+`
+const HeaderWrapper=styled.div`
+  ${FlexBox('ceneter')};
+`
+
+const HeaderIcon=styled(Icon)`
+  margin-right:10px;
+`
+const ProfileIcon=styled(Icon)`
+  cursor: pointer;
+  border-radius:50%;
+`
+
+const Header = ({user, loading, logoutAsync}) => {
     const [isNav, setIsNav] = useState(false);
 
     const onNav = useCallback(() => {
@@ -21,30 +46,35 @@ const Header = ({user,loading,logoutAsync}) => {
     }, [isNav]);
 
     return (
-        <HeaderSection bgColor="#4093fb">
+        <HeaderSection bgColor={Color.blue300}>
             <HeaderContainer>
-                <Link className="flex justify-center items-center" to="/">
-                    <img alt="만다라트-로고" className="header-icon mr-10"
-                         src={require("../../assets/img/icon/puzzle.svg")}/>
-                    <div className="header-name"><span className="blue">M</span>andal-<span
-                        className="yellow">A</span>RT
-                    </div>
+                <Link to="/">
+                    <HeaderWrapper>
+                        <HeaderIcon alt="만다라트-로고" src={require("../../assets/img/icon/puzzle.svg")}/>
+                        <MarkdownXmd fontWeight={600} color={Color.white}>
+                            <Blue>M</Blue>andal-<Yellow>A</Yellow>RT
+                        </MarkdownXmd>
+                    </HeaderWrapper>
                 </Link>
-                <div>
+                <>
                     {
                         user ?
                             <>
-                                <img className="cursor-pointer profile-img" alt="만다라트-프로필"
-                                     src={user.photoURL} onClick={onNav}/>
+                                <ProfileIcon alt="만다라트-프로필" src={user.photoURL} onClick={onNav}/>
+                                {/*<img className="cursor-pointer profile-img" alt="만다라트-프로필" src={user.photoURL}*/}
+                                {/*     onClick={onNav}/>*/}
                                 {
                                     isNav &&
-                                        <Nav user={user} loading={loading} onLogout={()=>logoutAsync()}/>
+                                    <Nav user={user} loading={loading} onLogout={() => logoutAsync()}/>
                                 }
                             </>
-                            : <Link to="/login"><span className="font-white cursor-pointer">로그인/가입</span></Link>
+                            :
+                            <Link to="/login">
+                                <HeaderButton color={Color.white}>로그인/가입</HeaderButton>
+                            </Link>
                     }
 
-                </div>
+                </>
             </HeaderContainer>
         </HeaderSection>
     )

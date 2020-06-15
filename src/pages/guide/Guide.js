@@ -1,9 +1,24 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {Container, Section} from "../../assets/css/Section.style";
+import {Container, FlexBox, Section} from "../../assets/css/Section.style";
 import Write from "../../components/button/Write";
 import Banner from "../../components/mypage/Banner";
+import styled from "styled-components";
+import {media} from "../../assets/css/Media.style";
 
+const GuideWrapper=styled.div`
+  ${FlexBox('center')};
+  flex-direction: column;
+`
+const GuideBox=styled.div`
+  ${FlexBox('center')};
+    margin-bottom:50px;
+
+  ${media.sm`
+    flex-direction: column;
+    margin-bottom:25px;
+  `}
+`;
 
 const Guide = () => {
     return (
@@ -19,22 +34,25 @@ const Guide = () => {
                 {/*    </p>*/}
                 {/*</div>*/}
 
-                <div className="flex flex-col-m items-center mb-50">
-                    <img className="mandal-img shadow mr-50" src={require('../../assets/img/mandal.jpg')}
-                         alt="만다라트-가이드 이미지"/>
+                <GuideWrapper>
+                    <GuideBox>
+                        <img className="mandal-img shadow mr-50" src={require('../../assets/img/mandal.jpg')}
+                             alt="만다라트-가이드 이미지"/>
 
-                    <p className="py-1">
-                        <span className="font-medium">1.</span> <Link className="font-blue font-medium" to="/write">만다라트
-                        만들기</Link>를 시작합니다.<br/><br/>
-                        <span className="font-medium">2.</span> 자신의 핵심목표를 가장 중심에 적습니다.(최대 24글자)<br/><br/>
-                        <span className="font-medium">3.</span> 세부목표 8칸에 핵심목표에 대한 해결점, 아이디어 등을 적습니다.<br/><br/>
-                        <span className="font-medium">4.</span> 나머지 8칸에 세부목표에 대한 해결점, 아이디어 등을 적습니다.<br/><br/>
-                        <span className="font-medium">5.</span> 모두 채웠다면, 나만의 만다라트 완성 💙
-                    </p>
-                </div>
-                <div className="text-center">
+                        <div>
+                            <span className="font-medium">1.</span>
+                            <Link className="font-blue font-medium" to="/write">
+                            만다라트 만들기</Link>를 시작합니다.<br/><br/>
+                            <span className="font-medium">2.</span> 자신의 핵심목표를 가장 중심에 적습니다.(최대 24글자)<br/><br/>
+                            <span className="font-medium">3.</span> 세부목표 8칸에 핵심목표에 대한 해결점, 아이디어 등을 적습니다.<br/><br/>
+                            <span className="font-medium">4.</span> 나머지 8칸에 세부목표에 대한 해결점, 아이디어 등을 적습니다.<br/><br/>
+                            <span className="font-medium">5.</span> 모두 채웠다면, 나만의 만다라트 완성 💙
+                        </div>
+                    </GuideBox>
+
                     <Write/>
-                </div>
+
+                </GuideWrapper>
             </Container>
         </Section>
     );

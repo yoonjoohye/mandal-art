@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-const AuthRoute = ({user, component:Component, ...rest}) => {
+const AuthRoute = ({user, component: Component, ...rest}) => {
     return (
         <Route
             {...rest}
@@ -10,7 +10,6 @@ const AuthRoute = ({user, component:Component, ...rest}) => {
                 user ?
                     <Component {...props}></Component> :
                     <Redirect to="/login"/>
-
             }
         />
     );

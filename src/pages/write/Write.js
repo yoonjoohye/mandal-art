@@ -9,8 +9,17 @@ import Print from "../../components/button/Print";
 import Edit from "../../components/button/Edit";
 import Modal from '../../components/modal/Modal';
 import * as firebase from "firebase";
-import {Container, Section} from "../../assets/css/Section.style";
+import {Container, FlexBox, OnlyPc, Section} from "../../assets/css/Section.style";
+import {Color} from "../../assets/css/Theme.style";
+import styled from "styled-components";
 
+const WriteWrapper=styled.div`
+  ${FlexBox('flex-end')};
+`
+const Pc=styled.div`
+  ${OnlyPc};
+  margin-right:5px;
+`
 
 const Write = ({user, match}) => {
     const [title, setTitle] = useState('');
@@ -136,7 +145,6 @@ const Write = ({user, match}) => {
                     buttonName="로그인 하러가기"
                     img={require('../../assets/img/icon/login.svg')}
                     path="/login"
-                    bgColor="rgba(0, 0, 0, 0.68)"
                 />
             }
             {
@@ -144,8 +152,8 @@ const Write = ({user, match}) => {
                 <Modal isOpen={validModal}
                        isValid={true}
                        title="제목을 입력해주세요"
-                       contents="제목을 작성하지 않았습니다.<br/>제목을 작성하지 않으면 저장할 수 없습니다."
-                       bgColor="#ffffff94"
+                       contents="제목을 작성하지 않았습니다.<br/>제목을 작성해야 저장할 수 있습니다."
+                       bgColor={Color.whiteOpacity}
                        onValidOpen={onValidOpen}
                 />
             }
@@ -154,8 +162,8 @@ const Write = ({user, match}) => {
                 <Modal isOpen={confirmModal}
                        isConfirm={true}
                        title="수정이 완료되었습니다."
-                       contents="지금 바로 마이페이지에서 확인할 수 있습니다.<br/>수정된 내용을 확인하시겠습니까?"
-                       bgColor="#ffffff94"
+                       contents="바로 마이페이지에서 확인할 수 있습니다.<br/>수정된 내용을 확인하시겠습니까?"
+                       bgColor={Color.whiteOpacity}
                        onConfirmOpen={onConfirmOpen}
                 />
             }
@@ -165,36 +173,31 @@ const Write = ({user, match}) => {
                     isOpen={modal}
                     isConfirm={false}
                     title="저장이 완료되었습니다."
-                    contents="지금 바로 마이페이지에서 확인할 수 있습니다.<br/>저장된 내용을 확인해보세요."
+                    contents="바로 마이페이지에서 확인할 수 있습니다.<br/>저장된 내용을 확인해보세요."
                     buttonName="마이페이지로 가기"
                     path="/mypage"
-                    bgColor="bg-opacity"
+                    bgColor={Color.whiteOpacity}
                 />
             }
             <Section>
                 <Container>
+                    <WriteWrapper>
                     {
                         page === '/write' ?
-                            <div className="text-right">
-                                <Save title={title} data={data} onSave={onSave}></Save>
-                            </div> :
-                            <div className="flex justify-end">
-                                <div className="only-pc mr-5">
-                                    <Print onPrint={onPrint}></Print>
-                                </div>
-                                <div>
-                                    <Edit title={title} data={data}
-                                          pageNo={match.params.id} onEdit={onEdit}></Edit>
-                                </div>
-                            </div>
-                    }
-                    <div className="border-bottom py-1 mb-30">
-                        <Title title={title} titleChange={titleChange}/>
-                    </div>
+                            <Save title={title} data={data} onSave={onSave}/>
+                            :
+                            <>
+                                <Pc>
+                                    <Print onPrint={onPrint}/>
+                                </Pc>
 
-                    <div className="mb-30">
-                        <Table data={data} tableChange={tableChange}/>
-                    </div>
+                                <Edit title={title} data={data} pageNo={match.params.id} onEdit={onEdit}/>
+                            </>
+                    }
+                    </WriteWrapper>
+                    <Title title={title} titleChange={titleChange}/>
+
+                    <Table data={data} tableChange={tableChange}/>
                 </Container>
             </Section>
         </>

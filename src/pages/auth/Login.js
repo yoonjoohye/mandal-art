@@ -1,18 +1,24 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {loginAsync} from '../../stores/auth';
 import Loading from '../../components/Loading';
 import ReactHelmet from "../../components/ReactHelmet";
-import {BackgroundSection, Container} from "../../assets/css/Section.style";
+import {BackgroundSection, Container, FlexBox} from "../../assets/css/Section.style";
 import styled from "styled-components";
+import {MarkdownBase, MarkdownMd} from "../../assets/css/Markdown.style";
+import {Color} from "../../assets/css/Theme.style";
+import {media} from "../../assets/css/Media.style";
+import GoogleLogin from "../../components/button/GoogleLogin";
+import FacebookLogin from "../../components/button/FacebookLogin";
+import Alert from "../../components/button/Alert";
+import {Icon} from "../../assets/css/Image.style";
 
 const LoginContainer = styled(Container)`
     min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    ${FlexBox('center')};
 `;
-const LoginBox = styled.div`
+
+const LoginWrapper = styled.div`
     box-shadow: 0 1px 10px #00000063;
     width: 350px;
     padding: 7rem;
@@ -26,13 +32,30 @@ const LoginBox = styled.div`
     }
 `;
 
-const Login = (props) => {
-    const [showBubble, setShowBubble] = useState(false);
-    let {loginAsync, loading} = props;
+const LoginBox=styled.div`
+  ${FlexBox("center")};
+`;
 
-    const onShowBubble = () => {
-        setShowBubble(!showBubble);
-    }
+const LogoTitle=styled(MarkdownMd)`
+  color:${Color.white};
+  ${media.sm`
+    color:${Color.black};
+  `}
+`
+const LoginTitle = styled(MarkdownBase)`
+  margin-bottom:70px;
+  text-align:center;
+  color:${Color.white};
+  ${media.sm`
+    color:${Color.black};
+  `}
+`
+const LoginIcon=styled(Icon)`
+  margin-right:10px;
+`
+
+const Login = (props) => {
+    let {loginAsync, loading} = props;
 
     return (
         <>
@@ -44,40 +67,20 @@ const Login = (props) => {
             <BackgroundSection>
                 <Loading show={loading}/>
                 <LoginContainer>
-                    <LoginBox>
-                        <div className="flex justify-center items-center mb-70">
-                            <img alt="만다라트-로고" className="login-icon mr-10"
-                                 src={require('../../assets/img/icon/puzzle.svg')}/>
-                                <div className="font-md font-white-pink font-bold">Mandal-ART</div>
-                        </div>
-                        <div className="w-100">
-                            <div className="flex items-center justify-between btn login google mb-20"
-                                 onClick={() => loginAsync('google')}>
-                                <img className="modal-icon" alt="만다라트-구글"
-                                     src={require('../../assets/img/icon/google.svg')}/>
-                                <div className="w-100 text-center">구글로 로그인</div>
-                            </div>
-                            <div className="flex items-center justify-between btn login facebook mb-70-m"
-                                 onClick={() => loginAsync('facebook')}>
-                                <img className="modal-icon" alt="만다라트-페이스북"
-                                     src={require('../../assets/img/icon/facebook.svg')}/>
-                                <div className="w-100 text-center">페이스북으로 로그인</div>
-                            </div>
-                        </div>
+                    <LoginWrapper>
+                        <LoginBox>
+                            <LoginIcon alt="만다라트-로고" src={require('../../assets/img/icon/puzzle.svg')}/>
+                            <LogoTitle fontWeight="600">Mandal-ART</LogoTitle>
+                        </LoginBox>
 
-                        <div className="w-100 only-mobile">
-                            <div className="font-gray text-right mb-20" onClick={onShowBubble}>ⓘ 로그인이 작동하지
-                                않나요?
-                            </div>
-                            {
-                                showBubble &&
-                                <div className="fade-in bubble-top font-sm keep-all font-white text-center">
-                                    인앱브라우저는 소셜 로그인을 제공하지 않습니다.<br/>
-                                    <b>더보기(…)</b>에서 <b>다른 브라우저로 열기</b>를 선택하셔서 로그인을 다시 시도해주세요!
-                                </div>
-                            }
-                        </div>
-                    </LoginBox>
+                        <LoginTitle>로그인</LoginTitle>
+
+                        <GoogleLogin onLogin={(type)=>loginAsync(type)}/>
+                        <FacebookLogin onLogin={(type)=>loginAsync(type)}/>
+
+                        <Alert/>
+
+                    </LoginWrapper>
                 </LoginContainer>
             </BackgroundSection>
         </>

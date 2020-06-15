@@ -3,6 +3,8 @@ import {List} from 'immutable';
 import styled from "styled-components";
 
 import Tr from './Tr';
+import {media} from "../../assets/css/Media.style";
+import {Color} from "../../assets/css/Theme.style";
 
 const Grid = styled.div`
     display: grid;
@@ -13,11 +15,16 @@ const Grid = styled.div`
     border-radius: 0.5rem;
     box-shadow: 0 0 7px #0000002b;
     background-color: rgba(0, 0, 0, 0);
-    @media(max-width: 480px) {
+    
+    ${media.md `
+        grid-gap: 1rem;
+        padding: 1rem;
+    `}
+    ${media.sm`
         grid-gap: 0.5rem;
         padding: 0;
         box-shadow:none;
-    }
+    `}
 `;
 
 
@@ -30,10 +37,6 @@ const Table = (props) => {
 
     const onChange = (e, tableIndex, dataIndex) => {
         const {value} = e.target;
-
-        if (data.getIn([dataIndex, tableIndex]).split("\n").length > 3) {
-            data.setIn([dataIndex, tableIndex])
-        }
 
         let goal;
 
@@ -75,30 +78,41 @@ const Table = (props) => {
 
     const onVertical = (tableIndex, dataIndex) => {
         let word = data.getIn([tableIndex, dataIndex]);
-        let lineCnt = word.substr(0, word.selectionStart).split("\n").length;
+        let lineCnt = word.substr(0, word.selectionStart).split('\n').length;
 
         if (window.screen.width < 480) {
             if (word.length < 4 && lineCnt === 1) {
-                return 'line-height-3';
+                return 3;
             } else if (word.length < 7) {
-                return 'line-height-15';
+                return 1.5;
             } else {
-                return 'line-height-1';
+                return 1;
             }
         } else if (window.screen.width <= 1024) {
-            if (word.length < 5 && lineCnt === 1) {
-                return 'line-height-5';
-            } else {
-                return 'line-height-15';
+            if (word.length < 6 && lineCnt === 1) {
+                return 5;
+            } else if(word.length < 12 && lineCnt < 3){
+                return 2;
+            } else{
+                return 1.5;
             }
         } else if (window.screen.width > 1440) {
             if (word.length < 10 && lineCnt === 1) {
-                return 'line-height-5';
+                return 5;
             } else if (word.length < 20 && lineCnt < 3) {
-                return 'line-height-2';
+                return 2;
             } else {
-                return 'line-height-15';
+                return 1.5;
             }
+        }
+    }
+    const onBgColor=(tableIndex,dataIndex)=>{
+        if(tableIndex === 4 && dataIndex === 4){
+            return Color.blue200;
+        }else if(tableIndex === 4 || dataIndex === 4){
+            return Color.blue100;
+        }else{
+            return Color.white;
         }
     }
 
@@ -111,9 +125,9 @@ const Table = (props) => {
                         tableIndex={tableIndex}
                         key={tableIndex}
                         onChange={onChange}
+                        onBgColor={onBgColor}
                         onPlaceholder={onPlaceholder}
                         onVertical={onVertical}>
-
                     </Tr>
                 );
             })}

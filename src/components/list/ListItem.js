@@ -1,19 +1,33 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import Delete from "../button/Delete";
+import styled from "styled-components";
+import {MarkdownMd,MarkdownSm} from "../../assets/css/Markdown.style";
+import {FlexBox} from "../../assets/css/Section.style";
+import {Color} from "../../assets/css/Theme.style";
+
+const ItemWrapper=styled.div`
+  padding:1rem 0;
+  ${FlexBox('space-between')};
+  border-bottom: 1px solid ${Color.gray100};
+`;
+
+const ListTitle=styled(MarkdownMd)`
+  margin-bottom:5px;
+`;
 
 const ListItem = ({data, index, onDelete}) => {
     const {title, time} = data;
 
     return (
-        <div className="py-1 flex items-center justify-between border-bottom">
+        <ItemWrapper>
             <Link className="cursor-pointer" to={`detail/${index}`}>
-                <div className="font-md mb-5">{title}</div>
-                <div className="font-sm font-gray">{time} 작성</div>
+                <ListTitle>{title}</ListTitle>
+                <MarkdownSm color={Color.gray300}>{time} 작성</MarkdownSm>
             </Link>
 
-            <Delete pageNo={index} onDelete={onDelete}></Delete>
-        </div>
+            <Delete pageNo={index} onDelete={onDelete}/>
+        </ItemWrapper>
     );
 }
 

@@ -32,23 +32,10 @@
     padding: 0;
     page-break-before: always;
   }
-  .mandal-section {
-    padding: 0;
-  }
-  .mandal-input{
-    padding:15px 0 10px 0!important;
-  }
-  .outer-grid{
-    grid-gap: 0.8rem;
-    padding: 0.8rem;
-  }
-  .container {
-    padding: 0 3%;
-  }
-  .header-section {
+  header {
     display: none;
   }
-  .btn {
+  button {
     display: none;
   }
 }

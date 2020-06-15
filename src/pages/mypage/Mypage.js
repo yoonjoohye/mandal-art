@@ -1,14 +1,21 @@
 import React, {useState, useEffect,useCallback} from 'react';
 import * as firebase from "firebase";
 import {connect} from 'react-redux';
-import List from '../../components/list/List.js';
+import List from '../../components/list/List';
 import Float from '../../components/button/Float';
 import ReactHelmet from "../../components/ReactHelmet";
 import Modal from "../../components/modal/Modal";
-import {Container, Section} from "../../assets/css/Section.style";
+import {Container, FlexBox, Section} from "../../assets/css/Section.style";
 import Banner from "../../components/mypage/Banner";
+import {Color} from "../../assets/css/Theme.style";
+import styled from "styled-components";
 
-
+const FloatWrapper=styled.div`
+  ${FlexBox('center')};
+  position:fixed; 
+  bottom:10%; 
+  right:5%;
+`
 const Mypage = ({user}) => {
     const [list, setList] = useState([]);
     const [confirmModal, setConfirmModal] = useState(false);
@@ -63,7 +70,7 @@ const Mypage = ({user}) => {
                        isConfirm={true}
                        title="정말 삭제하시겠습니까?"
                        contents="삭제하면 되돌릴 수 없습니다.<br/>그래도 삭제하시겠습니까?"
-                       bgColor="#ffffff94"
+                       bgColor={Color.whiteOpacity}
                        onConfirmOpen={onConfirmOpen}
                 />
             }
@@ -76,13 +83,13 @@ const Mypage = ({user}) => {
                 <Container>
                     <Banner
                         user={user}
-                        title="나만의 <span class='yellow'>만다라트</span>로<br/>인생을 즐겁게!"
+                        title="나만의 만다라트로<br/>인생을 즐겁게!"
                     />
                     <List list={list} onDelete={onDelete}/>
 
-                    <div className="position-fixed bottom-10 right-5 flex items-center text-center">
-                        <Float></Float>
-                    </div>
+                    <FloatWrapper>
+                        <Float/>
+                    </FloatWrapper>
                 </Container>
             </Section>
         </>
