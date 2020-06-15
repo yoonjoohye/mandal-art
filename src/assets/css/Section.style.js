@@ -10,7 +10,7 @@ export const Section = styled.section`
     }`;
 
 export const BackgroundSection = styled.section`
-    background: url(${require('../img/index.jpg')});
+    background: url(${props=>props.img});
     background-size: initial;
     background-repeat: no-repeat;
     @media(max-width:1024px){

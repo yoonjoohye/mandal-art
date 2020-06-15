@@ -64,7 +64,7 @@ const Login = (props) => {
                 description="만다라트는 오타니쇼헤이의 성공비법으로 유명한 기법입니다. 홈페이지에서 나만의 만다라트를 세우고 성공목표를 세워보세요."
                 keywords="만다라트(mandal art) 사이트로 플랜(plan) 도구를 만나보세요! 나만의 만다라트를 만들어 성공 목표를 세워보세요."
             />
-            <BackgroundSection>
+            <BackgroundSection img={require('../../assets/img/index.jpg')}>
                 <Loading show={loading}/>
                 <LoginContainer>
                     <LoginWrapper>

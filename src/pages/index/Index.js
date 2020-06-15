@@ -58,7 +58,7 @@ const Index = () => {
                 keywords="만다라트(mandal art) 사이트로 플랜(plan) 도구를 만나보세요! 나만의 만다라트를 만들어 성공 목표를 세워보세요."
             />
 
-            <BackgroundSection>
+            <BackgroundSection img={require('../../assets/img/index.jpg')}>
                 <IndexContainer alignItems="start" bgColorMobile={Color.blue300} mb={100}>
                     <IndexTitle textAlign="left" fontWeight={300} color={Color.white}>
                         함께, <Yellow>계획</Yellow>을 세워요<br/>
