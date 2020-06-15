@@ -1,10 +1,11 @@
 import React from 'react';
+import {Container, Section} from "../../assets/css/Section.style";
 
 
 const PrivacyRule = () => {
     return (
-        <section className="mandal-section">
-            <div className="container">
+        <Section>
+            <Container>
                 <div className="mb-20">
                     <b className="mb-10">1. 개인정보의 처리 목적 만다라트(‘https://mandal-art.yoonjoohye.xyz’이하 ‘만다라트’) 은(는) 다음의 목적을
                         위하여 개인정보를 처리하고
@@ -162,8 +163,8 @@ const PrivacyRule = () => {
                         사용하는 등의 별도 보안기능을 사용하고 있습니다.
                     </li>
                 </div>
-            </div>
-        </section>
+            </Container>
+        </Section>
     )
 }
 

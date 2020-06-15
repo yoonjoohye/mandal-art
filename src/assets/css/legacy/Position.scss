@@ -7,6 +7,20 @@
   }
 }
 
+.only-pc {
+  display: initial !important;
+  @media(max-width: 480px) {
+    display: none !important;
+  }
+}
+
+.only-mobile {
+  display: none !important;
+  @media(max-width: 480px) {
+    display: initial !important;
+  }
+}
+
 .position {
   &-absolute {
     position: absolute;
@@ -268,6 +282,7 @@
   &-bottom {
     border-bottom: 1px solid #eeeeee;
   }
+
   &-none {
     border: 0;
   }

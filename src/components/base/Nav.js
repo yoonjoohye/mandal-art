@@ -1,11 +1,69 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {logoutAsync} from '../../stores/auth';
 import Loading from "../Loading";
+import styled from "styled-components";
+import {MarkdownBase, MarkdownSm} from "../../assets/css/Markdown.style";
+import {fadeIn} from "../../assets/css/Animate.style";
+import {media} from "../../assets/css/Media.style";
+import {FlexBox} from "../../assets/css/Section.style";
+import {Color} from "../../assets/css/Theme.style";
+import {Button} from "../../assets/css/Button.style";
+import {Icon} from "../../assets/css/Image.style";
 
-const Nav = (props) => {
-    let {user, loading, logoutAsync} = props;
+export const NavSection = styled.nav`
+    position: absolute;
+    animation: ${fadeIn} 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    right: 15%;
+    top: 60px;
+    min-width: 250px;
+    background-color: white;
+    border: 1px solid ${Color.gray100};
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00000020;
+    ${media.sm`
+        right:5%;
+        min-width:180px;
+    `}
+`;
+const NavContainer = styled.div`
+    text-align:center;
+    padding:1rem;
+    border-top:${props => props.border}px solid ${Color.gray100};
+`;
+
+const NavBox = styled.div`
+  ${FlexBox('space-between')};
+  cursor:pointer;
+`;
+
+const NavItem = styled(MarkdownSm)`
+    width:100%;
+`;
+
+const Name = styled(MarkdownBase)`
+    margin-bottom:5px;
+`;
+
+const Logout = styled(Button)`
+    cursor: pointer;
+    padding: 0.3rem 0.8rem;
+    font-size:10px;
+    color:${Color.gray200};
+    border: 1px solid #aaaaaa64;
+    border-radius: 1rem;
+    ${media.sm`
+        font-size:10px;
+    `}
+`
+const ProfileLogo=styled(Icon)`
+  border-radius:50%;
+  margin-bottom:20px;
+  ${media.sm`
+    margin-bottom:10px;
+  `}
+`
+
+const Nav = ({user, loading, onLogout}) => {
 
     const onIssue = () => {
         if (window.screen.width > 1024) {
@@ -18,37 +76,33 @@ const Nav = (props) => {
     return (
         <>
             <Loading show={loading}/>
-            <div className="nav">
-                <div className="flex flex-col items-center justify-center nav-container border-bottom">
-                    <img alt="만다라트-유저이미지" className="nav-profile-img mb-20" src={user.photoURL}/>
-                    <div className="mb-5 font-medium">{user.displayName}</div>
-                    <div className="font-sm">{user.email}</div>
-                </div>
-                <div className="nav-container border-bottom">
-                    <Link className="flex items-center justify-between cursor-pointer"
-                          to={'/mypage'}>
-                        <div className="w-100 font-sm">마이페이지</div>
-                        <div className="font-gray"> ></div>
+            <NavSection>
+                <NavContainer border={0}>
+                    <ProfileLogo alt="만다라트-유저이미지" src={user.photoURL}/>
+                    <Name>{user.displayName}</Name>
+                    <MarkdownSm>{user.email}</MarkdownSm>
+                </NavContainer>
+
+                <NavContainer border={1}>
+                    <Link to="/mypage">
+                        <NavBox>
+                            <NavItem>마이페이지</NavItem>
+                            <MarkdownBase color={Color.gray300}> ></MarkdownBase>
+                        </NavBox>
                     </Link>
-                </div>
-                <div className="nav-container border-bottom">
-                    <div className="flex items-center justify-between cursor-pointer" onClick={onIssue}>
-                        <div className="w-100 font-sm">문의사항</div>
-                        <div className="font-gray"> ></div>
-                    </div>
-                </div>
-                <div className="nav-container">
-                    <span className="font-sm nav-logout cursor-pointer" onClick={() => logoutAsync()}>로그아웃</span>
-                </div>
-            </div>
+                </NavContainer>
+                <NavContainer border={1}>
+                    <NavBox onClick={onIssue}>
+                        <NavItem>문의사항</NavItem>
+                        <MarkdownBase color={Color.gray300}> ></MarkdownBase>
+                    </NavBox>
+                </NavContainer>
+                <NavContainer border={1}>
+                    <Logout onClick={onLogout}>로그아웃</Logout>
+                </NavContainer>
+            </NavSection>
         </>
     )
 }
 
-export default connect(
-    (state) => ({
-        user: state.auth.user,
-        loading: state.auth.loading.logout
-    }),
-    {logoutAsync}
-)(Nav);
+export default Nav;

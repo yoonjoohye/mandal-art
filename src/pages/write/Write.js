@@ -1,18 +1,27 @@
-import React, {useState, useEffect,useCallback} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {connect} from 'react-redux';
 import {fromJS, List} from 'immutable';
 import ReactHelmet from "../../components/ReactHelmet";
-import Table from '../../molecules/Table';
+import Table from '../../components/input/Table';
 import Title from '../../components/input/Title';
 import Save from '../../components/button/Save';
 import Print from "../../components/button/Print";
 import Edit from "../../components/button/Edit";
 import Modal from '../../components/modal/Modal';
 import * as firebase from "firebase";
-import ValidModal from "../../components/modal/ValidModal";
+import {Container, FlexBox, OnlyPc, Section} from "../../assets/css/Section.style";
+import {Color} from "../../assets/css/Theme.style";
+import styled from "styled-components";
 
+const WriteWrapper=styled.div`
+  ${FlexBox('flex-end')};
+`
+const Pc=styled.div`
+  ${OnlyPc};
+  margin-right:5px;
+`
 
-const Write = ({user,match}) => {
+const Write = ({user, match}) => {
     const [title, setTitle] = useState('');
     const [data, setData] = useState(List([
         List(['', '', '', '', '', '', '', '', '']),
@@ -25,9 +34,9 @@ const Write = ({user,match}) => {
         List(['', '', '', '', '', '', '', '', '']),
         List(['', '', '', '', '', '', '', '', '']),
     ]));
-    const [validModal,setValidModal]=useState(false);
+    const [validModal, setValidModal] = useState(false);
     const [confirmModal, setConfirmModal] = useState(false);
-    const [modal,setModal]=useState(false);
+    const [modal, setModal] = useState(false);
 
     const page = window.location.pathname;
     // const {uid} = user;
@@ -47,30 +56,30 @@ const Write = ({user,match}) => {
                 setData(fromJS(JSON.parse(dataList[match.params.id].data)));
             });
         }
-    }, [user,match.params.id,page]);
+    }, [user, match.params.id, page]);
 
 
     const titleChange = useCallback((data) => {
         setTitle(data);
-    },[]);
+    }, []);
 
     const tableChange = useCallback((data) => {
         setData(data);
-    },[]);
+    }, []);
 
-    const onValidOpen=useCallback((bool)=>{
+    const onValidOpen = useCallback((bool) => {
         setValidModal(bool);
-    },[]);
+    }, []);
 
     const onConfirmOpen = useCallback((bool) => {
         setConfirmModal(false);
         if (bool) {
             window.location.href = '/mypage';
         }
-    },[]);
+    }, []);
 
-    const onSave=(title,data)=>{
-        if(title.length>0) {
+    const onSave = (title, data) => {
+        if (title.length > 0) {
             const {uid} = user;
             const database = firebase.database();
             let time = new Date();
@@ -83,15 +92,15 @@ const Write = ({user,match}) => {
             }).then(() => {
                 setModal(true);
             })
-        } else{
+        } else {
             setValidModal(true);
         }
     }
 
-    const onPrint=()=>{
+    const onPrint = () => {
         window.print();
     }
-    const onEdit=(title,data,pageNo)=>{
+    const onEdit = (title, data, pageNo) => {
         if (title.length > 0) {
             const {uid} = user;
             const database = firebase.database();
@@ -131,21 +140,21 @@ const Write = ({user,match}) => {
                 !user &&
                 <Modal
                     isOpen={true}
-                    isConfirm={false}
                     title="로그인이 필요합니다"
                     contents="3초만에 소셜 계정으로 로그인하세요.<br/>로그인 후 만다라트 계획표를 세워보세요!"
                     buttonName="로그인 하러가기"
                     img={require('../../assets/img/icon/login.svg')}
                     path="/login"
-                    bgColor="rgba(0, 0, 0, 0.68)"
                 />
             }
             {
                 validModal &&
-                <ValidModal isOpen={validModal}
-                            title="제목을 입력해주세요"
-                            contents="제목을 작성하지 않았습니다.<br/>제목을 작성하지 않으면 저장할 수 없습니다."
-                            onValidOpen={onValidOpen}
+                <Modal isOpen={validModal}
+                       isValid={true}
+                       title="제목을 입력해주세요"
+                       contents="제목을 작성하지 않았습니다.<br/>제목을 작성해야 저장할 수 있습니다."
+                       bgColor={Color.whiteOpacity}
+                       onValidOpen={onValidOpen}
                 />
             }
             {
@@ -153,8 +162,8 @@ const Write = ({user,match}) => {
                 <Modal isOpen={confirmModal}
                        isConfirm={true}
                        title="수정이 완료되었습니다."
-                       contents="지금 바로 마이페이지에서 확인할 수 있습니다.<br/>수정된 내용을 확인하시겠습니까?"
-                       bgColor="#ffffff94"
+                       contents="바로 마이페이지에서 확인할 수 있습니다.<br/>수정된 내용을 확인하시겠습니까?"
+                       bgColor={Color.whiteOpacity}
                        onConfirmOpen={onConfirmOpen}
                 />
             }
@@ -164,37 +173,33 @@ const Write = ({user,match}) => {
                     isOpen={modal}
                     isConfirm={false}
                     title="저장이 완료되었습니다."
-                    contents="지금 바로 마이페이지에서 확인할 수 있습니다.<br/>저장된 내용을 확인해보세요."
+                    contents="바로 마이페이지에서 확인할 수 있습니다.<br/>저장된 내용을 확인해보세요."
                     buttonName="마이페이지로 가기"
                     path="/mypage"
-                    bgColor="bg-opacity"
+                    bgColor={Color.whiteOpacity}
                 />
             }
-            <section className="mandal-section">
-                <div className="container">
+            <Section>
+                <Container>
+                    <WriteWrapper>
                     {
                         page === '/write' ?
-                            <div className="text-right">
-                                <Save title={title} data={data} onSave={onSave}></Save>
-                            </div> :
-                            <div className="flex justify-end">
-                                <div className="only-pc mr-5">
-                                    <Print onPrint={onPrint}></Print>
-                                </div>
-                                <div>
-                                    <Edit title={title} data={data}
-                                          pageNo={match.params.id} onEdit={onEdit}></Edit>
-                                </div>
-                            </div>
+                            <Save title={title} data={data} onSave={onSave}/>
+                            :
+                            <>
+                                <Pc>
+                                    <Print onPrint={onPrint}/>
+                                </Pc>
+
+                                <Edit title={title} data={data} pageNo={match.params.id} onEdit={onEdit}/>
+                            </>
                     }
-                    <div className="border-bottom py-1 mb-30">
-                        <Title title={title} titleChange={titleChange}/>
-                    </div>
-                    <div className="mb-30">
-                        <Table data={data} tableChange={tableChange}/>
-                    </div>
-                </div>
-            </section>
+                    </WriteWrapper>
+                    <Title title={title} titleChange={titleChange}/>
+
+                    <Table data={data} tableChange={tableChange}/>
+                </Container>
+            </Section>
         </>
     );
 

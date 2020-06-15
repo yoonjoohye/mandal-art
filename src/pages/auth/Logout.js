@@ -1,16 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {logoutAsync} from "../../stores/auth";
+import {Section} from "../../assets/css/Section.style";
 
 
 const Logout = (props) => {
     let {logoutAsync} = props;
     return (
-        <section className="mandal-section">
+        <Section>
             <button onClick={() => logoutAsync()}>로그아웃</button>
-        </section>
+        </Section>
     )
-
 }
 
 
