@@ -18,7 +18,7 @@ export const BackgroundSection = styled.section`
         background-size: 130%;
     `}
      ${media.md`
-        background-size: 165%;
+        background-size: 200%;
     `}
     ${media.sm`
         background: ${Color.white};
