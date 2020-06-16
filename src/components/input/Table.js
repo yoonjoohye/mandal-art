@@ -83,23 +83,33 @@ const Table = (props) => {
         if (window.screen.width < 480) {
             if (word.length < 4 && lineCnt === 1) {
                 return 3;
-            } else if (word.length < 7) {
-                return 1.5;
+            } else if (word.length < 7 && lineCnt <3) {
+                return 2;
             } else {
                 return 1;
             }
-        } else if (window.screen.width <= 1024) {
-            if (word.length < 6 && lineCnt === 1) {
+        }  else if (window.screen.width <= 1024) {
+            if (word.length < 8 && lineCnt === 1) {
                 return 5;
-            } else if(word.length < 12 && lineCnt < 3){
+            } else if(word.length < 15 && lineCnt < 3){
                 return 2;
             } else{
                 return 1.5;
             }
-        } else if (window.screen.width > 1440) {
+        }
+        else if (window.screen.width <= 1640) {
+            if (word.length < 8 && lineCnt === 1) {
+                return 5;
+            } else if(word.length < 15 && lineCnt < 3){
+                return 2;
+            } else{
+                return 1.5;
+            }
+        }
+        else if (window.screen.width > 1640) {
             if (word.length < 10 && lineCnt === 1) {
                 return 5;
-            } else if (word.length < 20 && lineCnt < 3) {
+            } else if (word.length < 21 && lineCnt < 3) {
                 return 2;
             } else {
                 return 1.5;

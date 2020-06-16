@@ -24,12 +24,12 @@ const LoginWrapper = styled.div`
     padding: 7rem;
     background-color: #ffffff08;
     border-radius: 0.5rem;
-    @media(max-width:480px){
+    ${media.sm`
         width: 100%;
         padding: 0 1rem;
         box-shadow:none;
         background: none;
-    }
+    `}
 `;
 
 const LoginBox=styled.div`

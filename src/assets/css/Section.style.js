@@ -1,24 +1,29 @@
-import styled,{css} from "styled-components";
+import styled, {css} from "styled-components";
 import {media} from "./Media.style";
 import {Color} from "./Theme.style";
 
 export const Section = styled.section`
     padding: 100px 0;
     min-height: 100vh;
-    @media(max-width: 480px) {
+    ${media.sm`
       padding: 85px 0;
-    }`;
+    `}
+`;
 
 export const BackgroundSection = styled.section`
-    background: url(${props=>props.img});
-    background-size: initial;
+    background: url(${props => props.img});
+    background-size: contain;
     background-repeat: no-repeat;
-    @media(max-width:1024px){
-        background-size: 200%;
-    }
-    @media(max-width: 480px) {
-        background: #fff;
-    }`;
+    ${media.lg`
+        background-size: 130%;
+    `}
+     ${media.md`
+        background-size: 165%;
+    `}
+    ${media.sm`
+        background: ${Color.white};
+    `}
+`;
 
 export const ModalSection = styled.section`
     position:fixed;
@@ -38,25 +43,31 @@ export const ModalSection = styled.section`
 export const Container = styled.div`
     padding-right: 15%;
     padding-left: 15%;
-    @media(max-width: 480px) {
+    ${media.sm`
       padding-right: 5%;
       padding-left: 5%;
-    }`;
+    `}
+    
+    @media print{
+        padding-right:5%;
+        padding-left:5%;
+    }
+`;
 
-export const FlexBox=(justifyContent='center')=>css`
+export const FlexBox = (justifyContent = 'center') => css`
   display:flex;
   justify-content: ${justifyContent};
   align-items: center;
 `;
 
-export const OnlyMobile=()=>css`
+export const OnlyMobile = () => css`
   display: none !important;
   ${media.sm`
     display: initial !important;
   `}
 `;
 
-export const OnlyPc=()=>css`
+export const OnlyPc = () => css`
   display: initial !important;
   ${media.sm`
     display: none !important;

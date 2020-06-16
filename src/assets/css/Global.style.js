@@ -1,5 +1,6 @@
 import {createGlobalStyle} from "styled-components";
 import {Color} from "./Theme.style";
+import {media} from "./Media.style";
 
 export const Global = createGlobalStyle`
     html {
@@ -14,6 +15,13 @@ export const Global = createGlobalStyle`
         margin: 0;
         padding: 0;
         page-break-before: always;
+      }
+      section{
+        padding:2rem 0!important;
+      }
+      textarea{
+        height:70px!important;
+        line-height:1.5!important;
       }
       header {
         display: none;
@@ -57,9 +65,9 @@ export const Global = createGlobalStyle`
       font-weight: 300;
       line-height: 1.5;
       color: ${Color.gray500};
-      @media(max-width: 480px) {
+      ${media.sm`
         font-size: 13px;
-      }
+      `}
     }
     
     textarea {
