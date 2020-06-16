@@ -57,12 +57,23 @@ const Guide = () => {
                     <GuideWrapper>
 
                         <GuideContent>
-                            <GuideList>🍎달성하기 <HighLight>어려운 목표</HighLight>도 안 되지만, 너무 쉬워서 <HighLight>동기 부여가 안 되는
-                                것</HighLight>도 <HighLight>삼가</HighLight>해야 합니다.</GuideList>
-                            <GuideList>🍍<HighLight>핵심목표는 담대하게 작성</HighLight>해야 합니다. 노력하면 이룰 수 있는 목표를 작성해야
+                            <GuideList>
+                                <span aria-label="apple" role="img">🍎</span>
+                                달성하기 <HighLight>어려운 목표</HighLight>도 안 되지만, 너무 쉬워서 <HighLight>동기 부여가 안 되는 것</HighLight>도 <HighLight>삼가</HighLight>해야 합니다.
+                            </GuideList>
+                            <GuideList>
+                                <span aria-label="pineApple" role="img">🍍</span>
+                                <HighLight>핵심목표는 담대하게 작성</HighLight>해야 합니다. 노력하면 이룰 수
+                                있는 목표를 작성해야
                                 합니다.</GuideList>
-                            <GuideList>🥝<HighLight>세부목표는 현실적</HighLight>으로 작성해야 합니다.</GuideList>
-                            <GuideList>🍒<HighLight>간단 명료하게 작성</HighLight>해야 합니다.</GuideList>
+                            <GuideList>
+                                <span aria-label="kiwi" role="img">🥝</span>
+                                <HighLight>세부목표는 현실적</HighLight>으로 작성해야
+                                합니다.</GuideList>
+                            <GuideList>
+                                <span aria-label="cherry" role="img">🍒</span>
+                                <HighLight>간단 명료하게 작성</HighLight>해야 합니다.
+                            </GuideList>
                         </GuideContent>
 
                         <GuideBox justifyContent="center">
