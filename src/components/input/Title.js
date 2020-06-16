@@ -9,8 +9,9 @@ const TitleInput=styled.input`
     padding: 1rem 0;
     margin-bottom:30px;
     width: 100%;
-    ${Input(40,500)}
-    ${media.sm `${Input(25,500)}`}
+    ${Input(40,400)}
+    ${media.md `${Input(28,400)}`}
+    ${media.sm `${Input(24,400)}`}
     &:focus{
       border-color: ${Color.gray200}!important;
     }

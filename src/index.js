@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
 import App from './App';
-import './assets/css/_Style.js';
 import {Global} from "./assets/css/Global.style";
 
 ReactDOM.render(<><Global/><App/></>, document.getElementById('root'));

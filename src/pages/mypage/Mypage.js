@@ -83,7 +83,7 @@ const Mypage = ({user}) => {
                 <Container>
                     <Banner
                         user={user}
-                        title="나만의 만다라트로<br/>인생을 즐겁게!"
+                        title="나만의 <span style=color:#fff707>만다라트</span>로<br/>인생을 즐겁게!"
                     />
                     <List list={list} onDelete={onDelete}/>
 

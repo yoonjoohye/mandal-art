@@ -8,7 +8,7 @@ export const MarkdownXl = styled.div`
   font-weight:${props=>props.fontWeight || '300'};
   color:${props=>props.color||Color.black};
   ${media.md `font-size: 50px;`}
-  ${media.sm `font-size: 30px;`}
+  ${media.sm `font-size: 28px;`}
 `;
 
 export const MarkdownLg = styled.div`
@@ -16,7 +16,7 @@ export const MarkdownLg = styled.div`
     font-weight:${props=>props.fontWeight || '300'};
     color:${props=>props.color||Color.black};
     ${media.md `font-size: 30px;`}
-    ${media.sm `font-size: 25px;`}
+    ${media.sm `font-size: 22px;`}
 `;
 
 export const MarkdownMd = styled.div`
@@ -40,7 +40,7 @@ export const MarkdownBase = styled.div`
     font-weight:${props=>props.fontWeight || '300'};
     color:${props=>props.color||Color.black};
     ${media.md `font-size: 14px;`}
-    ${media.sm `font-size: 12px;`}
+    ${media.sm `font-size: 11px;`}
 `;
 
 export const MarkdownSm = styled.div`

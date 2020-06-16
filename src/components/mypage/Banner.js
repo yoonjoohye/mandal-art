@@ -48,7 +48,7 @@ const Banner = (props) => {
     return (
         <BannerSection mb={50}>
             <BannerContainer justifyContent={ad ? 'center' : 'space-between'}>
-                <BannerTitle color={Color.white} dangerouslySetInnerHTML={{__html: title}}></BannerTitle>
+                <BannerTitle fontWeight={400} color={Color.white} dangerouslySetInnerHTML={{__html: title}}/>
                 {
                     !ad ?
                         <Pc>

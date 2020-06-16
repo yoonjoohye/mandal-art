@@ -15,11 +15,12 @@ import styled from "styled-components";
 
 const WriteWrapper=styled.div`
   ${FlexBox('flex-end')};
-`
+`;
+
 const Pc=styled.div`
   ${OnlyPc};
   margin-right:5px;
-`
+`;
 
 const Write = ({user, match}) => {
     const [title, setTitle] = useState('');

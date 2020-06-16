@@ -12,6 +12,9 @@ import {Img} from "../../assets/css/Image.style";
 
 const ExplainWrapper = styled.div`
   margin-bottom:100px;
+  ${media.md`
+        margin-bottom: 80px;
+   `}
   ${media.sm`
     margin-bottom:50px;
   `}
@@ -82,8 +85,8 @@ const Explain = ({explain}) => {
     return (
         <>
             <ExplainWrapper data-aos="zoom-in" className="main">
-                <ExplainTitle>만다라트란?</ExplainTitle>
-                <ExplainContent color={Color.gray300}>
+                <ExplainTitle fontWeight={400}>만다라트란?</ExplainTitle>
+                <ExplainContent fontWeight={400} color={Color.gray300}>
                     <Pc>만다라트(Mandal-Art) 기법은</Pc> 일본의 '이마이즈미 히로아키'가 구상했습니다.<br/>
                     Manda(본질의 깨달음)+la(성취)+art(기술)의 합성어로<Mobile/> '목적을 달성하는 기술'을 뜻합니다.<br/>
                 </ExplainContent>
@@ -100,8 +103,8 @@ const Explain = ({explain}) => {
                                             alt={`만다라트-${data.title}`}/>
                             }
                             <ExplainBox textAlign={index % 2 === 1 && "left"}>
-                                <ExplainTitle>{data.title}</ExplainTitle>
-                                <ExplainContent color={Color.gray300} dangerouslySetInnerHTML={{__html: data.contents}}/>
+                                <ExplainTitle fontWeight={400}>{data.title}</ExplainTitle>
+                                <ExplainContent fontWeight={400} color={Color.gray300} dangerouslySetInnerHTML={{__html: data.contents}}/>
                                 <Write/>
                             </ExplainBox>
                             {

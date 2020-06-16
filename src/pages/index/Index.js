@@ -17,7 +17,7 @@ const IndexContainer = styled(Container)`
     margin-bottom:${props => props.mb || 0}px;
     background-color:${props => props.bgColorPC};
     ${media.md `
-        margin-bottom:0;
+        margin-bottom:80px;
     `}
     ${media.sm `
         margin-bottom:${props => Math.floor(props.mb / 2) || 0}px;
@@ -60,7 +60,7 @@ const Index = () => {
 
             <BackgroundSection img={require('../../assets/img/index.jpg')}>
                 <IndexContainer alignItems="start" bgColorMobile={Color.blue300} mb={100}>
-                    <IndexTitle textAlign="left" fontWeight={300} color={Color.white}>
+                    <IndexTitle textAlign="left" fontWeight={400} color={Color.white}>
                         함께, <Yellow>계획</Yellow>을 세워요<br/>
                         지금 바로 시작하세요
                     </IndexTitle>
@@ -72,7 +72,7 @@ const Index = () => {
                 </IndexContainer>
 
                 <IndexContainer bgColorPC={Color.blue300}>
-                    <IndexTitle fontWeight={300} color={Color.white}>
+                    <IndexTitle fontWeight={400} color={Color.white}>
                         이제 시작해볼까요?<br/>
                         함께, <Yellow>만다라트</Yellow>를 만들어요
                     </IndexTitle>
