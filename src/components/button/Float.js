@@ -57,7 +57,7 @@ const SpeechBubble=styled.div`
     position: absolute;
     pointer-events: none;
     border-left-color: ${Color.pink300};
-    border-width: 8px;
+    border-width: 9px;
     margin-top: -8px;
   }
 `

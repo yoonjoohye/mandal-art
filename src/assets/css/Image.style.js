@@ -4,6 +4,10 @@ import {media} from "./Media.style";
 export const Img=styled.img`
   width:250px;
   height:250px;
+  ${media.md`
+     width:180px;
+    height:180px;
+  `}
   ${media.sm`
       width:80px;
       height:80px;

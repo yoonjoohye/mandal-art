@@ -111,8 +111,8 @@ const Modal = (props) => {
                                 img &&
                                 <ModalIcon alt="만다라트-모달" src={img}/>
                             }
-                            <ModalTitle fontWeight={600}>{title}</ModalTitle>
-                            <ModalContent dangerouslySetInnerHTML={{__html: contents}}></ModalContent>
+                            <ModalTitle fontWeight={500}>{title}</ModalTitle>
+                            <ModalContent color={Color.gray500} dangerouslySetInnerHTML={{__html: contents}}></ModalContent>
                             {
                                 isConfirm ?
                                     <>
