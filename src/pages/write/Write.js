@@ -12,6 +12,7 @@ import * as firebase from "firebase";
 import {Container, FlexBox, OnlyPc, Section} from "../../assets/css/Section.style";
 import {Color} from "../../assets/css/Theme.style";
 import styled from "styled-components";
+import Guide from "../../components/button/Guide";
 
 const WriteWrapper=styled.div`
   ${FlexBox('flex-end')};
@@ -185,7 +186,10 @@ const Write = ({user, match}) => {
                     <WriteWrapper>
                     {
                         page === '/write' ?
-                            <Save title={title} data={data} onSave={onSave}/>
+                            <>
+                                <Guide/>
+                                <Save title={title} data={data} onSave={onSave}/>
+                            </>
                             :
                             <>
                                 <Pc>

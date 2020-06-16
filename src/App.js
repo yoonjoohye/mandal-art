@@ -1,5 +1,7 @@
 import React from 'react';
 import Root from "./routes/Root";
+import {Global} from "./assets/css/Global.style";
+
 // firebase
 import './firebaseApp';
 // redux 관련 불러오기
@@ -16,9 +18,12 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(Redux
 
 const App = () => {
     return (
-        <Provider store={store}>
-            <Root/>
-        </Provider>
+        <>
+            <Global/>
+            <Provider store={store}>
+                <Root/>
+            </Provider>
+        </>
     );
 }
 

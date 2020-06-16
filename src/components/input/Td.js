@@ -13,6 +13,18 @@ const MandalInput = styled.textarea`
     ${Textarea(12,300)}
     line-height:${props => props.lineHeight};
     background-color:${props => props.bgColor};
+    ${media.xxl`
+        height:100px;
+        ${Textarea(20,300)}
+    `}
+     ${media.xl`
+        height:70px;
+        ${Textarea(13,300)}
+    `}
+    ${media.lg`
+        height:70px;
+        ${Textarea(13,300)}
+    `}
     ${media.md `
         overflow-y: auto;
         padding:0;

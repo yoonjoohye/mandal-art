@@ -6,7 +6,7 @@ export const Img=styled.img`
   height:250px;
   ${media.md`
      width:180px;
-    height:180px;
+     height:180px;
   `}
   ${media.sm`
       width:80px;

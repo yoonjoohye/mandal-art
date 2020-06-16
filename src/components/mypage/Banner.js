@@ -6,14 +6,14 @@ import {Color} from "../../assets/css/Theme.style";
 import {FlexBox, OnlyPc} from "../../assets/css/Section.style";
 
 const BannerSection = styled.section`
-    background-color: #4093fb;
+    background-color: ${Color.blue300};
     border-radius: 1rem;
-    box-shadow: 0 10px 0 #1a63ee; 
+    box-shadow: 0 10px 0 ${Color.blue400}; 
     width: 100%;
     margin-bottom:${props => props.mb}px;
-    @media(max-width:480px){
+    ${media.sm`
         margin-bottom:${props => Math.floor(props.mb / 2)}px;
-    }
+    `}
 `;
 const BannerContainer = styled.div`
     padding:2rem 4rem;
