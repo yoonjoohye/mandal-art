@@ -12,8 +12,11 @@ export const Section = styled.section`
 
 export const BackgroundSection = styled.section`
     background: url(${props => props.img});
-    background-size: contain;
+    background-size: initial;
     background-repeat: no-repeat;
+    ${media.xxl`
+        background-size:120%;
+    `}
     ${media.lg`
         background-size: 130%;
     `}
