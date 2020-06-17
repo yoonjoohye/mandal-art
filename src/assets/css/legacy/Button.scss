@@ -1,191 +1,190 @@
 .btn {
-  border: 0;
-  cursor: pointer;
-  background: none;
-  outline: none;
+	border: 0;
+	cursor: pointer;
+	background: none;
+	outline: none;
 
-  &.login {
-    padding: 0.8rem;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 0.5rem;
-    font-weight: 500;
+	&.login {
+		padding: 0.8rem;
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+		border-radius: 0.5rem;
+		font-weight: 500;
 
-    &.google {
-      background-color: white;
-    }
+		&.google {
+			background-color: white;
+		}
 
-    &.facebook {
-      background-color: #4267b2;
-      color: white;
+		&.facebook {
+			background-color: #4267b2;
+			color: white;
+		}
+	}
 
-    }
-  }
+	&.outline {
+		font-size: 13px;
+		padding: 0.5rem 1.2rem;
+		border: 1px solid #ff83a8;
+		border-radius: 0.3rem;
+		color: #ff83a8;
+		background-color: white;
 
-  &.outline {
-    font-size: 13px;
-    padding: 0.5rem 1.2rem;
-    border: 1px solid #ff83a8;
-    border-radius: 0.3rem;
-    color: #ff83a8;
-    background-color: white;
+		&:hover {
+			background-color: rgba(255, 131, 168, 0.05);
+		}
 
-    &:hover {
-      background-color: rgba(255, 131, 168, 0.05);
-    }
+		@media (max-width: 480px) {
+			font-size: 11px;
+			padding: 0.5rem 0.8rem;
+		}
+	}
 
-    @media(max-width: 480px) {
-      font-size: 11px;
-      padding: 0.5rem 0.8rem;
-    }
-  }
+	&.write {
+		font-size: 30px;
+		width: 160px;
+		padding: 1rem 1.2rem;
+		background-color: #ff83a8;
+		border-radius: 0.5rem;
+		color: #fff;
 
-  &.write {
-    font-size: 30px;
-    width: 160px;
-    padding: 1rem 1.2rem;
-    background-color: #ff83a8;
-    border-radius: 0.5rem;
-    color: #fff;
+		&:hover {
+			background-color: darken(#ff83a8, 10%);
+		}
 
-    &:hover {
-      background-color: darken(#ff83a8, 10%);
-    }
+		@media (max-width: 480px) {
+			width: 120px;
+			font-size: 15px;
+			padding: 0.8rem 1rem;
+		}
+	}
 
-    @media(max-width: 480px) {
-      width: 120px;
-      font-size: 15px;
-      padding: 0.8rem 1rem;
-    }
-  }
+	&.save {
+		font-size: 13px;
+		padding: 0.5rem 1.2rem;
+		border-radius: 0.3rem;
+		border: 1px solid #ff83a8;
+		background-color: #ff83a8;
+		color: #fff;
 
-  &.save {
-    font-size: 13px;
-    padding: 0.5rem 1.2rem;
-    border-radius: 0.3rem;
-    border: 1px solid #ff83a8;
-    background-color: #ff83a8;
-    color: #fff;
+		&:hover {
+			background-color: darken(#ff83a8, 10%);
+		}
 
-    &:hover {
-      background-color: darken(#ff83a8, 10%);
-    }
+		&.full {
+			width: 100%;
+		}
 
-    &.full {
-      width: 100%;
-    }
+		@media (max-width: 480px) {
+			font-size: 11px;
+			padding: 0.5rem 0.8rem;
+		}
+	}
 
-    @media(max-width: 480px) {
-      font-size: 11px;
-      padding: 0.5rem 0.8rem;
-    }
-  }
+	&.edit {
+		font-size: 13px;
+		padding: 0.5rem 1rem;
+		border-radius: 0.3rem;
+		background-color: #ff83a8;
+		color: #fff;
 
-  &.edit {
-    font-size: 13px;
-    padding: 0.5rem 1rem;
-    border-radius: 0.3rem;
-    background-color: #ff83a8;
-    color: #fff;
+		&:hover {
+			background-color: darken(#ff83a8, 10%);
+		}
 
-    &:hover {
-      background-color: darken(#ff83a8, 10%);
-    }
+		@media (max-width: 480px) {
+			font-size: 11px;
+			padding: 0.3rem 0.8rem;
+		}
+	}
 
-    @media(max-width: 480px) {
-      font-size: 11px;
-      padding: 0.3rem 0.8rem;
-    }
-  }
+	&.delete {
+		padding: 0.5rem;
+		width: 30px;
+		height: 30px;
+		border: 1px solid #ff1f28;
+		color: #ff1f28;
+		border-radius: 50%;
+		@media (max-width: 480px) {
+			width: 30px;
+			height: 30px;
+			border: none;
+		}
+	}
 
-  &.delete {
-    padding: 0.5rem;
-    width: 30px;
-    height: 30px;
-    border: 1px solid #ff1f28;
-    color: #ff1f28;
-    border-radius: 50%;
-    @media(max-width: 480px) {
-      width: 30px;
-      height: 30px;
-      border: none;
-    }
-  }
+	&.print {
+		font-size: 13px;
+		padding: 0.5rem 1rem;
 
-  &.print {
-    font-size: 13px;
-    padding: 0.5rem 1rem;
+		&:hover {
+			font-weight: 600;
+		}
 
-    &:hover {
-      font-weight: 600;
-    }
+		@media (max-width: 480px) {
+			font-size: 11px;
+		}
+	}
 
-    @media(max-width: 480px) {
-      font-size: 11px;
-    }
-  }
-
-  &.floating {
-    position: relative;
-    padding: 1rem;
-    width: 70px;
-    height: 70px;
-    background-color: #ff83a8;
-    border-radius: 50%;
-    color: #fff;
-    @media (max-width: 480px) {
-      width: 50px;
-      height: 50px;
-    }
-  }
+	&.floating {
+		position: relative;
+		padding: 1rem;
+		width: 70px;
+		height: 70px;
+		background-color: #ff83a8;
+		border-radius: 50%;
+		color: #fff;
+		@media (max-width: 480px) {
+			width: 50px;
+			height: 50px;
+		}
+	}
 }
 
 .ping {
-  position: absolute;
-  z-index: 0;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background-color: #ff83a8;
-  animation: ping 0.8s ease-in-out infinite both;
-  @media(max-width: 480px) {
-    width: 50px;
-    height: 50px;
-  }
+	position: absolute;
+	z-index: 0;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	background-color: #ff83a8;
+	animation: ping 0.8s ease-in-out infinite both;
+	@media (max-width: 480px) {
+		width: 50px;
+		height: 50px;
+	}
 }
 
 @keyframes ping {
-  0% {
-    transform: scale(0.2);
-    opacity: 0.8;
-  }
-  80% {
-    transform: scale(1.8);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(2.8);
-    opacity: 0;
-  }
+	0% {
+		transform: scale(0.2);
+		opacity: 0.8;
+	}
+	80% {
+		transform: scale(1.8);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(2.8);
+		opacity: 0;
+	}
 }
 
 .bubble {
-  position: relative;
-  padding: 0.5rem 1rem;
-  border: 0;
-  border-radius: 0.6rem;
-  background: linear-gradient(to right, #ffb8d5, #ff9bb6, #ff84a7);
+	position: relative;
+	padding: 0.5rem 1rem;
+	border: 0;
+	border-radius: 0.6rem;
+	background: linear-gradient(to right, #ffb8d5, #ff9bb6, #ff84a7);
 
-  &:after {
-    left: 100%;
-    top: 50%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-left-color: #ff84a7;
-    border-width: 8px;
-    margin-top: -8px;
-  }
+	&:after {
+		left: 100%;
+		top: 50%;
+		border: solid transparent;
+		content: ' ';
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-left-color: #ff84a7;
+		border-width: 8px;
+		margin-top: -8px;
+	}
 }

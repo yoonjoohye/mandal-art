@@ -5,12 +5,10 @@ name: React CI & CD
 
 on:
   push:
-    branches: [ master ]
-
+    branches: [master]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +18,7 @@ jobs:
         with:
           node-version: 12.16.2
 
-      - name: Cache node modules      # node modules 캐싱
+      - name: Cache node modules # node modules 캐싱
         uses: actions/cache@v1
         with:
           path: node_modules
@@ -39,6 +37,6 @@ jobs:
           host: yoonjoohye.xyz
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "build/*"
-          target: "mandal-art-build"
+          source: 'build/*'
+          target: 'mandal-art-build'
           strip_components: 1

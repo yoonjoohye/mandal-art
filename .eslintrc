@@ -1,0 +1,9 @@
+{
+	"extends": ["react-app", "plugin:prettier/recommended"],
+	"plugins": ["react"],
+	"env": {
+		"browser": true,
+		"node": true,
+		"jest": true
+	}
+}

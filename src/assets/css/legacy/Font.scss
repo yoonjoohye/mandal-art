@@ -1,139 +1,139 @@
 .font {
-  &-xl {
-    font-size: 65px;
-    @media(max-width: 1024px) {
-      font-size: 60px;
-    }
-    @media(max-width: 480px) {
-      font-size: 33px;
-    }
-  }
+	&-xl {
+		font-size: 65px;
+		@media (max-width: 1024px) {
+			font-size: 60px;
+		}
+		@media (max-width: 480px) {
+			font-size: 33px;
+		}
+	}
 
-  &-lg {
-    font-size: 50px;
-    @media(max-width: 1024px) {
-      font-size: 30px;
-    }
-    @media(max-width: 480px) {
-      font-size: 20px;
-    }
-  }
+	&-lg {
+		font-size: 50px;
+		@media (max-width: 1024px) {
+			font-size: 30px;
+		}
+		@media (max-width: 480px) {
+			font-size: 20px;
+		}
+	}
 
-  &-md {
-    font-size: 30px;
-    @media(max-width: 480px) {
-      font-size: 18px;
-    }
-  }
+	&-md {
+		font-size: 30px;
+		@media (max-width: 480px) {
+			font-size: 18px;
+		}
+	}
 
-  &-xmd {
-    font-size: 20px;
-    @media(max-width: 480px) {
-      font-size: 15px;
-    }
-  }
+	&-xmd {
+		font-size: 20px;
+		@media (max-width: 480px) {
+			font-size: 15px;
+		}
+	}
 
-  &-sm {
-    font-size: 12px;
-    @media(max-width: 480px) {
-      font-size: 10px;
-    }
+	&-sm {
+		font-size: 12px;
+		@media (max-width: 480px) {
+			font-size: 10px;
+		}
 
-    &-m {
-      @media(max-width: 480px) {
-        font-size: 10px;
-      }
-    }
-  }
+		&-m {
+			@media (max-width: 480px) {
+				font-size: 10px;
+			}
+		}
+	}
 
-  &-bold {
-    font-weight: 700;
-  }
+	&-bold {
+		font-weight: 700;
+	}
 
-  &-medium {
-    font-weight: 500;
-  }
+	&-medium {
+		font-weight: 500;
+	}
 
-  &-light {
-    font-weight: 300;
-  }
+	&-light {
+		font-weight: 300;
+	}
 
-  &-white {
-    color: white;
-    &-pink{
-      color: white;
-      @media(max-width:480px){
-        color: #4b4b4b;
-      }
-    }
-    &-black{
-      color: white;
-      @media(max-width:480px){
-        color:#8e8e8e;
-      }
-    }
-  }
+	&-white {
+		color: white;
+		&-pink {
+			color: white;
+			@media (max-width: 480px) {
+				color: #4b4b4b;
+			}
+		}
+		&-black {
+			color: white;
+			@media (max-width: 480px) {
+				color: #8e8e8e;
+			}
+		}
+	}
 
-  &-blue {
-    color: #1a62ee;
-  }
+	&-blue {
+		color: #1a62ee;
+	}
 
-  &-pink {
-    color: #ff83a8;
-  }
+	&-pink {
+		color: #ff83a8;
+	}
 
-  &-gray {
-    color: #8e8e8e;
-  }
+	&-gray {
+		color: #8e8e8e;
+	}
 
-  &-shadow {
-    text-shadow: 3px -4px 0px #1a63ee;
-  }
+	&-shadow {
+		text-shadow: 3px -4px 0px #1a63ee;
+	}
 }
 
 .keep-all {
-  word-break: keep-all;
+	word-break: keep-all;
 }
 
 .text-shadow {
-  text-shadow: 10px -5px 3px rgba(0, 0, 0, 0.08);
+	text-shadow: 10px -5px 3px rgba(0, 0, 0, 0.08);
 }
 
 .under-line {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .text-center {
-  text-align: center;
-  &-m{
-    @media(max-width:480px) {
-      text-align: center;
-    }
-  }
+	text-align: center;
+	&-m {
+		@media (max-width: 480px) {
+			text-align: center;
+		}
+	}
 }
 
 .text-right {
-  text-align: right;
+	text-align: right;
 }
 
 .line-height {
-  &-5 {
-    line-height: 5;
-  }
-  &-4 {
-    line-height: 4;
-  }
-  &-2 {
-    line-height: 2;
-  }
-  &-15 {
-    line-height: 1.5;
-  }
-  &-3 {
-    line-height: 3;
-  }
+	&-5 {
+		line-height: 5;
+	}
+	&-4 {
+		line-height: 4;
+	}
+	&-2 {
+		line-height: 2;
+	}
+	&-15 {
+		line-height: 1.5;
+	}
+	&-3 {
+		line-height: 3;
+	}
 
-  &-1 {
-    line-height: 1;
-  }
+	&-1 {
+		line-height: 1;
+	}
 }
