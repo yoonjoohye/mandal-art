@@ -12,11 +12,12 @@ export const hide = () => ({
 });
 
 const initialState = Map({
-	isOpen: '',
-	isConfirm: '',
+	isOpen: false,
+	isConfirm: false,
+	isValid: false,
 	title: '',
 	contents: '',
-	buttonName: '',
+	buttonName: '확인',
 	img: '',
 	path: ''
 });

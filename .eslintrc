@@ -1,9 +1,13 @@
 {
+	"parser": "",
+	"plugins": ["prettier"],
 	"extends": ["react-app", "plugin:prettier/recommended"],
-	"plugins": ["react"],
 	"env": {
 		"browser": true,
 		"node": true,
-		"jest": true
-	}
+		"jest": true,
+		"es6": true
+	},
+	"globals": {},
+	"rules": {}
 }

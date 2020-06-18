@@ -22,6 +22,7 @@ const NothingImg = styled.img`
         width: 100%;
     `}
 `;
+
 const List = ({ list, onDelete }) => {
 	return (
 		<ListWrappper>

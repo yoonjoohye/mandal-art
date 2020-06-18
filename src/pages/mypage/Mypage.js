@@ -16,6 +16,7 @@ const FloatWrapper = styled.div`
 	bottom: 10%;
 	right: 5%;
 `;
+
 const Mypage = ({ user }) => {
 	const [list, setList] = useState([]);
 	const [confirmModal, setConfirmModal] = useState(false);
@@ -93,6 +94,7 @@ const Mypage = ({ user }) => {
 						user={user}
 						title="나만의 <span style=color:#fff707>만다라트</span>로<br/>인생을 즐겁게!"
 					/>
+
 					<List list={list} onDelete={onDelete} />
 
 					<FloatWrapper>

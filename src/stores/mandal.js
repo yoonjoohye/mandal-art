@@ -1,4 +1,4 @@
-//액션 이름
+// 액션 이름
 const SAVE = 'mandal/SAVE';
 const SAVE_FAILURE = 'mandal/SAVE_FAILURE';
 const SAVE_SUCCESS = 'mandal/SAVE_SUCCESS';
@@ -11,7 +11,7 @@ const DEL = 'mandal/DEL';
 const DEL_FAILURE = 'mandal/DEL_FAILURE';
 const DEL_SUCCESS = 'mandal/DEL_SUCCESS';
 
-//액션 타입
+// 액션 타입
 export const save = () => ({
 	type: SAVE
 });
@@ -20,12 +20,13 @@ export const saveFailure = (err) => ({
 	type: SAVE_FAILURE,
 	err
 });
+
 export const saveSuccess = (title, data, date) => ({
 	type: SAVE_SUCCESS,
 	payload: {
-		title: title,
-		data: data,
-		date: date
+		title,
+		data,
+		date
 	}
 });
 
@@ -39,9 +40,9 @@ export const editFailure = (err) => ({
 export const editSuccess = (title, data, date) => ({
 	type: EDIT_SUCCESS,
 	payload: {
-		title: title,
-		data: data,
-		date: date
+		title,
+		data,
+		date
 	}
 });
 
@@ -55,13 +56,13 @@ export const delFailure = (err) => ({
 export const delSuccess = (title, data, date) => ({
 	type: DEL_SUCCESS,
 	payload: {
-		title: title,
-		data: data,
-		date: date
+		title,
+		data,
+		date
 	}
 });
 
-//리덕스 thunk 함수
+// 리덕스 thunk 함수
 export const saveAsync = (title, data, date) => async (dispatch) => {
 	dispatch(save());
 	try {
@@ -86,5 +87,39 @@ const initialState = {
 	}
 };
 
-//리듀서
-const HandleMandal = (state = initialState, action) => {};
+// 리듀서
+const HandleMandal = (state = initialState, action) => {
+	switch (action.type) {
+		case SAVE:
+			return {
+				...state,
+				loading: {
+					...state.loading,
+					save: true
+				}
+			};
+		case SAVE_FAILURE:
+			return {
+				...state,
+				loading: {
+					...state.loading,
+					save: false
+				}
+			};
+		case SAVE_SUCCESS:
+			return {
+				...state,
+				loading: {
+					...state.loading,
+					save: false
+				},
+				mandal: {
+					title: action.payload.title,
+					data: action.payload.data,
+					date: action.payload.date
+				}
+			};
+	}
+};
+
+export default HandleMandal;
