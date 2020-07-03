@@ -1,6 +1,6 @@
-import {createGlobalStyle} from "styled-components";
-import {Color} from "./Theme.style";
-import {media} from "./Media.style";
+import { createGlobalStyle } from 'styled-components';
+import { Color } from './Theme.style';
+import { media } from './Media.style';
 
 export const Global = createGlobalStyle`
     html {

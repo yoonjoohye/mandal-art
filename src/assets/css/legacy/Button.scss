@@ -17,7 +17,6 @@
     &.facebook {
       background-color: #4267b2;
       color: white;
-
     }
   }
 
@@ -33,7 +32,7 @@
       background-color: rgba(255, 131, 168, 0.05);
     }
 
-    @media(max-width: 480px) {
+    @media (max-width: 480px) {
       font-size: 11px;
       padding: 0.5rem 0.8rem;
     }
@@ -51,7 +50,7 @@
       background-color: darken(#ff83a8, 10%);
     }
 
-    @media(max-width: 480px) {
+    @media (max-width: 480px) {
       width: 120px;
       font-size: 15px;
       padding: 0.8rem 1rem;
@@ -74,7 +73,7 @@
       width: 100%;
     }
 
-    @media(max-width: 480px) {
+    @media (max-width: 480px) {
       font-size: 11px;
       padding: 0.5rem 0.8rem;
     }
@@ -91,7 +90,7 @@
       background-color: darken(#ff83a8, 10%);
     }
 
-    @media(max-width: 480px) {
+    @media (max-width: 480px) {
       font-size: 11px;
       padding: 0.3rem 0.8rem;
     }
@@ -104,7 +103,7 @@
     border: 1px solid #ff1f28;
     color: #ff1f28;
     border-radius: 50%;
-    @media(max-width: 480px) {
+    @media (max-width: 480px) {
       width: 30px;
       height: 30px;
       border: none;
@@ -119,7 +118,7 @@
       font-weight: 600;
     }
 
-    @media(max-width: 480px) {
+    @media (max-width: 480px) {
       font-size: 11px;
     }
   }
@@ -147,7 +146,7 @@
   border-radius: 50%;
   background-color: #ff83a8;
   animation: ping 0.8s ease-in-out infinite both;
-  @media(max-width: 480px) {
+  @media (max-width: 480px) {
     width: 50px;
     height: 50px;
   }
@@ -179,7 +178,7 @@
     left: 100%;
     top: 50%;
     border: solid transparent;
-    content: " ";
+    content: ' ';
     height: 0;
     width: 0;
     position: absolute;

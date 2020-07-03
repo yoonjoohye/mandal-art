@@ -12,11 +12,11 @@ html {
 }
 
 @font-face {
-  font-family: "NanumSquare";
+  font-family: 'NanumSquare';
   src: url(../../font/NanumSquareL.eot);
   src: url(../../font/NanumSquareL.eot#iefix) format('embedded-opentype'),
-  url(../../font/NanumSquareL.woff) format('woff'),
-  url(../../font/NanumSquareL.ttf) format('truetype');
+    url(../../font/NanumSquareL.woff) format('woff'),
+    url(../../font/NanumSquareL.ttf) format('truetype');
 }
 
 body {
@@ -27,7 +27,7 @@ body {
   font-weight: 300;
   line-height: 1.5;
   color: #333333;
-  @media(max-width: 480px) {
+  @media (max-width: 480px) {
     font-size: 13px;
   }
 }
@@ -45,7 +45,8 @@ li {
   list-style: none;
 }
 
-ol, ul {
+ol,
+ul {
   margin: 0;
   padding-left: 20px;
 }

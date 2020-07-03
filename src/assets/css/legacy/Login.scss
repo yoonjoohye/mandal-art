@@ -1,29 +1,28 @@
-.login-box{
+.login-box {
   box-shadow: 0 0 10px #00000042;
   width: 350px;
   padding: 7rem;
   background-color: #ffffff2b;
   border-radius: 0.5rem;
-  @media(max-width:480px){
+  @media (max-width: 480px) {
     width: 100%;
     padding: 0 1rem;
-    box-shadow:none;
+    box-shadow: none;
     background-color: transparent;
-
   }
 }
-.login-icon{
-  width:60px;
-  height:60px;
-  @media(max-width:480px){
-    width:30px;
-    height:30px;
+.login-icon {
+  width: 60px;
+  height: 60px;
+  @media (max-width: 480px) {
+    width: 30px;
+    height: 30px;
   }
 }
 
 .fade-in {
-  -webkit-animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  animation: fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -webkit-animation: fade-in 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 @-webkit-keyframes fade-in {
   0% {
@@ -42,21 +41,21 @@
   }
 }
 
-
 .bubble-top {
   position: absolute;
-  left:5%;
-  right:5%;
-  padding:1rem;
+  left: 5%;
+  right: 5%;
+  padding: 1rem;
   background: #4093fb;
-  border:0;
+  border: 0;
   border-radius: 0.3rem;
 
-  &:after, &:before {
+  &:after,
+  &:before {
     bottom: 100%;
     left: 50%;
     border: solid transparent;
-    content: " ";
+    content: ' ';
     height: 0;
     width: 0;
     position: absolute;
@@ -69,6 +68,4 @@
     border-width: 11px;
     margin-left: 30.4%;
   }
-
-
 }

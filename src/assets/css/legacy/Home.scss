@@ -1,10 +1,9 @@
-
 .home {
   &-section {
     background-image: url('../../img/index.jpg');
     background-size: initial;
     background-repeat: no-repeat;
-    @media(max-width: 480px) {
+    @media (max-width: 480px) {
       background: none;
     }
   }
@@ -13,11 +12,11 @@
     width: 250px;
     height: 250px;
 
-    @media(max-width:1024px){
-      width:180px;
-      height:180px;
+    @media (max-width: 1024px) {
+      width: 180px;
+      height: 180px;
     }
-    @media(max-width: 480px) {
+    @media (max-width: 480px) {
       width: 80px;
       height: 80px;
     }
@@ -37,25 +36,25 @@
 
 @-webkit-keyframes blink {
   0% {
-    opacity: 1
+    opacity: 1;
   }
   50% {
-    opacity: .2
+    opacity: 0.2;
   }
   100% {
-    opacity: 1
+    opacity: 1;
   }
 }
 
 @keyframes blink {
   0% {
-    opacity: 1
+    opacity: 1;
   }
   50% {
-    opacity: .2
+    opacity: 0.2;
   }
   100% {
-    opacity: 1
+    opacity: 1;
   }
 }
 
@@ -84,7 +83,7 @@
 
 @keyframes scroll {
   0% {
-    opacity: 1
+    opacity: 1;
   }
   100% {
     opacity: 0;
@@ -93,8 +92,8 @@
 }
 
 .fade-in-left {
-  -webkit-animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -webkit-animation: fade-in-left 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in-left 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
 @-webkit-keyframes fade-in-left {

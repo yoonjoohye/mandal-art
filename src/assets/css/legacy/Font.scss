@@ -1,46 +1,46 @@
 .font {
   &-xl {
     font-size: 65px;
-    @media(max-width: 1024px) {
+    @media (max-width: 1024px) {
       font-size: 60px;
     }
-    @media(max-width: 480px) {
+    @media (max-width: 480px) {
       font-size: 33px;
     }
   }
 
   &-lg {
     font-size: 50px;
-    @media(max-width: 1024px) {
+    @media (max-width: 1024px) {
       font-size: 30px;
     }
-    @media(max-width: 480px) {
+    @media (max-width: 480px) {
       font-size: 20px;
     }
   }
 
   &-md {
     font-size: 30px;
-    @media(max-width: 480px) {
+    @media (max-width: 480px) {
       font-size: 18px;
     }
   }
 
   &-xmd {
     font-size: 20px;
-    @media(max-width: 480px) {
+    @media (max-width: 480px) {
       font-size: 15px;
     }
   }
 
   &-sm {
     font-size: 12px;
-    @media(max-width: 480px) {
+    @media (max-width: 480px) {
       font-size: 10px;
     }
 
     &-m {
-      @media(max-width: 480px) {
+      @media (max-width: 480px) {
         font-size: 10px;
       }
     }
@@ -60,16 +60,16 @@
 
   &-white {
     color: white;
-    &-pink{
+    &-pink {
       color: white;
-      @media(max-width:480px){
+      @media (max-width: 480px) {
         color: #4b4b4b;
       }
     }
-    &-black{
+    &-black {
       color: white;
-      @media(max-width:480px){
-        color:#8e8e8e;
+      @media (max-width: 480px) {
+        color: #8e8e8e;
       }
     }
   }
@@ -105,8 +105,8 @@
 
 .text-center {
   text-align: center;
-  &-m{
-    @media(max-width:480px) {
+  &-m {
+    @media (max-width: 480px) {
       text-align: center;
     }
   }

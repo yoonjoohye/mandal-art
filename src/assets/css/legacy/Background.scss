@@ -1,63 +1,63 @@
-.bg{
-  &-blue{
-    background-color:#4093fb;
-    &.shadow{
-      box-shadow:0 10px 0 #1a63ee;
+.bg {
+  &-blue {
+    background-color: #4093fb;
+    &.shadow {
+      box-shadow: 0 10px 0 #1a63ee;
     }
-    &-m{
-      @media(max-width:480px){
-        background-color:#4093fb;
+    &-m {
+      @media (max-width: 480px) {
+        background-color: #4093fb;
       }
     }
   }
 
-  &-yellow{
-    background-color:#fff707;
+  &-yellow {
+    background-color: #fff707;
   }
-  &-white{
-    background-color:white;
-    &-m{
-      @media(max-width:480px){
-        background-color:white;
+  &-white {
+    background-color: white;
+    &-m {
+      @media (max-width: 480px) {
+        background-color: white;
       }
     }
   }
-  &-main{
+  &-main {
     background-color: rgba(130, 217, 255, 0.4);
   }
-  &-sub{
+  &-sub {
     background-color: rgba(130, 217, 255, 0.1);
   }
   &-pink {
     background-color: #ffa6bc;
-    &.shadow{
-      box-shadow:0 10px 0 #ff7ba0;
+    &.shadow {
+      box-shadow: 0 10px 0 #ff7ba0;
     }
   }
-  &-none{
-    background-color:transparent;
+  &-none {
+    background-color: transparent;
   }
 }
 
-.w-5{
-  width:5rem;
+.w-5 {
+  width: 5rem;
 }
-.h-5{
-  height:5rem;
+.h-5 {
+  height: 5rem;
 }
 
-.box{
-  &-round{
-    border-radius:1rem;
-    @media(max-width:480px){
+.box {
+  &-round {
+    border-radius: 1rem;
+    @media (max-width: 480px) {
       border-radius: 0.8rem;
     }
   }
-  &-title{
-    border-radius:0.5rem;
-    padding:0.5rem 1rem;
+  &-title {
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
   }
-  &-shadow{
-    box-shadow:0 0 15px rgba(0, 0, 0, 0.1);
+  &-shadow {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
   }
 }

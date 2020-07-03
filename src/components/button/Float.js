@@ -1,32 +1,32 @@
-import React from "react";
-import {Link} from "react-router-dom";
-import styled from "styled-components";
-import {Button} from "../../assets/css/Button.style";
-import {Color} from "../../assets/css/Theme.style";
-import {media} from "../../assets/css/Media.style";
-import {ping} from "../../assets/css/Animate.style";
-import {FlexBox} from "../../assets/css/Section.style";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { Button } from '../../assets/css/Button.style';
+import { Color } from '../../assets/css/Theme.style';
+import { media } from '../../assets/css/Media.style';
+import { ping } from '../../assets/css/Animate.style';
+import { FlexBox } from '../../assets/css/Section.style';
 
-const FloatWrapper=styled(Link)`
+const FloatWrapper = styled(Link)`
   ${FlexBox};
-`
-const FloatButton=styled(Button)`
-    position: relative;
-    padding: 1rem;
-    width: 70px;
-    height: 70px;
-    background-color: ${Color.pink200};
-    color: ${Color.white};
-    border-radius: 50%;
-    &:hover {
-      background-color: ${Color.pink400};
-    }
-    ${media.sm`
+`;
+const FloatButton = styled(Button)`
+  position: relative;
+  padding: 1rem;
+  width: 70px;
+  height: 70px;
+  background-color: ${Color.pink200};
+  color: ${Color.white};
+  border-radius: 50%;
+  &:hover {
+    background-color: ${Color.pink400};
+  }
+  ${media.sm`
       width: 50px;
       height: 50px;
     `}
 `;
-const Ping=styled.div`
+const Ping = styled.div`
   position: absolute;
   z-index: 0;
   width: 70px;
@@ -38,14 +38,19 @@ const Ping=styled.div`
       width: 50px;
       height: 50px;
   `}
-`
-const SpeechBubble=styled.div`
+`;
+const SpeechBubble = styled.div`
   position: relative;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  margin-right:10px;
-  color:${Color.white};
-  background: linear-gradient(to right, ${Color.pink100},  ${Color.pink200},  ${Color.pink300});
+  margin-right: 10px;
+  color: ${Color.white};
+  background: linear-gradient(
+    to right,
+    ${Color.pink100},
+    ${Color.pink200},
+    ${Color.pink300}
+  );
 
   &:after {
     left: 100%;
@@ -60,23 +65,27 @@ const SpeechBubble=styled.div`
     border-width: 9px;
     margin-top: -8px;
   }
-`
-const FloatIcon=styled.img`
-  width:100%;
-  height:100%;
 `;
-const Float=()=>{
-    return(
-        <>
-            <SpeechBubble>바로 나만의 만다라트를 만들기</SpeechBubble>
-            <FloatWrapper to="/write">
-                <Ping/>
-                <FloatButton>
-                    <FloatIcon alt="만다라트-추가" src={require('../../assets/img/icon/plus.svg')}/>
-                </FloatButton>
-            </FloatWrapper>
-        </>
-    );
-}
+
+const FloatIcon = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+const Float = () => {
+  return (
+    <>
+      <SpeechBubble>바로 나만의 만다라트를 만들기</SpeechBubble>
+      <FloatWrapper to="/write">
+        <Ping />
+        <FloatButton>
+          <FloatIcon
+            alt="만다라트-추가"
+            src={require('../../assets/img/icon/plus.svg')}
+          />
+        </FloatButton>
+      </FloatWrapper>
+    </>
+  );
+};
 
 export default Float;
