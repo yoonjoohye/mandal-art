@@ -18,7 +18,6 @@ import {
 import { Color } from '../../assets/css/Theme.style';
 import styled from 'styled-components';
 import Guide from '../../components/button/Guide';
-import { save, saveFailure, saveSuccess } from '../../stores/mandal';
 
 const WriteWrapper = styled.div`
   ${FlexBox('flex-end')};
