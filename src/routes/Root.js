@@ -13,23 +13,23 @@ import PrivacyRule from '../pages/auth/PrivacyRule';
 import AuthRoute from './AuthRoute';
 
 const Root = () => {
-	return (
-		<BrowserRouter>
-			<Header />
-			<Switch>
-				<Route exact path="/" component={Index} />
-				<Route exact path="/login" component={Login} />
-				<Route exact path="/guide" component={Guide} />
+  return (
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Index} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/guide" component={Guide} />
 
-				<Route exact path="/service-rule" component={ServiceUseRule} />
-				<Route exact path="/privacy-rule" component={PrivacyRule} />
-				<Route exact path="/write" component={Write} />
-				<AuthRoute exact path="/mypage" component={Mypage} />
-				<AuthRoute exact path="/detail/:id" component={Write} />
-				<Route path="" component={NotFound} />
-			</Switch>
-		</BrowserRouter>
-	);
+        <Route exact path="/service-rule" component={ServiceUseRule} />
+        <Route exact path="/privacy-rule" component={PrivacyRule} />
+        <Route exact path="/write" component={Write} />
+        <AuthRoute exact path="/mypage" component={Mypage} />
+        <AuthRoute exact path="/detail/:id" component={Write} />
+        <Route path="" component={NotFound} />
+      </Switch>
+    </BrowserRouter>
+  );
 };
 
 export default Root;

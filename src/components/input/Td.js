@@ -39,47 +39,47 @@ const MandalInput = styled.textarea`
 `;
 
 const Td = ({
-	data,
-	dataIndex,
-	tableIndex,
-	onChange,
-	onVertical,
-	onPlaceholder,
-	onBgColor
+  data,
+  dataIndex,
+  tableIndex,
+  onChange,
+  onVertical,
+  onPlaceholder,
+  onBgColor
 }) => {
-	const [bgColor, setBgColor] = useState('');
-	const [placeholder, setPlaceholder] = useState('');
-	const [vertical, setVertical] = useState(1);
+  const [bgColor, setBgColor] = useState('');
+  const [placeholder, setPlaceholder] = useState('');
+  const [vertical, setVertical] = useState(1);
 
-	useEffect(() => {
-		setBgColor(onBgColor(tableIndex, dataIndex));
-		setPlaceholder(onPlaceholder(tableIndex, dataIndex));
-		setVertical(onVertical(tableIndex, dataIndex));
-	}, [dataIndex, tableIndex, onBgColor, onPlaceholder, onVertical]);
+  useEffect(() => {
+    setBgColor(onBgColor(tableIndex, dataIndex));
+    setPlaceholder(onPlaceholder(tableIndex, dataIndex));
+    setVertical(onVertical(tableIndex, dataIndex));
+  }, [dataIndex, tableIndex, onBgColor, onPlaceholder, onVertical]);
 
-	return (
-		<MandalInput
-			bgColor={bgColor}
-			lineHeight={vertical}
-			placeholder={placeholder}
-			value={data}
-			onChange={(e) => onChange(e, tableIndex, dataIndex)}
-			maxLength={24}
-		></MandalInput>
+  return (
+    <MandalInput
+      bgColor={bgColor}
+      lineHeight={vertical}
+      placeholder={placeholder}
+      value={data}
+      onChange={(e) => onChange(e, tableIndex, dataIndex)}
+      maxLength={24}
+    ></MandalInput>
 
-		// <textarea
-		//     className="mandal-input"
-		//     style={{
-		//         background:bgColor,
-		//         lineHeight:vertical
-		//     }}
-		//     placeholder={placeholder}
-		//     value={data}
-		//     onChange={(e) => onChange(e, tableIndex, dataIndex)}
-		//     maxLength={24}
-		// >
-		// </textarea>
-	);
+    // <textarea
+    //     className="mandal-input"
+    //     style={{
+    //         background:bgColor,
+    //         lineHeight:vertical
+    //     }}
+    //     placeholder={placeholder}
+    //     value={data}
+    //     onChange={(e) => onChange(e, tableIndex, dataIndex)}
+    //     maxLength={24}
+    // >
+    // </textarea>
+  );
 };
 
 export default Td;

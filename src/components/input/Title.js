@@ -18,35 +18,35 @@ const TitleInput = styled.input`
 `;
 
 const Title = (props) => {
-	const [title, setTitle] = useState('');
+  const [title, setTitle] = useState('');
 
-	useEffect(() => {
-		setTitle(props.title);
-	}, [props.title]);
+  useEffect(() => {
+    setTitle(props.title);
+  }, [props.title]);
 
-	const onChange = useCallback(
-		(e) => {
-			setTitle(e.target.value);
-			props.titleChange(e.target.value);
-		},
-		[props]
-	);
+  const onChange = useCallback(
+    (e) => {
+      setTitle(e.target.value);
+      props.titleChange(e.target.value);
+    },
+    [props]
+  );
 
-	return (
-		<TitleInput
-			type="text"
-			placeholder="제목을 입력하세요"
-			value={title}
-			onChange={(e) => onChange(e)}
-		></TitleInput>
-		// <input
-		//     className="mandal-title"
-		//     type="text"
-		//     placeholder="제목을 입력하세요"
-		//     value={title}
-		//     onChange={(e) => onChange(e)}
-		// />
-	);
+  return (
+    <TitleInput
+      type="text"
+      placeholder="제목을 입력하세요"
+      value={title}
+      onChange={(e) => onChange(e)}
+    ></TitleInput>
+    // <input
+    //     className="mandal-title"
+    //     type="text"
+    //     placeholder="제목을 입력하세요"
+    //     value={title}
+    //     onChange={(e) => onChange(e)}
+    // />
+  );
 };
 
 export default Title;

@@ -15,19 +15,19 @@ import ReduxThunk from 'redux-thunk';
 import rootReducer from './stores';
 // 스토어 생성
 const store = createStore(
-	rootReducer,
-	composeWithDevTools(applyMiddleware(ReduxThunk))
+  rootReducer,
+  composeWithDevTools(applyMiddleware(ReduxThunk))
 );
 
 const App = () => {
-	return (
-		<>
-			<Global />
-			<Provider store={store}>
-				<Root />
-			</Provider>
-		</>
-	);
+  return (
+    <>
+      <Global />
+      <Provider store={store}>
+        <Root />
+      </Provider>
+    </>
+  );
 };
 
 export default App;

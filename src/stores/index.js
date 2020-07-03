@@ -4,7 +4,7 @@ import modal from './modal';
 import auth from './auth';
 
 const rootReducer = combineReducers({
-	modal,
-	auth
+  modal,
+  auth
 });
 export default rootReducer;

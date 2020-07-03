@@ -8,33 +8,58 @@ import { Color } from '../../assets/css/Theme.style';
 import { media } from '../../assets/css/Media.style';
 
 const ItemWrapper = styled.div`
-	padding: 2rem 0;
-	${FlexBox('space-between')};
-	border-bottom: 1px solid ${Color.gray100};
-	${media.sm`
+  padding: 2rem 0;
+  ${FlexBox('space-between')};
+  border-bottom: 1px solid ${Color.gray100};
+  ${media.sm`
     padding:1rem 0;
   `}
 `;
-
 const ListTitle = styled(MarkdownMd)`
-	margin-bottom: 5px;
+  margin-bottom: 5px;
+  &:empty {
+    width: 300px;
+    height: 30px;
+    background-color: #c7c7c757;
+    border-radius: 5px;
+    ${media.md`
+		width:180px;
+		height: 22px;
+		`}
+    ${media.sm`
+		width:100px;
+		height: 20px;
+		`}
+  }
+`;
+
+const ListDate = styled(MarkdownSm)`
+  &:empty {
+    width: 200px;
+    height: 12px;
+    background-color: #c7c7c757;
+    border-radius: 3px;
+    ${media.sm`
+		width:80px;
+		height: 10px;
+		`}
+  }
 `;
 
 const ListItem = ({ data, index, onDelete }) => {
-	const { title, time } = data;
+  const { title, time } = data;
 
-	return (
-		<ItemWrapper>
-			<Link className="cursor-pointer" to={`detail/${index}`}>
-				<ListTitle fontWeight={400}>{title}</ListTitle>
-				<MarkdownSm fontWeight={400} color={Color.gray300}>
-					{time} 작성
-				</MarkdownSm>
-			</Link>
-
-			<Delete pageNo={index} onDelete={onDelete} />
-		</ItemWrapper>
-	);
+  return (
+    <ItemWrapper>
+      <Link to={`detail/${index}`}>
+        <ListTitle fontWeight={400}>{title}</ListTitle>
+        <ListDate fontWeight={400} color={Color.gray300}>
+          {time}
+        </ListDate>
+      </Link>
+      <Delete pageNo={index} onDelete={onDelete} />
+    </ItemWrapper>
+  );
 };
 
 export default ListItem;
