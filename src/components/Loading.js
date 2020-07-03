@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { ModalSection } from '../assets/css/Section.style';
+import React from 'react';
 import { IconMd } from '../assets/css/Image.style';
 import styled from 'styled-components';
 import { Color } from '../assets/css/Theme.style';
