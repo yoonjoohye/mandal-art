@@ -12,7 +12,7 @@ const FloatWrapper = styled(Link)`
 `;
 const FloatButton = styled(Button)`
   position: relative;
-  padding: 1rem 1rem;
+  padding: 1rem 1rem 1rem 1rem;
   width: 70px;
   height: 70px;
   background-color: ${Color.pink200};
