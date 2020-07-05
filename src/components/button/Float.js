@@ -69,7 +69,7 @@ const SpeechBubble = styled.div`
 
 const FloatIcon = styled.img`
   width: 100%;
-  height: 100%;
+  height: auto;
 `;
 const Float = () => {
   return (
