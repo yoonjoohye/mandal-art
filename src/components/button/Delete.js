@@ -6,14 +6,14 @@ import { Color } from '../../assets/css/Theme.style';
 import { media } from '../../assets/css/Media.style';
 
 const DeleteButton = styled(Button)`
-  padding: 0.6rem 0.6rem;
+  padding: 0.6rem 0.6rem 0.6rem 0.6rem;
   width: 40px;
   height: 40px;
   border: 1px solid ${Color.red};
   border-radius: 50%;
 
   ${media.md`
-      padding:0.5rem 0.5rem;
+      padding:0.5rem 0.5rem 0.5rem 0.5rem;
       width: 30px;
       height: 30px;
     `}
