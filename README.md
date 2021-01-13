@@ -1,7 +1,5 @@
 # 만다라트
 
-![React CI & CD](https://github.com/yoonjoohye/mandal-art/workflows/React%20CI%20&%20CD/badge.svg?branch=master&event=push)
-
 ### 만다라트란?
 
 만다라트(Mandal-Art) 기법은 일본의 '이마이즈미 히로아키'가 구상했습니다.
