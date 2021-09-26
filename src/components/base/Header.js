@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { connect } from 'react-redux';
+import profileIcon from '../../assets/img/icon/profile.svg';
 import { Link } from 'react-router-dom';
 import Nav from './Nav.js';
 import { Container, FlexBox } from '../../assets/css/Section.style';
@@ -41,6 +42,8 @@ const HeaderIcon = styled(Icon)`
 const ProfileIcon = styled(Icon)`
   cursor: pointer;
   border-radius: 50%;
+  border: none;
+  background: ${Color.white};
 `;
 
 const Header = ({ user, loading, logoutAsync }) => {
@@ -69,7 +72,7 @@ const Header = ({ user, loading, logoutAsync }) => {
             <>
               <ProfileIcon
                 alt="만다라트-프로필"
-                src={user.photoURL}
+                src={user.photoURL || profileIcon}
                 onClick={onNav}
               />
               {/*<img className="cursor-pointer profile-img" alt="만다라트-프로필" src={user.photoURL}*/}

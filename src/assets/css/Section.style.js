@@ -11,21 +11,9 @@ export const Section = styled.section`
 `;
 
 export const BackgroundSection = styled.section`
-    background: url(${(props) => props.img});
-    background-size: initial;
-    background-repeat: no-repeat;
-    ${media.xxl`
-        background-size:120%;
-    `}
-    ${media.lg`
-        background-size: 130%;
-    `}
-     ${media.md`
-        background-size: 200%;
-    `}
-    ${media.sm`
-        background: ${Color.white};
-    `}
+  background: url(${(props) => props.img});
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 export const ModalSection = styled.section`

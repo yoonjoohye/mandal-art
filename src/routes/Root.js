@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Index from '../pages/index/Index';
@@ -11,8 +11,27 @@ import Mypage from '../pages/mypage/Mypage';
 import ServiceUseRule from '../pages/auth/ServiceUseRule';
 import PrivacyRule from '../pages/auth/PrivacyRule';
 import AuthRoute from './AuthRoute';
+import { useDispatch } from 'react-redux';
+import * as firebase from 'firebase';
+import { loginSuccess, logoutSuccess } from '../stores/auth';
 
 const Root = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      console.log(user);
+
+      if (user) {
+        sessionStorage.setItem('user', JSON.stringify({ uid: user.uid }));
+        dispatch(loginSuccess(user));
+      } else {
+        sessionStorage.removeItem('user');
+        dispatch(logoutSuccess());
+      }
+    });
+  }, [dispatch]);
+
   return (
     <BrowserRouter>
       <Header />

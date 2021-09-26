@@ -75,20 +75,19 @@ const Index = () => {
           </IndexTitle>
           <Write />
         </IndexContainer>
-
-        <IndexContainer alignItems="space-between" mb={100}>
-          <Explain explain={explain} />
-        </IndexContainer>
-
-        <IndexContainer bgColorPC={Color.blue300}>
-          <IndexTitle fontWeight={400} color={Color.white}>
-            이제 시작해볼까요?
-            <br />
-            함께, <Yellow>만다라트</Yellow>를 만들어요
-          </IndexTitle>
-          <Write />
-        </IndexContainer>
       </BackgroundSection>
+      <IndexContainer alignItems="space-between" mb={100}>
+        <Explain explain={explain} />
+      </IndexContainer>
+
+      <IndexContainer bgColorPC={Color.blue300}>
+        <IndexTitle fontWeight={400} color={Color.white}>
+          이제 시작해볼까요?
+          <br />
+          함께, <Yellow>만다라트</Yellow>를 만들어요
+        </IndexTitle>
+        <Write />
+      </IndexContainer>
     </>
   );
 };

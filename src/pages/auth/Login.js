@@ -23,10 +23,10 @@ const LoginContainer = styled(Container)`
 `;
 
 const LoginWrapper = styled.div`
-  box-shadow: 0 1px 10px #00000063;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
   width: 350px;
   padding: 7rem;
-  background-color: #ffffff08;
+  background-color: white;
   border-radius: 0.5rem;
   ${media.sm`
         width: 100%;
@@ -41,18 +41,12 @@ const LoginBox = styled.div`
 `;
 
 const LogoTitle = styled(MarkdownMd)`
-  color: ${Color.white};
-  ${media.sm`
-    color:${Color.black};
-  `}
+  color:${Color.black};
 `;
 const LoginTitle = styled(MarkdownBase)`
   margin-bottom: 70px;
   text-align: center;
-  color: ${Color.white};
-  ${media.sm`
-    color:${Color.black};
-  `}
+  color:${Color.black};
 `;
 const LoginIcon = styled(Icon)`
   margin-right: 10px;

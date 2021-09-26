@@ -63,8 +63,8 @@ const Write = ({ user, match }) => {
           for (let key in obj) {
             dataList.push(obj[key]);
           }
-          setTitle(dataList[match.params.id].title);
-          setData(fromJS(JSON.parse(dataList[match.params.id].data)));
+          setTitle(dataList[match.params.id]?.title);
+          setData(fromJS(JSON.parse(dataList[match.params.id]?.data)));
         });
     }
   }, [user, match.params.id, page]);
