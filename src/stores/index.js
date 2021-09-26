@@ -7,4 +7,5 @@ const rootReducer = combineReducers({
   modal,
   auth
 });
+
 export default rootReducer;

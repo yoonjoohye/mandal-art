@@ -41,22 +41,23 @@ export const logoutFailure = (err) => ({
 //thunk 생성 함수
 export const loginAsync = (type) => async (dispatch) => {
   dispatch(login());
+
   let provider;
   if (type === 'google') {
-    provider = new firebase.auth.GoogleAuthProvider();
+        provider = new firebase.auth.GoogleAuthProvider();
   } else if (type === 'facebook') {
     provider = new firebase.auth.FacebookAuthProvider();
   }
+
   firebase
     .auth()
     .signInWithPopup(provider)
     .then((res) => {
-      localStorage.setItem('user', JSON.stringify(res.user));
+      console.log(res);
+      sessionStorage.setItem('user', JSON.stringify({uid:res.user.uid}));
       dispatch(loginSuccess(res.user));
-    })
-    .then(() => {
-      window.location.href = '/';
-      // this.props.history.push('/');
+    }).then(() => {
+      window.location.replace('/');
     })
     .catch((err) => {
       dispatch(loginFailure(err));
@@ -69,7 +70,7 @@ export const logoutAsync = () => async (dispatch) => {
     .auth()
     .signOut()
     .then(() => {
-      localStorage.removeItem('user');
+      sessionStorage.removeItem('user');
       dispatch(logoutSuccess());
     })
     .catch((err) => {
@@ -83,9 +84,7 @@ const initialState = {
     login: false,
     logout: false
   },
-  user: localStorage.getItem('user')
-    ? JSON.parse(localStorage.getItem('user'))
-    : null
+  user: sessionStorage.getItem('user') ? JSON.parse(sessionStorage.getItem('user')) : null
 };
 
 //리듀서

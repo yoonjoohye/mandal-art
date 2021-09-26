@@ -1,9 +1,7 @@
-import React from 'react';
+import React  from 'react';
 import Root from './routes/Root';
 import { Global } from './assets/css/Global.style';
 
-// firebase
-import './firebaseApp';
 // redux 관련 불러오기
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';

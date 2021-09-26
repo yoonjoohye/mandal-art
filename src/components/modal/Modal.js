@@ -34,14 +34,14 @@ const ModalContent = styled(MarkdownBase)`
   ${media.sm`margin-bottom:20px;`}
 `;
 const ConfirmButton = styled(Button)`
-  padding: 0.5rem 2rem;
+  padding: 1rem 2rem;
   background-color: ${Color.pink200};
   color: ${Color.white};
   &:hover {
     background-color: ${Color.pink400};
   }
   ${media.sm`
-          padding: 0.5rem 1rem;
+          padding: 0.8rem 1rem;
     `}
   &.full {
     width: 100%;
