@@ -13,9 +13,9 @@ import { MarkdownBase, MarkdownMd } from '../../assets/css/Markdown.style';
 import { Color } from '../../assets/css/Theme.style';
 import { media } from '../../assets/css/Media.style';
 import GoogleLogin from '../../components/button/GoogleLogin';
-import FacebookLogin from '../../components/button/FacebookLogin';
 import Alert from '../../components/button/Alert';
 import { Icon } from '../../assets/css/Image.style';
+import logoIcon from '../../assets/img/icon/puzzle.svg';
 
 const LoginContainer = styled(Container)`
   min-height: 100vh;
@@ -69,16 +69,13 @@ const Login = (props) => {
             <LoginBox>
               <LoginIcon
                 alt="만다라트-로고"
-                src={require('../../assets/img/icon/puzzle.svg')}
+                src={logoIcon}
               />
               <LogoTitle fontWeight="600">Mandal-ART</LogoTitle>
             </LoginBox>
-
             <LoginTitle>로그인</LoginTitle>
-
             <GoogleLogin onLogin={(type) => loginAsync(type)} />
-            <FacebookLogin onLogin={(type) => loginAsync(type)} />
-
+            {/*<FacebookLogin onLogin={(type) => loginAsync(type)} />*/}
             <Alert />
           </LoginWrapper>
         </LoginContainer>

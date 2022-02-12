@@ -6,6 +6,7 @@ import { media } from '../../assets/css/Media.style';
 import { MarkdownBase } from '../../assets/css/Markdown.style';
 import { Color } from '../../assets/css/Theme.style';
 import { IconSm } from '../../assets/css/Image.style';
+import facebookIcon from '../../assets/img/icon/facebook.svg';
 
 const LoginButton = styled(Button)`
   width: 100%;
@@ -28,7 +29,7 @@ const FacebookLogin = ({ onLogin }) => {
     <LoginButton onClick={() => onLogin('facebook')}>
       <IconSm
         alt="만다라트-페이스북"
-        src={require('../../assets/img/icon/facebook.svg')}
+        src={facebookIcon}
       />
       <LoginName fontWeight={400} color={Color.white}>
         페이스북으로 로그인

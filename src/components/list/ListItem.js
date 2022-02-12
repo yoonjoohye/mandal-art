@@ -51,7 +51,7 @@ const ListItem = ({ data, index, onDelete }) => {
 
   return (
     <ItemWrapper>
-      <Link to={`detail/${index}`}>
+      <Link to={`/detail/${index}`}>
         <ListTitle fontWeight={400}>{title}</ListTitle>
         <ListDate fontWeight={400} color={Color.gray300}>
           {time}

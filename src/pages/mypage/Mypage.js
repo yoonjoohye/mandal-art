@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
 import { connect } from 'react-redux';
 import List from '../../components/list/List';
 import Float from '../../components/button/Float';

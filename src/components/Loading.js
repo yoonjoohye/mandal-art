@@ -2,6 +2,7 @@ import React from 'react';
 import { IconMd } from '../assets/css/Image.style';
 import styled from 'styled-components';
 import { Color } from '../assets/css/Theme.style';
+import spinnerIcon from '../assets/img/icon/spinner.svg';
 
 const LoadingSection = styled.div`
   position: ${(props) => props.position || 'fixed'};
@@ -28,7 +29,7 @@ const Loading = ({ show, position, bgColor }) => {
         <LoadingSection bgColor={bgColor} position={position}>
           <IconMd
             alt="만다라트-로딩"
-            src={require('../assets/img/icon/spinner.svg')}
+            src={spinnerIcon}
           />
         </LoadingSection>
       ) : null}

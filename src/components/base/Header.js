@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { connect } from 'react-redux';
 import profileIcon from '../../assets/img/icon/profile.svg';
+import logoIcon from '../../assets/img/icon/puzzle.svg';
 import { Link } from 'react-router-dom';
 import Nav from './Nav.js';
 import { Container, FlexBox } from '../../assets/css/Section.style';
@@ -60,7 +61,7 @@ const Header = ({ user, loading, logoutAsync }) => {
           <HeaderWrapper>
             <HeaderIcon
               alt="만다라트-로고"
-              src={require('../../assets/img/icon/puzzle.svg')}
+              src={logoIcon}
             />
             <MarkdownXmd fontWeight={600} color={Color.white}>
               <Blue>M</Blue>andal-<Yellow>A</Yellow>RT

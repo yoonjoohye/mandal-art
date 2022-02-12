@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Button } from '../../assets/css/Button.style';
 import { Color } from '../../assets/css/Theme.style';
 import { media } from '../../assets/css/Media.style';
+import cancelIcon from '../../assets/img/icon/cancel.svg';
 
 const DeleteButton = styled(Button)`
   padding: 0.6rem 0.6rem 0.6rem 0.6rem;
@@ -36,7 +37,7 @@ const Delete = ({ pageNo, onDelete }) => {
     <DeleteButton onClick={() => onDelete(pageNo)}>
       <DeleteIcon
         alt="만다라트-취소"
-        src={require('../../assets/img/icon/cancel.svg')}
+        src={cancelIcon}
       />
     </DeleteButton>
   );

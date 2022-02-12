@@ -5,7 +5,7 @@ import { Button } from '../../assets/css/Button.style';
 import { MarkdownBase } from '../../assets/css/Markdown.style';
 import { Color } from '../../assets/css/Theme.style';
 import { IconSm } from '../../assets/css/Image.style';
-
+import googleIcon from '../../assets/img/icon/google.svg';
 const LoginButton = styled(Button)`
   width: 100%;
   padding: 0.8rem;
@@ -25,7 +25,7 @@ const GoogleLogin = ({ onLogin }) => {
     <LoginButton onClick={() => onLogin('google')}>
       <IconSm
         alt="만다라트-구글"
-        src={require('../../assets/img/icon/google.svg')}
+        src={googleIcon}
       />
       <LoginName fontWeight={400} color={Color.gray400}>
         구글로 로그인

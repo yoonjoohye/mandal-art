@@ -6,6 +6,7 @@ import { Color } from '../../assets/css/Theme.style';
 import { media } from '../../assets/css/Media.style';
 import { ping } from '../../assets/css/Animate.style';
 import { FlexBox } from '../../assets/css/Section.style';
+import plusIcon from '../../assets/img/icon/plus.svg';
 
 const FloatWrapper = styled(Link)`
   ${FlexBox};
@@ -80,7 +81,7 @@ const Float = () => {
         <FloatButton>
           <FloatIcon
             alt="만다라트-추가"
-            src={require('../../assets/img/icon/plus.svg')}
+            src={plusIcon}
           />
         </FloatButton>
       </FloatWrapper>

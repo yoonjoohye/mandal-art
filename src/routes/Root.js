@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
 import Index from '../pages/index/Index';
 import Login from '../pages/auth/Login';
 import Header from '../components/base/Header';
@@ -11,16 +9,18 @@ import Mypage from '../pages/mypage/Mypage';
 import ServiceUseRule from '../pages/auth/ServiceUseRule';
 import PrivacyRule from '../pages/auth/PrivacyRule';
 import AuthRoute from './AuthRoute';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import { useDispatch } from 'react-redux';
-import * as firebase from 'firebase';
 import { loginSuccess, logoutSuccess } from '../stores/auth';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 const Root = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
-      console.log(user);
+      // console.log(user);
 
       if (user) {
         sessionStorage.setItem('user', JSON.stringify({ uid: user.uid }));
@@ -35,18 +35,17 @@ const Root = () => {
   return (
     <BrowserRouter>
       <Header />
-      <Switch>
-        <Route exact path="/" component={Index} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/guide" component={Guide} />
-
-        <Route exact path="/service-rule" component={ServiceUseRule} />
-        <Route exact path="/privacy-rule" component={PrivacyRule} />
-        <Route exact path="/write" component={Write} />
-        <AuthRoute exact path="/mypage" component={Mypage} />
-        <AuthRoute exact path="/detail/:id" component={Write} />
-        <Route path="" component={NotFound} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Index/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/guide" element={<Guide/>} />
+        <Route path="/service-rule" element={<ServiceUseRule/>} />
+        <Route path="/privacy-rule" element={<PrivacyRule/>} />
+        <Route exact path="/write" element={<Write/>} />
+        <Route exact path="/detail/:id" element={<AuthRoute element={<Write/>}/>} />
+        <Route exact path="/mypage" element={<AuthRoute element={<Mypage/>}/>}/>
+        <Route path="*" element={<NotFound/>} />
+      </Routes>
     </BrowserRouter>
   );
 };

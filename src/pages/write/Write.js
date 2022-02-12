@@ -8,7 +8,10 @@ import Save from '../../components/button/Save';
 import Print from '../../components/button/Print';
 import Edit from '../../components/button/Edit';
 import Modal from '../../components/modal/Modal';
-import * as firebase from 'firebase';
+import loginIcon from '../../assets/img/icon/login.svg';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
 import {
   Container,
   FlexBox,
@@ -18,6 +21,7 @@ import {
 import { Color } from '../../assets/css/Theme.style';
 import styled from 'styled-components';
 import Guide from '../../components/button/Guide';
+import {useParams} from 'react-router-dom';
 
 const WriteWrapper = styled.div`
   ${FlexBox('flex-end')};
@@ -27,7 +31,9 @@ const Pc = styled.div`
   margin-right: 5px;
 `;
 
-const Write = ({ user, match }) => {
+const Write = ({ user }) => {
+    const { id } = useParams();
+
   const [title, setTitle] = useState('');
   const [data, setData] = useState(
     List([
@@ -47,11 +53,9 @@ const Write = ({ user, match }) => {
   const [modal, setModal] = useState(false);
 
   const page = window.location.pathname;
-  // const {uid} = user;
-  // const database = firebase.database();
 
   useEffect(() => {
-    if (page !== '/write') {
+      if (page !== '/write') {
       const { uid } = user;
       const database = firebase.database();
       const dataList = [];
@@ -63,11 +67,11 @@ const Write = ({ user, match }) => {
           for (let key in obj) {
             dataList.push(obj[key]);
           }
-          setTitle(dataList[match.params.id]?.title);
-          setData(fromJS(JSON.parse(dataList[match.params.id]?.data)));
+          setTitle(dataList[id]?.title);
+          setData(fromJS(JSON.parse(dataList[id]?.data)));
         });
     }
-  }, [user, match.params.id, page]);
+  }, [user, id, page]);
 
   const titleChange = useCallback((data) => {
     setTitle(data);
@@ -162,7 +166,7 @@ const Write = ({ user, match }) => {
           title="로그인이 필요합니다"
           contents="3초만에 소셜 계정으로 로그인하세요.<br/>로그인 후 만다라트 계획표를 세워보세요!"
           buttonName="로그인 하러가기"
-          img={require('../../assets/img/icon/login.svg')}
+          img={loginIcon}
           path="/login"
         />
       )}
@@ -214,14 +218,13 @@ const Write = ({ user, match }) => {
                 <Edit
                   title={title}
                   data={data}
-                  pageNo={match.params.id}
+                  pageNo={id}
                   onEdit={onEdit}
                 />
               </>
             )}
           </WriteWrapper>
           <Title title={title} titleChange={titleChange} />
-
           <Table data={data} tableChange={tableChange} />
         </Container>
       </Section>
