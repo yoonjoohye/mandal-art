@@ -9,6 +9,7 @@ import { FlexBox } from '../../assets/css/Section.style';
 import { Color } from '../../assets/css/Theme.style';
 import { Button } from '../../assets/css/Button.style';
 import { Icon } from '../../assets/css/Image.style';
+import {GoogleLogout} from "react-google-login";
 
 export const NavSection = styled.nav`
   position: absolute;
@@ -72,7 +73,6 @@ const Nav = ({ user, loading, onLogout }) => {
         'https://github.com/yoonjoohye/mandal-art/issues/new';
     }
   };
-
   return (
     <>
       <Loading show={loading} />
@@ -98,7 +98,11 @@ const Nav = ({ user, loading, onLogout }) => {
           </NavBox>
         </NavContainer>
         <NavContainer border={1}>
-          <Logout onClick={onLogout}>로그아웃</Logout>
+          <GoogleLogout
+              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+              buttonText="로그아웃"
+              onLogoutSuccess={onLogout}
+          />
         </NavContainer>
       </NavSection>
     </>

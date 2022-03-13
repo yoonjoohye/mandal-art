@@ -11,7 +11,7 @@ import {
   Blue,
   MarkdownBase,
   MarkdownXmd,
-  Yellow
+  Yellow,
 } from '../../assets/css/Markdown.style';
 import { Color } from '../../assets/css/Theme.style';
 import { Icon } from '../../assets/css/Image.style';
@@ -50,19 +50,12 @@ const ProfileIcon = styled(Icon)`
 const Header = ({ user, loading, logoutAsync }) => {
   const [isNav, setIsNav] = useState(false);
 
-  const onNav = useCallback(() => {
-    setIsNav(!isNav);
-  }, [isNav]);
-
   return (
     <HeaderSection bgColor={Color.blue300}>
       <HeaderContainer>
         <Link to="/">
           <HeaderWrapper>
-            <HeaderIcon
-              alt="만다라트-로고"
-              src={logoIcon}
-            />
+            <HeaderIcon alt="만다라트-로고" src={logoIcon} />
             <MarkdownXmd fontWeight={600} color={Color.white}>
               <Blue>M</Blue>andal-<Yellow>A</Yellow>RT
             </MarkdownXmd>
@@ -74,10 +67,8 @@ const Header = ({ user, loading, logoutAsync }) => {
               <ProfileIcon
                 alt="만다라트-프로필"
                 src={user.photoURL || profileIcon}
-                onClick={onNav}
+                onClick={() => setIsNav(!isNav)}
               />
-              {/*<img className="cursor-pointer profile-img" alt="만다라트-프로필" src={user.photoURL}*/}
-              {/*     onClick={onNav}/>*/}
               {isNav && (
                 <Nav
                   user={user}
@@ -100,7 +91,7 @@ const Header = ({ user, loading, logoutAsync }) => {
 export default connect(
   (state) => ({
     user: state.auth.user,
-    loading: state.auth.loading.logout
+    loading: state.auth.loading.logout,
   }),
   { logoutAsync }
 )(Header);
