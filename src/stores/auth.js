@@ -1,5 +1,4 @@
-import firebase from 'firebase/app'
-import 'firebase/auth';
+import { getAPI } from '../utils/api';
 
 //액션 이름
 const LOGIN = 'auth/LOGIN';
@@ -12,80 +11,91 @@ const LOGOUT_SUCCESS = 'auth/LOGOUT_SUCCESS';
 
 //액션 생성 함수
 export const login = () => ({
-  type: LOGIN
+  type: LOGIN,
 });
 export const loginSuccess = (data) => ({
   type: LOGIN_SUCCESS,
   payload: {
-    user: data
-  }
+    user: data,
+  },
 });
 export const loginFailure = (err) => ({
   type: LOGIN_FAILURE,
-  err
+  err,
 });
 export const logout = () => ({
-  type: LOGOUT
+  type: LOGOUT,
 });
 
 export const logoutSuccess = () => ({
   type: LOGOUT_SUCCESS,
   payload: {
-    user: null
-  }
+    user: null,
+  },
 });
 export const logoutFailure = (err) => ({
   type: LOGOUT_FAILURE,
-  err
+  err,
 });
 
 //thunk 생성 함수
-export const loginAsync = (type) => async (dispatch) => {
+export const loginAsync = (token) => async (dispatch) => {
   dispatch(login());
 
-  let provider;
-  if (type === 'google') {
-        provider = new firebase.auth.GoogleAuthProvider();
-  } else if (type === 'facebook') {
-    provider = new firebase.auth.FacebookAuthProvider();
-  }
-
-  firebase
-    .auth()
-    .signInWithPopup(provider)
-    .then((res) => {
-      console.log(res);
-      sessionStorage.setItem('user', JSON.stringify({uid:res.user.uid}));
-      dispatch(loginSuccess(res.user));
-    }).then(() => {
-      window.location.replace('/');
-    })
-    .catch((err) => {
-      dispatch(loginFailure(err));
-      throw err;
+  try {
+    console.log('aaa', token);
+    let googleResponse = await getAPI(`/auth/google`, {
+      params: {
+        googleAccessToken: token,
+      },
     });
+
+    if (googleResponse) {
+      console.log(googleResponse);
+      sessionStorage.setItem('token', googleResponse.data.accessToken);
+      let userResponse = await getAPI(`/user`, {
+        headers: {
+          AUTHORIZATION: `Bearer ${googleResponse.data.accessToken}`,
+        },
+      });
+
+      if (userResponse) {
+        console.log(userResponse);
+        sessionStorage.setItem(
+          'user',
+          JSON.stringify({ uid: userResponse.data.uid })
+        );
+        dispatch(
+          loginSuccess({
+            name: userResponse.data.name,
+            email: userResponse.data.email,
+            uid: userResponse.data.uid,
+            photoURL: userResponse.data.profileImg,
+          })
+        );
+        window.location.href = '/';
+      }
+    }
+  } catch (err) {
+    dispatch(loginFailure(err));
+  }
 };
 export const logoutAsync = () => async (dispatch) => {
   dispatch(logout());
-  firebase
-    .auth()
-    .signOut()
-    .then(() => {
-      sessionStorage.removeItem('user');
-      dispatch(logoutSuccess());
-    })
-    .catch((err) => {
-      dispatch(logoutFailure(err));
-      throw err;
-    });
+  sessionStorage.removeItem('token');
+  sessionStorage.removeItem('user');
+  dispatch(logoutSuccess());
+  window.location.href = '/login';
 };
 
 const initialState = {
   loading: {
     login: false,
-    logout: false
+    logout: false,
   },
-  user: sessionStorage.getItem('user') ? JSON.parse(sessionStorage.getItem('user')) : null
+  user: sessionStorage.getItem('user')
+    ? JSON.parse(sessionStorage.getItem('user'))
+    : null,
 };
 
 //리듀서
@@ -96,50 +106,50 @@ const HandleAuth = (state = initialState, action) => {
         ...state,
         loading: {
           ...state.loading,
-          login: true
-        }
+          login: true,
+        },
       };
     case LOGIN_SUCCESS:
       return {
         ...state,
         loading: {
           ...state.loading,
-          login: false
+          login: false,
         },
-        user: action.payload.user
+        user: action.payload.user,
       };
     case LOGIN_FAILURE:
       return {
         ...state,
         loading: {
           ...state.loading,
-          login: false
-        }
+          login: false,
+        },
       };
     case LOGOUT:
       return {
         ...state,
         loading: {
           ...state.loading,
-          logout: true
-        }
+          logout: true,
+        },
       };
     case LOGOUT_SUCCESS:
       return {
         ...state,
         loading: {
           ...state.loading,
-          logout: false
+          logout: false,
         },
-        user: action.payload.user
+        user: action.payload.user,
       };
     case LOGOUT_FAILURE:
       return {
         ...state,
         loading: {
           ...state.loading,
-          logout: false
-        }
+          logout: false,
+        },
       };
     default:
       return state;

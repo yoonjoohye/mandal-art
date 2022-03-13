@@ -12,10 +12,10 @@ import styled from 'styled-components';
 import { MarkdownBase, MarkdownMd } from '../../assets/css/Markdown.style';
 import { Color } from '../../assets/css/Theme.style';
 import { media } from '../../assets/css/Media.style';
-import GoogleLogin from '../../components/button/GoogleLogin';
 import Alert from '../../components/button/Alert';
 import { Icon } from '../../assets/css/Image.style';
 import logoIcon from '../../assets/img/icon/puzzle.svg';
+import { GoogleLogin } from 'react-google-login';
 
 const LoginContainer = styled(Container)`
   min-height: 100vh;
@@ -52,8 +52,17 @@ const LoginIcon = styled(Icon)`
   margin-right: 10px;
 `;
 
+const StyledGoogleLogin=styled(GoogleLogin)`
+  width:100%;
+  justify-content: center;
+`
+
 const Login = (props) => {
   let { loginAsync, loading } = props;
+
+  const responseGoogle = (response) => {
+    loginAsync(response.accessToken);
+  }
 
   return (
     <>
@@ -74,8 +83,11 @@ const Login = (props) => {
               <LogoTitle fontWeight="600">Mandal-ART</LogoTitle>
             </LoginBox>
             <LoginTitle>로그인</LoginTitle>
-            <GoogleLogin onLogin={(type) => loginAsync(type)} />
-            {/*<FacebookLogin onLogin={(type) => loginAsync(type)} />*/}
+            <StyledGoogleLogin
+                clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                buttonText="구글로 로그인"
+                onSuccess={responseGoogle}
+            />
             <Alert />
           </LoginWrapper>
         </LoginContainer>
