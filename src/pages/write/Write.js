@@ -49,12 +49,9 @@ const Write = ({ user }) => {
   const [confirmModal, setConfirmModal] = useState(false);
   const [modal, setModal] = useState(false);
 
-  console.log(id);
-
   const getArticle = async () => {
     if (window.location.pathname !== '/write') {
       const res = await getAPI(`/article/${id}`);
-      console.log(res);
       if (res) {
         setTitle(res.data.title);
         setData(fromJS(res.data.content));

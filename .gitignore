@@ -18,6 +18,7 @@ build/
 save_file.json
 
 # misc
+.env
 .DS_Store
 .env.local
 .env.development.local
