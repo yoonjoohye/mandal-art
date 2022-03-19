@@ -15,12 +15,8 @@ const EditButton = styled(Button)`
           padding: 0.5rem 1rem;
     `}
 `;
-const Edit = ({ title, data, pageNo, onEdit }) => {
-  return (
-    <EditButton onClick={() => onEdit(title, data, pageNo)}>
-      수정완료
-    </EditButton>
-  );
+const Edit = ({ title, data, onEdit }) => {
+  return <EditButton onClick={() => onEdit(title, data)}>수정완료</EditButton>;
 };
 
 export default Edit;

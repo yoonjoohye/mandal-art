@@ -55,25 +55,6 @@ const List = ({ loading, list, onDelete }) => {
           show={!loading}
         />
       )}
-      {/*{list.length > 0 ? (*/}
-      {/*	list.map((data, index) => {*/}
-      {/*		return (*/}
-      {/*			<ListItem*/}
-      {/*				key={index}*/}
-      {/*				data={data}*/}
-      {/*				index={index}*/}
-      {/*				onDelete={onDelete}*/}
-      {/*			></ListItem>*/}
-      {/*		);*/}
-      {/*	})*/}
-      {/*) : (*/}
-      {/*	<ListBox>*/}
-      {/*		<NothingImg*/}
-      {/*			alt="만다라트-존재하지않는이미지"*/}
-      {/*			src={require('../../assets/img/nothing.jpg')}*/}
-      {/*		/>*/}
-      {/*	</ListBox>*/}
-      {/*)}*/}
     </ListWrappper>
   );
 };

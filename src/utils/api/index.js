@@ -2,18 +2,16 @@ import axios from 'axios';
 
 export const instance = axios.create({
   baseURL: process.env.REACT_APP_MANDALART_API,
+  headers: {
+    AUTHORIZATION: `Bearer ${sessionStorage.getItem('token')}`,
+  },
 });
 
 export const getAPI = async (url, params) => {
   try {
     let response = instance.get(url, params);
-
-    if (response.status === 401) {
-      let authResponse = instance.get('/auth/refresh', {
-        headers: {
-          AUTHORIZATION: `Bearer ${sessionStorage.getItem('token')}`,
-        },
-      });
+    if (response.status === 403) {
+      let authResponse = instance.get('/auth/refresh');
       if (authResponse) {
         sessionStorage.setItem('token', authResponse.data.accessToken);
         response = await getAPI(url, params);
@@ -27,18 +25,9 @@ export const getAPI = async (url, params) => {
 
 export const postAPI = async (url, data) => {
   try {
-    let response = instance.post(url, {
-      data: { ...data },
-      headers: {
-        token: `Bearer ${sessionStorage.getItem('token')}`,
-      },
-    });
-    if (response.status === 401) {
-      let authResponse = instance.get('/auth/refresh', {
-        headers: {
-          AUTHORIZATION: `Bearer ${sessionStorage.getItem('token')}`,
-        },
-      });
+    let response = instance.post(url, data);
+    if (response.status === 403) {
+      let authResponse = instance.get('/auth/refresh');
       if (authResponse) {
         sessionStorage.setItem('token', authResponse.data.accessToken);
         response = await postAPI(url, data);
@@ -52,18 +41,9 @@ export const postAPI = async (url, data) => {
 
 export const patchAPI = async (url, data) => {
   try {
-    let response = instance.patch(url, {
-      data: { ...data },
-      headers: {
-        token: `Bearer ${sessionStorage.getItem('token')}`,
-      },
-    });
-    if (response.status === 401) {
-      let authResponse = instance.get('/auth/refresh', {
-        headers: {
-          AUTHORIZATION: `Bearer ${sessionStorage.getItem('token')}`,
-        },
-      });
+    let response = instance.patch(url, data);
+    if (response.status === 403) {
+      let authResponse = instance.get('/auth/refresh');
       if (authResponse) {
         sessionStorage.setItem('token', authResponse.data.accessToken);
         response = await patchAPI(url, data);
@@ -77,18 +57,9 @@ export const patchAPI = async (url, data) => {
 
 export const deleteAPI = async (url, data) => {
   try {
-    let response = instance.delete(url, {
-      data: { ...data },
-      headers: {
-        token: `Bearer ${sessionStorage.getItem('token')}`,
-      },
-    });
-    if (response.status === 401) {
-      let authResponse = instance.get('/auth/refresh', {
-        headers: {
-          AUTHORIZATION: `Bearer ${sessionStorage.getItem('token')}`,
-        },
-      });
+    let response = instance.delete(url, data);
+    if (response.status === 403) {
+      let authResponse = instance.get('/auth/refresh');
       if (authResponse) {
         sessionStorage.setItem('token', authResponse.data.accessToken);
         response = await deleteAPI(url, data);

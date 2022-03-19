@@ -43,7 +43,6 @@ export const loginAsync = (token) => async (dispatch) => {
   dispatch(login());
 
   try {
-    console.log('aaa', token);
     let googleResponse = await getAPI(`/auth/google`, {
       params: {
         googleAccessToken: token,
@@ -51,30 +50,8 @@ export const loginAsync = (token) => async (dispatch) => {
     });
 
     if (googleResponse) {
-      console.log(googleResponse);
       sessionStorage.setItem('token', googleResponse.data.accessToken);
-      let userResponse = await getAPI(`/user`, {
-        headers: {
-          AUTHORIZATION: `Bearer ${googleResponse.data.accessToken}`,
-        },
-      });
-
-      if (userResponse) {
-        console.log(userResponse);
-        sessionStorage.setItem(
-          'user',
-          JSON.stringify({ uid: userResponse.data.uid })
-        );
-        dispatch(
-          loginSuccess({
-            name: userResponse.data.name,
-            email: userResponse.data.email,
-            uid: userResponse.data.uid,
-            photoURL: userResponse.data.profileImg,
-          })
-        );
-        window.location.href = '/';
-      }
+      window.location.href = '/';
     }
   } catch (err) {
     dispatch(loginFailure(err));

@@ -19,13 +19,8 @@ const Root = () => {
 
   const getUser = async () => {
     if (sessionStorage.getItem('token')) {
-      let userResponse = await getAPI(`/user`, {
-        headers: {
-          AUTHORIZATION: `Bearer ${sessionStorage.getItem('token')}`,
-        },
-      });
+      let userResponse = await getAPI(`/user`);
       if (userResponse) {
-        console.log(userResponse);
         sessionStorage.setItem(
           'user',
           JSON.stringify({ uid: userResponse.data.uid })

@@ -34,7 +34,7 @@ const ModalContent = styled(MarkdownBase)`
   ${media.sm`margin-bottom:20px;`}
 `;
 const ConfirmButton = styled(Button)`
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   background-color: ${Color.pink200};
   color: ${Color.white};
   &:hover {
