@@ -6,6 +6,7 @@
   "dependencies": {
     "aos": "^2.3.4",
     "axios": "^0.26.1",
+    "dayjs": "^1.11.0",
     "firebase": "^8.10.0",
     "immutable": "^4.0.0",
     "node-sass": "^7.0.1",

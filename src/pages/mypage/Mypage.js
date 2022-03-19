@@ -1,7 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
 import { connect } from 'react-redux';
 import List from '../../components/list/List';
 import Float from '../../components/button/Float';
@@ -11,6 +8,7 @@ import { Container, FlexBox, Section } from '../../assets/css/Section.style';
 import Banner from '../../components/mypage/Banner';
 import { Color } from '../../assets/css/Theme.style';
 import styled from 'styled-components';
+import { getAPI, deleteAPI } from '../../utils/api';
 
 const FloatWrapper = styled.div`
   ${FlexBox('center')};
@@ -21,59 +19,33 @@ const FloatWrapper = styled.div`
 
 const Mypage = ({ user }) => {
   const [list, setList] = useState([]);
+  const [articleId, setArticleId] = useState(null);
   const [confirmModal, setConfirmModal] = useState(false);
-  const [pageNo, setPageNo] = useState(null);
-  const { uid } = user;
-  const database = firebase.database();
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const dataList = [];
-    database
-      .ref(`/mandal/${uid}`)
-      .once('value')
-      .then((snapshot) => {
-        const obj = snapshot.val();
-        for (let key in obj) {
-          dataList.push(obj[key]);
-        }
-        setList(dataList);
-        setLoading(true);
-      });
-  }, [uid, database]);
+  const getArticles = async () => {
+    const res = await getAPI('/article');
+    if (res) {
+      setList(res.data);
+      setLoading(true);
+    }
+  };
 
-  const onDelete = useCallback((pageNo) => {
-    setConfirmModal(true);
-    setPageNo(pageNo);
+  useEffect(() => {
+    getArticles();
   }, []);
 
-  const onConfirmOpen = useCallback(
-    (bool) => {
-      setConfirmModal(false);
-      if (bool) {
-        database
-          .ref(`mandal/${uid}`)
-          .once('value', (snapshot) => {
-            let obj = snapshot.val();
-            let keyList = [];
+  const onDelete = useCallback((id) => {
+    setConfirmModal(true);
+    setArticleId(id);
+  }, []);
 
-            //키값 찾기
-            for (let key in obj) {
-              if (obj.hasOwnProperty(key)) {
-                keyList.push(key);
-              }
-            }
-
-            //삭제
-            database.ref(`mandal/${uid}/${keyList[pageNo]}`).remove();
-          })
-          .then(() => {
-            window.location.reload();
-          });
-      }
-    },
-    [uid, database, pageNo]
-  );
+  const onConfirmOpen = async (articleId) => {
+    let res = await deleteAPI(`/article/${articleId}`);
+    if (res) {
+      window.location.reload();
+    }
+  };
 
   return (
     <>
@@ -84,7 +56,7 @@ const Mypage = ({ user }) => {
           title="정말 삭제하시겠습니까?"
           contents="삭제하면 되돌릴 수 없습니다.<br/>그래도 삭제하시겠습니까?"
           bgColor={Color.whiteOpacity}
-          onConfirmOpen={onConfirmOpen}
+          onConfirmOpen={() => onConfirmOpen(articleId)}
         />
       )}
       <ReactHelmet
@@ -98,9 +70,7 @@ const Mypage = ({ user }) => {
             user={user}
             title="나만의 <span style=color:#fff707>만다라트</span>로<br/>인생을 즐겁게!"
           />
-
           <List loading={loading} list={list} onDelete={onDelete} />
-
           <FloatWrapper>
             <Float />
           </FloatWrapper>
@@ -111,5 +81,5 @@ const Mypage = ({ user }) => {
 };
 
 export default connect((state) => ({
-  user: state.auth.user
+  user: state.auth.user,
 }))(Mypage);

@@ -9,19 +9,17 @@ import Print from '../../components/button/Print';
 import Edit from '../../components/button/Edit';
 import Modal from '../../components/modal/Modal';
 import loginIcon from '../../assets/img/icon/login.svg';
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
 import {
   Container,
   FlexBox,
   OnlyPc,
-  Section
+  Section,
 } from '../../assets/css/Section.style';
 import { Color } from '../../assets/css/Theme.style';
 import styled from 'styled-components';
 import Guide from '../../components/button/Guide';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { getAPI, patchAPI, postAPI } from '../../utils/api';
 
 const WriteWrapper = styled.div`
   ${FlexBox('flex-end')};
@@ -32,8 +30,7 @@ const Pc = styled.div`
 `;
 
 const Write = ({ user }) => {
-    const { id } = useParams();
-
+  const { id } = useParams();
   const [title, setTitle] = useState('');
   const [data, setData] = useState(
     List([
@@ -45,33 +42,29 @@ const Write = ({ user }) => {
       List(['', '', '', '', '', '', '', '', '']),
       List(['', '', '', '', '', '', '', '', '']),
       List(['', '', '', '', '', '', '', '', '']),
-      List(['', '', '', '', '', '', '', '', ''])
+      List(['', '', '', '', '', '', '', '', '']),
     ])
   );
   const [validModal, setValidModal] = useState(false);
   const [confirmModal, setConfirmModal] = useState(false);
   const [modal, setModal] = useState(false);
 
-  const page = window.location.pathname;
+  console.log(id);
+
+  const getArticle = async () => {
+    if (window.location.pathname !== '/write') {
+      const res = await getAPI(`/article/${id}`);
+      console.log(res);
+      if (res) {
+        setTitle(res.data.title);
+        setData(fromJS(res.data.content));
+      }
+    }
+  };
 
   useEffect(() => {
-      if (page !== '/write') {
-      const { uid } = user;
-      const database = firebase.database();
-      const dataList = [];
-      database
-        .ref(`/mandal/${uid}`)
-        .once('value')
-        .then((snapshot) => {
-          const obj = snapshot.val();
-          for (let key in obj) {
-            dataList.push(obj[key]);
-          }
-          setTitle(dataList[id]?.title);
-          setData(fromJS(JSON.parse(dataList[id]?.data)));
-        });
-    }
-  }, [user, id, page]);
+    getArticle();
+  }, []);
 
   const titleChange = useCallback((data) => {
     setTitle(data);
@@ -92,63 +85,35 @@ const Write = ({ user }) => {
     }
   }, []);
 
-  const onSave = (title, data) => {
-    if (title.length > 0) {
-      const { uid } = user;
-      const database = firebase.database();
-      let time = new Date();
-      let date = `${time.getFullYear()}년 ${
-        time.getMonth() + 1
-      }월 ${time.getDate()}일 ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+  const onPrint = () => {
+    window.print();
+  };
 
-      database
-        .ref(`mandal/${uid}/`)
-        .push({
-          title: title,
-          data: JSON.stringify(data),
-          time: date
-        })
-        .then(() => {
-          setModal(true);
-        });
+  const onSave = async (title, data) => {
+    if (title.length > 0) {
+      const res = await postAPI('/article', {
+        title: title,
+        content: data,
+      });
+
+      if (res) {
+        setModal(true);
+      }
     } else {
       setValidModal(true);
     }
   };
 
-  const onPrint = () => {
-    window.print();
-  };
-  const onEdit = (title, data, pageNo) => {
+  const onEdit = async (title, data) => {
     if (title.length > 0) {
-      const { uid } = user;
-      const database = firebase.database();
-      let time = new Date();
-      let date = `${time.getFullYear()}년 ${
-        time.getMonth() + 1
-      }월 ${time.getDate()}일 ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+      const res = await patchAPI(`/article/${id}`, {
+        title: title,
+        content: data,
+      });
 
-      database
-        .ref(`mandal/${uid}`)
-        .once('value', (snapshot) => {
-          let obj = snapshot.val();
-          let keyList = [];
-
-          //키값 찾기
-          for (let key in obj) {
-            if (obj.hasOwnProperty(key)) {
-              keyList.push(key);
-            }
-          }
-          database.ref(`mandal/${uid}/${keyList[pageNo]}`).update({
-            title: title,
-            data: JSON.stringify(data),
-            time: date
-          });
-        })
-        .then(() => {
-          setConfirmModal(true);
-        });
+      if (res) {
+        setConfirmModal(true);
+      }
     } else {
       setValidModal(true);
     }
@@ -204,7 +169,7 @@ const Write = ({ user }) => {
       <Section>
         <Container>
           <WriteWrapper>
-            {page === '/write' ? (
+            {window.location.pathname === '/write' ? (
               <>
                 <Guide />
                 <Save title={title} data={data} onSave={onSave} />
@@ -215,12 +180,7 @@ const Write = ({ user }) => {
                   <Print onPrint={onPrint} />
                 </Pc>
 
-                <Edit
-                  title={title}
-                  data={data}
-                  pageNo={id}
-                  onEdit={onEdit}
-                />
+                <Edit title={title} data={data} onEdit={onEdit} />
               </>
             )}
           </WriteWrapper>
@@ -233,5 +193,5 @@ const Write = ({ user }) => {
 };
 
 export default connect((state) => ({
-  user: state.auth.user
+  user: state.auth.user,
 }))(Write);

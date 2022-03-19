@@ -6,6 +6,7 @@ import { MarkdownMd, MarkdownSm } from '../../assets/css/Markdown.style';
 import { FlexBox } from '../../assets/css/Section.style';
 import { Color } from '../../assets/css/Theme.style';
 import { media } from '../../assets/css/Media.style';
+import dayjs from 'dayjs';
 
 const ItemWrapper = styled.div`
   padding: 2rem 0;
@@ -47,17 +48,17 @@ const ListDate = styled(MarkdownSm)`
 `;
 
 const ListItem = ({ data, index, onDelete }) => {
-  const { title, time } = data;
+  const { articleId, title, updatedAt } = data;
 
   return (
     <ItemWrapper>
-      <Link to={`/detail/${index}`}>
+      <Link to={`/detail/${articleId}`}>
         <ListTitle fontWeight={400}>{title}</ListTitle>
         <ListDate fontWeight={400} color={Color.gray300}>
-          {time}
+          {dayjs(updatedAt).format('YYYY년 MM월 DD일 HH:MM')}
         </ListDate>
       </Link>
-      <Delete pageNo={index} onDelete={onDelete} />
+      <Delete pageNo={index} onDelete={() => onDelete(articleId)} />
     </ItemWrapper>
   );
 };
