@@ -60,7 +60,6 @@ export const loginAsync = (token) => async (dispatch) => {
 export const logoutAsync = () => async (dispatch) => {
   dispatch(logout());
   sessionStorage.removeItem('token');
-  sessionStorage.removeItem('user');
   dispatch(logoutSuccess());
   window.location.href = '/login';
 };
@@ -70,8 +69,8 @@ const initialState = {
     login: false,
     logout: false,
   },
-  user: sessionStorage.getItem('user')
-    ? JSON.parse(sessionStorage.getItem('user'))
+  user: sessionStorage.getItem('token')
+    ? sessionStorage.getItem('token')
     : null,
 };
 
@@ -118,7 +117,7 @@ const HandleAuth = (state = initialState, action) => {
           ...state.loading,
           logout: false,
         },
-        user: action.payload.user,
+        user: null,
       };
     case LOGOUT_FAILURE:
       return {

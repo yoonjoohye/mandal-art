@@ -21,10 +21,6 @@ const Root = () => {
     if (sessionStorage.getItem('token')) {
       let userResponse = await getAPI(`/user`);
       if (userResponse) {
-        sessionStorage.setItem(
-          'user',
-          JSON.stringify({ uid: userResponse.data.uid })
-        );
         dispatch(
           loginSuccess({
             name: userResponse.data.name,
@@ -35,7 +31,6 @@ const Root = () => {
         );
       }
     } else {
-      sessionStorage.removeItem('user');
       dispatch(logoutSuccess());
     }
   };
