@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import profileIcon from '../../assets/img/icon/profile.svg';
 import logoIcon from '../../assets/img/icon/puzzle.svg';

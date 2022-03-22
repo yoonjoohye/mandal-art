@@ -9,7 +9,8 @@ import { FlexBox } from '../../assets/css/Section.style';
 import { Color } from '../../assets/css/Theme.style';
 import { Button } from '../../assets/css/Button.style';
 import { Icon } from '../../assets/css/Image.style';
-import {GoogleLogout} from "react-google-login";
+import { GoogleLogout } from 'react-google-login';
+import profileIcon from '../../assets/img/icon/profile.svg';
 
 export const NavSection = styled.nav`
   position: absolute;
@@ -59,6 +60,7 @@ const Logout = styled(Button)`
 const ProfileLogo = styled(Icon)`
   border-radius: 50%;
   margin-bottom: 10px;
+  border: 1px solid ${Color.gray100};
   ${media.sm`
     margin-bottom:5px;
   `}
@@ -78,7 +80,10 @@ const Nav = ({ user, loading, onLogout }) => {
       <Loading show={loading} />
       <NavSection>
         <NavContainer border={0}>
-          <ProfileLogo alt="만다라트-유저이미지" src={user.photoURL} />
+          <ProfileLogo
+            alt="만다라트-유저이미지"
+            src={user.photoURL || profileIcon}
+          />
           <Name>{user.displayName}</Name>
           <MarkdownSm>{user.email}</MarkdownSm>
         </NavContainer>
@@ -99,9 +104,9 @@ const Nav = ({ user, loading, onLogout }) => {
         </NavContainer>
         <NavContainer border={1}>
           <GoogleLogout
-              clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-              buttonText="로그아웃"
-              onLogoutSuccess={onLogout}
+            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+            buttonText="로그아웃"
+            onLogoutSuccess={onLogout}
           />
         </NavContainer>
       </NavSection>
